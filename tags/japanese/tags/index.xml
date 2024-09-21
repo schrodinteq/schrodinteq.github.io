@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <link>https://schrodinteq.github.io/japanese/tags/</link>
+    <description>Recent content in Tags on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
+    <generator>Hugo</generator>
+    <language>japanese</language>
+    <lastBuildDate>Sun, 28 Jul 2024 10:48:05 +0900</lastBuildDate>
+    <atom:link href="https://schrodinteq.github.io/japanese/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>量子コンピュータ</title>
+      <link>https://schrodinteq.github.io/japanese/tags/%E9%87%8F%E5%AD%90%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF/</link>
+      <pubDate>Sun, 28 Jul 2024 10:48:05 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/japanese/tags/%E9%87%8F%E5%AD%90%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>量子プログラミング</title>
+      <link>https://schrodinteq.github.io/japanese/tags/%E9%87%8F%E5%AD%90%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
+      <pubDate>Sun, 28 Jul 2024 10:48:05 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/japanese/tags/%E9%87%8F%E5%AD%90%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

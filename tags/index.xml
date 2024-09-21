@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
-    <link>https://schrodinteq.github.io/tags/</link>
-    <description>Recent content in Tags on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
+    <title>Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <link>https://schrodinteq.github.io/</link>
+    <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <atom:link href="https://schrodinteq.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Sep 2024 20:53:18 +0900</lastBuildDate>
+    <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quantum computers and quantum programming: What are they?</title>
+      <link>https://schrodinteq.github.io/c2q01en/</link>
+      <pubDate>Tue, 03 Sep 2024 20:53:18 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/c2q01en/</guid>
+      <description>&lt;h2 id=&#34;classical-computers-vs-quantum-computers&#34;&gt;Classical Computers vs Quantum Computers&lt;/h2&gt;&#xA;&lt;p&gt;Quantum computers, which have been gaining increased attention in recent years, differ from the computers we use in our daily lives. What is the fundamental difference?&lt;/p&gt;&#xA;&lt;p&gt;The most significant and fundamental difference lies in the bit. Let&amp;rsquo;s refer to the computers we use daily as classical computers. In classical computers, processing is done by assigning each bit a value of either 0 or 1. When discussing quantum computers, the bits used in classical computers are often called classical bits.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
