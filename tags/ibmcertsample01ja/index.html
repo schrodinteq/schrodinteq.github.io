@@ -1,60 +1,33 @@
 <!DOCTYPE html>
-<html lang="japanese">
-  <head>
+<html lang="english">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
     <title>IBM 量子開発者認定資格 sample問題集の解説 その1 | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="別ページで量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格をIBMが2021年から提供しています（早い）。
-https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
+    <meta name="description" content="別ページで量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格をIBMが2021年から提供しています（早い）。 https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
 この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
-この認定を得るためには、上記URLに記載がある通り、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。
-IBMはこの試験に関するsample問題集も公開しており、上記URLサイト内の「Sample Test」で公開されています。
-ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1~10問までの解説を記載しています。
+この認定を得るためには、上記URLに記載がある通り、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLサイト内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1~10問までの解説を記載しています。
 試験対策としては下記のような問題集も是非是非、ご活用ください。
-英語版問題集
-https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
-　　
-日本語版問題集
-https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
-　　
-
-問題1:
-Which statement will create a quantum circuit with four quantum
-bits and four classical bits?
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+問題1: Which statement will create a quantum circuit with four quantum bits and four classical bits?
 選択肢:
-
-A. QuantumCircuit(4, 4)
-B. QuantumCircuit(4)
-C. QuantumCircuit(QuantumRegister(4, &lsquo;qr0&rsquo;),
-    QuantumRegister(4, &lsquo;cr1&rsquo;))
-D. QuantumCircuit([4, 4])
-
-回答: A
-解説:
-4つの量子ビット、4つの古典ビットを持つ量子回路を作成しなさいという問題ですね。
-別ページですでに、量子ビットについては少し解説していますが、量子回路ではよく観測用のビットとして古典ビットも定義することがあります。Qiskitでは下記の様にして量子ビット、古典ビットを定義可能です。この例では変数qcにx個の量子ビット、y個の古典ビットを持つ回路を定義しています。
-qc = QuantumCircuit(x, y)
-このため、正解はAとなります。他の選択肢について、Bでは量子ビット4つのみが定義され、古典ビットは定義されません。CではQuantumRegisterが利用されているため古典ビットが定義されていません。Dは実行するとエラーとなります。
-　　
-　　
-　　
-
-問題2:
-Given this code fragment, what is the probability that a
-measurement would result in |0&gt; ?">
-    <meta name="generator" content="Hugo 0.135.0">
+A. QuantumCircuit(4, 4) B. QuantumCircuit(4) C. QuantumCircuit(QuantumRegister(4, &lsquo;qr0&rsquo;), QuantumRegister(4, &lsquo;cr1&rsquo;)) D. QuantumCircuit([4, 4]) 回答: A
+解説: 4つの量子ビット、4つの古典ビットを持つ量子回路を作成しなさいという問題ですね。 別ページですでに、量子ビットについては少し解説していますが、量子回路ではよく観測用のビットとして古典ビットも定義することがあります。Qiskitでは下記の様にして量子ビット、古典ビットを定義可能です。この例では変数qcにx個の量子ビット、y個の古典ビットを持つ回路を定義しています。
+qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選択肢について、Bでは量子ビット4つのみが定義され、古典ビットは定義されません。CではQuantumRegisterが利用されているため古典ビットが定義されていません。Dは実行するとエラーとなります。 問題2: Given this code fragment, what is the probability that a measurement would result in |0&gt; ?">
+    <meta name="generator" content="Hugo 0.128.1">
     
     
     
     
-      <meta name="robots" content="index, follow">
+      <meta name="robots" content="noindex, nofollow">
     
     
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
 
 
 
@@ -82,10 +55,10 @@ window.MathJax = {
     
 
     
-      <link rel="canonical" href="https://schrodinteq.github.io/japanese/ibmcertsample01ja/">
+      <link rel="canonical" href="http://localhost:1313/ibmcertsample01ja/">
     
 
-    <meta property="og:url" content="https://schrodinteq.github.io/japanese/ibmcertsample01ja/">
+    <meta property="og:url" content="http://localhost:1313/ibmcertsample01ja/">
   <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
   <meta property="og:title" content="IBM 量子開発者認定資格 sample問題集の解説 その1">
   <meta property="og:description" content="別ページで量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格をIBMが2021年から提供しています（早い）。 https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
@@ -99,7 +72,7 @@ window.MathJax = {
 A. QuantumCircuit(4, 4) B. QuantumCircuit(4) C. QuantumCircuit(QuantumRegister(4, ‘qr0’), QuantumRegister(4, ‘cr1’)) D. QuantumCircuit([4, 4]) 回答: A
 解説: 4つの量子ビット、4つの古典ビットを持つ量子回路を作成しなさいという問題ですね。 別ページですでに、量子ビットについては少し解説していますが、量子回路ではよく観測用のビットとして古典ビットも定義することがあります。Qiskitでは下記の様にして量子ビット、古典ビットを定義可能です。この例では変数qcにx個の量子ビット、y個の古典ビットを持つ回路を定義しています。
 qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選択肢について、Bでは量子ビット4つのみが定義され、古典ビットは定義されません。CではQuantumRegisterが利用されているため古典ビットが定義されていません。Dは実行するとエラーとなります。 問題2: Given this code fragment, what is the probability that a measurement would result in |0&gt; ?">
-  <meta property="og:locale" content="japanese">
+  <meta property="og:locale" content="english">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2024-09-18T17:09:54+09:00">
     <meta property="article:modified_time" content="2024-09-18T17:09:54+09:00">
@@ -133,8 +106,6 @@ A. QuantumCircuit(4, 4) B. QuantumCircuit(4) C. QuantumCircuit(QuantumRegister(4
 解説: 4つの量子ビット、4つの古典ビットを持つ量子回路を作成しなさいという問題ですね。 別ページですでに、量子ビットについては少し解説していますが、量子回路ではよく観測用のビットとして古典ビットも定義することがあります。Qiskitでは下記の様にして量子ビット、古典ビットを定義可能です。この例では変数qcにx個の量子ビット、y個の古典ビットを持つ回路を定義しています。
 qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選択肢について、Bでは量子ビット4つのみが定義され、古典ビットは定義されません。CではQuantumRegisterが利用されているため古典ビットが定義されていません。Dは実行するとエラーとなります。 問題2: Given this code fragment, what is the probability that a measurement would result in |0&gt; ?">
 
-      
-    
         
 
 
@@ -146,7 +117,7 @@ qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選�
   <link rel="icon" type="image/x-icon" href="/ff01.png">
   </head>
 
-  <body class="ma0 avenir bg-near-white production">
+  <body class="ma0 avenir bg-near-white">
 
     
 
@@ -154,13 +125,22 @@ qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選�
     <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
-    <a href="/japanese/" class="f3 fw2 hover-white no-underline white-90 dib">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
       
         Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
       
     </a>
     <div class="flex-l items-center">
       
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/japanese/ibmcertsample01ja/">japanese</a>
+    </li>
+    
+</ul>
+
 
       
       
@@ -186,7 +166,7 @@ qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選�
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
-        <p><a href="/japanese/c2q01ja/">別ページ</a>で量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格をIBMが2021年から提供しています（早い）。
+        <p><a href="">別ページ</a>で量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格をIBMが2021年から提供しています（早い）。
 <a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300</a></p>
 <p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。</p>
 <p>この認定を得るためには、上記URLに記載がある通り、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。
@@ -214,7 +194,7 @@ bits and four classical bits?</p>
 <p><strong>回答:</strong> A</p>
 <p><strong>解説:</strong>
 4つの量子ビット、4つの古典ビットを持つ量子回路を作成しなさいという問題ですね。
-<a href="/japanese/c2q01ja/">別ページ</a>ですでに、量子ビットについては少し解説していますが、量子回路ではよく観測用のビットとして古典ビットも定義することがあります。Qiskitでは下記の様にして量子ビット、古典ビットを定義可能です。この例では変数qcにx個の量子ビット、y個の古典ビットを持つ回路を定義しています。</p>
+<a href="">別ページ</a>ですでに、量子ビットについては少し解説していますが、量子回路ではよく観測用のビットとして古典ビットも定義することがあります。Qiskitでは下記の様にして量子ビット、古典ビットを定義可能です。この例では変数qcにx個の量子ビット、y個の古典ビットを持つ回路を定義しています。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(x, y)
 </span></span></code></pre></div><p>このため、正解はAとなります。他の選択肢について、Bでは量子ビット4つのみが定義され、古典ビットは定義されません。Cでは<code>QuantumRegister</code>が利用されているため古典ビットが定義されていません。Dは実行するとエラーとなります。
 　　<br>
@@ -424,7 +404,7 @@ Bell, state?</p>
 $$
 例えば上記に記載されている$|\Psi^+\rangle$、$|\Psi^-\rangle$では、0ビット目が1と観測された場合、その瞬間1ビット目が0となることが確定します。<br>
 この問題において、ベル状態を作成するにはCXゲートを使用する必要があります。CXゲートとは制御ビット、ターゲットビットの2量子ビットを扱ったゲートであり、制御ビットのビットが1の場合、ターゲットビットにXゲートを適用し、0の場合は何もしないゲートとなります。
-このため、CXゲートが現われていない、C、Dがこの時点で不正解と分かります。
+このため、CXゲートが現われていない、C、Dがこの時点で不正解と分かります。また、CXゲートには制御のみに利用される制御ビット、制御ビットの内容に依存してXゲートが適用されるターゲットゲートが存在します。
 そしてベル状態を作成するには、制御ビットは$|+\rangle = \frac{1}{\sqrt{2}} (|0\rangle + |1\rangle)$ や $|-\rangle = \frac{1}{\sqrt{2}} (|0\rangle - |1\rangle)$ のように、0または1のいずれかで観測される確率が1/2である状態である必要があり、ターゲットビットは$|0\rangle$または$|1\rangle$の明確な状態である必要があります。<br>
 Aでは、0番目の量子ビットがHゲートにより$|+\rangle$状態に変換され、1番目の量子ビットが明確な状態$|1\rangle$にあり、これにCXゲートが適用されているため、正解となります。<br>
 Bでは、0、1番目の量子ビットが両方|0&gt;の状態で、CXゲートが適用されており、こちらは不正解となります。</p>
@@ -649,7 +629,7 @@ Dは制御回転Yゲートと呼ばれ、制御ビットが|1&gt;の場合、Y�
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/japanese/" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
     &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2024 
   </a>
     <div>
