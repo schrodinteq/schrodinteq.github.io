@@ -1,26 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
-    <link>https://schrodinteq.github.io/</link>
-    <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
+    <title>Tags on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <link>https://schrodinteq.github.io/tags/</link>
+    <description>Recent content in Tags on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Fri, 27 Sep 2024 17:32:53 +0900</lastBuildDate>
-    <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>IBM Quantum Developer Certification Sample Test Explanation Part 1</title>
-      <link>https://schrodinteq.github.io/ibmcertsample01en/</link>
-      <pubDate>Fri, 27 Sep 2024 17:32:53 +0900</pubDate>
-      <guid>https://schrodinteq.github.io/ibmcertsample01en/</guid>
-      <description>&lt;p&gt;In the &lt;a href=&#34;https://schrodinteq.github.io/c2q01en/&#34;&gt;other page&lt;/a&gt;, it was mentioned that, unlike classical computers, quantum computers require quantum programs to be implemented. IBM has been offering certification related to this quantum programming since 2021.&#xA;&lt;a href=&#34;https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300&#34;&gt;https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;By obtaining this certification, you can demonstrate your knowledge of Qiskit and quantum programming.&lt;/p&gt;&#xA;&lt;p&gt;To earn this certification, you need to pass the exam titled &amp;ldquo;Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer,&amp;rdquo; as mentioned in the URL above. IBM also provides a sample Test related to this exam, which is available in the &amp;ldquo;Sample Test&amp;rdquo; section on the website linked above.&lt;br&gt;&#xA;However, the explanations are not provided in the Sample Test page, so I will include clear explanations as much as possible. This page contains explanations for questions 1 to 10.&#xA;Please feel free to make use of additional resources such as the practice exam set below for exam preparation.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Quantum computers and quantum programming: What are they?</title>
-      <link>https://schrodinteq.github.io/c2q01en/</link>
-      <pubDate>Tue, 03 Sep 2024 20:53:18 +0900</pubDate>
-      <guid>https://schrodinteq.github.io/c2q01en/</guid>
-      <description>&lt;h2 id=&#34;classical-computers-vs-quantum-computers&#34;&gt;Classical Computers vs Quantum Computers&lt;/h2&gt;&#xA;&lt;p&gt;Quantum computers, which have been gaining increased attention in recent years, differ from the computers we use in our daily lives. What is the fundamental difference?&lt;/p&gt;&#xA;&lt;p&gt;The most significant and fundamental difference lies in the bit. Let&amp;rsquo;s refer to the computers we use daily as classical computers. In classical computers, processing is done by assigning each bit a value of either 0 or 1. When discussing quantum computers, the bits used in classical computers are often called classical bits.&lt;/p&gt;</description>
-    </item>
+    <atom:link href="https://schrodinteq.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
