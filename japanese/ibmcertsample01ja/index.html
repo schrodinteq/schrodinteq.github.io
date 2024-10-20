@@ -6,12 +6,12 @@
     
     <title>IBM 量子開発者認定資格 sample問題集の解説 その1 | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="別ページで量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格をIBMが2021年から提供しています（早い）。
+    <meta name="description" content="別ページで量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」をIBMが2021年から提供しています（早い）。
 https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
 この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
 この認定を得るためには、上記URLに記載がある通り、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。
 IBMはこの試験に関するsample問題集も公開しており、上記URLサイト内の「Sample Test」で公開されています。
-ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1~10問までの解説を記載しています。
+ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1 ~ 10問までの解説を記載しています。11 ~ 20問の解説についてはこちらのページをご参照ください。
 試験対策としては下記のような問題集も是非是非、ご活用ください。
 英語版問題集
 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
@@ -39,12 +39,8 @@ qc = QuantumCircuit(x, y)
 このため、正解はAとなります。他の選択肢について、Bでは量子ビット4つのみが定義され、古典ビットは定義されません。CではQuantumRegisterが利用されているため古典ビットが定義されていません。Dは実行するとエラーとなります。
 　　
 　　
-　　
-
-問題2:
-Given this code fragment, what is the probability that a
-measurement would result in |0&gt; ?">
-    <meta name="generator" content="Hugo 0.135.0">
+　　">
+    <meta name="generator" content="Hugo 0.136.2">
     
     
     
@@ -88,9 +84,9 @@ window.MathJax = {
     <meta property="og:url" content="https://schrodinteq.github.io/japanese/ibmcertsample01ja/">
   <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
   <meta property="og:title" content="IBM 量子開発者認定資格 sample問題集の解説 その1">
-  <meta property="og:description" content="別ページで量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格をIBMが2021年から提供しています（早い）。 https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
+  <meta property="og:description" content="別ページで量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」をIBMが2021年から提供しています（早い）。 https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
 この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
-この認定を得るためには、上記URLに記載がある通り、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLサイト内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1~10問までの解説を記載しています。
+この認定を得るためには、上記URLに記載がある通り、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLサイト内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1 ~ 10問までの解説を記載しています。11 ~ 20問の解説についてはこちらのページをご参照ください。
 試験対策としては下記のような問題集も是非是非、ご活用ください。
 英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
@@ -98,16 +94,16 @@ window.MathJax = {
 選択肢:
 A. QuantumCircuit(4, 4) B. QuantumCircuit(4) C. QuantumCircuit(QuantumRegister(4, ‘qr0’), QuantumRegister(4, ‘cr1’)) D. QuantumCircuit([4, 4]) 回答: A
 解説: 4つの量子ビット、4つの古典ビットを持つ量子回路を作成しなさいという問題ですね。 別ページですでに、量子ビットについては少し解説していますが、量子回路ではよく観測用のビットとして古典ビットも定義することがあります。Qiskitでは下記の様にして量子ビット、古典ビットを定義可能です。この例では変数qcにx個の量子ビット、y個の古典ビットを持つ回路を定義しています。
-qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選択肢について、Bでは量子ビット4つのみが定義され、古典ビットは定義されません。CではQuantumRegisterが利用されているため古典ビットが定義されていません。Dは実行するとエラーとなります。 問題2: Given this code fragment, what is the probability that a measurement would result in |0&gt; ?">
+qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選択肢について、Bでは量子ビット4つのみが定義され、古典ビットは定義されません。CではQuantumRegisterが利用されているため古典ビットが定義されていません。Dは実行するとエラーとなります。">
   <meta property="og:locale" content="japanese">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2024-09-18T17:09:54+09:00">
     <meta property="article:modified_time" content="2024-09-18T17:09:54+09:00">
 
   <meta itemprop="name" content="IBM 量子開発者認定資格 sample問題集の解説 その1">
-  <meta itemprop="description" content="別ページで量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格をIBMが2021年から提供しています（早い）。 https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
+  <meta itemprop="description" content="別ページで量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」をIBMが2021年から提供しています（早い）。 https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
 この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
-この認定を得るためには、上記URLに記載がある通り、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLサイト内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1~10問までの解説を記載しています。
+この認定を得るためには、上記URLに記載がある通り、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLサイト内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1 ~ 10問までの解説を記載しています。11 ~ 20問の解説についてはこちらのページをご参照ください。
 試験対策としては下記のような問題集も是非是非、ご活用ください。
 英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
@@ -115,15 +111,15 @@ qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選�
 選択肢:
 A. QuantumCircuit(4, 4) B. QuantumCircuit(4) C. QuantumCircuit(QuantumRegister(4, ‘qr0’), QuantumRegister(4, ‘cr1’)) D. QuantumCircuit([4, 4]) 回答: A
 解説: 4つの量子ビット、4つの古典ビットを持つ量子回路を作成しなさいという問題ですね。 別ページですでに、量子ビットについては少し解説していますが、量子回路ではよく観測用のビットとして古典ビットも定義することがあります。Qiskitでは下記の様にして量子ビット、古典ビットを定義可能です。この例では変数qcにx個の量子ビット、y個の古典ビットを持つ回路を定義しています。
-qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選択肢について、Bでは量子ビット4つのみが定義され、古典ビットは定義されません。CではQuantumRegisterが利用されているため古典ビットが定義されていません。Dは実行するとエラーとなります。 問題2: Given this code fragment, what is the probability that a measurement would result in |0&gt; ?">
+qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選択肢について、Bでは量子ビット4つのみが定義され、古典ビットは定義されません。CではQuantumRegisterが利用されているため古典ビットが定義されていません。Dは実行するとエラーとなります。">
   <meta itemprop="datePublished" content="2024-09-18T17:09:54+09:00">
   <meta itemprop="dateModified" content="2024-09-18T17:09:54+09:00">
-  <meta itemprop="wordCount" content="685">
+  <meta itemprop="wordCount" content="698">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="IBM 量子開発者認定資格 sample問題集の解説 その1">
-  <meta name="twitter:description" content="別ページで量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格をIBMが2021年から提供しています（早い）。 https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
+  <meta name="twitter:description" content="別ページで量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」をIBMが2021年から提供しています（早い）。 https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
 この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
-この認定を得るためには、上記URLに記載がある通り、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLサイト内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1~10問までの解説を記載しています。
+この認定を得るためには、上記URLに記載がある通り、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLサイト内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1 ~ 10問までの解説を記載しています。11 ~ 20問の解説についてはこちらのページをご参照ください。
 試験対策としては下記のような問題集も是非是非、ご活用ください。
 英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
@@ -131,7 +127,7 @@ qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選�
 選択肢:
 A. QuantumCircuit(4, 4) B. QuantumCircuit(4) C. QuantumCircuit(QuantumRegister(4, ‘qr0’), QuantumRegister(4, ‘cr1’)) D. QuantumCircuit([4, 4]) 回答: A
 解説: 4つの量子ビット、4つの古典ビットを持つ量子回路を作成しなさいという問題ですね。 別ページですでに、量子ビットについては少し解説していますが、量子回路ではよく観測用のビットとして古典ビットも定義することがあります。Qiskitでは下記の様にして量子ビット、古典ビットを定義可能です。この例では変数qcにx個の量子ビット、y個の古典ビットを持つ回路を定義しています。
-qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選択肢について、Bでは量子ビット4つのみが定義され、古典ビットは定義されません。CではQuantumRegisterが利用されているため古典ビットが定義されていません。Dは実行するとエラーとなります。 問題2: Given this code fragment, what is the probability that a measurement would result in |0&gt; ?">
+qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選択肢について、Bでは量子ビット4つのみが定義され、古典ビットは定義されません。CではQuantumRegisterが利用されているため古典ビットが定義されていません。Dは実行するとエラーとなります。">
 
       
     
@@ -186,12 +182,12 @@ qc = QuantumCircuit(x, y) このため、正解はAとなります。他の選�
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
-        <p><a href="/japanese/c2q01ja/">別ページ</a>で量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格をIBMが2021年から提供しています（早い）。
+        <p><a href="/japanese/c2q01ja/">別ページ</a>で量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」をIBMが2021年から提供しています（早い）。
 <a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300</a></p>
 <p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。</p>
 <p>この認定を得るためには、上記URLに記載がある通り、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。
 IBMはこの試験に関するsample問題集も公開しており、上記URLサイト内の「Sample Test」で公開されています。
-ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1~10問までの解説を記載しています。<br>
+ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1 ~ 10問までの解説を記載しています。11 ~ 20問の解説については<a href="/japanese/ibmcertsample02ja/">こちらのページ</a>をご参照ください。<br>
 試験対策としては下記のような問題集も是非是非、ご活用ください。</p>
 <h4 id="英語版問題集">英語版問題集</h4>
 <p><a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2</a></p>

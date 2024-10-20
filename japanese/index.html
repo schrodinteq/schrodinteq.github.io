@@ -7,7 +7,7 @@
     <title>Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.135.0">
+    <meta name="generator" content="Hugo 0.136.2">
     
     
     
@@ -60,8 +60,8 @@ window.MathJax = {
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
-  <meta itemprop="datePublished" content="2024-09-18T17:09:54+09:00">
-  <meta itemprop="dateModified" content="2024-09-18T17:09:54+09:00">
+  <meta itemprop="datePublished" content="2024-10-12T20:23:00+09:00">
+  <meta itemprop="dateModified" content="2024-10-12T20:23:00+09:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
 
@@ -160,17 +160,78 @@ window.MathJax = {
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/japanese/ibmcertsample02ja/" class="color-inherit dim link">
+            IBM 量子開発者認定資格 sample問題集の解説 その2
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <p>IBMが提供している量子コンピュータに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」を取得するためには、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。この試験の概要などが記載された下記URL内では、サンプル問題集のリンクがあります。<br>
+<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300</a></p>
+<p>このサンプル問題集について、<a href="/japanese/ibmcertsample01ja/">こちらのページ</a>で1 ~ 10問の解説を行いました。<br>
+このページでは11 ~ 20問までの解説を記載します。</p>
+<p>また、試験対策用の追加の問題集としては下記のような問題集も是非是非、ご活用ください。</p>
+<h4 id="英語版問題集">英語版問題集</h4>
+<p><a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2</a></p>
+<p>　　</p>
+<h4 id="日本語版問題集">日本語版問題集</h4>
+<p><a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B</a></p>
+<p>　　</p>
+<hr>
+<h2 id="問題11">問題11:</h2>
+<p>Which two options would place a barrier across all qubits to the QuantumCircuit below?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">3</span>)
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>. qc.barrier(qc)</li>
+<li><strong>B</strong>. qc.barrier([0,1,2])</li>
+<li><strong>C</strong>. qc.barrier()</li>
+<li><strong>D</strong>. qc.barrier(3)</li>
+<li><strong>E</strong>. qc.barrier_all()</li>
+</ul>
+<p><strong>回答:</strong> B,C</p>
+<p><strong>解説:</strong>
+次のうちどのコードが、全ての量子ビットにバリアーを置くかという問題ですね。バリアーはゲートの間に置かれることで、それぞれのゲートが順番に実行されることを保証する役割を果たします。問題文のコードではすでに3つの量子ビット、古典ビットが定義されています。一つずつ選択肢を見ていきましょう。<br>
+Aのフォーマットでは、全ての量子ビットにバリアーを置くことはできず、不正解となります。<br>
+Bは0,1,2番目の量子ビットにバリアーを挿入するという記載になっており正解となります。<br>
+Cでは全てのビットにバリアーが挿入され、こちらも正解となります。<br>
+Dは3番目の量子ビットにのみ、バリアーを挿入するという記載になっており、不正解となります。また今回、0,1,2番目の量子ビットのみ定義されているため実行するとエラーとなります。<br>
+Eは実行するとエラーとなります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題12">問題12:</h2>
+<p>What code fragment codes the equivalent circuit if you
+remove the barrier in the following QuantumCircuit?</p>
+        </div>
+          <a href="/japanese/ibmcertsample02ja/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+            </div>
+          
+            <div class="relative w-100 mb4">
+              
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/japanese/ibmcertsample01ja/" class="color-inherit dim link">
             IBM 量子開発者認定資格 sample問題集の解説 その1
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          <p><a href="/japanese/c2q01ja/">別ページ</a>で量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格をIBMが2021年から提供しています（早い）。
+          <p><a href="/japanese/c2q01ja/">別ページ</a>で量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」をIBMが2021年から提供しています（早い）。
 <a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300</a></p>
 <p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。</p>
 <p>この認定を得るためには、上記URLに記載がある通り、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。
 IBMはこの試験に関するsample問題集も公開しており、上記URLサイト内の「Sample Test」で公開されています。
-ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1~10問までの解説を記載しています。<br>
+ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1 ~ 10問までの解説を記載しています。11 ~ 20問の解説については<a href="/japanese/ibmcertsample02ja/">こちらのページ</a>をご参照ください。<br>
 試験対策としては下記のような問題集も是非是非、ご活用ください。</p>
 <h4 id="英語版問題集">英語版問題集</h4>
 <p><a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2</a></p>
@@ -199,10 +260,6 @@ bits and four classical bits?</p>
 　　<br>
 　　<br>
 　　</p>
-<hr>
-<h2 id="問題2">問題2:</h2>
-<p>Given this code fragment, what is the probability that a
-measurement would result in |0&gt; ?</p>
         </div>
           <a href="/japanese/ibmcertsample01ja/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         

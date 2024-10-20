@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="japanese">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>IBM 量子開発者認定資格 sample問題集の解説 その2 | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="IBMが提供している量子コンピュータに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」を取得するためには、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。この試験の概要などが記載された下記URL内では、サンプル問題集のリンクがあります。
+https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
+このサンプル問題集について、こちらのページで1 ~ 10問の解説を行いました。
+このページでは11 ~ 20問までの解説を記載します。
+また、試験対策用の追加の問題集としては下記のような問題集も是非是非、ご活用ください。
+英語版問題集
+https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+　　
+日本語版問題集
+https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+　　
+
+問題11:
+Which two options would place a barrier across all qubits to the QuantumCircuit below?
+qc = QuantumCircuit(3,3)
+選択肢:
+
+A. qc.barrier(qc)
+B. qc.barrier([0,1,2])
+C. qc.barrier()
+D. qc.barrier(3)
+E. qc.barrier_all()
+
+回答: B,C
+解説:
+次のうちどのコードが、全ての量子ビットにバリアーを置くかという問題ですね。バリアーはゲートの間に置かれることで、それぞれのゲートが順番に実行されることを保証する役割を果たします。問題文のコードではすでに3つの量子ビット、古典ビットが定義されています。一つずつ選択肢を見ていきましょう。
+Aのフォーマットでは、全ての量子ビットにバリアーを置くことはできず、不正解となります。
+Bは0,1,2番目の量子ビットにバリアーを挿入するという記載になっており正解となります。
+Cでは全てのビットにバリアーが挿入され、こちらも正解となります。
+Dは3番目の量子ビットにのみ、バリアーを挿入するという記載になっており、不正解となります。また今回、0,1,2番目の量子ビットのみ定義されているため実行するとエラーとなります。
+Eは実行するとエラーとなります。
+　　
+　　
+　　
+
+問題12:
+What code fragment codes the equivalent circuit if you
+remove the barrier in the following QuantumCircuit?">
+    <meta name="generator" content="Hugo 0.136.2">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/japanese/ibmcertsample02ja/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/japanese/ibmcertsample02ja/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="IBM 量子開発者認定資格 sample問題集の解説 その2">
+  <meta property="og:description" content="IBMが提供している量子コンピュータに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」を取得するためには、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。この試験の概要などが記載された下記URL内では、サンプル問題集のリンクがあります。
+https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
+このサンプル問題集について、こちらのページで1 ~ 10問の解説を行いました。
+このページでは11 ~ 20問までの解説を記載します。
+また、試験対策用の追加の問題集としては下記のような問題集も是非是非、ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+問題11: Which two options would place a barrier across all qubits to the QuantumCircuit below?
+qc = QuantumCircuit(3,3) 選択肢:
+A. qc.barrier(qc) B. qc.barrier([0,1,2]) C. qc.barrier() D. qc.barrier(3) E. qc.barrier_all() 回答: B,C
+解説: 次のうちどのコードが、全ての量子ビットにバリアーを置くかという問題ですね。バリアーはゲートの間に置かれることで、それぞれのゲートが順番に実行されることを保証する役割を果たします。問題文のコードではすでに3つの量子ビット、古典ビットが定義されています。一つずつ選択肢を見ていきましょう。
+Aのフォーマットでは、全ての量子ビットにバリアーを置くことはできず、不正解となります。
+Bは0,1,2番目の量子ビットにバリアーを挿入するという記載になっており正解となります。
+Cでは全てのビットにバリアーが挿入され、こちらも正解となります。
+Dは3番目の量子ビットにのみ、バリアーを挿入するという記載になっており、不正解となります。また今回、0,1,2番目の量子ビットのみ定義されているため実行するとエラーとなります。
+Eは実行するとエラーとなります。
+問題12: What code fragment codes the equivalent circuit if you remove the barrier in the following QuantumCircuit?">
+  <meta property="og:locale" content="japanese">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2024-10-12T20:23:00+09:00">
+    <meta property="article:modified_time" content="2024-10-12T20:23:00+09:00">
+
+  <meta itemprop="name" content="IBM 量子開発者認定資格 sample問題集の解説 その2">
+  <meta itemprop="description" content="IBMが提供している量子コンピュータに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」を取得するためには、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。この試験の概要などが記載された下記URL内では、サンプル問題集のリンクがあります。
+https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
+このサンプル問題集について、こちらのページで1 ~ 10問の解説を行いました。
+このページでは11 ~ 20問までの解説を記載します。
+また、試験対策用の追加の問題集としては下記のような問題集も是非是非、ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+問題11: Which two options would place a barrier across all qubits to the QuantumCircuit below?
+qc = QuantumCircuit(3,3) 選択肢:
+A. qc.barrier(qc) B. qc.barrier([0,1,2]) C. qc.barrier() D. qc.barrier(3) E. qc.barrier_all() 回答: B,C
+解説: 次のうちどのコードが、全ての量子ビットにバリアーを置くかという問題ですね。バリアーはゲートの間に置かれることで、それぞれのゲートが順番に実行されることを保証する役割を果たします。問題文のコードではすでに3つの量子ビット、古典ビットが定義されています。一つずつ選択肢を見ていきましょう。
+Aのフォーマットでは、全ての量子ビットにバリアーを置くことはできず、不正解となります。
+Bは0,1,2番目の量子ビットにバリアーを挿入するという記載になっており正解となります。
+Cでは全てのビットにバリアーが挿入され、こちらも正解となります。
+Dは3番目の量子ビットにのみ、バリアーを挿入するという記載になっており、不正解となります。また今回、0,1,2番目の量子ビットのみ定義されているため実行するとエラーとなります。
+Eは実行するとエラーとなります。
+問題12: What code fragment codes the equivalent circuit if you remove the barrier in the following QuantumCircuit?">
+  <meta itemprop="datePublished" content="2024-10-12T20:23:00+09:00">
+  <meta itemprop="dateModified" content="2024-10-12T20:23:00+09:00">
+  <meta itemprop="wordCount" content="645">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="IBM 量子開発者認定資格 sample問題集の解説 その2">
+  <meta name="twitter:description" content="IBMが提供している量子コンピュータに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」を取得するためには、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。この試験の概要などが記載された下記URL内では、サンプル問題集のリンクがあります。
+https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
+このサンプル問題集について、こちらのページで1 ~ 10問の解説を行いました。
+このページでは11 ~ 20問までの解説を記載します。
+また、試験対策用の追加の問題集としては下記のような問題集も是非是非、ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+問題11: Which two options would place a barrier across all qubits to the QuantumCircuit below?
+qc = QuantumCircuit(3,3) 選択肢:
+A. qc.barrier(qc) B. qc.barrier([0,1,2]) C. qc.barrier() D. qc.barrier(3) E. qc.barrier_all() 回答: B,C
+解説: 次のうちどのコードが、全ての量子ビットにバリアーを置くかという問題ですね。バリアーはゲートの間に置かれることで、それぞれのゲートが順番に実行されることを保証する役割を果たします。問題文のコードではすでに3つの量子ビット、古典ビットが定義されています。一つずつ選択肢を見ていきましょう。
+Aのフォーマットでは、全ての量子ビットにバリアーを置くことはできず、不正解となります。
+Bは0,1,2番目の量子ビットにバリアーを挿入するという記載になっており正解となります。
+Cでは全てのビットにバリアーが挿入され、こちらも正解となります。
+Dは3番目の量子ビットにのみ、バリアーを挿入するという記載になっており、不正解となります。また今回、0,1,2番目の量子ビットのみ定義されているため実行するとエラーとなります。
+Eは実行するとエラーとなります。
+問題12: What code fragment codes the equivalent circuit if you remove the barrier in the following QuantumCircuit?">
+
+      
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/japanese/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          IBM 量子開発者認定資格 sample問題集の解説 その2
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>IBMが提供している量子コンピュータに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」を取得するためには、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。この試験の概要などが記載された下記URL内では、サンプル問題集のリンクがあります。<br>
+<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300</a></p>
+<p>このサンプル問題集について、<a href="/japanese/ibmcertsample01ja/">こちらのページ</a>で1 ~ 10問の解説を行いました。<br>
+このページでは11 ~ 20問までの解説を記載します。</p>
+<p>また、試験対策用の追加の問題集としては下記のような問題集も是非是非、ご活用ください。</p>
+<h4 id="英語版問題集">英語版問題集</h4>
+<p><a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2</a></p>
+<p>　　</p>
+<h4 id="日本語版問題集">日本語版問題集</h4>
+<p><a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B</a></p>
+<p>　　</p>
+<hr>
+<h2 id="問題11">問題11:</h2>
+<p>Which two options would place a barrier across all qubits to the QuantumCircuit below?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">3</span>)
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>. qc.barrier(qc)</li>
+<li><strong>B</strong>. qc.barrier([0,1,2])</li>
+<li><strong>C</strong>. qc.barrier()</li>
+<li><strong>D</strong>. qc.barrier(3)</li>
+<li><strong>E</strong>. qc.barrier_all()</li>
+</ul>
+<p><strong>回答:</strong> B,C</p>
+<p><strong>解説:</strong>
+次のうちどのコードが、全ての量子ビットにバリアーを置くかという問題ですね。バリアーはゲートの間に置かれることで、それぞれのゲートが順番に実行されることを保証する役割を果たします。問題文のコードではすでに3つの量子ビット、古典ビットが定義されています。一つずつ選択肢を見ていきましょう。<br>
+Aのフォーマットでは、全ての量子ビットにバリアーを置くことはできず、不正解となります。<br>
+Bは0,1,2番目の量子ビットにバリアーを挿入するという記載になっており正解となります。<br>
+Cでは全てのビットにバリアーが挿入され、こちらも正解となります。<br>
+Dは3番目の量子ビットにのみ、バリアーを挿入するという記載になっており、不正解となります。また今回、0,1,2番目の量子ビットのみ定義されているため実行するとエラーとなります。<br>
+Eは実行するとエラーとなります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題12">問題12:</h2>
+<p>What code fragment codes the equivalent circuit if you
+remove the barrier in the following QuantumCircuit?</p>
+<figure><img src="/qstates/q12.png"
+    alt="measure" width="400px">
+</figure>
+
+<p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>s(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>t(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>tdg(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>z(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p><strong>回答:</strong> A</p>
+<p><strong>解説:</strong>
+バリアーを除いた場合に同等の回路を作成するのは次のうちどれか？という問題ですね。問題文の回路はHゲートとTゲートが存在しています。Tゲートはz軸を軸として$\pi/4$だけ回転を施すゲートで、問題文ではバリアーを挟んで2回連続で量子ビットに適用されています。バリアーが除かれた場合、$\pi/4$の回転2回は$\pi/2$の回転1回の処理と同等になります。そしてz軸を軸として$\pi/2$だけ回転を施すゲートはSゲートと呼ばれます。つまりTゲート2回分の処理はSゲート1回分の処理と同等になります。
+またこの回路を適用すると量子ビットは下記の状態になります。</p>
+<figure><img src="/qstates/hsh.png"
+    alt="measure" width="300px">
+</figure>
+
+<p>これらをヒントとして、一つずつ選択肢を見ていきましょう。<br>
+AはTゲート2回分の処理の代わりに、Sゲートが1回適用されております。前述した通りこれら処理は同等になるため正解になります。<br>
+Bは量子ビットを初期の状態$|0\rangle$から変更していないため不正解です。<br>
+CではTDGゲートが出てきています。これは、Tゲートと逆の、z軸を軸として$-\pi/2$だけ回転を施すゲートとなります。よってTゲート、TDGゲートの処理が連続することでお互いの処理が打ち消されます。残った2つのHゲートについても、連続で作用させると何も処理がなされないためこの回路では、初めの状態$|0\rangle$が保たれます。<br>
+Dでは$|0\rangle$状態にHゲートを適用しており、まず下記の状態にしています。
+<figure><img src="/qstates/plusstate.png"
+    alt="measure" width="300px">
+</figure>
+
+そして、z軸を軸として$\pi$だけ回転を施すZゲートを適用することで下記状態になります。
+<figure><img src="/qstates/mstate.png"
+    alt="measure" width="300px">
+</figure>
+
+さらにそこにHゲートをかけることで$|1\rangle$の状態にしています。
+このように、問題文の回路と全く別の状態を生成する、異なる回路であるため不正解です。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題13">問題13:</h2>
+<p>Given the following code, what is the depth of the circuit?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>barrier(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>barrier([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>])
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>. 2</li>
+<li><strong>B</strong>. 3</li>
+<li><strong>C</strong>. 4</li>
+<li><strong>D</strong>. 5</li>
+</ul>
+<p><strong>回答:</strong> A</p>
+<p><strong>解説:</strong>
+この問題では問題文のコードの回路の深さが聞かれています。回路の深さは一般的に、1番多くゲートが適用されている量子ビットの、ゲートの数を指します。またこの際、バリアーは深さとして数えられません。問題文の回路を図にすると下記の通りとなります。</p>
+<figure><img src="/qstates/barrier.png"
+    alt="measure" width="400px">
+</figure>
+
+<p>0ビット目に2つ分のゲートが適用されており、答えは2となります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題14">問題14:</h2>
+<p>Which code snippet would execute a circuit given these
+parameters?</p>
+<p><strong>1)</strong> Measure the circuit 1024 times.<br>
+<strong>2)</strong> Use the QASM simulator.<br>
+<strong>3)</strong> Use a coupling map that connects three qubits linearly.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Insert code fragment here</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> job<span style="color:#f92672">.</span>result()
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qasm_sim <span style="color:#f92672">=</span> Aer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;qasm_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>couple_map <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]]
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> execute(qc, backend<span style="color:#f92672">=</span>qasm_sim, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, coupling_map<span style="color:#f92672">=</span>couple_map)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qasm_sim <span style="color:#f92672">=</span> Aer<span style="color:#f92672">.</span>getBackend(<span style="color:#e6db74">&#39;ibmq_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>couple_map <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>]]
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> execute(qc, loop<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, coupling_map<span style="color:#f92672">=</span>couple_map)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qasm_sim <span style="color:#f92672">=</span> Aer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;qasm_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>couple_map <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]]
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> execute(qc, backend<span style="color:#f92672">=</span>qasm_sim, repeat<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, coupling_map<span style="color:#f92672">=</span>couple_map)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qasm_sim <span style="color:#f92672">=</span> Aer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;qasm_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>couple_map <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]]
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> execute(backend<span style="color:#f92672">=</span>qasm_sim, qc, shot<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, coupling_map<span style="color:#f92672">=</span>couple_map)
+</span></span></code></pre></div><p><strong>回答:</strong> A</p>
+<p><strong>解説:</strong>
+問題文の1、2、3の条件を満たして回路を実行するのは次のうちどれか？という質問ですね。<br>
+1の条件を満たすためには、回路を1024回実施し、2の条件を満たすためにはQASM simulatorを使う必要があり、3の条件を満たすにはカップリングマップを用いて3つの量子ビットを線形に接続する必要があります。カップリングマップとは量子ビット間の接続性を示すマップです。量子ビットはベル状態で確認したように、あるビットの観測結果が、他のビットの状態に影響するような関係性を互いに持たせることが可能となりますが、どのビットがどのビットに接続されているかは実際の量子コンピュータにより異なります。qiskitの量子シミュレータでは、自身でカップリングマップを定義してシミュレーションを実行可能で、例えば実際の量子コンピュータの接続性を似せてシミュレーションを行うことができます。これらを前提として、一つずつ選択肢を見ていきましょう。<br>
+Aでは、<code>Aer.get_backend('qasm_simulator')</code>によりQASM simulatorを定義できています。また、<code>couple_map = [[0, 1], [1, 2]]</code>で定義されたカップルマップは下記の様になり線形に接続がなされます。</p>
+<figure><img src="/qstates/plot_coupling_map.png"
+    alt="measure" width="200px">
+</figure>
+
+<p>さらに、<code>job = execute(qc, backend=qasm_sim, shots=1024, coupling_map=couple_map)</code>により、1024回の実行条件でシミュレータを実行できているため正解となります。<br>
+Bではまず、<code>qasm_sim = Aer.getBackend('ibmq_simulator')</code>でQASMシミュレータが選択できておらず、不正解となります。<br>
+Cでは<code>job = execute(qc, backend=qasm_sim, repeat=1024, coupling_map=couple_map)</code>が間違っており、repeatという引数は指定できません。<br>
+Dは惜しいですが、実行回数の指定はshotではなくshotsを利用するため不正解となります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題15">問題15:</h2>
+<p>Which of these would execute a circuit on a set of qubits which are coupled in a custom way?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit, execute, BasicAer
+</span></span><span style="display:flex;"><span>backend <span style="color:#f92672">=</span> BasicAer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;qasm_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># insert code here</span>
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>execute(qc, backend, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, coupling_map<span style="color:#f92672">=</span>[[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>]])
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>execute(qc, backend, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, custom_topology<span style="color:#f92672">=</span>[[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>],[<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]])
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>execute(qc, backend, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, device<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;qasm_simulator&#34;</span>, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;custom&#34;</span>)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>execute(qc, backend, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;custom&#34;</span>)
+</span></span></code></pre></div><p><strong>回答:</strong> A</p>
+<p><strong>解説:</strong>
+次のうちどれが、指定されたカップルマップを用いて回路を実行しますか？という問題ですね。前の問題で出てきたカップルマップがここでも登場しています。一つずつ選択肢を見ていきましょう。
+Aは<code>coupling_map=[[0,1], [1,2]]</code>の箇所で、カップルマップを独自の方法で指定して回路を実行しており正解となります。<br>
+Bは<code>custom_topology</code>という引数が誤っており不正解となります。<br>
+C, Dでは<code>mode=&quot;custom&quot;</code>という引数が誤っており不正解となります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題16">問題16:</h2>
+<p>Which three simulators are available in BasicAer?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>. qasm_simulator</li>
+<li><strong>B</strong>. basic_qasm_simulator</li>
+<li><strong>C</strong>. statevector_simulator</li>
+<li><strong>D</strong>. unitary_simulator</li>
+<li><strong>E</strong>. quantum_simulator</li>
+<li><strong>F</strong>. quantum_circuit_simulator</li>
+</ul>
+<p><strong>回答:</strong> A, C, D</p>
+<p><strong>解説:</strong>
+BasicAerでは次のうちどのシミュレータが利用できるか？という問題ですね。<br>
+BasicAerでは、qasm_simulator、statevector_simulator、およびunitary_simulatorが利用可能であり、答えはA、C、Dとなります。ここでは各シミュレーターの概要と、出力結果について簡単に解説しておきます。<br>
+qasm_simulatorは、Qiskit回路の理想的およびノイズのある複数ショットの実行を可能にし、出力としてカウントを提供します。このシミュレーターでは例えば以下のような出力結果が得られます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>{<span style="color:#e6db74">&#39;01&#39;</span>: <span style="color:#ae81ff">504</span>, <span style="color:#e6db74">&#39;00&#39;</span>: <span style="color:#ae81ff">520</span>}
+</span></span></code></pre></div><p>この例の結果は$|01\rangle$という状態が504回観測され、$|00\rangle$という状態が520回観測されたことを表しています。<br>
+statevector_simulatorは、Qiskit回路の理想的な単一ショットの実行を可能にし、適用後のシミュレータの最終状態ベクトルを結果として提供します。このシミュレーターの出力結果は例えば以下です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>[<span style="color:#ae81ff">1.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]
+</span></span></code></pre></div><p>この例の結果は、$|00\rangle$という状態を表しています。<br>
+unitary_simulatorは、Qiskit回路の理想的な単一ショットの実行を可能にし、回路自体の最終ユニタリ行列を出力として提供します。このシミュレーターの出力結果は例えば以下となります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>[[<span style="color:#ae81ff">1.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]
+</span></span><span style="display:flex;"><span> [<span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">1.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]
+</span></span><span style="display:flex;"><span> [<span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">1.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]
+</span></span><span style="display:flex;"><span> [<span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">1.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]]
+</span></span></code></pre></div><p>この例の結果は、2量子ビットのIゲートを表しています。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題17">問題17:</h2>
+<p>Which line of code would assign a statevector simulator object to the variable backend?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>. backend = BasicAer.StatevectorSimulatorPy()</li>
+<li><strong>B</strong>. backend = BasicAer.get_backend(&lsquo;statevector_simulator&rsquo;)</li>
+<li><strong>C</strong>. backend = BasicAer.StatevectorSimulatorPy().name()</li>
+<li><strong>D</strong>. backend = BasicAer.get_back(&lsquo;statevector_simulator&rsquo;)</li>
+</ul>
+<p><strong>回答:</strong> B</p>
+<p><strong>解説:</strong>
+状態ベクトルシミュレーターをbackendという変数に割り当てているコードは次のうちどれか？という問題ですね。<br>
+正解はBとなり、このフォーマットにより正しく状態ベクトルシミュレーターが割り当てられます。<br>
+A、C、Dは実行するとエラーとなります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題18">問題18:</h2>
+<p>Which code fragment would yield an operator that represents a single-qubit X gate?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>op <span style="color:#f92672">=</span> Operator<span style="color:#f92672">.</span>Xop(<span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>op <span style="color:#f92672">=</span> Operator([[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>]])
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>x(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>op <span style="color:#f92672">=</span> Operator(qc)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>op <span style="color:#f92672">=</span> Operator([[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>]])
+</span></span></code></pre></div><p>　　<br>
+<strong>回答:</strong> C</p>
+<p><strong>解説:</strong>
+1量子ビットにおけるXゲートを生成するのは次のうちどのコードか？という問題ですね。
+選択肢の全てで、Operatorモジュールを利用してXゲートを生成しようとしています。
+それぞれ見ていきましょう。<br>
+Aは実行するとエラーとなります。<br>
+B、Dは配列の形から直接Xゲートを定義しようとしています。Xゲートは式で表すと
+$$
+X =
+\begin{bmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{bmatrix}
+$$
+となり、これをOperatorモジュールで表現するのであれば</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>op <span style="color:#f92672">=</span> Operator([[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>]])
+</span></span></code></pre></div><p>と書く必要があります。B、Dどちらもこの形で定義ができていないため不正解となります。<br>
+Cは回路から直接Xゲートを定義しており正解となります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題19">問題19:</h2>
+<p>What would be the fidelity result(s) for these two operators, which differ only by global phase?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>op_a <span style="color:#f92672">=</span> Operator(XGate())
+</span></span><span style="display:flex;"><span>op_b <span style="color:#f92672">=</span> numpy<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">1</span>j <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span>) <span style="color:#f92672">*</span> Operator(XGate())
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>. state_fidelity() of 1.0</li>
+<li><strong>B</strong>. state_fidelity() and average_gate_fidelity() of 1.0</li>
+<li><strong>C</strong>. average_gate_fidelity() and process_fidelity() of 1.0</li>
+<li><strong>D</strong>. state_fidelity(), average_gate_fidelity() and process_fidelity() of 1.0</li>
+</ul>
+<p><strong>回答:</strong> C</p>
+<p><strong>解説:</strong>
+グローバル位相のみの差異がある、次の2つの演算子のfidelityの結果は次のうちどれとなるか？という問題ですね。
+fidelityは2つの量子状態や量子演算子がどれだけ似ているか、あるいはどれだけ「近い」かを測る指標です。
+fidelityが1であれば、それらは完全に一致していることを示し、 量子状態のfidelityが0の場合それらの状態は直交していることを、演算子のfidelityが0の場合それらが全く異なる作用を持っていることを意味します。<br>
+今回の様に、グローバル位相のみが異なる場合のfidelityは1となります。さらに、演算子のfidelityは<code>average_gate_fidelity()</code>と<code>process_fidelity()</code>により求められるため、正解はCとなります。量子状態のfidelityを求める場合には、<code>state_fidelity()</code>を利用します。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題20">問題20:</h2>
+<p>Given this code fragment, which output fits most closely with the measurement probability distribution?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>x(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>simulator <span style="color:#f92672">=</span> Aer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;qasm_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> execute(qc, simulator, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)<span style="color:#f92672">.</span>result()
+</span></span><span style="display:flex;"><span>counts <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>get_counts(qc)
+</span></span><span style="display:flex;"><span>print(counts)
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>. {&lsquo;00&rsquo;: 1000}</li>
+<li><strong>B</strong>. {&lsquo;01&rsquo;: 1000}</li>
+<li><strong>C</strong>. {&lsquo;10&rsquo;: 1000}</li>
+<li><strong>D</strong>. {&lsquo;11&rsquo;: 1000}</li>
+</ul>
+<p><strong>回答:</strong> B</p>
+<p><strong>解説:</strong>
+このコードを実行した際の測定確率分布に最も近い出力はどれですか？という問題ですね。まず<code>qc = QuantumCircuit(2, 2)</code>の時点では量子状態は$|00\rangle$となっています。この後、<code>qc.x(0)</code>により、0番目の量子ビットが1に変換され、量子状態は$|01\rangle$となり、その後に<code>qc.measure([0,1], [0,1])</code>により測定が行われ、シミュレーターで測定確率分布を取得しています。このため、結果は01が1000回確認されることとなり、Bが正解となります。
+　　<br>
+　　</p>
+<h2 id="ibmの量子技術者認定試験問題集について">IBMの量子技術者認定試験問題集について</h2>
+<p>本ブログで紹介した量子開発者認定資格を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。</p>
+<h4 id="英語版問題集-1">英語版問題集</h4>
+<p><a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2</a></p>
+<p>　　</p>
+<h4 id="日本語版問題集-1">日本語版問題集</h4>
+<p><a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B</a></p>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/japanese/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+
