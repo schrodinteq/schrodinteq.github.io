@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>IBM Quantum Developer Certification Sample Test Explanation Part 2 | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="To earn the certification &ldquo;IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X&rdquo; provided by IBM, you need to pass the exam &ldquo;Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer.&rdquo; In the URL below, which contains an overview of the exam, there is a link to a sample question set.
+https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
+I have provided explanations for questions 1 to 10 of the sample question set on the previous page. On this page, I will explain questions 11 to 20.">
+    <meta name="generator" content="Hugo 0.136.4">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/ibmcertsample02en/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/ibmcertsample02en/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="IBM Quantum Developer Certification Sample Test Explanation Part 2">
+  <meta property="og:description" content="To earn the certification “IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X” provided by IBM, you need to pass the exam “Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer.” In the URL below, which contains an overview of the exam, there is a link to a sample question set.
+https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
+I have provided explanations for questions 1 to 10 of the sample question set on the previous page. On this page, I will explain questions 11 to 20.">
+  <meta property="og:locale" content="english">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2024-10-21T20:55:42+09:00">
+    <meta property="article:modified_time" content="2024-10-21T20:55:42+09:00">
+
+  <meta itemprop="name" content="IBM Quantum Developer Certification Sample Test Explanation Part 2">
+  <meta itemprop="description" content="To earn the certification “IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X” provided by IBM, you need to pass the exam “Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer.” In the URL below, which contains an overview of the exam, there is a link to a sample question set.
+https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
+I have provided explanations for questions 1 to 10 of the sample question set on the previous page. On this page, I will explain questions 11 to 20.">
+  <meta itemprop="datePublished" content="2024-10-21T20:55:42+09:00">
+  <meta itemprop="dateModified" content="2024-10-21T20:55:42+09:00">
+  <meta itemprop="wordCount" content="1942">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="IBM Quantum Developer Certification Sample Test Explanation Part 2">
+  <meta name="twitter:description" content="To earn the certification “IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X” provided by IBM, you need to pass the exam “Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer.” In the URL below, which contains an overview of the exam, there is a link to a sample question set.
+https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
+I have provided explanations for questions 1 to 10 of the sample question set on the previous page. On this page, I will explain questions 11 to 20.">
+
+      
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          IBM Quantum Developer Certification Sample Test Explanation Part 2
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>To earn the certification &ldquo;IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X&rdquo; provided by IBM, you need to pass the exam &ldquo;Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer.&rdquo; In the URL below, which contains an overview of the exam, there is a link to a sample question set.<br>
+<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300</a></p>
+<p>I have provided explanations for questions 1 to 10 of the sample question set on <a href="/ibmcertsample01en/">the previous page</a>. On this page, I will explain questions 11 to 20.</p>
+<p>Additionally, please make sure to take full advantage of the following practice exams as extra study material for exam preparation.<br>
+<a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2</a></p>
+<p>　　</p>
+<hr>
+<h2 id="sample-test-11">Sample Test 11:</h2>
+<p>Which two options would place a barrier across all qubits to the QuantumCircuit below?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">3</span>)
+</span></span></code></pre></div><p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>. qc.barrier(qc)</li>
+<li><strong>B</strong>. qc.barrier([0,1,2])</li>
+<li><strong>C</strong>. qc.barrier()</li>
+<li><strong>D</strong>. qc.barrier(3)</li>
+<li><strong>E</strong>. qc.barrier_all()</li>
+</ul>
+<p><strong>Answer:</strong> B, C</p>
+<p><strong>Explanation:</strong>
+The barrier plays a role in ensuring that the gates are executed in sequence by being placed between them. In the given sample test code, three quantum and classical bits have already been defined. Let&rsquo;s examine each option:<br>
+In Option A, it is not possible to place a barrier across all quantum bits, making this option incorrect.<br>
+Option B is correct as it specifies inserting a barrier between the 0th, 1st, and 2nd quantum bits.<br>
+Option C is also correct because a barrier is inserted across all quantum bits.<br>
+In Option D, only the 3rd quantum bit has a barrier, which is incorrect because only the 0th, 1st, and 2nd quantum bits have been defined. This would result in an error.<br>
+Option E would also result in an error.<br>
+　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-12">Sample Test 12:</h2>
+<p>What code fragment codes the equivalent circuit if you remove the barrier in the following QuantumCircuit?</p>
+<figure><img src="/qstates/q12.png"
+    alt="measure" width="400px">
+</figure>
+
+<p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>s(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>t(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>tdg(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>z(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p><strong>Answer:</strong> A</p>
+<p><strong>Explanation:</strong><br>
+The given circuit includes H gates and T gates. The T gate applies a rotation of $\pi/4$ around the z-axis, and in the sample test, it is applied twice consecutively to a qubit, separated by a barrier. When the barrier is removed, the two $\pi/4$ rotations combine into a single $\pi/2$ rotation. A gate that applies a $\pi/2$ rotation around the z-axis is called an S gate. Thus, applying the T gate twice is equivalent to applying the S gate once.<br>
+After applying this circuit, the qubit will be in the following state:</p>
+<figure><img src="/qstates/hsh.png"
+    alt="measure" width="300px">
+</figure>
+
+<p>Let&rsquo;s use these hints to examine each option one by one.<br>
+Option A correctly applies the S gate once instead of processing with the T gate twice. As mentioned earlier, these processes are equivalent, making this option correct.<br>
+Option B is incorrect because it does not change the qubit from its initial state $|0\rangle$.<br>
+Option C introduces the TDG gate, which performs a rotation of $-\pi/2$ around the z-axis, effectively canceling the effect of the T gate. Therefore, the consecutive application of the T gate and TDG gate negates each other. Since the two remaining H gates also act consecutively, they result in no change, so the circuit maintains the initial state $|0\rangle$.<br>
+Option D applies the H gate to the state $|0\rangle$, resulting in the following state:<br>
+<figure><img src="/qstates/plusstate.png"
+    alt="measure" width="300px">
+</figure>
+
+By applying the Z gate, which performs a rotation of $\pi$ around the z-axis, the state becomes:
+<figure><img src="/qstates/mstate.png"
+    alt="measure" width="300px">
+</figure>
+
+Furthermore, by applying the H gate to this state, it transforms into the state $|1\rangle$. Thus, this is a different circuit that generates a completely different state from the one in the sample test, making it incorrect.<br>
+　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-13">Sample Test 13:</h2>
+<p>Given the following code, what is the depth of the circuit?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>barrier(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>barrier([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>])
+</span></span></code></pre></div><p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>. 2</li>
+<li><strong>B</strong>. 3</li>
+<li><strong>C</strong>. 4</li>
+<li><strong>D</strong>. 5</li>
+</ul>
+<p><strong>Answer:</strong> A</p>
+<p><strong>Explanation:</strong>
+In this question, you are asked about the depth of the circuit in the code provided in the sample test. The depth of a circuit generally refers to the number of gates applied to the qubit that has the most gates. In this case, barriers are not counted as part of the depth. The circuit from the sample test can be represented as follows in the diagram.</p>
+<figure><img src="/qstates/barrier.png"
+    alt="measure" width="400px">
+</figure>
+
+<p>Two gates are applied to the 0th qubit, so the answer is 2.
+　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-14">Sample Test 14:</h2>
+<p>Which code snippet would execute a circuit given these parameters?</p>
+<p><strong>1)</strong> Measure the circuit 1024 times.<br>
+<strong>2)</strong> Use the QASM simulator.<br>
+<strong>3)</strong> Use a coupling map that connects three qubits linearly.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Insert code fragment here</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> job<span style="color:#f92672">.</span>result()
+</span></span></code></pre></div><p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qasm_sim <span style="color:#f92672">=</span> Aer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;qasm_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>couple_map <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]]
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> execute(qc, backend<span style="color:#f92672">=</span>qasm_sim, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, coupling_map<span style="color:#f92672">=</span>couple_map)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qasm_sim <span style="color:#f92672">=</span> Aer<span style="color:#f92672">.</span>getBackend(<span style="color:#e6db74">&#39;ibmq_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>couple_map <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>]]
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> execute(qc, loop<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, coupling_map<span style="color:#f92672">=</span>couple_map)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qasm_sim <span style="color:#f92672">=</span> Aer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;qasm_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>couple_map <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]]
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> execute(qc, backend<span style="color:#f92672">=</span>qasm_sim, repeat<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, coupling_map<span style="color:#f92672">=</span>couple_map)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qasm_sim <span style="color:#f92672">=</span> Aer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;qasm_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>couple_map <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]]
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> execute(backend<span style="color:#f92672">=</span>qasm_sim, qc, shot<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, coupling_map<span style="color:#f92672">=</span>couple_map)
+</span></span></code></pre></div><p><strong>Answer:</strong> A</p>
+<p><strong>Explanation:</strong>
+To satisfy condition 1, the circuit must be executed 1024 times. To satisfy condition 2, the QASM simulator needs to be used. For condition 3, a coupling map must be used to linearly connect the three qubits. A coupling map shows the connectivity between qubits. As confirmed with the Bell state, qubits can be made to have a relationship where the measurement result of one qubit affects the state of another. However, the connectivity between qubits varies depending on the actual quantum computer. In Qiskit&rsquo;s quantum simulator, you can define your own coupling map and run simulations. For example, you can simulate the connectivity similar to that of a real quantum computer. With this in mind, let&rsquo;s go through the options one by one.<br>
+In option A, <code>Aer.get_backend('qasm_simulator')</code> correctly defines the QASM simulator. Additionally, the coupling map defined by <code>couple_map = [[0, 1], [1, 2]]</code> establishes a linear connection as shown below.</p>
+<figure><img src="/qstates/plot_coupling_map.png"
+    alt="measure" width="200px">
+</figure>
+
+<p>Furthermore, with <code>job = execute(qc, backend=qasm_sim, shots=1024, coupling_map=couple_map)</code>, the simulator is executed with the condition of 1024 runs, making this the correct answer.<br>
+In option B, <code>qasm_sim = Aer.getBackend('ibmq_simulator')</code> does not select the QASM simulator, making this the incorrect answer.<br>
+In option C, <code>job = execute(qc, backend=qasm_sim, repeat=1024, coupling_map=couple_map)</code> is incorrect because the argument &lsquo;repeat&rsquo; cannot be specified.<br>
+Option D is close, but it is incorrect because the number of executions should be specified using &lsquo;shots&rsquo; instead of &lsquo;shot&rsquo;.<br>
+　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-15">Sample Test 15:</h2>
+<p>Which of these would execute a circuit on a set of qubits which are coupled in a custom way?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit, execute, BasicAer
+</span></span><span style="display:flex;"><span>backend <span style="color:#f92672">=</span> BasicAer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;qasm_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># insert code here</span>
+</span></span></code></pre></div><p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>execute(qc, backend, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, coupling_map<span style="color:#f92672">=</span>[[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>]])
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>execute(qc, backend, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, custom_topology<span style="color:#f92672">=</span>[[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>],[<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]])
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>execute(qc, backend, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, device<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;qasm_simulator&#34;</span>, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;custom&#34;</span>)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>execute(qc, backend, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;custom&#34;</span>)
+</span></span></code></pre></div><p><strong>Answer:</strong> A</p>
+<p><strong>Explanation:</strong>
+The coupling map that appeared in the previous sample test also comes up here. Let&rsquo;s go through the options one by one.<br>
+Option A correctly specifies the coupling map using <code>coupling_map=[[0,1], [1,2]]</code> and executes the circuit with this custom method.<br>
+In option B, the argument <code>custom_topology</code> is incorrect, making it the wrong choice.<br>
+Options C and D also contain the incorrect argument <code>mode='custom'</code>, leading to their disqualification as well.<br>
+　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-16">Sample Test 16:</h2>
+<p>Which three simulators are available in BasicAer?</p>
+<p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>. qasm_simulator</li>
+<li><strong>B</strong>. basic_qasm_simulator</li>
+<li><strong>C</strong>. statevector_simulator</li>
+<li><strong>D</strong>. unitary_simulator</li>
+<li><strong>E</strong>. quantum_simulator</li>
+<li><strong>F</strong>. quantum_circuit_simulator</li>
+</ul>
+<p><strong>Answer:</strong> A, C, D</p>
+<p><strong>Explanation:</strong><br>
+In BasicAer, the available simulators are qasm_simulator, statevector_simulator, and unitary_simulator, making options A, C, and D the correct answers. Here, I will provide a brief overview of each simulator and the output results.<br>
+The qasm_simulator enables the execution of ideal and noisy multiple shots of Qiskit circuits, providing counts as output. For example, the output results can be as follows.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>{<span style="color:#e6db74">&#39;01&#39;</span>: <span style="color:#ae81ff">504</span>, <span style="color:#e6db74">&#39;00&#39;</span>: <span style="color:#ae81ff">520</span>}
+</span></span></code></pre></div><p>This example&rsquo;s results indicate that the state $|01\rangle$ was observed 504 times, while the state $|00\rangle$ was observed 520 times.<br>
+The statevector_simulator allows for ideal single-shot execution of Qiskit circuits, providing the final state vector of the simulator after application as the result. The output of this simulator may look something like the following.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>[<span style="color:#ae81ff">1.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]
+</span></span></code></pre></div><p>This result represents the state $|00\rangle$.<br>
+The unitary_simulator allows for the ideal single-shot execution of Qiskit circuits and provides the final unitary matrix of the circuit as output. The output result of this simulator is, for example, as follows.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>[[<span style="color:#ae81ff">1.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]
+</span></span><span style="display:flex;"><span> [<span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">1.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]
+</span></span><span style="display:flex;"><span> [<span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">1.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]
+</span></span><span style="display:flex;"><span> [<span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j <span style="color:#ae81ff">1.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]]
+</span></span></code></pre></div><p>This example result represents the identity gate for two quantum bits.<br>
+　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-17">Sample Test 17:</h2>
+<p>Which line of code would assign a statevector simulator object to the variable backend?</p>
+<p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>. backend = BasicAer.StatevectorSimulatorPy()</li>
+<li><strong>B</strong>. backend = BasicAer.get_backend(&lsquo;statevector_simulator&rsquo;)</li>
+<li><strong>C</strong>. backend = BasicAer.StatevectorSimulatorPy().name()</li>
+<li><strong>D</strong>. backend = BasicAer.get_back(&lsquo;statevector_simulator&rsquo;)</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong>
+The correct answer is B, and this format correctly assigns the state vector simulator. A, C, and D will result in errors when executed.<br>
+　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-18">Sample Test 18:</h2>
+<p>Which code fragment would yield an operator that represents a single-qubit X gate?</p>
+<p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>op <span style="color:#f92672">=</span> Operator<span style="color:#f92672">.</span>Xop(<span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>op <span style="color:#f92672">=</span> Operator([[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>]])
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>x(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>op <span style="color:#f92672">=</span> Operator(qc)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>op <span style="color:#f92672">=</span> Operator([[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>]])
+</span></span></code></pre></div><p>　　<br>
+<strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong>
+All options attempt to generate the X gate using the Operator module. Let&rsquo;s take a closer look at each one.<br>
+Option A will result in an error when executed.<br>
+B and D are attempting to define the X gate directly from the shape of the array. The X gate can be expressed mathematically as follows.<br>
+$$
+X =
+\begin{bmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{bmatrix}
+$$
+If we were to express this using the Operator module, it would need to be written as follows.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>op <span style="color:#f92672">=</span> Operator([[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>]])
+</span></span></code></pre></div><p>Both B and D fail to define in this form, making them incorrect.<br>
+Option C correctly defines the X gate directly from the circuit, making it the right choice.
+　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-19">Sample Test 19:</h2>
+<p>What would be the fidelity result(s) for these two operators, which differ only by global phase?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>op_a <span style="color:#f92672">=</span> Operator(XGate())
+</span></span><span style="display:flex;"><span>op_b <span style="color:#f92672">=</span> numpy<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">1</span>j <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span>) <span style="color:#f92672">*</span> Operator(XGate())
+</span></span></code></pre></div><p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>. state_fidelity() of 1.0</li>
+<li><strong>B</strong>. state_fidelity() and average_gate_fidelity() of 1.0</li>
+<li><strong>C</strong>. average_gate_fidelity() and process_fidelity() of 1.0</li>
+<li><strong>D</strong>. state_fidelity(), average_gate_fidelity() and process_fidelity() of 1.0</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong>
+Fidelity is a measure of how similar or &ldquo;close&rdquo; two quantum states or quantum operators are.<br>
+It quantifies the degree of resemblance between them, often expressed as a value ranging from 0 to 1, where a fidelity of 1 indicates perfect agreement, while a fidelity of 0 indicates complete dissimilarity.
+In cases like this, where only the global phase differs, the fidelity is equal to 1.<br>
+Furthermore, the fidelity of an operator can be determined using <code>average_gate_fidelity()</code> and <code>process_fidelity()</code>, making option C the correct choice.<br>
+To calculate the fidelity of quantum states, you can use the <code>state_fidelity()</code> function.
+　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-20">Sample Test 20:</h2>
+<p>Given this code fragment, which output fits most closely with the measurement probability distribution?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>x(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>simulator <span style="color:#f92672">=</span> Aer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;qasm_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> execute(qc, simulator, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)<span style="color:#f92672">.</span>result()
+</span></span><span style="display:flex;"><span>counts <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>get_counts(qc)
+</span></span><span style="display:flex;"><span>print(counts)
+</span></span></code></pre></div><p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>. {&lsquo;00&rsquo;: 1000}</li>
+<li><strong>B</strong>. {&lsquo;01&rsquo;: 1000}</li>
+<li><strong>C</strong>. {&lsquo;10&rsquo;: 1000}</li>
+<li><strong>D</strong>. {&lsquo;11&rsquo;: 1000}</li>
+</ul>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong>
+First, at the point where <code>qc = QuantumCircuit(2, 2)</code> is defined, the quantum state is $|00\rangle$. Then, after executing <code>qc.x(0)</code>, the 0th qubit is transformed to 1, resulting in the quantum state $|01\rangle$. Subsequently, the measurement is performed with <code>qc.measure([0,1], [0,1])</code>, and the measurement probability distribution is obtained from the simulator. Therefore, the result shows that $|01\rangle$ is observed 1000 times, making option B the correct answer.</p>
+<p>　　</p>
+<h2 id="regarding-the-ibm-quantum-developer-certification-exam">Regarding the IBM Quantum Developer Certification Exam</h2>
+<p>For those aiming for the quantum developer certification introduced in this blog, I have created practice exams on the Udemy platform! The explanations are crafted to be as clear as possible, so please make sure to take advantage of it!</p>
+<h4 id="practice-exams">Practice exams</h4>
+<p><a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2</a></p>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+
