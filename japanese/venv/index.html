@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="japanese">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>pythonの仮想環境により任意のqiskitのバージョンを実行する。 | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+任意のqiskitのバージョンの実行 IBMが提供している量子コンピュータに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」についてサンプル問題が公開されています。このサンプル問題集には以下のコードが記載されています。
+from qiskit import QuantumCircuit, execute, BasicAer backend = BasicAer.get_backend(&#39;qasm_simulator&#39;) qc = QuantumCircuit(3) execute(qc, backend, shots=1024, coupling_map=[[0,1], [1,2]]) これを実行すると次のようなエラーが出ます。
+ImportError: cannot import name &#39;execute&#39; from &#39;qiskit&#39; もしくは
+ImportError: cannot import name &#39;BasicAer&#39; from &#39;qiskit&#39; 他のサンプルコードを実行した際も以下のようなエラーが出ます。
+from qiskit import QuantumCircuit, Aer, execute from math import sqrt qc = QuantumCircuit(2) v = [1/sqrt(2), 0, 0, 1/sqrt(2)] qc.">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.2438bcafd7af9675c426d1a4afcd16cfff18e4e10f401071e45b5ccd3be40a0d.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/japanese/venv/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/japanese/venv/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="pythonの仮想環境により任意のqiskitのバージョンを実行する。">
+  <meta property="og:description" content="qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+任意のqiskitのバージョンの実行 IBMが提供している量子コンピュータに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」についてサンプル問題が公開されています。このサンプル問題集には以下のコードが記載されています。
+from qiskit import QuantumCircuit, execute, BasicAer backend = BasicAer.get_backend(&#39;qasm_simulator&#39;) qc = QuantumCircuit(3) execute(qc, backend, shots=1024, coupling_map=[[0,1], [1,2]]) これを実行すると次のようなエラーが出ます。
+ImportError: cannot import name &#39;execute&#39; from &#39;qiskit&#39; もしくは
+ImportError: cannot import name &#39;BasicAer&#39; from &#39;qiskit&#39; 他のサンプルコードを実行した際も以下のようなエラーが出ます。
+from qiskit import QuantumCircuit, Aer, execute from math import sqrt qc = QuantumCircuit(2) v = [1/sqrt(2), 0, 0, 1/sqrt(2)] qc.">
+  <meta property="og:locale" content="japanese">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-04-17T20:34:31+09:00">
+    <meta property="article:modified_time" content="2025-04-17T20:34:31+09:00">
+
+  <meta itemprop="name" content="pythonの仮想環境により任意のqiskitのバージョンを実行する。">
+  <meta itemprop="description" content="qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+任意のqiskitのバージョンの実行 IBMが提供している量子コンピュータに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」についてサンプル問題が公開されています。このサンプル問題集には以下のコードが記載されています。
+from qiskit import QuantumCircuit, execute, BasicAer backend = BasicAer.get_backend(&#39;qasm_simulator&#39;) qc = QuantumCircuit(3) execute(qc, backend, shots=1024, coupling_map=[[0,1], [1,2]]) これを実行すると次のようなエラーが出ます。
+ImportError: cannot import name &#39;execute&#39; from &#39;qiskit&#39; もしくは
+ImportError: cannot import name &#39;BasicAer&#39; from &#39;qiskit&#39; 他のサンプルコードを実行した際も以下のようなエラーが出ます。
+from qiskit import QuantumCircuit, Aer, execute from math import sqrt qc = QuantumCircuit(2) v = [1/sqrt(2), 0, 0, 1/sqrt(2)] qc.">
+  <meta itemprop="datePublished" content="2025-04-17T20:34:31+09:00">
+  <meta itemprop="dateModified" content="2025-04-17T20:34:31+09:00">
+  <meta itemprop="wordCount" content="406">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="pythonの仮想環境により任意のqiskitのバージョンを実行する。">
+  <meta name="twitter:description" content="qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+任意のqiskitのバージョンの実行 IBMが提供している量子コンピュータに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」についてサンプル問題が公開されています。このサンプル問題集には以下のコードが記載されています。
+from qiskit import QuantumCircuit, execute, BasicAer backend = BasicAer.get_backend(&#39;qasm_simulator&#39;) qc = QuantumCircuit(3) execute(qc, backend, shots=1024, coupling_map=[[0,1], [1,2]]) これを実行すると次のようなエラーが出ます。
+ImportError: cannot import name &#39;execute&#39; from &#39;qiskit&#39; もしくは
+ImportError: cannot import name &#39;BasicAer&#39; from &#39;qiskit&#39; 他のサンプルコードを実行した際も以下のようなエラーが出ます。
+from qiskit import QuantumCircuit, Aer, execute from math import sqrt qc = QuantumCircuit(2) v = [1/sqrt(2), 0, 0, 1/sqrt(2)] qc.">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/japanese/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/venv/">english</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          pythonの仮想環境により任意のqiskitのバージョンを実行する。
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>qiskitについての<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">資格試験</a>をIBMが提供しています。</p>
+<p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。</p>
+<h4 id="英語版問題集">英語版問題集</h4>
+<p><a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2</a></p>
+<p>　　</p>
+<h4 id="日本語版問題集">日本語版問題集</h4>
+<p><a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B</a></p>
+<hr>
+<h4 id="amazon-braket学習コース">Amazon Braket学習コース</h4>
+<p>AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
+<p><a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8">https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8</a></p>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h2 id="任意のqiskitのバージョンの実行">任意のqiskitのバージョンの実行</h2>
+<p>IBMが提供している量子コンピュータに関する資格<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」</a>についてサンプル問題が公開されています。このサンプル問題集には以下のコードが記載されています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit, execute, BasicAer
+</span></span><span style="display:flex;"><span>backend <span style="color:#f92672">=</span> BasicAer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;qasm_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>execute(qc, backend, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, coupling_map<span style="color:#f92672">=</span>[[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>]])
+</span></span></code></pre></div><p>これを実行すると次のようなエラーが出ます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">ImportError</span>: cannot <span style="color:#f92672">import</span> name <span style="color:#e6db74">&#39;execute&#39;</span> <span style="color:#f92672">from</span> <span style="color:#e6db74">&#39;qiskit&#39;</span> 
+</span></span></code></pre></div><p>もしくは</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">ImportError</span>: cannot <span style="color:#f92672">import</span> name <span style="color:#e6db74">&#39;BasicAer&#39;</span> <span style="color:#f92672">from</span> <span style="color:#e6db74">&#39;qiskit&#39;</span>
+</span></span></code></pre></div><p>他のサンプルコードを実行した際も以下のようなエラーが出ます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit, Aer, execute
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> math <span style="color:#f92672">import</span> sqrt
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>v <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>sqrt(<span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>sqrt(<span style="color:#ae81ff">2</span>)]  
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>initialize(v,[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>simulator <span style="color:#f92672">=</span> Aer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;statevector_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> execute(qc, simulator)<span style="color:#f92672">.</span>result()
+</span></span><span style="display:flex;"><span>statevector <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>get_statevector()
+</span></span><span style="display:flex;"><span>print(statevector)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">ImportError</span>: cannot <span style="color:#f92672">import</span> name <span style="color:#e6db74">&#39;Aer&#39;</span> <span style="color:#f92672">from</span> <span style="color:#e6db74">&#39;qiskit&#39;</span>
+</span></span></code></pre></div><p>このエラーは、qiskitのバージョン1.xや、2.xでは対象のモジュールがimportできないため生じています。</p>
+<p>ではサンプルコードを実際に試すには、どうしたら良いでしょうか？</p>
+<p>qiskitはバージョン依存のエラーが生じることが良くあるため、venvで仮想環境を作るのがオススメです。
+古すぎるとインストールできないので、aerが存在する0.46をインストールして実行する例を紹介します。</p>
+<p>この例ではWindows 10のコマンドプロンプト上からの実行を試みます。pythonは3.9.9がインストールされています。</p>
+<pre tabindex="0"><code>&gt;python --version
+Python 3.9.9
+</code></pre><p>まずは仮想環境を作ります。今回はqis046という名前で環境を作成しています。</p>
+<pre tabindex="0"><code>&gt;python -m venv qis046
+&gt;
+</code></pre><p>これにより、<code>qis046\Scripts\activate.bat</code>が作成されます。続いてこの環境をアクティベートします</p>
+<pre tabindex="0"><code>&gt;qis046\Scripts\activate.bat
+(qis046) &gt;
+</code></pre><p>この環境でpip listを実行すると必要最低限なパッケージしかインストールされていないことがわかります。</p>
+<pre tabindex="0"><code>(qis046) &gt;pip list
+Package    Version
+---------- -------
+pip        21.2.4
+setuptools 58.1.0
+</code></pre><p>では以下のコマンドでqiskit 0.46.2や、その他必要なパッケージをインストールしましょう。これらは仮想環境上にのみインストールされます。</p>
+<pre tabindex="0"><code>(qis046) &gt;pip install qiskit==0.46.2 matplotlib notebook qiskit-aer pylatexenc
+</code></pre><p>インストールが完了したら、jupyter notebookを起動し、同様のコードを実行してゆきましょう。
+警告が表示されるものの、エラー無しで実行できています。</p>
+<pre tabindex="0"><code>(qis046) &gt;jupyter notebook
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit, execute, BasicAer
+</span></span><span style="display:flex;"><span>backend <span style="color:#f92672">=</span> BasicAer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;qasm_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure_all()
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> execute(qc, backend, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>, coupling_map<span style="color:#f92672">=</span>[[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>]])
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>result()<span style="color:#f92672">.</span>get_counts())
+</span></span></code></pre></div><pre tabindex="0"><code># Output
+{&#39;000&#39;: 1024}
+C:\Users\AppData\Local\Temp\ipykernel_15000\3520102656.py:1: DeprecationWarning: BasicAer is deprecated since Qiskit 0.46 and will be removed in Qiskit 1.0. The BasicAer (qiskit.providers.basicaer) module has been superseded by  qiskit.providers.basic_provider, and all its classes have been renamed to follow a new naming convention. More information and migration guidelines can be found in the 0.46 API docs for BasicAer.
+  from qiskit import QuantumCircuit, execute, BasicAer
+C:\Users\AppData\Local\Temp\ipykernel_15000\3520102656.py:5: DeprecationWarning: The function ``qiskit.execute_function.execute()`` is deprecated as of qiskit 0.46.0. It will be removed in the Qiskit 1.0 release. This function combines ``transpile`` and ``backend.run``, which is covered by ``Sampler`` :mod:`~qiskit.primitives`. Alternatively, you can also run :func:`.transpile` followed by ``backend.run()``.
+  r = execute(qc, backend, shots=1024, coupling_map=[[0,1], [1,2]])
+</code></pre><p>別のコード実行例は以下です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit, Aer, execute
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> math <span style="color:#f92672">import</span> sqrt
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>v <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>sqrt(<span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>sqrt(<span style="color:#ae81ff">2</span>)]  
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>initialize(v,[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>simulator <span style="color:#f92672">=</span> Aer<span style="color:#f92672">.</span>get_backend(<span style="color:#e6db74">&#39;statevector_simulator&#39;</span>)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> execute(qc, simulator)<span style="color:#f92672">.</span>result()
+</span></span><span style="display:flex;"><span>statevector <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>get_statevector()
+</span></span><span style="display:flex;"><span>print(statevector)
+</span></span></code></pre></div><pre tabindex="0"><code># Output
+Statevector([0.70710678+0.j, 0.        +0.j, 0.        +0.j,
+             0.70710678+0.j],
+            dims=(2, 2))
+C:\Users\AppData\Local\Temp\ipykernel_10980\1691041731.py:6: DeprecationWarning: The &#39;qiskit.Aer&#39; entry point is deprecated and will be removed in Qiskit 1.0. You should use &#39;qiskit_aer.Aer&#39; directly instead.
+  simulator = Aer.get_backend(&#39;statevector_simulator&#39;)
+C:\Users\AppData\Local\Temp\ipykernel_10980\1691041731.py:7: DeprecationWarning: The function ``qiskit.execute_function.execute()`` is deprecated as of qiskit 0.46.0. It will be removed in the Qiskit 1.0 release. This function combines ``transpile`` and ``backend.run``, which is covered by ``Sampler`` :mod:`~qiskit.primitives`. Alternatively, you can also run :func:`.transpile` followed by ``backend.run()``.
+  result = execute(qc, simulator).result()
+</code></pre><p>以上の通り、試験に出題されているプログラムを実行できました！
+この例の通り、Qiskitでバージョンに関する問題が生じた場合は、pythonの仮想環境をうまく活用しましょう。</p>
+<p>仮想環境から離れる場合はdeactivateを実行します。</p>
+<pre tabindex="0"><code>(qis046) &gt;deactivate
+ &gt;
+</code></pre><hr>
+<p>qiskitについての<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">資格試験</a>取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。</p>
+<h4 id="英語版問題集-1">英語版問題集</h4>
+<p><a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2</a></p>
+<p>　　</p>
+<h4 id="日本語版問題集-1">日本語版問題集</h4>
+<p><a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B">https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B</a></p>
+<hr>
+<h4 id="amazon-braket学習コース-1">Amazon Braket学習コース</h4>
+<p>AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
+<p><a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8">https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8</a></p>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/japanese/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

@@ -60,8 +60,8 @@ window.MathJax = {
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
-  <meta itemprop="datePublished" content="2024-10-12T20:23:00+09:00">
-  <meta itemprop="dateModified" content="2024-10-12T20:23:00+09:00">
+  <meta itemprop="datePublished" content="2025-04-17T20:34:31+09:00">
+  <meta itemprop="dateModified" content="2025-04-17T20:34:31+09:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
 
@@ -163,6 +163,41 @@ window.MathJax = {
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/japanese/venv/" class="color-inherit dim link">
+            pythonの仮想環境により任意のqiskitのバージョンを実行する。
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+任意のqiskitのバージョンの実行 IBMが提供している量子コンピュータに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」についてサンプル問題が公開されています。このサンプル問題集には以下のコードが記載されています。
+from qiskit import QuantumCircuit, execute, BasicAer backend = BasicAer.get_backend(&#39;qasm_simulator&#39;) qc = QuantumCircuit(3) execute(qc, backend, shots=1024, coupling_map=[[0,1], [1,2]]) これを実行すると次のようなエラーが出ます。
+ImportError: cannot import name &#39;execute&#39; from &#39;qiskit&#39; もしくは
+ImportError: cannot import name &#39;BasicAer&#39; from &#39;qiskit&#39; 他のサンプルコードを実行した際も以下のようなエラーが出ます。
+from qiskit import QuantumCircuit, Aer, execute from math import sqrt qc = QuantumCircuit(2) v = [1/sqrt(2), 0, 0, 1/sqrt(2)] qc.
+        </div>
+          <a href="/japanese/venv/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+            </div>
+          
+            <div class="relative w-100 mb4">
+              
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/japanese/ibmcertsample02ja/" class="color-inherit dim link">
             IBM 量子開発者認定資格 sample問題集の解説 その2
             </a>
@@ -175,14 +210,13 @@ https://www.ibm.com/training/certification/ibm-certified-associate-developer-qua
 また、試験対策用の追加の問題集としては下記のような問題集も是非是非、ご活用ください。
 英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
-また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+Amazon Braket学習コース また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
 https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 問題11: Which two options would place a barrier across all qubits to the QuantumCircuit below?
 qc = QuantumCircuit(3,3) 選択肢:
 A. qc.barrier(qc) B. qc.barrier([0,1,2]) C. qc.barrier() D. qc.barrier(3) E. qc.barrier_all() 回答: B,C
 解説: 次のうちどのコードが、全ての量子ビットにバリアーを置くかという問題ですね。バリアーはゲートの間に置かれることで、それぞれのゲートが順番に実行されることを保証する役割を果たします。問題文のコードではすでに3つの量子ビット、古典ビットが定義されています。一つずつ選択肢を見ていきましょう。
-Aのフォーマットでは、全ての量子ビットにバリアーを置くことはできず、不正解となります。
         </div>
           <a href="/japanese/ibmcertsample02ja/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
@@ -212,7 +246,7 @@ Aのフォーマットでは、全ての量子ビットにバリアーを置く�
 試験対策としては下記のような問題集も是非是非、ご活用ください。
 英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
-また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+Amazon Braket学習コース また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
 https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 問題1: Which statement will create a quantum circuit with four quantum bits and four classical bits?
@@ -228,50 +262,25 @@ A. QuantumCircuit(4, 4) B. QuantumCircuit(4) C. QuantumCircuit(QuantumRegister(4
 
             </div>
           
-            <div class="relative w-100 mb4">
-              
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/japanese/c2q01ja/" class="color-inherit dim link">
-            量子コンピュータや量子プログラミングとは？
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          古典コンピュータと量子コンピュータ 近年さらに注目度を集めている量子コンピュータですが、私たちが日常的に使用しているコンピュータとの差異はどこにあるのでしょうか？
-1番大きな、そして根本的な差異はビットにあります。私たちが日常的に使用しているコンピュータを、古典コンピュータと呼びましょう。古典コンピュータではビットを0か1どちらかの値を持たせることで、処理を行います。量子コンピューターの話をする際、古典コンピュータのビットはよく古典ビットと呼ばれます。
-私たちが日常的にコンピュータを使用している際、その背後で行われている複雑な処理を意識することはほとんどありません。しかし、ウェブサイトの表示や複雑な計算に至るまで、実際には古典コンピュータが0と1を用いた演算を行うことによって実現されています。ちなみにこの演算処理には、AND、OR、NOTといった論理ゲートを組み合わせた論理回路が用いられています。
-では次に量子コンピュータです。量子コンピュータでの演算には、古典ビットではなく量子ビットと呼ばれるビットが使用されます。qubit（キュービット）とも呼ばれることもあります。この量子ビットは古典ビットと比べると以下2つの大きな違いを持ちます。
-・0と1の重ね合わせ状態としてビットを扱える
-・エンタングルメントを持つ 両方とも古典ビットには無い性質となります。
-量子コンピュータと量子プログラミング 量子コンピュータが注目される理由は、これら量子ビットの性質を活用することで、古典コンピュータでは実現不可能なほど迅速に特定の問題を解決できる可能性があるからです。しかし、この量子ビットの性質を活用しない場合、量子コンピュータでの計算は必ずしも高速になるわけではありません。つまり、古典的なアルゴリズムをそのまま量子コンピュータ上で実行しても、量子ビットの力を引き出すことはできず、量子コンピュータの潜在能力を最大限に引き出すためには量子ビットの特性を活かした「量子回路」を設計し、それに基づく「量子アルゴリズム」を開発することが重要です。
-量子アルゴリズムの研究は非常に活発に進められており、有名なものとしては例えば、Shorのアルゴリズム（素因数分解）やGroverのアルゴリズム（データベース検索）、量子コンピュータを用いて機械学習を行うVQCなどが発案されております。これらのアルゴリズムは、古典コンピュータでは解決が困難な問題に対して、量子コンピュータの力を活かしてより効率的に回答を提供することが期待されています。
-現在ではQiskit、Cirq、QulacsなどのSDKを利用することで、量子アルゴリズムや量子回路を誰でも簡単にプログラムとして記述、実行可能です。これが、いわゆる量子プログラミングです。また、これらアルゴリズムを設計、実装する技術者や、これを用いて量子コンピューター用のアプリケーションを実装する技術者は量子技術者としばし呼ばれます。
-古典コンピュータと量子コンピュータ、どちらが優れている？ よく古典コンピュータと量子コンピュータのどちらが優れているかが議論されますが、まず明確に言えるのは、問題に依存するということです。ある問題に対して、量子ビットや量子アルゴリズムが効果的に活用できる場合、量子コンピュータは古典コンピュータに比べて圧倒的に高速で問題を解決できる可能性があります。 しかし、すべての問題において量子コンピュータが優れているわけではありません。現状では、古典コンピュータの方が効率的に解ける問題ばかりでしょう。
-結局、どちらのコンピュータが優れているかは、問題の特性と、それに適したアルゴリズムの選択に大きく依存するのです。
-IBMの量子技術者認定試験について 本ブログで紹介したqiskitについての資格試験をIBMが提供しています。
-https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
-この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
-英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
-日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
-また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
-量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
-        </div>
-          <a href="/japanese/c2q01ja/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-            </div>
-          
         </section>
 
+        
+        <section class="w-100">
+          <h1 class="f3">More</h1>
+          
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/japanese/c2q01ja/" class="link black dim">
+                量子コンピュータや量子プログラミングとは？
+              </a>
+            </h2>
+          
+
+          
+          
+            <a href="/japanese/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</a>
+          
+          </section>
         
 
         </div>

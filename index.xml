@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Mon, 21 Oct 2024 20:55:42 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 18 Apr 2025 12:11:19 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run any desired version of Qiskit using a Python virtual environment.</title>
+      <link>https://schrodinteq.github.io/venv/</link>
+      <pubDate>Fri, 18 Apr 2025 12:11:19 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/venv/</guid>
+      <description>Regarding the IBM Quantum Developer Certification Exam IBM offers a certification exam related to Qiskit, which is introduced in this blog.&#xA;By obtaining this certification, you can prove your knowledge of Qiskit and quantum programming. For those aiming to achieve this certification, I have created a practice exams on the Udemy platform! I have made the explanations as clear as possible, so please make sure to take full advantage of the following practice exams as extra study material for exam preparation.</description>
+    </item>
     <item>
       <title>IBM Quantum Developer Certification Sample Test Explanation Part 2</title>
       <link>https://schrodinteq.github.io/ibmcertsample02en/</link>
