@@ -17,7 +17,7 @@
     
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.2438bcafd7af9675c426d1a4afcd16cfff18e4e10f401071e45b5ccd3be40a0d.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
 
 
 
@@ -36,6 +36,7 @@ window.MathJax = {
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
 
+<link rel="stylesheet" href="/css/_styles.css">
 
     
       
@@ -60,8 +61,8 @@ window.MathJax = {
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
-  <meta itemprop="datePublished" content="2025-04-17T20:34:31+09:00">
-  <meta itemprop="dateModified" content="2025-04-17T20:34:31+09:00">
+  <meta itemprop="datePublished" content="2025-05-10T19:02:57+09:00">
+  <meta itemprop="dateModified" content="2025-05-10T19:02:57+09:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
 
@@ -163,6 +164,37 @@ window.MathJax = {
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/japanese/whatisamazonbraket/" class="color-inherit dim link">
+            Amazon Braketとは
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          この記事ではAWSが提供する量子コンピューティングサービスである、Amazon Braketの概要について、個人的に感じるメリットも記載しながら説明します。
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Amazon Braketの概要 Amazon BraketはAWSが提供する量子コンピューティングサービスで、以下の機能を提供します。
+Amazon Braket Notebookの利用 Amazon Braketマネージドシミュレータの実行 複数のプロバイダーが提供する量子コンピュータの実行 ハイブリッドジョブ機能 アルゴリズムライブラリの利用 それぞれの項目についてより具体的な内容を記載します。 Amazon Braket Notebookの利用 Amazon Braketでは、Amazon Braket Notebookインスタンスを作成、起動し、利用することができます。 これにより簡単にJupyter Notebookベースの開発環境を用意することができ、量子プログラミングをすぐさま始められます。
+特にこの環境ではQiskitやPennyLane、Amazon Braket SDKなどの量子コンピューティングSDKが起動直後からほ利用できる状態でインストールされているという点が便利です。 量子コンピューティングSDKの発展は著しく、バージョン差異による影響でコードを書いてもエラーが発生するケースがよく見受けられます。 Amazon Braket Notebookでは、起動後のインスタンスに既に用意されているチュートリアルに従えば、確実にエラー無く量子回路を実行することができます。 この扱いやすさは一つのメリットと言えるでしょう。
+さらに、このAmazon Braket Notebookから、後ほど紹介するAmazon Braketマネージドシミュレータの実行や量子コンピュータが簡単に実行できるのも利点です。 また料金について、Amazon braket notebookの起動時間に依存して課金が発生する仕組みとなっているようで起動時間に注意が必要そうです。 Amazon Braketマネージドシミュレータの実行 先ほど紹介したAmazon Braket Notebookのローカルシミュレータを利用すれば量子回路は簡単に実行可能です。 しかしながら、量子回路における量子ビットを増やしていった時にローカルシミュレータでは実行しきれないケースも出てくるかと思います。 ここで、Amazon Braketマネージドシミュレータを用いることで、Amazon Braket Notebookや、ローカルのPCでは実行できないような規模の量子回路を実行可能となります。 利用可能なシミュレータとざっくりの説明は以下の通りです。
+Simulator Description SV1 (State Vector Simulator) ローカルシミュレータより多くの量子ビットでシミュレート可能 TN1 (Tensor Network Simulator) SV1より大規模な量子ビットでシミュレート可能 DM1 (Density Matrix Simulator) ノイズあり、つまりより本物の量子コンピュータに近い環境でシミュレート可能 料金については、どのシミュレータも実行時間に依存して料金が発生する仕組みとなっているようです。 複数のプロバイダーが提供する量子コンピュータの実行 AWSマネージドシミュレータと同様にAmazon Braket Notebook経由で、簡単に様々な種類の量子コンピュータが実行可能となります。 2025年5月現在、以下プロバイダーの量子コンピュータを利用できます。
+        </div>
+          <a href="/japanese/whatisamazonbraket/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+            </div>
+          
+            <div class="relative w-100 mb4">
+              
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/japanese/venv/" class="color-inherit dim link">
             pythonの仮想環境により任意のqiskitのバージョンを実行する。
             </a>
@@ -221,44 +253,18 @@ A. qc.barrier(qc) B. qc.barrier([0,1,2]) C. qc.barrier() D. qc.barrier(3) E. qc.
 
             </div>
           
-            <div class="relative w-100 mb4">
-              
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/japanese/ibmcertsample01ja/" class="color-inherit dim link">
-            IBM 量子開発者認定資格 sample問題集の解説 その1
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          別ページで量子コンピュータでは、古典コンピュータとは異なるプログラムである、量子プログラムを実装する必要があると記載しました。ここで、この量子プログラムに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」をIBMが2021年から提供しています（早い）。 https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
-この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
-この認定を得るためには、上記URLに記載がある通り、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLサイト内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1 ~ 10問までの解説を記載しています。11 ~ 20問の解説についてはこちらのページをご参照ください。
-試験対策としては下記のような問題集も是非是非、ご活用ください。
-英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B Amazon Braket学習コース また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
-問題1: Which statement will create a quantum circuit with four quantum bits and four classical bits?
-選択肢:
-A. QuantumCircuit(4, 4) B. QuantumCircuit(4) C. QuantumCircuit(QuantumRegister(4, &lsquo;qr0&rsquo;), QuantumRegister(4, &lsquo;cr1&rsquo;)) D. QuantumCircuit([4, 4]) 回答: A
-        </div>
-          <a href="/japanese/ibmcertsample01ja/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-            </div>
-          
         </section>
 
         
         <section class="w-100">
           <h1 class="f3">More</h1>
           
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/japanese/ibmcertsample01ja/" class="link black dim">
+                IBM 量子開発者認定資格 sample問題集の解説 その1
+              </a>
+            </h2>
           
             <h2 class="f5 fw4 mb4 dib mr3">
               <a href="/japanese/c2q01ja/" class="link black dim">

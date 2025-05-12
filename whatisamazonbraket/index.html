@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>What is Amazon Braket? | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="In this article, I will explain the overview of Amazon Braket, a quantum computing service provided by AWS, while also mentioning the personal benefits I feel.
+Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&rsquo;s quantum computing service.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/whatisamazonbraket/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/whatisamazonbraket/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="What is Amazon Braket?">
+  <meta property="og:description" content="In this article, I will explain the overview of Amazon Braket, a quantum computing service provided by AWS, while also mentioning the personal benefits I feel.
+Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS’s quantum computing service.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning.">
+  <meta property="og:locale" content="english">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-05-12T11:15:01+09:00">
+    <meta property="article:modified_time" content="2025-05-12T11:15:01+09:00">
+
+  <meta itemprop="name" content="What is Amazon Braket?">
+  <meta itemprop="description" content="In this article, I will explain the overview of Amazon Braket, a quantum computing service provided by AWS, while also mentioning the personal benefits I feel.
+Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS’s quantum computing service.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning.">
+  <meta itemprop="datePublished" content="2025-05-12T11:15:01+09:00">
+  <meta itemprop="dateModified" content="2025-05-12T11:15:01+09:00">
+  <meta itemprop="wordCount" content="852">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="What is Amazon Braket?">
+  <meta name="twitter:description" content="In this article, I will explain the overview of Amazon Braket, a quantum computing service provided by AWS, while also mentioning the personal benefits I feel.
+Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS’s quantum computing service.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning.">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/japanese/whatisamazonbraket/">japanese</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          What is Amazon Braket?
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>In this article, I will explain the overview of Amazon Braket, a quantum computing service provided by AWS, while also mentioning the personal benefits I feel.</p>
+<hr>
+<h4 id="amazon-braket-learning-course">Amazon Braket Learning Course</h4>
+<p>I have created a learning course on Amazon Braket, AWS&rsquo;s quantum computing service.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+<h1 id="overview-of-amazon-braket">Overview of Amazon Braket</h1>
+<p>Amazon Braket is a quantum computing service provided by AWS, offering the following features.</p>
+<ul>
+<li>Use of Amazon Braket Notebook</li>
+<li>Execution on Amazon Braket managed simulators</li>
+<li>Execution on quantum computers from various providers</li>
+<li>Hybrid job functionality</li>
+<li>Use of algorithm libraries</li>
+</ul>
+<p>More detailed information about each item is provided below.
+<br>
+<br></p>
+<h2 id="use-of-amazon-braket-notebook">Use of Amazon Braket Notebook</h2>
+<p>With Amazon Braket, you can create, launch, and use Amazon Braket Notebook instances. This allows you to easily set up a Jupyter Notebook-based development environment and start quantum programming immediately.<br>
+One of the convenient features of this environment is that quantum computing SDKs such as Qiskit, PennyLane, and Amazon Braket SDK are installed and ready to use right after launch. The development of quantum computing SDKs is remarkable, and differences in versions often cause errors when writing code. By following the tutorials already provided in the instance after launching Amazon Braket Notebook, you can execute quantum circuits without errors. This ease of use can be considered a significant benefit.<br>
+Additionally, from this Amazon Braket Notebook, you can easily run the Amazon Braket managed simulator and quantum computers, which will be introduced later. Regarding pricing, <a href="https://aws.amazon.com/braket/pricing/?nc1=h_ls">it seems that charges are incurred based on the Amazon Braket Notebook&rsquo;s runtime</a>, so attention to runtime is necessary.
+<br>
+<br></p>
+<h2 id="execution-on-amazon-braket-managed-simulators">Execution on Amazon Braket managed simulators</h2>
+<p>With the local simulator in the Amazon Braket Notebook, you can easily run quantum circuits.<br>
+However, as you increase the number of qubits in a quantum circuit, there may be cases where the local simulator can no longer handle the execution.<br>
+In such situations, using the Amazon Braket managed simulators enables you to run large-scale quantum circuits that cannot be executed on a local PC or within the Amazon Braket Notebook alone.
+Below is a brief overview of the available simulators.</p>
+<table>
+<thead>
+<tr>
+<th>Simulator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SV1 (State Vector Simulator)</strong></td>
+<td>Capable of simulating more qubits than the local simulator.</td>
+</tr>
+<tr>
+<td><strong>TN1 (Tensor Network Simulator)</strong></td>
+<td>SCapable of simulating larger quantum circuits than SV1.</td>
+</tr>
+<tr>
+<td><strong>DM1 (Density Matrix Simulator)</strong></td>
+<td>Noisy simulation, enabling a more realistic environment closer to actual quantum computers.</td>
+</tr>
+</tbody>
+</table>
+<p>Regarding pricing, it seems that <a href="https://aws.amazon.com/braket/pricing/?nc1=h_ls">all simulators incur charges based on their runtime.</a>
+<br>
+<br></p>
+<h2 id="execution-on-quantum-computers-from-various-providers">Execution on quantum computers from various providers</h2>
+<p>Similar to the AWS managed simulators, various types of quantum computers can be easily executed via Amazon Braket Notebook. As of May 2025, quantum computers from the following providers are available.</p>
+<ul>
+<li><strong>IonQ</strong></li>
+<li><strong>IQM</strong></li>
+<li><strong>QuEra</strong></li>
+<li><strong>Rigetti</strong></li>
+</ul>
+<p>The quantum computing chip Ocelot, which AWS has been developing in recent years, will likely be available in the future! The ability to easily access quantum computers from these providers is indeed appealing.
+<a href="https://aws.amazon.com/braket/pricing/?nc1=h_ls">The pricing seems to depend on the number of tasks and shots.</a>
+<br>
+<br></p>
+<h2 id="hybrid-job-functionality">Hybrid job functionality</h2>
+<p>In hybrid quantum-classical algorithms such as VQE and VQC (a quantum machine learning algorithm), quantum and classical computations are performed alternately, as shown in the diagram below.</p>
+<figure><img src="/aws/HybridQuantum-ClassicalAlgorithms01.webp"
+    alt="HybridAlgorithm01" width="400px">
+</figure>
+
+<p>Since quantum computers are shared among multiple users, other users&rsquo; jobs can interrupt your tasks, causing wait times and significantly increasing the total processing time, as illustrated below.</p>
+<figure><img src="/aws/HybridQuantum-ClassicalAlgorithms02.webp"
+    alt="HybridAlgorithm02" width="400px">
+</figure>
+
+<p>Hybrid Jobs solve this issue. Quantum-classical algorithms submitted as Hybrid Jobs are given higher priority access to quantum computers.
+Additionally, it is also possible to create hybrid jobs that combine classical computing with Amazon Braket&rsquo;s managed simulators.
+According to the pricing page, charges are based on <a href="https://aws.amazon.com/braket/pricing/?nc1=h_ls">the total resource consumption used by the hybrid job</a>.
+<br>
+<br></p>
+<h2 id="use-of-algorithm-libraries">Use of algorithm libraries</h2>
+<p>Amazon Braket provides several quantum algorithm libraries, including optimization algorithms and Grover&rsquo;s algorithm, which can be easily executed from Amazon Braket Notebooks.
+For example, the following algorithms are available:</p>
+<ul>
+<li><strong>Bernstein-Vazirani algorithm</strong></li>
+<li><strong>Deutsch-Jozsa algorithm</strong></li>
+<li><strong>Grover&rsquo;s algorithm</strong></li>
+<li><strong>Quantum Approximate Optimization Algorithm</strong></li>
+<li><strong>Quantum Phase Estimation</strong></li>
+<li><strong>Shor&rsquo;s Algorithm</strong></li>
+<li><strong>Quantum Circuit Born Machine</strong></li>
+</ul>
+<p>It&rsquo;s fascinating that the Quantum Circuit Born Machine, a type of quantum machine learning algorithm, is also available. Let&rsquo;s efficiently progress with coding using these libraries!
+<br>
+<br></p>
+<h2 id="additional-benefits-of-using-amazon-braket">Additional Benefits of Using Amazon Braket</h2>
+<p>One of the advantages of Amazon Braket is its ease of integration with other AWS services. For example, you can process data with other services and perform calculations with Amazon Braket, or easily save the results to S3.<br>
+Additionally, more advanced integrations are proposed, such as using AWS CloudTrail and IAM services to implement a system <a href="https://aws.amazon.com/jp/blogs/quantum-computing/introducing-a-cost-control-solution-for-amazon-braket/">where a user cannot use quantum computers once their usage charges exceed a certain threshold.</a>
+<br>
+<br></p>
+<hr>
+<h4 id="amazon-braket-learning-course-1">Amazon Braket Learning Course</h4>
+<p>I have created a learning course on Amazon Braket, AWS&rsquo;s quantum computing service.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+
