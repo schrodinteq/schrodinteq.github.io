@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="japanese">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Amazon Braketのメモリ不足によるエラー | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Amazon Braketローカルシミュレータのメモリ不足によるエラー AWSの量子コンピューティングサービスであるAmazon Braketで、ローカルシミュレータを実行すると以下のエラーが出力される場合があります。
+--------------------------------------------------------------------------- MemoryError Traceback (most recent call last) Cell In[11], line 2 1 device = LocalSimulator() ----&gt; 2 result = device.run(myqc, shots=1000).result() 3 counts = result.measurement_counts 4 plt.bar(counts.keys(), counts.values()) File ~/anaconda3/envs/Braket/lib/python3.10/site-packages/braket/devices/local_simulator.py:126, in LocalSimulator.run(self, task_specification, shots, inputs, *args, **kwargs) 124 task_specification = self._apply_noise_model_to_circuit(task_specification) 125 payload = self._construct_payload(task_specification, inputs, shots) --&gt; 126 result = self._delegate.run(payload, *args, shots=shots, **kwargs) 127 return LocalQuantumTask(self._to_result_object(result)) File ~/anaconda3/envs/Braket/lib/python3.">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/japanese/braketmemerr/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/japanese/braketmemerr/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="Amazon Braketのメモリ不足によるエラー">
+  <meta property="og:description" content="Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Amazon Braketローカルシミュレータのメモリ不足によるエラー AWSの量子コンピューティングサービスであるAmazon Braketで、ローカルシミュレータを実行すると以下のエラーが出力される場合があります。
+--------------------------------------------------------------------------- MemoryError Traceback (most recent call last) Cell In[11], line 2 1 device = LocalSimulator() ----&gt; 2 result = device.run(myqc, shots=1000).result() 3 counts = result.measurement_counts 4 plt.bar(counts.keys(), counts.values()) File ~/anaconda3/envs/Braket/lib/python3.10/site-packages/braket/devices/local_simulator.py:126, in LocalSimulator.run(self, task_specification, shots, inputs, *args, **kwargs) 124 task_specification = self._apply_noise_model_to_circuit(task_specification) 125 payload = self._construct_payload(task_specification, inputs, shots) --&gt; 126 result = self._delegate.run(payload, *args, shots=shots, **kwargs) 127 return LocalQuantumTask(self._to_result_object(result)) File ~/anaconda3/envs/Braket/lib/python3.">
+  <meta property="og:locale" content="japanese">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-05-15T21:25:15+09:00">
+    <meta property="article:modified_time" content="2025-05-15T21:25:15+09:00">
+
+  <meta itemprop="name" content="Amazon Braketのメモリ不足によるエラー">
+  <meta itemprop="description" content="Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Amazon Braketローカルシミュレータのメモリ不足によるエラー AWSの量子コンピューティングサービスであるAmazon Braketで、ローカルシミュレータを実行すると以下のエラーが出力される場合があります。
+--------------------------------------------------------------------------- MemoryError Traceback (most recent call last) Cell In[11], line 2 1 device = LocalSimulator() ----&gt; 2 result = device.run(myqc, shots=1000).result() 3 counts = result.measurement_counts 4 plt.bar(counts.keys(), counts.values()) File ~/anaconda3/envs/Braket/lib/python3.10/site-packages/braket/devices/local_simulator.py:126, in LocalSimulator.run(self, task_specification, shots, inputs, *args, **kwargs) 124 task_specification = self._apply_noise_model_to_circuit(task_specification) 125 payload = self._construct_payload(task_specification, inputs, shots) --&gt; 126 result = self._delegate.run(payload, *args, shots=shots, **kwargs) 127 return LocalQuantumTask(self._to_result_object(result)) File ~/anaconda3/envs/Braket/lib/python3.">
+  <meta itemprop="datePublished" content="2025-05-15T21:25:15+09:00">
+  <meta itemprop="dateModified" content="2025-05-15T21:25:15+09:00">
+  <meta itemprop="wordCount" content="246">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Amazon Braketのメモリ不足によるエラー">
+  <meta name="twitter:description" content="Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Amazon Braketローカルシミュレータのメモリ不足によるエラー AWSの量子コンピューティングサービスであるAmazon Braketで、ローカルシミュレータを実行すると以下のエラーが出力される場合があります。
+--------------------------------------------------------------------------- MemoryError Traceback (most recent call last) Cell In[11], line 2 1 device = LocalSimulator() ----&gt; 2 result = device.run(myqc, shots=1000).result() 3 counts = result.measurement_counts 4 plt.bar(counts.keys(), counts.values()) File ~/anaconda3/envs/Braket/lib/python3.10/site-packages/braket/devices/local_simulator.py:126, in LocalSimulator.run(self, task_specification, shots, inputs, *args, **kwargs) 124 task_specification = self._apply_noise_model_to_circuit(task_specification) 125 payload = self._construct_payload(task_specification, inputs, shots) --&gt; 126 result = self._delegate.run(payload, *args, shots=shots, **kwargs) 127 return LocalQuantumTask(self._to_result_object(result)) File ~/anaconda3/envs/Braket/lib/python3.">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/japanese/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/braketmemerr/">english</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Amazon Braketのメモリ不足によるエラー
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <hr>
+<h4 id="amazon-braket学習コース">Amazon Braket学習コース</h4>
+<p>AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h1 id="amazon-braketローカルシミュレータのメモリ不足によるエラー">Amazon Braketローカルシミュレータのメモリ不足によるエラー</h1>
+<p>AWSの量子コンピューティングサービスであるAmazon Braketで、ローカルシミュレータを実行すると以下のエラーが出力される場合があります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">---------------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">MemoryError</span>                               Traceback (most recent call last)
+</span></span><span style="display:flex;"><span>Cell In[<span style="color:#ae81ff">11</span>], line <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">1</span> device <span style="color:#f92672">=</span> LocalSimulator()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">----&gt;</span> <span style="color:#ae81ff">2</span> result <span style="color:#f92672">=</span> device<span style="color:#f92672">.</span>run(myqc, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)<span style="color:#f92672">.</span>result()
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">3</span> counts <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>measurement_counts
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">4</span> plt<span style="color:#f92672">.</span>bar(counts<span style="color:#f92672">.</span>keys(), counts<span style="color:#f92672">.</span>values())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File <span style="color:#f92672">~/</span>anaconda3<span style="color:#f92672">/</span>envs<span style="color:#f92672">/</span>Braket<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>python3<span style="color:#ae81ff">.10</span><span style="color:#f92672">/</span>site<span style="color:#f92672">-</span>packages<span style="color:#f92672">/</span>braket<span style="color:#f92672">/</span>devices<span style="color:#f92672">/</span>local_simulator<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">126</span>, <span style="color:#f92672">in</span> LocalSimulator<span style="color:#f92672">.</span>run(self, task_specification, shots, inputs, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">124</span>     task_specification <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_apply_noise_model_to_circuit(task_specification)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">125</span> payload <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_construct_payload(task_specification, inputs, shots)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--&gt;</span> <span style="color:#ae81ff">126</span> result <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_delegate<span style="color:#f92672">.</span>run(payload, <span style="color:#f92672">*</span>args, shots<span style="color:#f92672">=</span>shots, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">127</span> <span style="color:#66d9ef">return</span> LocalQuantumTask(self<span style="color:#f92672">.</span>_to_result_object(result))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File <span style="color:#f92672">~/</span>anaconda3<span style="color:#f92672">/</span>envs<span style="color:#f92672">/</span>Braket<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>python3<span style="color:#ae81ff">.10</span><span style="color:#f92672">/</span>site<span style="color:#f92672">-</span>packages<span style="color:#f92672">/</span>braket<span style="color:#f92672">/</span>default_simulator<span style="color:#f92672">/</span>simulator<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">149</span>, <span style="color:#f92672">in</span> BaseLocalSimulator<span style="color:#f92672">.</span>run(self, circuit_ir, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">127</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    128 Simulate a circuit using either OpenQASM or Jaqcd.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    129 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">   (...)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    146         are requested when shots&gt;0.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    147 &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">148</span> <span style="color:#66d9ef">if</span> isinstance(circuit_ir, OpenQASMProgram):
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--&gt;</span> <span style="color:#ae81ff">149</span>     <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>run_openqasm(circuit_ir, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">150</span> <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>run_jaqcd(circuit_ir, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File <span style="color:#f92672">~/</span>anaconda3<span style="color:#f92672">/</span>envs<span style="color:#f92672">/</span>Braket<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>python3<span style="color:#ae81ff">.10</span><span style="color:#f92672">/</span>site<span style="color:#f92672">-</span>packages<span style="color:#f92672">/</span>braket<span style="color:#f92672">/</span>default_simulator<span style="color:#f92672">/</span>simulator<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">603</span>, <span style="color:#f92672">in</span> BaseLocalSimulator<span style="color:#f92672">.</span>run_openqasm(self, openqasm_ir, shots, batch_size)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">599</span> BaseLocalSimulator<span style="color:#f92672">.</span>_validate_shots_and_ir_results(shots, circuit<span style="color:#f92672">.</span>results, qubit_count)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">601</span> results <span style="color:#f92672">=</span> circuit<span style="color:#f92672">.</span>results
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--&gt;</span> <span style="color:#ae81ff">603</span> simulation <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>initialize_simulation(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">604</span>     qubit_count<span style="color:#f92672">=</span>qubit_count, shots<span style="color:#f92672">=</span>shots, batch_size<span style="color:#f92672">=</span>batch_size
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">605</span> )
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">606</span> operations <span style="color:#f92672">=</span> circuit<span style="color:#f92672">.</span>instructions
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">607</span> simulation<span style="color:#f92672">.</span>evolve(operations)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File <span style="color:#f92672">~/</span>anaconda3<span style="color:#f92672">/</span>envs<span style="color:#f92672">/</span>Braket<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>python3<span style="color:#ae81ff">.10</span><span style="color:#f92672">/</span>site<span style="color:#f92672">-</span>packages<span style="color:#f92672">/</span>braket<span style="color:#f92672">/</span>default_simulator<span style="color:#f92672">/</span>state_vector_simulator<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">41</span>, <span style="color:#f92672">in</span> StateVectorSimulator<span style="color:#f92672">.</span>initialize_simulation(self, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">39</span> shots <span style="color:#f92672">=</span> kwargs<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;shots&#34;</span>)
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">40</span> batch_size <span style="color:#f92672">=</span> kwargs<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;batch_size&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---&gt;</span> <span style="color:#ae81ff">41</span> <span style="color:#66d9ef">return</span> StateVectorSimulation(qubit_count, shots, batch_size)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File <span style="color:#f92672">~/</span>anaconda3<span style="color:#f92672">/</span>envs<span style="color:#f92672">/</span>Braket<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>python3<span style="color:#ae81ff">.10</span><span style="color:#f92672">/</span>site<span style="color:#f92672">-</span>packages<span style="color:#f92672">/</span>braket<span style="color:#f92672">/</span>default_simulator<span style="color:#f92672">/</span>state_vector_simulation<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">60</span>, <span style="color:#f92672">in</span> StateVectorSimulation<span style="color:#f92672">.</span>__init__(self, qubit_count, shots, batch_size)
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">57</span>     <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;batch_size must be a positive integer, but </span><span style="color:#e6db74">{</span>batch_size<span style="color:#e6db74">}</span><span style="color:#e6db74"> provided&#34;</span>)
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">59</span> super()<span style="color:#f92672">.</span>__init__(qubit_count<span style="color:#f92672">=</span>qubit_count, shots<span style="color:#f92672">=</span>shots)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---&gt;</span> <span style="color:#ae81ff">60</span> initial_state <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(<span style="color:#ae81ff">2</span><span style="color:#f92672">**</span>qubit_count, dtype<span style="color:#f92672">=</span>complex)
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">61</span> initial_state[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">62</span> self<span style="color:#f92672">.</span>_state_vector <span style="color:#f92672">=</span> initial_state
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">MemoryError</span>: Unable to allocate <span style="color:#ae81ff">16.0</span> GiB <span style="color:#66d9ef">for</span> an array <span style="color:#66d9ef">with</span> shape (<span style="color:#ae81ff">1073741824</span>,) <span style="color:#f92672">and</span> data type complex128
+</span></span></code></pre></div><p>このエラーは、量子回路を実行するためのメモリが不足していることが原因で起こります。
+一般的にn量子ビットのシミュレーションは、状態ベクトルシミュレータを用いた場合、以下サイズのメモリが必要になります。</p>
+<p>$$
+X^{Memory} = 2^n \times 16 \ Bytes
+$$</p>
+<p>サーバのメモリサイズを大きくすることで実行可能となるかもしれませんが、上記の式の通りサーバのメモリを2倍にしても1量子ビットしか追加できないため、あまりお勧めできません。</p>
+<p>このためエラー無しで実行するための案を以下に3つ記載します。</p>
+<h2 id="amazon-braketマネージドシミュレータで実行する">Amazon Braketマネージドシミュレータで実行する。</h2>
+<p>Amazon Braket マネージドシミュレータをを用いることで、ローカルシミュレータより多くの量子ビット数で実行可能です。例えば、SV1シミュレータでは34、TN1シミュレータでは50量子ビットのシミュレーションが可能となります。
+<a href="https://aws.amazon.com/braket/pricing/?nc1=h_ls">ただし、実行時間に応じた料金が発生するようで、使い過ぎに注意しましょう。</a></p>
+<h2 id="実際の量子コンピュータで実行する">実際の量子コンピュータで実行する。</h2>
+<p>量子ビット数を多く扱える、量子コンピュータを用いれば規模の大きい計算も実行可能です。例えば、IONQ Forte 1は36量子ビットを扱うことが可能です。
+<a href="https://aws.amazon.com/braket/pricing/?nc1=h_ls">ただし、量子コンピュータの利用料金は無料ではないため、料金には注意を払いましょう。</a></p>
+<h2 id="量子回路の量子ビット数を減らして実行する">量子回路の量子ビット数を減らして実行する。</h2>
+<p>元々の量子回路の量子ビット数を減らし、実行することができれば、こちらももちろん実行可能となります。
+<br>
+<br></p>
+<hr>
+<h4 id="amazon-braket学習コース-1">Amazon Braket学習コース</h4>
+<p>AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/japanese/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

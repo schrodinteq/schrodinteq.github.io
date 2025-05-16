@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Mon, 12 May 2025 11:15:01 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 16 May 2025 10:07:44 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Error due to insufficient memory in Amazon Braket</title>
+      <link>https://schrodinteq.github.io/braketmemerr/</link>
+      <pubDate>Fri, 16 May 2025 10:07:44 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/braketmemerr/</guid>
+      <description>Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!&#xA;Error Due to Insufficient Memory in Amazon Braket Local Simulator When running the local simulator in Amazon Braket, AWS&amp;rsquo;s quantum computing service, the following error may be output.</description>
+    </item>
     <item>
       <title>What is Amazon Braket?</title>
       <link>https://schrodinteq.github.io/whatisamazonbraket/</link>

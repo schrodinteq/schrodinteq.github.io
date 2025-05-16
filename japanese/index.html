@@ -61,8 +61,8 @@ window.MathJax = {
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
-  <meta itemprop="datePublished" content="2025-05-10T19:02:57+09:00">
-  <meta itemprop="dateModified" content="2025-05-10T19:02:57+09:00">
+  <meta itemprop="datePublished" content="2025-05-15T21:25:15+09:00">
+  <meta itemprop="dateModified" content="2025-05-15T21:25:15+09:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
 
@@ -164,6 +164,33 @@ window.MathJax = {
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/japanese/braketmemerr/" class="color-inherit dim link">
+            Amazon Braketのメモリ不足によるエラー
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Amazon Braketローカルシミュレータのメモリ不足によるエラー AWSの量子コンピューティングサービスであるAmazon Braketで、ローカルシミュレータを実行すると以下のエラーが出力される場合があります。
+--------------------------------------------------------------------------- MemoryError Traceback (most recent call last) Cell In[11], line 2 1 device = LocalSimulator() ----&gt; 2 result = device.run(myqc, shots=1000).result() 3 counts = result.measurement_counts 4 plt.bar(counts.keys(), counts.values()) File ~/anaconda3/envs/Braket/lib/python3.10/site-packages/braket/devices/local_simulator.py:126, in LocalSimulator.run(self, task_specification, shots, inputs, *args, **kwargs) 124 task_specification = self._apply_noise_model_to_circuit(task_specification) 125 payload = self._construct_payload(task_specification, inputs, shots) --&gt; 126 result = self._delegate.run(payload, *args, shots=shots, **kwargs) 127 return LocalQuantumTask(self._to_result_object(result)) File ~/anaconda3/envs/Braket/lib/python3.
+        </div>
+          <a href="/japanese/braketmemerr/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+            </div>
+          
+            <div class="relative w-100 mb4">
+              
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/japanese/whatisamazonbraket/" class="color-inherit dim link">
             Amazon Braketとは
             </a>
@@ -219,46 +246,18 @@ from qiskit import QuantumCircuit, Aer, execute from math import sqrt qc = Quant
 
             </div>
           
-            <div class="relative w-100 mb4">
-              
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/japanese/ibmcertsample02ja/" class="color-inherit dim link">
-            IBM 量子開発者認定資格 sample問題集の解説 その2
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          IBMが提供している量子コンピュータに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」を取得するためには、“Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer”という試験に合格する必要があります。この試験の概要などが記載された下記URL内では、サンプル問題集のリンクがあります。
-https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300
-このサンプル問題集について、こちらのページで1 ~ 10問の解説を行いました。
-このページでは11 ~ 20問までの解説を記載します。
-また、試験対策用の追加の問題集としては下記のような問題集も是非是非、ご活用ください。
-英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B Amazon Braket学習コース また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
-問題11: Which two options would place a barrier across all qubits to the QuantumCircuit below?
-qc = QuantumCircuit(3,3) 選択肢:
-A. qc.barrier(qc) B. qc.barrier([0,1,2]) C. qc.barrier() D. qc.barrier(3) E. qc.barrier_all() 回答: B,C
-解説: 次のうちどのコードが、全ての量子ビットにバリアーを置くかという問題ですね。バリアーはゲートの間に置かれることで、それぞれのゲートが順番に実行されることを保証する役割を果たします。問題文のコードではすでに3つの量子ビット、古典ビットが定義されています。一つずつ選択肢を見ていきましょう。
-        </div>
-          <a href="/japanese/ibmcertsample02ja/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-            </div>
-          
         </section>
 
         
         <section class="w-100">
           <h1 class="f3">More</h1>
           
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/japanese/ibmcertsample02ja/" class="link black dim">
+                IBM 量子開発者認定資格 sample問題集の解説 その2
+              </a>
+            </h2>
           
             <h2 class="f5 fw4 mb4 dib mr3">
               <a href="/japanese/ibmcertsample01ja/" class="link black dim">

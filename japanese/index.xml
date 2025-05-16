@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>japanese</language>
-    <lastBuildDate>Sat, 10 May 2025 19:02:57 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 15 May 2025 21:25:15 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/japanese/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon Braketのメモリ不足によるエラー</title>
+      <link>https://schrodinteq.github.io/japanese/braketmemerr/</link>
+      <pubDate>Thu, 15 May 2025 21:25:15 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/japanese/braketmemerr/</guid>
+      <description>Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！&#xA;Amazon Braketローカルシミュレータのメモリ不足によるエラー AWSの量子コンピューティングサービスであるAmazon Braketで、ローカルシミュレータを実行すると以下のエラーが出力される場合があります。&#xA;--------------------------------------------------------------------------- MemoryError Traceback (most recent call last) Cell In[11], line 2 1 device = LocalSimulator() ----&amp;gt; 2 result = device.run(myqc, shots=1000).result() 3 counts = result.measurement_counts 4 plt.bar(counts.keys(), counts.values()) File ~/anaconda3/envs/Braket/lib/python3.10/site-packages/braket/devices/local_simulator.py:126, in LocalSimulator.run(self, task_specification, shots, inputs, *args, **kwargs) 124 task_specification = self._apply_noise_model_to_circuit(task_specification) 125 payload = self._construct_payload(task_specification, inputs, shots) --&amp;gt; 126 result = self._delegate.run(payload, *args, shots=shots, **kwargs) 127 return LocalQuantumTask(self._to_result_object(result)) File ~/anaconda3/envs/Braket/lib/python3.</description>
+    </item>
     <item>
       <title>Amazon Braketとは</title>
       <link>https://schrodinteq.github.io/japanese/whatisamazonbraket/</link>
