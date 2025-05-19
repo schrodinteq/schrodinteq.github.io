@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>AccessDeniedException in Amazon Braket | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&rsquo;s quantum computing service.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!
+AccessDeniedException in Amazon Braket When attempting to run the SV1, TN1, DM1 simulators or quantum computers on Amazon Braket, the following error may be encountered.">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/braketexrole/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/braketexrole/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="AccessDeniedException in Amazon Braket">
+  <meta property="og:description" content="Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS’s quantum computing service.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!
+AccessDeniedException in Amazon Braket When attempting to run the SV1, TN1, DM1 simulators or quantum computers on Amazon Braket, the following error may be encountered.">
+  <meta property="og:locale" content="english">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-05-19T11:34:09+09:00">
+    <meta property="article:modified_time" content="2025-05-19T11:34:09+09:00">
+
+  <meta itemprop="name" content="AccessDeniedException in Amazon Braket">
+  <meta itemprop="description" content="Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS’s quantum computing service.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!
+AccessDeniedException in Amazon Braket When attempting to run the SV1, TN1, DM1 simulators or quantum computers on Amazon Braket, the following error may be encountered.">
+  <meta itemprop="datePublished" content="2025-05-19T11:34:09+09:00">
+  <meta itemprop="dateModified" content="2025-05-19T11:34:09+09:00">
+  <meta itemprop="wordCount" content="608">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AccessDeniedException in Amazon Braket">
+  <meta name="twitter:description" content="Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS’s quantum computing service.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!
+AccessDeniedException in Amazon Braket When attempting to run the SV1, TN1, DM1 simulators or quantum computers on Amazon Braket, the following error may be encountered.">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/japanese/braketexrole/">japanese</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          AccessDeniedException in Amazon Braket
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <hr>
+<h4 id="amazon-braket-learning-course">Amazon Braket Learning Course</h4>
+<p>I have created a learning course on Amazon Braket, AWS&rsquo;s quantum computing service.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+<h2 id="accessdeniedexception-in-amazon-braket">AccessDeniedException in Amazon Braket</h2>
+<p>When attempting to run the SV1, TN1, DM1 simulators or quantum computers on Amazon Braket, the following error may be encountered.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">---------------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>AccessDeniedException                     Traceback (most recent call last)
+</span></span><span style="display:flex;"><span>Cell In[<span style="color:#ae81ff">12</span>], line <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">3</span> ghz <span style="color:#f92672">=</span> ghz_circuit(n_qubits)
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">5</span> <span style="color:#75715e"># run GHZ circuit on SV1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">----&gt;</span> <span style="color:#ae81ff">6</span> result <span style="color:#f92672">=</span> device<span style="color:#f92672">.</span>run(ghz, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)<span style="color:#f92672">.</span>result()
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">7</span> counts <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>measurement_counts
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">8</span> print(counts)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File <span style="color:#f92672">~/</span>anaconda3<span style="color:#f92672">/</span>envs<span style="color:#f92672">/</span>Braket<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>python3<span style="color:#ae81ff">.10</span><span style="color:#f92672">/</span>site<span style="color:#f92672">-</span>packages<span style="color:#f92672">/</span>braket<span style="color:#f92672">/</span>aws<span style="color:#f92672">/</span>aws_device<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">207</span>, <span style="color:#f92672">in</span> AwsDevice<span style="color:#f92672">.</span>run(self, task_specification, s3_destination_folder, shots, poll_timeout_seconds, poll_interval_seconds, inputs, gate_definitions, reservation_arn, <span style="color:#f92672">*</span>aws_quantum_task_args, <span style="color:#f92672">**</span>aws_quantum_task_kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">205</span> <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>_noise_model:
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">206</span>     task_specification <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_apply_noise_model_to_circuit(task_specification)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--&gt;</span> <span style="color:#ae81ff">207</span> <span style="color:#66d9ef">return</span> AwsQuantumTask<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">208</span>     self<span style="color:#f92672">.</span>_aws_session,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">209</span>     self<span style="color:#f92672">.</span>_arn,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">210</span>     task_specification,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">211</span>     s3_destination_folder
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">212</span>     <span style="color:#f92672">or</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">213</span>         AwsSession<span style="color:#f92672">.</span>parse_s3_uri(os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;AMZN_BRAKET_TASK_RESULTS_S3_URI&#34;</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">214</span>         <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;AMZN_BRAKET_TASK_RESULTS_S3_URI&#34;</span> <span style="color:#f92672">in</span> os<span style="color:#f92672">.</span>environ
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">215</span>         <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">216</span>     )
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">217</span>     <span style="color:#f92672">or</span> (self<span style="color:#f92672">.</span>_aws_session<span style="color:#f92672">.</span>default_bucket(), <span style="color:#e6db74">&#34;tasks&#34;</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">218</span>     shots <span style="color:#66d9ef">if</span> shots <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span> <span style="color:#66d9ef">else</span> self<span style="color:#f92672">.</span>_default_shots,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">219</span>     poll_timeout_seconds<span style="color:#f92672">=</span>poll_timeout_seconds,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">220</span>     poll_interval_seconds<span style="color:#f92672">=</span>poll_interval_seconds <span style="color:#f92672">or</span> self<span style="color:#f92672">.</span>_poll_interval_seconds,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">221</span>     inputs<span style="color:#f92672">=</span>inputs,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">222</span>     gate_definitions<span style="color:#f92672">=</span>gate_definitions,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">223</span>     reservation_arn<span style="color:#f92672">=</span>reservation_arn,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">224</span>     <span style="color:#f92672">*</span>aws_quantum_task_args,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">225</span>     <span style="color:#f92672">**</span>aws_quantum_task_kwargs,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">226</span> )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File <span style="color:#f92672">~/</span>anaconda3<span style="color:#f92672">/</span>envs<span style="color:#f92672">/</span>Braket<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>python3<span style="color:#ae81ff">.10</span><span style="color:#f92672">/</span>site<span style="color:#f92672">-</span>packages<span style="color:#f92672">/</span>braket<span style="color:#f92672">/</span>aws<span style="color:#f92672">/</span>aws_quantum_task<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">212</span>, <span style="color:#f92672">in</span> AwsQuantumTask<span style="color:#f92672">.</span>create(aws_session, device_arn, task_specification, s3_destination_folder, shots, device_parameters, disable_qubit_rewiring, tags, inputs, gate_definitions, quiet, reservation_arn, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">207</span>     <span style="color:#66d9ef">if</span> unbounded_parameters <span style="color:#f92672">:=</span> param_names <span style="color:#f92672">-</span> set(inputs<span style="color:#f92672">.</span>keys()):
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">208</span>         <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">209</span>             <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Cannot execute circuit with unbound parameters: </span><span style="color:#e6db74">{</span>unbounded_parameters<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">210</span>         )
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--&gt;</span> <span style="color:#ae81ff">212</span> <span style="color:#66d9ef">return</span> _create_internal(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">213</span>     task_specification,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">214</span>     aws_session,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">215</span>     create_task_kwargs,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">216</span>     device_arn,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">217</span>     device_parameters <span style="color:#f92672">or</span> {},
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">218</span>     disable_qubit_rewiring,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">219</span>     inputs,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">220</span>     gate_definitions<span style="color:#f92672">=</span>gate_definitions,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">221</span>     quiet<span style="color:#f92672">=</span>quiet,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">222</span>     <span style="color:#f92672">*</span>args,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">223</span>     <span style="color:#f92672">**</span>kwargs,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">224</span> )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File <span style="color:#f92672">~/</span>anaconda3<span style="color:#f92672">/</span>envs<span style="color:#f92672">/</span>Braket<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>python3<span style="color:#ae81ff">.10</span><span style="color:#f92672">/</span>functools<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">889</span>, <span style="color:#f92672">in</span> singledispatch<span style="color:#f92672">.&lt;</span>locals<span style="color:#f92672">&gt;.</span>wrapper(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">885</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> args:
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">886</span>     <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">TypeError</span>(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>funcname<span style="color:#e6db74">}</span><span style="color:#e6db74"> requires at least &#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">887</span>                     <span style="color:#e6db74">&#39;1 positional argument&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--&gt;</span> <span style="color:#ae81ff">889</span> <span style="color:#66d9ef">return</span> dispatch(args[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>__class__)(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File <span style="color:#f92672">~/</span>anaconda3<span style="color:#f92672">/</span>envs<span style="color:#f92672">/</span>Braket<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>python3<span style="color:#ae81ff">.10</span><span style="color:#f92672">/</span>site<span style="color:#f92672">-</span>packages<span style="color:#f92672">/</span>braket<span style="color:#f92672">/</span>aws<span style="color:#f92672">/</span>aws_quantum_task<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">727</span>, <span style="color:#f92672">in</span> _(circuit, aws_session, create_task_kwargs, device_arn, device_parameters, disable_qubit_rewiring, inputs, gate_definitions, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">718</span>     openqasm_program <span style="color:#f92672">=</span> OpenQASMProgram(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">719</span>         source<span style="color:#f92672">=</span>openqasm_program<span style="color:#f92672">.</span>source,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">720</span>         inputs<span style="color:#f92672">=</span>inputs_copy,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">721</span>     )
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">723</span> create_task_kwargs <span style="color:#f92672">|=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">724</span>     <span style="color:#e6db74">&#34;action&#34;</span>: openqasm_program<span style="color:#f92672">.</span>json(),
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">725</span>     <span style="color:#e6db74">&#34;deviceParameters&#34;</span>: final_device_parameters<span style="color:#f92672">.</span>json(exclude_none<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">726</span> }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--&gt;</span> <span style="color:#ae81ff">727</span> task_arn <span style="color:#f92672">=</span> aws_session<span style="color:#f92672">.</span>create_quantum_task(<span style="color:#f92672">**</span>create_task_kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">728</span> <span style="color:#66d9ef">return</span> AwsQuantumTask(task_arn, aws_session, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File <span style="color:#f92672">~/</span>anaconda3<span style="color:#f92672">/</span>envs<span style="color:#f92672">/</span>Braket<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>python3<span style="color:#ae81ff">.10</span><span style="color:#f92672">/</span>site<span style="color:#f92672">-</span>packages<span style="color:#f92672">/</span>braket<span style="color:#f92672">/</span>aws<span style="color:#f92672">/</span>aws_session<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">273</span>, <span style="color:#f92672">in</span> AwsSession<span style="color:#f92672">.</span>create_quantum_task(self, <span style="color:#f92672">**</span>boto3_kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">271</span> <span style="color:#66d9ef">if</span> job_token:
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">272</span>     boto3_kwargs[<span style="color:#e6db74">&#34;jobToken&#34;</span>] <span style="color:#f92672">=</span> job_token
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--&gt;</span> <span style="color:#ae81ff">273</span> response <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>braket_client<span style="color:#f92672">.</span>create_quantum_task(<span style="color:#f92672">**</span>boto3_kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">274</span> broadcast_event(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">275</span>     _TaskCreationEvent(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">276</span>         arn<span style="color:#f92672">=</span>response[<span style="color:#e6db74">&#34;quantumTaskArn&#34;</span>],
+</span></span><span style="display:flex;"><span>   (<span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">280</span>     )
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">281</span> )
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">282</span> <span style="color:#66d9ef">return</span> response[<span style="color:#e6db74">&#34;quantumTaskArn&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File <span style="color:#f92672">~/</span>anaconda3<span style="color:#f92672">/</span>envs<span style="color:#f92672">/</span>Braket<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>python3<span style="color:#ae81ff">.10</span><span style="color:#f92672">/</span>site<span style="color:#f92672">-</span>packages<span style="color:#f92672">/</span>botocore<span style="color:#f92672">/</span>client<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">570</span>, <span style="color:#f92672">in</span> ClientCreator<span style="color:#f92672">.</span>_create_api_method<span style="color:#f92672">.&lt;</span>locals<span style="color:#f92672">&gt;.</span>_api_call(self, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">566</span>     <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">TypeError</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">567</span>         <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>py_operation_name<span style="color:#e6db74">}</span><span style="color:#e6db74">() only accepts keyword arguments.&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">568</span>     )
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">569</span> <span style="color:#75715e"># The &#34;self&#34; in this scope is referring to the BaseClient.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--&gt;</span> <span style="color:#ae81ff">570</span> <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_make_api_call(operation_name, kwargs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File <span style="color:#f92672">~/</span>anaconda3<span style="color:#f92672">/</span>envs<span style="color:#f92672">/</span>Braket<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>python3<span style="color:#ae81ff">.10</span><span style="color:#f92672">/</span>site<span style="color:#f92672">-</span>packages<span style="color:#f92672">/</span>botocore<span style="color:#f92672">/</span>context<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">123</span>, <span style="color:#f92672">in</span> with_current_context<span style="color:#f92672">.&lt;</span>locals<span style="color:#f92672">&gt;.</span>decorator<span style="color:#f92672">.&lt;</span>locals<span style="color:#f92672">&gt;.</span>wrapper(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">121</span> <span style="color:#66d9ef">if</span> hook:
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">122</span>     hook()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--&gt;</span> <span style="color:#ae81ff">123</span> <span style="color:#66d9ef">return</span> func(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>File <span style="color:#f92672">~/</span>anaconda3<span style="color:#f92672">/</span>envs<span style="color:#f92672">/</span>Braket<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>python3<span style="color:#ae81ff">.10</span><span style="color:#f92672">/</span>site<span style="color:#f92672">-</span>packages<span style="color:#f92672">/</span>botocore<span style="color:#f92672">/</span>client<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">1031</span>, <span style="color:#f92672">in</span> BaseClient<span style="color:#f92672">.</span>_make_api_call(self, operation_name, api_params)
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">1027</span>     error_code <span style="color:#f92672">=</span> error_info<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;QueryErrorCode&#34;</span>) <span style="color:#f92672">or</span> error_info<span style="color:#f92672">.</span>get(
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">1028</span>         <span style="color:#e6db74">&#34;Code&#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">1029</span>     )
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">1030</span>     error_class <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>exceptions<span style="color:#f92672">.</span>from_code(error_code)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">-&gt;</span> <span style="color:#ae81ff">1031</span>     <span style="color:#66d9ef">raise</span> error_class(parsed_response, operation_name)
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">1032</span> <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">1033</span>     <span style="color:#66d9ef">return</span> parsed_response
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>AccessDeniedException: An error occurred (AccessDeniedException) when calling the CreateQuantumTask operation: AWSServiceRoleForAmazonBraket role doesn<span style="color:#e6db74">&#39;t exist. Please visit https://console.aws.amazon.com/braket/home?#/permissions?tab=executionRoles to create AWSServiceRoleForAmazonBraket role.</span>
+</span></span></code></pre></div><p>Amazon Braket managed simulators and quantum computers automatically integrate with other AWS services, such as saving results to S3 after execution. If the necessary permissions for Amazon Braket to interact with these services are not set, an error will be displayed.</p>
+<p>To create these permissions, go to the Amazon Braket toppage, open the &ldquo;Permissions and settings&rdquo; menu, click on &ldquo;Execution roles&rdquo;, and then click the section highlighted in red as shown below.
+This will enable the Amazon Braket managed simulators to run properly.</p>
+<figure><img src="/aws/AccessDenied1.webp"
+    alt="AccessDenied" width="1000px">
+</figure>
+
+<hr>
+<h4 id="amazon-braket-learning-course-1">Amazon Braket Learning Course</h4>
+<p>I have created a learning course on Amazon Braket, AWS&rsquo;s quantum computing service.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

@@ -61,8 +61,8 @@ window.MathJax = {
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
-  <meta itemprop="datePublished" content="2025-05-15T21:25:15+09:00">
-  <meta itemprop="dateModified" content="2025-05-15T21:25:15+09:00">
+  <meta itemprop="datePublished" content="2025-05-19T10:58:25+09:00">
+  <meta itemprop="dateModified" content="2025-05-19T10:58:25+09:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
 
@@ -164,6 +164,33 @@ window.MathJax = {
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/japanese/braketexrole/" class="color-inherit dim link">
+            Amazon BraketのAccessDeniedException
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Amazon BraketのAccessDeniedException Amazon BraketでSV1、 TN1、 DM1シミュレータや量子コンピュータを実行しようとした際に以下のようなエラーが出力されることがあります。
+--------------------------------------------------------------------------- AccessDeniedException Traceback (most recent call last) Cell In[12], line 6 3 ghz = ghz_circuit(n_qubits) 5 # run GHZ circuit on SV1 ----&gt; 6 result = device.run(ghz, shots=1000).result() 7 counts = result.measurement_counts 8 print(counts) File ~/anaconda3/envs/Braket/lib/python3.10/site-packages/braket/aws/aws_device.py:207, in AwsDevice.run(self, task_specification, s3_destination_folder, shots, poll_timeout_seconds, poll_interval_seconds, inputs, gate_definitions, reservation_arn, *aws_quantum_task_args, **aws_quantum_task_kwargs) 205 if self._noise_model: 206 task_specification = self._apply_noise_model_to_circuit(task_specification) --&gt; 207 return AwsQuantumTask.
+        </div>
+          <a href="/japanese/braketexrole/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+            </div>
+          
+            <div class="relative w-100 mb4">
+              
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/japanese/braketmemerr/" class="color-inherit dim link">
             Amazon Braketのメモリ不足によるエラー
             </a>
@@ -214,44 +241,18 @@ Simulator Description SV1 (State Vector Simulator) ローカルシミュレー�
 
             </div>
           
-            <div class="relative w-100 mb4">
-              
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/japanese/venv/" class="color-inherit dim link">
-            pythonの仮想環境により任意のqiskitのバージョンを実行する。
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
-この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
-英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
-任意のqiskitのバージョンの実行 IBMが提供している量子コンピュータに関する資格「IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X」についてサンプル問題が公開されています。このサンプル問題集には以下のコードが記載されています。
-from qiskit import QuantumCircuit, execute, BasicAer backend = BasicAer.get_backend(&#39;qasm_simulator&#39;) qc = QuantumCircuit(3) execute(qc, backend, shots=1024, coupling_map=[[0,1], [1,2]]) これを実行すると次のようなエラーが出ます。
-ImportError: cannot import name &#39;execute&#39; from &#39;qiskit&#39; もしくは
-ImportError: cannot import name &#39;BasicAer&#39; from &#39;qiskit&#39; 他のサンプルコードを実行した際も以下のようなエラーが出ます。
-from qiskit import QuantumCircuit, Aer, execute from math import sqrt qc = QuantumCircuit(2) v = [1/sqrt(2), 0, 0, 1/sqrt(2)] qc.
-        </div>
-          <a href="/japanese/venv/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-            </div>
-          
         </section>
 
         
         <section class="w-100">
           <h1 class="f3">More</h1>
           
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/japanese/venv/" class="link black dim">
+                pythonの仮想環境により任意のqiskitのバージョンを実行する。
+              </a>
+            </h2>
           
             <h2 class="f5 fw4 mb4 dib mr3">
               <a href="/japanese/ibmcertsample02ja/" class="link black dim">
