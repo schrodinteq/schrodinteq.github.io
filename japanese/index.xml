@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>japanese</language>
-    <lastBuildDate>Mon, 19 May 2025 10:58:25 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 20 May 2025 11:47:16 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/japanese/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon BraketでQiskitを利用する</title>
+      <link>https://schrodinteq.github.io/japanese/awsbraketqiskit/</link>
+      <pubDate>Tue, 20 May 2025 11:47:16 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/japanese/awsbraketqiskit/</guid>
+      <description>この記事ではAWSが提供する量子コンピューティングサービスの1つである、Amazon Braket NotebookからQiskitを利用する方法について説明します。&#xA;Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！&#xA;Amazon Braket NotebookからQiskitを実行する AWSが提供する量子コンピューティングサービスの1つである、Amazon Braket Notebookインスタンスには、Amazon Braket SDK、Qiskit、Pennylaneなどの量子コンピューティングSDKが既に利用できる状態でインストールされています。 今回はQiskitを用いて簡単な回路を実行します。 まずはAmazon Braket Notebookインスタンスを起動し、新しいファイルを開きます。 Amazon Braket Notebookインスタンスは、起動時間に応じて料金が発生するので注意しましょう。 以下の様に通常のQiskitと同様にモジュールをインポートできます。&#xA;import qiskit from qiskit import QuantumCircuit この記事を書いている時点では、Qiskit1.2.0がデフォルトでインストールされています。&#xA;print(qiskit.__version__) #1.2.0 量子回路もいつも通り定義できます。今回はベルの回路を作成しています。&#xA;circuit = QuantumCircuit(2) circuit.h(0) circuit.cx(0, 1) 量子回路の実行方法は、通常のQiskitと記載の仕方が異なります。以下はローカルシミュレータ利用時のコードです。 local_simulatorという変数にバックエンドを定義し、実行しています。100回の実行としています。&#xA;from qiskit_braket_provider import BraketLocalBackend local_simulator = BraketLocalBackend() local_task = local_simulator.run(circuit, shots=100) 結果の確認方法は通常のQiskitと同様です。&#xA;print(local_task.result().get_counts()) #{&amp;#39;11&amp;#39;: 44, &amp;#39;00&amp;#39;: 56} ヒストグラムもいつも通り以下で確認できます。&#xA;from qiskit.visualization import plot_histogram plot_histogram(local_task.result().get_counts()) Amazon Braket managedシミュレータを扱いたい場合、利用可能なシミュレータは以下で確認可能です。</description>
+    </item>
     <item>
       <title>Amazon BraketのAccessDeniedException</title>
       <link>https://schrodinteq.github.io/japanese/braketexrole/</link>

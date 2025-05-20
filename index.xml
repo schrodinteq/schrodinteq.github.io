@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Mon, 19 May 2025 11:34:09 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 20 May 2025 14:40:23 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Qiskit on Amazon Braket</title>
+      <link>https://schrodinteq.github.io/awsbraketqiskit/</link>
+      <pubDate>Tue, 20 May 2025 14:40:23 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/awsbraketqiskit/</guid>
+      <description>This article explains how to use Qiskit from an Amazon Braket notebook, one of the quantum computing services provided by AWS.&#xA;Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!</description>
+    </item>
     <item>
       <title>AccessDeniedException in Amazon Braket</title>
       <link>https://schrodinteq.github.io/braketexrole/</link>
