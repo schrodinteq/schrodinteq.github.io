@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="japanese">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Qiskit 2.0をインストールして簡単な量子回路を実行する | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Qiskit 2.0がリリースされました。この記事ではqiskit 2.0.1で簡単な量子回路を実行する方法を説明します。
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B qiskit 2.0.1をインストールして簡単な量子回路を実行する この記事を書いてる時点での最新版であるqiskitのバージョンは2.0.1であったため、これをインストールし、簡単な量子回路を実行します。 環境は以下の通り用意しました。
+pip install qiskit==2.0.1 notebook numpy 今回の記事ではStatevectorSamplerを用いて量子回路を実行します。その他必要となるモジュールと合わせてimportしておきます。
+from qiskit.circuit import ( Parameter, QuantumCircuit ) from qiskit.primitives import StatevectorSampler samplerを定義します。
+sampler = StatevectorSampler() いつも通り量子回路を定義します。今回はベルの回路を定義してます。
+qc = QuantumCircuit(2, 2) qc.h(0) qc.cx(0, 1) qc.measure([0,1], [0,1]) Qiskitでは量子回路と同時に複数のパラメータを定義し、samplerで一気に実行可能です。 ただし、今回はパラメータ依存のゲートもないため、パラメータを定義しないNoneとして実行します。
+pub = (qc, None) job = sampler.run([pub], shots=100) 以下の様に結果を確認できます。
+result = job.result()[0] print(result.data.c.get_counts()) # {&#39;11&#39;: 53, &#39;00&#39;: 47} では次に複数のパラメータで一気に量子回路を実行してみましょう。 以下のようにParameter x, yに依存し回転を施すrx, ryゲートを使った量子回路を定義します。">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/japanese/qiskit20/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/japanese/qiskit20/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="Qiskit 2.0をインストールして簡単な量子回路を実行する">
+  <meta property="og:description" content="Qiskit 2.0がリリースされました。この記事ではqiskit 2.0.1で簡単な量子回路を実行する方法を説明します。
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B qiskit 2.0.1をインストールして簡単な量子回路を実行する この記事を書いてる時点での最新版であるqiskitのバージョンは2.0.1であったため、これをインストールし、簡単な量子回路を実行します。 環境は以下の通り用意しました。
+pip install qiskit==2.0.1 notebook numpy 今回の記事ではStatevectorSamplerを用いて量子回路を実行します。その他必要となるモジュールと合わせてimportしておきます。
+from qiskit.circuit import ( Parameter, QuantumCircuit ) from qiskit.primitives import StatevectorSampler samplerを定義します。
+sampler = StatevectorSampler() いつも通り量子回路を定義します。今回はベルの回路を定義してます。
+qc = QuantumCircuit(2, 2) qc.h(0) qc.cx(0, 1) qc.measure([0,1], [0,1]) Qiskitでは量子回路と同時に複数のパラメータを定義し、samplerで一気に実行可能です。 ただし、今回はパラメータ依存のゲートもないため、パラメータを定義しないNoneとして実行します。
+pub = (qc, None) job = sampler.run([pub], shots=100) 以下の様に結果を確認できます。
+result = job.result()[0] print(result.data.c.get_counts()) # {&#39;11&#39;: 53, &#39;00&#39;: 47} では次に複数のパラメータで一気に量子回路を実行してみましょう。 以下のようにParameter x, yに依存し回転を施すrx, ryゲートを使った量子回路を定義します。">
+  <meta property="og:locale" content="japanese">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-05-22T17:36:41+09:00">
+    <meta property="article:modified_time" content="2025-05-22T17:36:41+09:00">
+
+  <meta itemprop="name" content="Qiskit 2.0をインストールして簡単な量子回路を実行する">
+  <meta itemprop="description" content="Qiskit 2.0がリリースされました。この記事ではqiskit 2.0.1で簡単な量子回路を実行する方法を説明します。
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B qiskit 2.0.1をインストールして簡単な量子回路を実行する この記事を書いてる時点での最新版であるqiskitのバージョンは2.0.1であったため、これをインストールし、簡単な量子回路を実行します。 環境は以下の通り用意しました。
+pip install qiskit==2.0.1 notebook numpy 今回の記事ではStatevectorSamplerを用いて量子回路を実行します。その他必要となるモジュールと合わせてimportしておきます。
+from qiskit.circuit import ( Parameter, QuantumCircuit ) from qiskit.primitives import StatevectorSampler samplerを定義します。
+sampler = StatevectorSampler() いつも通り量子回路を定義します。今回はベルの回路を定義してます。
+qc = QuantumCircuit(2, 2) qc.h(0) qc.cx(0, 1) qc.measure([0,1], [0,1]) Qiskitでは量子回路と同時に複数のパラメータを定義し、samplerで一気に実行可能です。 ただし、今回はパラメータ依存のゲートもないため、パラメータを定義しないNoneとして実行します。
+pub = (qc, None) job = sampler.run([pub], shots=100) 以下の様に結果を確認できます。
+result = job.result()[0] print(result.data.c.get_counts()) # {&#39;11&#39;: 53, &#39;00&#39;: 47} では次に複数のパラメータで一気に量子回路を実行してみましょう。 以下のようにParameter x, yに依存し回転を施すrx, ryゲートを使った量子回路を定義します。">
+  <meta itemprop="datePublished" content="2025-05-22T17:36:41+09:00">
+  <meta itemprop="dateModified" content="2025-05-22T17:36:41+09:00">
+  <meta itemprop="wordCount" content="181">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Qiskit 2.0をインストールして簡単な量子回路を実行する">
+  <meta name="twitter:description" content="Qiskit 2.0がリリースされました。この記事ではqiskit 2.0.1で簡単な量子回路を実行する方法を説明します。
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B qiskit 2.0.1をインストールして簡単な量子回路を実行する この記事を書いてる時点での最新版であるqiskitのバージョンは2.0.1であったため、これをインストールし、簡単な量子回路を実行します。 環境は以下の通り用意しました。
+pip install qiskit==2.0.1 notebook numpy 今回の記事ではStatevectorSamplerを用いて量子回路を実行します。その他必要となるモジュールと合わせてimportしておきます。
+from qiskit.circuit import ( Parameter, QuantumCircuit ) from qiskit.primitives import StatevectorSampler samplerを定義します。
+sampler = StatevectorSampler() いつも通り量子回路を定義します。今回はベルの回路を定義してます。
+qc = QuantumCircuit(2, 2) qc.h(0) qc.cx(0, 1) qc.measure([0,1], [0,1]) Qiskitでは量子回路と同時に複数のパラメータを定義し、samplerで一気に実行可能です。 ただし、今回はパラメータ依存のゲートもないため、パラメータを定義しないNoneとして実行します。
+pub = (qc, None) job = sampler.run([pub], shots=100) 以下の様に結果を確認できます。
+result = job.result()[0] print(result.data.c.get_counts()) # {&#39;11&#39;: 53, &#39;00&#39;: 47} では次に複数のパラメータで一気に量子回路を実行してみましょう。 以下のようにParameter x, yに依存し回転を施すrx, ryゲートを使った量子回路を定義します。">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/japanese/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/qiskit20/">english</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Qiskit 2.0をインストールして簡単な量子回路を実行する
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p><a href="https://docs.quantum.ibm.com/api/qiskit/release-notes/2.0">Qiskit 2.0がリリースされました。</a>この記事ではqiskit 2.0.1で簡単な量子回路を実行する方法を説明します。</p>
+<hr>
+<h4 id="amazon-braket学習コース">Amazon Braket学習コース</h4>
+<p>AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h4 id="qiskit試験対策問題集">Qiskit試験対策問題集</h4>
+<p>qiskitについての<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">資格試験</a>をIBMが提供しています。</p>
+<p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。</p>
+<h4 id="英語版問題集">英語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<h4 id="日本語版問題集">日本語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseJa.jpg" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+<h1 id="qiskit-201をインストールして簡単な量子回路を実行する">qiskit 2.0.1をインストールして簡単な量子回路を実行する</h1>
+<p>この記事を書いてる時点での最新版であるqiskitのバージョンは2.0.1であったため、これをインストールし、簡単な量子回路を実行します。
+環境は以下の通り用意しました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pip install qiskit<span style="color:#f92672">==</span>2.0.1 notebook numpy
+</span></span></code></pre></div><p>今回の記事ではStatevectorSamplerを用いて量子回路を実行します。その他必要となるモジュールと合わせてimportしておきます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.circuit <span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    Parameter, QuantumCircuit
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.primitives <span style="color:#f92672">import</span> StatevectorSampler
+</span></span></code></pre></div><p>samplerを定義します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sampler <span style="color:#f92672">=</span> StatevectorSampler()
+</span></span></code></pre></div><p>いつも通り量子回路を定義します。今回はベルの回路を定義してます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>])
+</span></span></code></pre></div><p>Qiskitでは量子回路と同時に複数のパラメータを定義し、samplerで一気に実行可能です。
+ただし、今回はパラメータ依存のゲートもないため、パラメータを定義しないNoneとして実行します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pub <span style="color:#f92672">=</span> (qc, <span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> sampler<span style="color:#f92672">.</span>run([pub], shots<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span></code></pre></div><p>以下の様に結果を確認できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>result <span style="color:#f92672">=</span> job<span style="color:#f92672">.</span>result()[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>c<span style="color:#f92672">.</span>get_counts())
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># {&#39;11&#39;: 53, &#39;00&#39;: 47}</span>
+</span></span></code></pre></div><p>では次に複数のパラメータで一気に量子回路を実行してみましょう。
+以下のように<code>Parameter x, y</code>に依存し回転を施す<code>rx, ry</code>ゲートを使った量子回路を定義します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>rx(Parameter(<span style="color:#e6db74">&#34;x&#34;</span>), <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>ry(Parameter(<span style="color:#e6db74">&#34;y&#34;</span>), <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>]) 
+</span></span></code></pre></div><p>パラメータ2つについては0から2πの間を、π/2ごとに区切る以下のように定義します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>params <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>vstack([
+</span></span><span style="display:flex;"><span>    np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi, <span style="color:#ae81ff">5</span>),
+</span></span><span style="display:flex;"><span>    np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi, <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>])<span style="color:#f92672">.</span>T
+</span></span><span style="display:flex;"><span>print(params)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># [[0.         0.        ]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#  [1.57079633 1.57079633]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#  [3.14159265 3.14159265]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#  [4.71238898 4.71238898]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#  [6.28318531 6.28318531]]</span>
+</span></span></code></pre></div><p>このパラメータを用いて量子回路を以下のように実行します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sampler <span style="color:#f92672">=</span> StatevectorSampler()
+</span></span><span style="display:flex;"><span>pub <span style="color:#f92672">=</span> (qc, params)
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> sampler<span style="color:#f92672">.</span>run([pub], shots<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span></code></pre></div><p>各パラメータに紐づいた量子回路の実行結果は個別に確認することが可能です。例えば0番目のパラメータに関しての結果は以下のように取得できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>result <span style="color:#f92672">=</span> job<span style="color:#f92672">.</span>result()[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>c<span style="color:#f92672">.</span>get_counts(<span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># {&#39;00&#39;: 100}</span>
+</span></span></code></pre></div><p>同様に他の結果も確認してましょう。各パラメータに対しての結果が想定通りであることがわかります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>c<span style="color:#f92672">.</span>get_counts(<span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># {&#39;01&#39;: 28, &#39;00&#39;: 24, &#39;11&#39;: 24, &#39;10&#39;: 24}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>c<span style="color:#f92672">.</span>get_counts(<span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># {&#39;11&#39;: 100}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>c<span style="color:#f92672">.</span>get_counts(<span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># {&#39;10&#39;: 27, &#39;01&#39;: 22, &#39;00&#39;: 24, &#39;11&#39;: 27}</span>
+</span></span></code></pre></div><p>パラメータを複数定義し、一気に実行できるため、VQCなどの量子機械学習アルゴリズムを実行する際に便利そうですね。</p>
+<hr>
+<h4 id="amazon-braket学習コース-1">Amazon Braket学習コース</h4>
+<p>AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h4 id="qiskit試験対策問題集-1">Qiskit試験対策問題集</h4>
+<p>qiskitについての<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">資格試験</a>をIBMが提供しています。</p>
+<p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。</p>
+<h4 id="英語版問題集-1">英語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<h4 id="日本語版問題集-1">日本語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseJa.jpg" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/japanese/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+
