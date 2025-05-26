@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Install the Amazon Braket SDK and run quantum circuits in Jupyter Notebook.&#34; | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="This article explains how to install the Amazon Braket SDK, a quantum computing SDK provided by AWS, and run it on Jupyter Notebook.
+Amazon Braket Learning Course For those who want to learn more about Amazon Braket mentioned in this article, here is an introduction to the Amazon Braket learning course.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/installrunbraketsdk/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/installrunbraketsdk/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="Install the Amazon Braket SDK and run quantum circuits in Jupyter Notebook.&#34;">
+  <meta property="og:description" content="This article explains how to install the Amazon Braket SDK, a quantum computing SDK provided by AWS, and run it on Jupyter Notebook.
+Amazon Braket Learning Course For those who want to learn more about Amazon Braket mentioned in this article, here is an introduction to the Amazon Braket learning course.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning.">
+  <meta property="og:locale" content="english">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-05-26T17:47:23+09:00">
+    <meta property="article:modified_time" content="2025-05-26T17:47:23+09:00">
+
+  <meta itemprop="name" content="Install the Amazon Braket SDK and run quantum circuits in Jupyter Notebook.&#34;">
+  <meta itemprop="description" content="This article explains how to install the Amazon Braket SDK, a quantum computing SDK provided by AWS, and run it on Jupyter Notebook.
+Amazon Braket Learning Course For those who want to learn more about Amazon Braket mentioned in this article, here is an introduction to the Amazon Braket learning course.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning.">
+  <meta itemprop="datePublished" content="2025-05-26T17:47:23+09:00">
+  <meta itemprop="dateModified" content="2025-05-26T17:47:23+09:00">
+  <meta itemprop="wordCount" content="379">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Install the Amazon Braket SDK and run quantum circuits in Jupyter Notebook.&#34;">
+  <meta name="twitter:description" content="This article explains how to install the Amazon Braket SDK, a quantum computing SDK provided by AWS, and run it on Jupyter Notebook.
+Amazon Braket Learning Course For those who want to learn more about Amazon Braket mentioned in this article, here is an introduction to the Amazon Braket learning course.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning.">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/japanese/installrunbraketsdk/">japanese</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Install the Amazon Braket SDK and run quantum circuits in Jupyter Notebook.&#34;
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>This article explains how to install the Amazon Braket SDK, a quantum computing SDK provided by AWS, and run it on Jupyter Notebook.</p>
+<hr>
+<h4 id="amazon-braket-learning-course">Amazon Braket Learning Course</h4>
+<p>For those who want to learn more about Amazon Braket mentioned in this article, here is an introduction to the Amazon Braket learning course.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+<h1 id="install-the-amazon-braket-sdk-and-run-quantum-circuits-in-jupyter-notebook">Install the Amazon Braket SDK and run quantum circuits in Jupyter Notebook.</h1>
+<p>The Amazon Braket SDK is a quantum computing software development kit provided by AWS, and it can be used with Python. This SDK allows you to define and execute quantum circuits.<br>
+While the Amazon Braket SDK can be easily used through Amazon Braket Notebooks-Jupyter Notebook instances running on AWS-in this guide, we will explain how to install and run the SDK directly on your local PC or server.<br>
+The environment is Windows 10, and I&rsquo;m using Python 3.9.9.
+First, here is an example where the installation didn&rsquo;t go as expected.
+I tried installing the Amazon Braket SDK using the following command:</p>
+<pre tabindex="0"><code>pip install amazon-braket-sdk[braket-air,notebook]
+</code></pre><p>After launching the environment with the <code>jupyter notebook</code> command, try running the following code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> braket.circuits <span style="color:#f92672">import</span> Circuit
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> braket.devices <span style="color:#f92672">import</span> LocalSimulator
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>circuit <span style="color:#f92672">=</span> Circuit()<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>measure(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>device <span style="color:#f92672">=</span> LocalSimulator()
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> device<span style="color:#f92672">.</span>run(circuit, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)<span style="color:#f92672">.</span>result()
+</span></span><span style="display:flex;"><span>counts <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>measurement_counts
+</span></span><span style="display:flex;"><span>print(counts)
+</span></span></code></pre></div><p>The result fails with the following error message.</p>
+<pre tabindex="0"><code>ModuleNotFoundError: No module named &#39;braket&#39;
+</code></pre><p>Next, we’ll show a successful example. The environment will be prepared as follows.</p>
+<pre tabindex="0"><code>pip install amazon-braket-sdk notebook
+</code></pre><p>After launching the environment with the <code>jupyter notebook</code> command, try running the same code. This time, the output appears as shown below, confirming that the quantum circuit was successfully executed.</p>
+<pre tabindex="0"><code>Counter({&#39;0&#39;: 515, &#39;1&#39;: 485})
+</code></pre><hr>
+<h4 id="amazon-braket-learning-course-1">Amazon Braket Learning Course</h4>
+<p>For those who want to learn more about Amazon Braket mentioned in this article, here is an introduction to the Amazon Braket learning course.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Thu, 22 May 2025 18:01:51 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 26 May 2025 17:47:23 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install the Amazon Braket SDK and run quantum circuits in Jupyter Notebook.&#34;</title>
+      <link>https://schrodinteq.github.io/installrunbraketsdk/</link>
+      <pubDate>Mon, 26 May 2025 17:47:23 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/installrunbraketsdk/</guid>
+      <description>This article explains how to install the Amazon Braket SDK, a quantum computing SDK provided by AWS, and run it on Jupyter Notebook.&#xA;Amazon Braket Learning Course For those who want to learn more about Amazon Braket mentioned in this article, here is an introduction to the Amazon Braket learning course.&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning.</description>
+    </item>
     <item>
       <title>Install Qiskit 2.0 and run a simple quantum circuit.</title>
       <link>https://schrodinteq.github.io/qiskit20/</link>

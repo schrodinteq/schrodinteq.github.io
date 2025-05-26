@@ -61,8 +61,8 @@ window.MathJax = {
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
-  <meta itemprop="datePublished" content="2025-05-22T17:36:41+09:00">
-  <meta itemprop="dateModified" content="2025-05-22T17:36:41+09:00">
+  <meta itemprop="datePublished" content="2025-05-26T15:39:10+09:00">
+  <meta itemprop="dateModified" content="2025-05-26T15:39:10+09:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
 
@@ -164,6 +164,39 @@ window.MathJax = {
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/japanese/installrunbraketsdk/" class="color-inherit dim link">
+            Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          この記事ではAWSが提供する量子コンピューティングSDKである、Amazon Braket SDKをインストールし、Jypyter Notebook上で実行する方法について、説明します。
+Amazon Braket学習コース 本記事で言及されている、Amazon Braketについてより深く学びたい方へ、Amazon Braket学習コースの紹介です。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する Amazon Braket SDKはAWSが提供する量子コンピューティングSDKで、pythonにより実行可能です。このSDKにより量子回路の記述や、実行が可能となります。
+Amazon Braket SDKはAmazon Braket NotebookというAWS上のJupyter Notebookインスタンスから簡単に実行可能ですが、今回はこのAmazon Braket SDKを自分のPCや、サーバに直接インストールして実行する方法について説明します。
+環境はWindows 10で、pythonはPython 3.9.9を利用しています。 まずはうまくいかなかった例についてです。 以下コマンドでAmazon Braket SDKをインストールしました。
+pip install amazon-braket-sdk[braket-air,notebook] jupyter notebookコマンドで環境を起動後、以下コードを実行してみます。
+from braket.circuits import Circuit from braket.devices import LocalSimulator circuit = Circuit().h(0).measure(0) device = LocalSimulator() result = device.run(circuit, shots=1000).result() counts = result.measurement_counts print(counts) 結果は以下のようなエラーメッセージで失敗します。
+ModuleNotFoundError: No module named &#39;braket&#39; 次に成功例を記載します。以下で環境を用意します。
+pip install amazon-braket-sdk notebook jupyter notebookコマンドで環境を起動後、同じコードを実行してみます。 すると以下の様に表示され、無事量子回路が実行されていることが確認できました。
+        </div>
+          <a href="/japanese/installrunbraketsdk/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+            </div>
+          
+            <div class="relative w-100 mb4">
+              
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/japanese/qiskit20/" class="color-inherit dim link">
             Qiskit 2.0をインストールして簡単な量子回路を実行する
             </a>
@@ -224,39 +257,18 @@ from qiskit.visualization import plot_histogram plot_histogram(local_task.result
 
             </div>
           
-            <div class="relative w-100 mb4">
-              
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/japanese/braketexrole/" class="color-inherit dim link">
-            Amazon BraketのAccessDeniedException
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
-Amazon BraketのAccessDeniedException Amazon BraketでSV1、 TN1、 DM1シミュレータや量子コンピュータを実行しようとした際に以下のようなエラーが出力されることがあります。
---------------------------------------------------------------------------- AccessDeniedException Traceback (most recent call last) Cell In[12], line 6 3 ghz = ghz_circuit(n_qubits) 5 # run GHZ circuit on SV1 ----&gt; 6 result = device.run(ghz, shots=1000).result() 7 counts = result.measurement_counts 8 print(counts) File ~/anaconda3/envs/Braket/lib/python3.10/site-packages/braket/aws/aws_device.py:207, in AwsDevice.run(self, task_specification, s3_destination_folder, shots, poll_timeout_seconds, poll_interval_seconds, inputs, gate_definitions, reservation_arn, *aws_quantum_task_args, **aws_quantum_task_kwargs) 205 if self._noise_model: 206 task_specification = self._apply_noise_model_to_circuit(task_specification) --&gt; 207 return AwsQuantumTask.
-        </div>
-          <a href="/japanese/braketexrole/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-            </div>
-          
         </section>
 
         
         <section class="w-100">
           <h1 class="f3">More</h1>
           
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/japanese/braketexrole/" class="link black dim">
+                Amazon BraketのAccessDeniedException
+              </a>
+            </h2>
           
             <h2 class="f5 fw4 mb4 dib mr3">
               <a href="/japanese/braketmemerr/" class="link black dim">
@@ -273,12 +285,6 @@ Amazon BraketのAccessDeniedException Amazon BraketでSV1、 TN1、 DM1シミュ
             <h2 class="f5 fw4 mb4 dib mr3">
               <a href="/japanese/venv/" class="link black dim">
                 pythonの仮想環境により任意のqiskitのバージョンを実行する。
-              </a>
-            </h2>
-          
-            <h2 class="f5 fw4 mb4 dib mr3">
-              <a href="/japanese/ibmcertsample02ja/" class="link black dim">
-                IBM 量子開発者認定資格 sample問題集の解説 その2
               </a>
             </h2>
           
