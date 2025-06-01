@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="japanese">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Amazon Braketアルゴリズムライブラリインポート時のエラーについて | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+braket.experimentalのimportエラー 既に別の記事で紹介した通り、Amazon Braketではアルゴリズムライブラリを用いることで簡単に、量子フーリエ変換や、量子機械学習などのアルゴリズムが実行可能です。
+しかし、Amazon Braket SDKをローカルにインストールし、pythonでimportしようとすると次のようなエラーが出力される場合があります。
+--------------------------------------------------------------------------- ModuleNotFoundError Traceback (most recent call last) Cell In[2], line 4 2 import numpy as np 3 from braket.devices import LocalSimulator ----&gt; 4 from braket.experimental.algorithms.quantum_circuit_born_machine import QCBM, mmd_loss 5 get_ipython().run_line_magic(&#39;matplotlib&#39;, &#39;inline&#39;) ModuleNotFoundError: No module named &#39;braket.experimental&#39; このエラーはhttps://github.com/amazon-braket/amazon-braket-algorithm-library.gitに記載があるように、ローカルで以下を実行し、Amazon Braket algorithm libraryをインストールすることで解決します。
+git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git cd amazon-braket-algorithm-library pip install . このインストールにより、様々なAmazon Braket algorithm libraryが使えるようになります。
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/japanese/braketexperimenterror/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/japanese/braketexperimenterror/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="Amazon Braketアルゴリズムライブラリインポート時のエラーについて">
+  <meta property="og:description" content="Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+braket.experimentalのimportエラー 既に別の記事で紹介した通り、Amazon Braketではアルゴリズムライブラリを用いることで簡単に、量子フーリエ変換や、量子機械学習などのアルゴリズムが実行可能です。
+しかし、Amazon Braket SDKをローカルにインストールし、pythonでimportしようとすると次のようなエラーが出力される場合があります。
+--------------------------------------------------------------------------- ModuleNotFoundError Traceback (most recent call last) Cell In[2], line 4 2 import numpy as np 3 from braket.devices import LocalSimulator ----&gt; 4 from braket.experimental.algorithms.quantum_circuit_born_machine import QCBM, mmd_loss 5 get_ipython().run_line_magic(&#39;matplotlib&#39;, &#39;inline&#39;) ModuleNotFoundError: No module named &#39;braket.experimental&#39; このエラーはhttps://github.com/amazon-braket/amazon-braket-algorithm-library.gitに記載があるように、ローカルで以下を実行し、Amazon Braket algorithm libraryをインストールすることで解決します。
+git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git cd amazon-braket-algorithm-library pip install . このインストールにより、様々なAmazon Braket algorithm libraryが使えるようになります。
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。">
+  <meta property="og:locale" content="japanese">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-05-31T20:53:35+09:00">
+    <meta property="article:modified_time" content="2025-05-31T20:53:35+09:00">
+
+  <meta itemprop="name" content="Amazon Braketアルゴリズムライブラリインポート時のエラーについて">
+  <meta itemprop="description" content="Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+braket.experimentalのimportエラー 既に別の記事で紹介した通り、Amazon Braketではアルゴリズムライブラリを用いることで簡単に、量子フーリエ変換や、量子機械学習などのアルゴリズムが実行可能です。
+しかし、Amazon Braket SDKをローカルにインストールし、pythonでimportしようとすると次のようなエラーが出力される場合があります。
+--------------------------------------------------------------------------- ModuleNotFoundError Traceback (most recent call last) Cell In[2], line 4 2 import numpy as np 3 from braket.devices import LocalSimulator ----&gt; 4 from braket.experimental.algorithms.quantum_circuit_born_machine import QCBM, mmd_loss 5 get_ipython().run_line_magic(&#39;matplotlib&#39;, &#39;inline&#39;) ModuleNotFoundError: No module named &#39;braket.experimental&#39; このエラーはhttps://github.com/amazon-braket/amazon-braket-algorithm-library.gitに記載があるように、ローカルで以下を実行し、Amazon Braket algorithm libraryをインストールすることで解決します。
+git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git cd amazon-braket-algorithm-library pip install . このインストールにより、様々なAmazon Braket algorithm libraryが使えるようになります。
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。">
+  <meta itemprop="datePublished" content="2025-05-31T20:53:35+09:00">
+  <meta itemprop="dateModified" content="2025-05-31T20:53:35+09:00">
+  <meta itemprop="wordCount" content="80">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Amazon Braketアルゴリズムライブラリインポート時のエラーについて">
+  <meta name="twitter:description" content="Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+braket.experimentalのimportエラー 既に別の記事で紹介した通り、Amazon Braketではアルゴリズムライブラリを用いることで簡単に、量子フーリエ変換や、量子機械学習などのアルゴリズムが実行可能です。
+しかし、Amazon Braket SDKをローカルにインストールし、pythonでimportしようとすると次のようなエラーが出力される場合があります。
+--------------------------------------------------------------------------- ModuleNotFoundError Traceback (most recent call last) Cell In[2], line 4 2 import numpy as np 3 from braket.devices import LocalSimulator ----&gt; 4 from braket.experimental.algorithms.quantum_circuit_born_machine import QCBM, mmd_loss 5 get_ipython().run_line_magic(&#39;matplotlib&#39;, &#39;inline&#39;) ModuleNotFoundError: No module named &#39;braket.experimental&#39; このエラーはhttps://github.com/amazon-braket/amazon-braket-algorithm-library.gitに記載があるように、ローカルで以下を実行し、Amazon Braket algorithm libraryをインストールすることで解決します。
+git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git cd amazon-braket-algorithm-library pip install . このインストールにより、様々なAmazon Braket algorithm libraryが使えるようになります。
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/japanese/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/braketexperimenterror/">english</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Amazon Braketアルゴリズムライブラリインポート時のエラーについて
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <hr>
+<h4 id="amazon-braket学習コース">Amazon Braket学習コース</h4>
+<p>AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h2 id="braketexperimentalのimportエラー">braket.experimentalのimportエラー</h2>
+<p>既に<a href="/japanese/whatisamazonbraket/">別の記事</a>で紹介した通り、Amazon Braketではアルゴリズムライブラリを用いることで簡単に、量子フーリエ変換や、量子機械学習などのアルゴリズムが実行可能です。<br>
+しかし、Amazon Braket SDKをローカルにインストールし、pythonでimportしようとすると次のようなエラーが出力される場合があります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">---------------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ModuleNotFoundError</span>                       Traceback (most recent call last)
+</span></span><span style="display:flex;"><span>Cell In[<span style="color:#ae81ff">2</span>], line <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">2</span> <span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">3</span> <span style="color:#f92672">from</span> braket.devices <span style="color:#f92672">import</span> LocalSimulator
+</span></span><span style="display:flex;"><span><span style="color:#f92672">----&gt;</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">from</span> braket.experimental.algorithms.quantum_circuit_born_machine <span style="color:#f92672">import</span> QCBM, mmd_loss
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">5</span> get_ipython()<span style="color:#f92672">.</span>run_line_magic(<span style="color:#e6db74">&#39;matplotlib&#39;</span>, <span style="color:#e6db74">&#39;inline&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ModuleNotFoundError</span>: No module named <span style="color:#e6db74">&#39;braket.experimental&#39;</span>
+</span></span></code></pre></div><p>このエラーはhttps://github.com/amazon-braket/amazon-braket-algorithm-library.gitに記載があるように、ローカルで以下を実行し、Amazon Braket algorithm libraryをインストールすることで解決します。</p>
+<pre tabindex="0"><code>git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git
+cd amazon-braket-algorithm-library
+pip install .
+</code></pre><p>このインストールにより、様々なAmazon Braket algorithm libraryが使えるようになります。</p>
+<hr>
+<h4 id="amazon-braket学習コース-1">Amazon Braket学習コース</h4>
+<p>AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h4 id="qiskit試験対策問題集">Qiskit試験対策問題集</h4>
+<p>qiskitについての<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">資格試験</a>をIBMが提供しています。</p>
+<p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。</p>
+<h4 id="英語版問題集">英語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<h4 id="日本語版問題集">日本語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseJa.jpg" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/japanese/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

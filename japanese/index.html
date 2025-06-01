@@ -61,8 +61,8 @@ window.MathJax = {
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
-  <meta itemprop="datePublished" content="2025-05-26T15:39:10+09:00">
-  <meta itemprop="dateModified" content="2025-05-26T15:39:10+09:00">
+  <meta itemprop="datePublished" content="2025-05-31T20:53:35+09:00">
+  <meta itemprop="dateModified" content="2025-05-31T20:53:35+09:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
 
@@ -164,6 +164,36 @@ window.MathJax = {
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/japanese/braketexperimenterror/" class="color-inherit dim link">
+            Amazon Braketアルゴリズムライブラリインポート時のエラーについて
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+braket.experimentalのimportエラー 既に別の記事で紹介した通り、Amazon Braketではアルゴリズムライブラリを用いることで簡単に、量子フーリエ変換や、量子機械学習などのアルゴリズムが実行可能です。
+しかし、Amazon Braket SDKをローカルにインストールし、pythonでimportしようとすると次のようなエラーが出力される場合があります。
+--------------------------------------------------------------------------- ModuleNotFoundError Traceback (most recent call last) Cell In[2], line 4 2 import numpy as np 3 from braket.devices import LocalSimulator ----&gt; 4 from braket.experimental.algorithms.quantum_circuit_born_machine import QCBM, mmd_loss 5 get_ipython().run_line_magic(&#39;matplotlib&#39;, &#39;inline&#39;) ModuleNotFoundError: No module named &#39;braket.experimental&#39; このエラーはhttps://github.com/amazon-braket/amazon-braket-algorithm-library.gitに記載があるように、ローカルで以下を実行し、Amazon Braket algorithm libraryをインストールすることで解決します。
+git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git cd amazon-braket-algorithm-library pip install . このインストールにより、様々なAmazon Braket algorithm libraryが使えるようになります。
+Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+        </div>
+          <a href="/japanese/braketexperimenterror/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+            </div>
+          
+            <div class="relative w-100 mb4">
+              
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/japanese/installrunbraketsdk/" class="color-inherit dim link">
             Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する
             </a>
@@ -224,45 +254,18 @@ result = job.result()[0] print(result.data.c.get_counts()) # {&#39;11&#39;: 53, 
 
             </div>
           
-            <div class="relative w-100 mb4">
-              
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/japanese/awsbraketqiskit/" class="color-inherit dim link">
-            Amazon BraketでQiskitを利用する
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          この記事ではAWSが提供する量子コンピューティングサービスの1つである、Amazon Braket NotebookからQiskitを利用する方法について説明します。
-Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
-Amazon Braket NotebookからQiskitを実行する AWSが提供する量子コンピューティングサービスの1つである、Amazon Braket Notebookインスタンスには、Amazon Braket SDK、Qiskit、Pennylaneなどの量子コンピューティングSDKが既に利用できる状態でインストールされています。 今回はQiskitを用いて簡単な回路を実行します。 まずはAmazon Braket Notebookインスタンスを起動し、新しいファイルを開きます。 Amazon Braket Notebookインスタンスは、起動時間に応じて料金が発生するので注意しましょう。 以下の様に通常のQiskitと同様にモジュールをインポートできます。
-import qiskit from qiskit import QuantumCircuit この記事を書いている時点では、Qiskit1.2.0がデフォルトでインストールされています。
-print(qiskit.__version__) #1.2.0 量子回路もいつも通り定義できます。今回はベルの回路を作成しています。
-circuit = QuantumCircuit(2) circuit.h(0) circuit.cx(0, 1) 量子回路の実行方法は、通常のQiskitと記載の仕方が異なります。以下はローカルシミュレータ利用時のコードです。 local_simulatorという変数にバックエンドを定義し、実行しています。100回の実行としています。
-from qiskit_braket_provider import BraketLocalBackend local_simulator = BraketLocalBackend() local_task = local_simulator.run(circuit, shots=100) 結果の確認方法は通常のQiskitと同様です。
-print(local_task.result().get_counts()) #{&#39;11&#39;: 44, &#39;00&#39;: 56} ヒストグラムもいつも通り以下で確認できます。
-from qiskit.visualization import plot_histogram plot_histogram(local_task.result().get_counts()) Amazon Braket managedシミュレータを扱いたい場合、利用可能なシミュレータは以下で確認可能です。
-        </div>
-          <a href="/japanese/awsbraketqiskit/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-            </div>
-          
         </section>
 
         
         <section class="w-100">
           <h1 class="f3">More</h1>
           
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/japanese/awsbraketqiskit/" class="link black dim">
+                Amazon BraketでQiskitを利用する
+              </a>
+            </h2>
           
             <h2 class="f5 fw4 mb4 dib mr3">
               <a href="/japanese/braketexrole/" class="link black dim">

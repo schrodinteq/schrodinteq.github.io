@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>About the error when importing the Amazon Braket algorithm library. | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&rsquo;s quantum computing service.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!
+Error when importing braket.experimental As already introduced in another article, Amazon Braket allows you to easily run algorithms such as Quantum Fourier Transform and quantum machine learning using its algorithm library.">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/braketexperimenterror/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/braketexperimenterror/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="About the error when importing the Amazon Braket algorithm library.">
+  <meta property="og:description" content="Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS’s quantum computing service.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!
+Error when importing braket.experimental As already introduced in another article, Amazon Braket allows you to easily run algorithms such as Quantum Fourier Transform and quantum machine learning using its algorithm library.">
+  <meta property="og:locale" content="english">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-05-31T21:19:07+09:00">
+    <meta property="article:modified_time" content="2025-05-31T21:19:07+09:00">
+
+  <meta itemprop="name" content="About the error when importing the Amazon Braket algorithm library.">
+  <meta itemprop="description" content="Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS’s quantum computing service.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!
+Error when importing braket.experimental As already introduced in another article, Amazon Braket allows you to easily run algorithms such as Quantum Fourier Transform and quantum machine learning using its algorithm library.">
+  <meta itemprop="datePublished" content="2025-05-31T21:19:07+09:00">
+  <meta itemprop="dateModified" content="2025-05-31T21:19:07+09:00">
+  <meta itemprop="wordCount" content="337">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="About the error when importing the Amazon Braket algorithm library.">
+  <meta name="twitter:description" content="Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS’s quantum computing service.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!
+Error when importing braket.experimental As already introduced in another article, Amazon Braket allows you to easily run algorithms such as Quantum Fourier Transform and quantum machine learning using its algorithm library.">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/japanese/braketexperimenterror/">japanese</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          About the error when importing the Amazon Braket algorithm library.
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <hr>
+<h4 id="amazon-braket-learning-course">Amazon Braket Learning Course</h4>
+<p>I have created a learning course on Amazon Braket, AWS&rsquo;s quantum computing service.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+<h2 id="error-when-importing-braketexperimental">Error when importing braket.experimental</h2>
+<p>As already introduced in <a href="/whatisamazonbraket/">another article</a>, Amazon Braket allows you to easily run algorithms such as Quantum Fourier Transform and quantum machine learning using its algorithm library.<br>
+However, when installing the Amazon Braket SDK locally and trying to import it in Python, you may encounter an error like the one shown below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">---------------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ModuleNotFoundError</span>                       Traceback (most recent call last)
+</span></span><span style="display:flex;"><span>Cell In[<span style="color:#ae81ff">2</span>], line <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">2</span> <span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">3</span> <span style="color:#f92672">from</span> braket.devices <span style="color:#f92672">import</span> LocalSimulator
+</span></span><span style="display:flex;"><span><span style="color:#f92672">----&gt;</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">from</span> braket.experimental.algorithms.quantum_circuit_born_machine <span style="color:#f92672">import</span> QCBM, mmd_loss
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">5</span> get_ipython()<span style="color:#f92672">.</span>run_line_magic(<span style="color:#e6db74">&#39;matplotlib&#39;</span>, <span style="color:#e6db74">&#39;inline&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ModuleNotFoundError</span>: No module named <span style="color:#e6db74">&#39;braket.experimental&#39;</span>
+</span></span></code></pre></div><p>As noted in the <a href="https://github.com/amazon-braket/amazon-braket-algorithm-library.git">amazon-braket-algorithm-library GitHub repository</a>, this error can be resolved by installing the Amazon Braket Algorithm Library locally using the following command.</p>
+<pre tabindex="0"><code>git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git
+cd amazon-braket-algorithm-library
+pip install .
+</code></pre><p>This installation enables you to use various Amazon Braket algorithm libraries.</p>
+<hr>
+<h4 id="amazon-braket-learning-course-1">Amazon Braket Learning Course</h4>
+<p>I have created a learning course on Amazon Braket, AWS&rsquo;s quantum computing service.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+<h2 id="regarding-the-ibm-quantum-developer-certification-exam">Regarding the IBM Quantum Developer Certification Exam</h2>
+<p>IBM offers <a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">a certification exam related to Qiskit</a>, which is introduced in this blog.</p>
+<p>By obtaining this certification, you can prove your knowledge of Qiskit and quantum programming. For those aiming to achieve this certification, I have created a practice exams on the Udemy platform! I have made the explanations as clear as possible, so please make sure to take full advantage of the following practice exams as extra study material for exam preparation.</p>
+<h4 id="practice-exams">Practice exams</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

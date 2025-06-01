@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>japanese</language>
-    <lastBuildDate>Mon, 26 May 2025 15:39:10 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 31 May 2025 20:53:35 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/japanese/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon Braketアルゴリズムライブラリインポート時のエラーについて</title>
+      <link>https://schrodinteq.github.io/japanese/braketexperimenterror/</link>
+      <pubDate>Sat, 31 May 2025 20:53:35 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/japanese/braketexperimenterror/</guid>
+      <description>Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！&#xA;braket.experimentalのimportエラー 既に別の記事で紹介した通り、Amazon Braketではアルゴリズムライブラリを用いることで簡単に、量子フーリエ変換や、量子機械学習などのアルゴリズムが実行可能です。&#xA;しかし、Amazon Braket SDKをローカルにインストールし、pythonでimportしようとすると次のようなエラーが出力される場合があります。&#xA;--------------------------------------------------------------------------- ModuleNotFoundError Traceback (most recent call last) Cell In[2], line 4 2 import numpy as np 3 from braket.devices import LocalSimulator ----&amp;gt; 4 from braket.experimental.algorithms.quantum_circuit_born_machine import QCBM, mmd_loss 5 get_ipython().run_line_magic(&amp;#39;matplotlib&amp;#39;, &amp;#39;inline&amp;#39;) ModuleNotFoundError: No module named &amp;#39;braket.experimental&amp;#39; このエラーはhttps://github.com/amazon-braket/amazon-braket-algorithm-library.gitに記載があるように、ローカルで以下を実行し、Amazon Braket algorithm libraryをインストールすることで解決します。&#xA;git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git cd amazon-braket-algorithm-library pip install . このインストールにより、様々なAmazon Braket algorithm libraryが使えるようになります。&#xA;Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</description>
+    </item>
     <item>
       <title>Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する</title>
       <link>https://schrodinteq.github.io/japanese/installrunbraketsdk/</link>

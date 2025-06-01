@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Mon, 26 May 2025 17:47:23 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 31 May 2025 21:19:07 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About the error when importing the Amazon Braket algorithm library.</title>
+      <link>https://schrodinteq.github.io/braketexperimenterror/</link>
+      <pubDate>Sat, 31 May 2025 21:19:07 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/braketexperimenterror/</guid>
+      <description>Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!&#xA;Error when importing braket.experimental As already introduced in another article, Amazon Braket allows you to easily run algorithms such as Quantum Fourier Transform and quantum machine learning using its algorithm library.</description>
+    </item>
     <item>
       <title>Install the Amazon Braket SDK and run quantum circuits in Jupyter Notebook.&#34;</title>
       <link>https://schrodinteq.github.io/installrunbraketsdk/</link>
