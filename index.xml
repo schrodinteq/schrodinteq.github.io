@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Sat, 31 May 2025 21:19:07 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 04 Jun 2025 16:50:26 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quantum Machine Learning on AWS Amazon Braket: QCBM</title>
+      <link>https://schrodinteq.github.io/awsquantummachinelearning/</link>
+      <pubDate>Wed, 04 Jun 2025 16:50:26 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/awsquantummachinelearning/</guid>
+      <description>As described in another article, Amazon Braket, AWS’s quantum computing service, allows users to easily access various features through the Amazon Braket SDK, a software development kit for quantum computing. In this article, we explain how to run quantum machine learning algorithms—machine learning techniques that leverage quantum computers.&#xA;Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.</description>
+    </item>
     <item>
       <title>About the error when importing the Amazon Braket algorithm library.</title>
       <link>https://schrodinteq.github.io/braketexperimenterror/</link>

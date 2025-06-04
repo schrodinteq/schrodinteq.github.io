@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="japanese">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>AWSのAmazon Braketで量子機械学習：QCBM | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="別の記事に記載の通り、AWSの量子コンピューティングサービスであるAmazon Braketにおいては、Amazon Braket SDKと呼ばれる量子コンピューティングSDKを用いて各サービスを簡単に利用可能となります。この記事では、量子コンピュータを用いた機械学習である、量子機械学習アルゴリズムを実行する方法について説明します。
+Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+AWSのAmazon Braketで量子機械学習: QCBM 量子機械学習アルゴリズムはいくつかの方法が提案されておりますが、今回はQuantum Circuit Born Machine (QCBM)を実行します。 このアルゴリズムは、教師なし学習による生成モデルを構築できAmazon Braketのアルゴリズムライブラリに既に用意されています。
+https://github.com/amazon-braket/amazon-braket-algorithm-library/tree/main/src/braket/experimental/algorithms/quantum_circuit_born_machine 今回はこちらのライブラリを使用します。
+環境準備 まずは環境準備です。Amazon Braket Notebook上で実行する場合は特に実施する必要はありませんが、ご自身のPCや、サーバ上で実施する場合は、Amazon Braket SDKと、Jupyter Notebookをインストールします。またAmazon Braketアルゴリズムライブラリを利用するため、今回追加で以下も実行しています。以降の手順はJypyter Notebook上で実行しています。
+git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git cd amazon-braket-algorithm-library pip install . 今回学習対象とするデータについて 4量子ビットが存在した場合、$2^4$通りのビット配列が表現可能です。このビット配列の中央付近にピークを持つガウス分布は以下で生成可能です。
+import numpy as np n_qubits = 4 def gaussian(n_qubits, mu, sigma): x = np.arange(2**n_qubits) gaussian = 1.0 / np.sqrt(2 * np.pi * sigma**2) * np.exp(-((x - mu) ** 2) / (2 * sigma**2)) return gaussian / sum(gaussian) data = gaussian(n_qubits, mu=7, sigma=2) data = data / sum(data) 図で記載してみると以下の通りとなります。今回はこのデータを学習対象とします。">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/japanese/awsquantummachinelearning/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/japanese/awsquantummachinelearning/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="AWSのAmazon Braketで量子機械学習：QCBM">
+  <meta property="og:description" content="別の記事に記載の通り、AWSの量子コンピューティングサービスであるAmazon Braketにおいては、Amazon Braket SDKと呼ばれる量子コンピューティングSDKを用いて各サービスを簡単に利用可能となります。この記事では、量子コンピュータを用いた機械学習である、量子機械学習アルゴリズムを実行する方法について説明します。
+Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+AWSのAmazon Braketで量子機械学習: QCBM 量子機械学習アルゴリズムはいくつかの方法が提案されておりますが、今回はQuantum Circuit Born Machine (QCBM)を実行します。 このアルゴリズムは、教師なし学習による生成モデルを構築できAmazon Braketのアルゴリズムライブラリに既に用意されています。
+https://github.com/amazon-braket/amazon-braket-algorithm-library/tree/main/src/braket/experimental/algorithms/quantum_circuit_born_machine 今回はこちらのライブラリを使用します。
+環境準備 まずは環境準備です。Amazon Braket Notebook上で実行する場合は特に実施する必要はありませんが、ご自身のPCや、サーバ上で実施する場合は、Amazon Braket SDKと、Jupyter Notebookをインストールします。またAmazon Braketアルゴリズムライブラリを利用するため、今回追加で以下も実行しています。以降の手順はJypyter Notebook上で実行しています。
+git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git cd amazon-braket-algorithm-library pip install . 今回学習対象とするデータについて 4量子ビットが存在した場合、$2^4$通りのビット配列が表現可能です。このビット配列の中央付近にピークを持つガウス分布は以下で生成可能です。
+import numpy as np n_qubits = 4 def gaussian(n_qubits, mu, sigma): x = np.arange(2**n_qubits) gaussian = 1.0 / np.sqrt(2 * np.pi * sigma**2) * np.exp(-((x - mu) ** 2) / (2 * sigma**2)) return gaussian / sum(gaussian) data = gaussian(n_qubits, mu=7, sigma=2) data = data / sum(data) 図で記載してみると以下の通りとなります。今回はこのデータを学習対象とします。">
+  <meta property="og:locale" content="japanese">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-06-02T12:53:26+09:00">
+    <meta property="article:modified_time" content="2025-06-02T12:53:26+09:00">
+
+  <meta itemprop="name" content="AWSのAmazon Braketで量子機械学習：QCBM">
+  <meta itemprop="description" content="別の記事に記載の通り、AWSの量子コンピューティングサービスであるAmazon Braketにおいては、Amazon Braket SDKと呼ばれる量子コンピューティングSDKを用いて各サービスを簡単に利用可能となります。この記事では、量子コンピュータを用いた機械学習である、量子機械学習アルゴリズムを実行する方法について説明します。
+Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+AWSのAmazon Braketで量子機械学習: QCBM 量子機械学習アルゴリズムはいくつかの方法が提案されておりますが、今回はQuantum Circuit Born Machine (QCBM)を実行します。 このアルゴリズムは、教師なし学習による生成モデルを構築できAmazon Braketのアルゴリズムライブラリに既に用意されています。
+https://github.com/amazon-braket/amazon-braket-algorithm-library/tree/main/src/braket/experimental/algorithms/quantum_circuit_born_machine 今回はこちらのライブラリを使用します。
+環境準備 まずは環境準備です。Amazon Braket Notebook上で実行する場合は特に実施する必要はありませんが、ご自身のPCや、サーバ上で実施する場合は、Amazon Braket SDKと、Jupyter Notebookをインストールします。またAmazon Braketアルゴリズムライブラリを利用するため、今回追加で以下も実行しています。以降の手順はJypyter Notebook上で実行しています。
+git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git cd amazon-braket-algorithm-library pip install . 今回学習対象とするデータについて 4量子ビットが存在した場合、$2^4$通りのビット配列が表現可能です。このビット配列の中央付近にピークを持つガウス分布は以下で生成可能です。
+import numpy as np n_qubits = 4 def gaussian(n_qubits, mu, sigma): x = np.arange(2**n_qubits) gaussian = 1.0 / np.sqrt(2 * np.pi * sigma**2) * np.exp(-((x - mu) ** 2) / (2 * sigma**2)) return gaussian / sum(gaussian) data = gaussian(n_qubits, mu=7, sigma=2) data = data / sum(data) 図で記載してみると以下の通りとなります。今回はこのデータを学習対象とします。">
+  <meta itemprop="datePublished" content="2025-06-02T12:53:26+09:00">
+  <meta itemprop="dateModified" content="2025-06-02T12:53:26+09:00">
+  <meta itemprop="wordCount" content="698">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AWSのAmazon Braketで量子機械学習：QCBM">
+  <meta name="twitter:description" content="別の記事に記載の通り、AWSの量子コンピューティングサービスであるAmazon Braketにおいては、Amazon Braket SDKと呼ばれる量子コンピューティングSDKを用いて各サービスを簡単に利用可能となります。この記事では、量子コンピュータを用いた機械学習である、量子機械学習アルゴリズムを実行する方法について説明します。
+Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+AWSのAmazon Braketで量子機械学習: QCBM 量子機械学習アルゴリズムはいくつかの方法が提案されておりますが、今回はQuantum Circuit Born Machine (QCBM)を実行します。 このアルゴリズムは、教師なし学習による生成モデルを構築できAmazon Braketのアルゴリズムライブラリに既に用意されています。
+https://github.com/amazon-braket/amazon-braket-algorithm-library/tree/main/src/braket/experimental/algorithms/quantum_circuit_born_machine 今回はこちらのライブラリを使用します。
+環境準備 まずは環境準備です。Amazon Braket Notebook上で実行する場合は特に実施する必要はありませんが、ご自身のPCや、サーバ上で実施する場合は、Amazon Braket SDKと、Jupyter Notebookをインストールします。またAmazon Braketアルゴリズムライブラリを利用するため、今回追加で以下も実行しています。以降の手順はJypyter Notebook上で実行しています。
+git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git cd amazon-braket-algorithm-library pip install . 今回学習対象とするデータについて 4量子ビットが存在した場合、$2^4$通りのビット配列が表現可能です。このビット配列の中央付近にピークを持つガウス分布は以下で生成可能です。
+import numpy as np n_qubits = 4 def gaussian(n_qubits, mu, sigma): x = np.arange(2**n_qubits) gaussian = 1.0 / np.sqrt(2 * np.pi * sigma**2) * np.exp(-((x - mu) ** 2) / (2 * sigma**2)) return gaussian / sum(gaussian) data = gaussian(n_qubits, mu=7, sigma=2) data = data / sum(data) 図で記載してみると以下の通りとなります。今回はこのデータを学習対象とします。">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/japanese/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/awsquantummachinelearning/">english</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          AWSのAmazon Braketで量子機械学習：QCBM
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p><a href="/japanese/whatisamazonbraket/">別の記事に記載の通り</a>、AWSの量子コンピューティングサービスであるAmazon Braketにおいては、Amazon Braket SDKと呼ばれる量子コンピューティングSDKを用いて各サービスを簡単に利用可能となります。この記事では、量子コンピュータを用いた機械学習である、量子機械学習アルゴリズムを実行する方法について説明します。</p>
+<hr>
+<h4 id="amazon-braket学習コース">Amazon Braket学習コース</h4>
+<p>この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h1 id="awsのamazon-braketで量子機械学習-qcbm">AWSのAmazon Braketで量子機械学習: QCBM</h1>
+<p>量子機械学習アルゴリズムはいくつかの方法が提案されておりますが、今回はQuantum Circuit Born Machine (QCBM)を実行します。 このアルゴリズムは、教師なし学習による生成モデルを構築できAmazon Braketのアルゴリズムライブラリに既に用意されています。<br>
+<a href="https://github.com/amazon-braket/amazon-braket-algorithm-library/tree/main/src/braket/experimental/algorithms/quantum_circuit_born_machine">https://github.com/amazon-braket/amazon-braket-algorithm-library/tree/main/src/braket/experimental/algorithms/quantum_circuit_born_machine</a> <br>
+今回はこちらのライブラリを使用します。</p>
+<h2 id="環境準備">環境準備</h2>
+<p>まずは環境準備です。Amazon Braket Notebook上で実行する場合は特に実施する必要はありませんが、ご自身のPCや、サーバ上で実施する場合は、Amazon Braket SDKと、Jupyter Notebookをインストールします。またAmazon  Braketアルゴリズムライブラリを利用するため、今回追加で以下も実行しています。以降の手順はJypyter Notebook上で実行しています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git
+</span></span><span style="display:flex;"><span>cd amazon-braket-algorithm-library
+</span></span><span style="display:flex;"><span>pip install .
+</span></span></code></pre></div><br>
+<h2 id="今回学習対象とするデータについて">今回学習対象とするデータについて</h2>
+<p>4量子ビットが存在した場合、$2^4$通りのビット配列が表現可能です。このビット配列の中央付近にピークを持つガウス分布は以下で生成可能です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>n_qubits <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gaussian</span>(n_qubits, mu, sigma):
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">2</span><span style="color:#f92672">**</span>n_qubits)
+</span></span><span style="display:flex;"><span>    gaussian <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">/</span> np<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> sigma<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>((x <span style="color:#f92672">-</span> mu) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> sigma<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> gaussian <span style="color:#f92672">/</span> sum(gaussian)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> gaussian(n_qubits, mu<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>, sigma<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> data <span style="color:#f92672">/</span> sum(data)
+</span></span></code></pre></div><p>図で記載してみると以下の通りとなります。今回はこのデータを学習対象とします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">%</span>matplotlib inline
+</span></span><span style="display:flex;"><span>labels <span style="color:#f92672">=</span> [format(i, <span style="color:#e6db74">&#34;b&#34;</span>)<span style="color:#f92672">.</span>zfill(n_qubits) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(data))]
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>bar(range(<span style="color:#ae81ff">2</span><span style="color:#f92672">**</span>n_qubits), data)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xticks(list(range(len(data))), labels, rotation<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vertical&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p><figure><img src="/qcbm/Target_data.webp"
+    alt="Target_data" width="500px">
+</figure>
+
+<br></p>
+<h2 id="量子機械学習アルゴリズムの実行">量子機械学習アルゴリズムの実行</h2>
+<p>必要となるモジュールをインポートします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> braket.devices <span style="color:#f92672">import</span> LocalSimulator
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> braket.experimental.algorithms.quantum_circuit_born_machine <span style="color:#f92672">import</span> QCBM, mmd_loss
+</span></span></code></pre></div><p>今回はローカルで計算を行うためデバイスをローカルデバイスとします。QCBMのようなハイブリッドアルゴリズムをAWS Managed Simulatorや、量子コンピュータで実行すると、高額な請求となる場合があります。この程度の回路であればローカルシミュレータでも十分計算できるので、ローカルシミュレータを上手く使いましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>device <span style="color:#f92672">=</span> LocalSimulator()
+</span></span></code></pre></div><p>トレーニング対象のデータのビット数は4なので、量子ビット数はそれに対応して4と定義します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>n_qubits <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span></code></pre></div><p>またQCBMではディープラーニングと似て層の数を定義できます。今回は層の数を4としましょう。これらのパラメータにより、QCBMのインスタンスを次のように作成できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>n_layers <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>qcbm <span style="color:#f92672">=</span> QCBM(device, n_qubits, n_layers, data)
+</span></span></code></pre></div><p>これにより定義された量子回路を描画しましょう。層の数が4つ定義されています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>T  : │         <span style="color:#ae81ff">0</span>         │         <span style="color:#ae81ff">1</span>         │         <span style="color:#ae81ff">2</span>         │  <span style="color:#ae81ff">3</span>  │         <span style="color:#ae81ff">4</span>         │         <span style="color:#ae81ff">5</span>         │         <span style="color:#ae81ff">6</span>         │         <span style="color:#ae81ff">7</span>         │         <span style="color:#ae81ff">8</span>         │         <span style="color:#ae81ff">9</span>         │        <span style="color:#ae81ff">10</span>         │        <span style="color:#ae81ff">11</span>         │        <span style="color:#ae81ff">12</span>         │        <span style="color:#ae81ff">13</span>         │        <span style="color:#ae81ff">14</span>         │        <span style="color:#ae81ff">15</span>         │        <span style="color:#ae81ff">16</span>         │        <span style="color:#ae81ff">17</span>         │        <span style="color:#ae81ff">18</span>         │ <span style="color:#ae81ff">19</span>  │ <span style="color:#ae81ff">20</span>  │ Result Types  │
+</span></span><span style="display:flex;"><span>      ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐       ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐                                         ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐                                         ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐                                                     ┌─────────────┐ 
+</span></span><span style="display:flex;"><span>q0 : ─┤ Rx<span style="color:#f92672">(</span>theta_0_0_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_0_0_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_0_0_2<span style="color:#f92672">)</span> ├───●───┤ Rx<span style="color:#f92672">(</span>theta_1_0_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_1_0_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_1_0_2<span style="color:#f92672">)</span> ├──────────────────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_2_0_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_2_0_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_2_0_2<span style="color:#f92672">)</span> ├──────────────────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_3_0_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_3_0_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_3_0_2<span style="color:#f92672">)</span> ├──────────────────────────────●──────────────────────┤ Probability ├─
+</span></span><span style="display:flex;"><span>      └─────────────────┘ └─────────────────┘ └─────────────────┘   │   └─────────────────┘ └─────────────────┘ └─────────────────┘                              │          └─────────────────┘ └─────────────────┘ └─────────────────┘                              │          └─────────────────┘ └─────────────────┘ └─────────────────┘                              │                      └──────┬──────┘ 
+</span></span><span style="display:flex;"><span>      ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐ ┌─┴─┐                     ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐        ┌─┴─┐                            ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐        ┌─┴─┐                            ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐        ┌─┴─┐                    ┌──────┴──────┐ 
+</span></span><span style="display:flex;"><span>q1 : ─┤ Rx<span style="color:#f92672">(</span>theta_0_1_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_0_1_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_0_1_2<span style="color:#f92672">)</span> ├─┤ X ├──────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_1_1_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_1_1_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_1_1_2<span style="color:#f92672">)</span> ├────────┤ X ├─────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_2_1_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_2_1_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_2_1_2<span style="color:#f92672">)</span> ├────────┤ X ├─────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_3_1_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_3_1_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_3_1_2<span style="color:#f92672">)</span> ├────────┤ X ├──────────●─────────┤ Probability ├─
+</span></span><span style="display:flex;"><span>      └─────────────────┘ └─────────────────┘ └─────────────────┘ └───┘          │          └─────────────────┘ └─────────────────┘ └─────────────────┘        └───┘                 │          └─────────────────┘ └─────────────────┘ └─────────────────┘        └───┘                 │          └─────────────────┘ └─────────────────┘ └─────────────────┘        └───┘          │         └──────┬──────┘ 
+</span></span><span style="display:flex;"><span>      ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐              ┌─┴─┐                            ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐        ┌─┴─┐                            ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐        ┌─┴─┐                            ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐ ┌─┴─┐       ┌──────┴──────┐ 
+</span></span><span style="display:flex;"><span>q2 : ─┤ Rx<span style="color:#f92672">(</span>theta_0_2_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_0_2_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_0_2_2<span style="color:#f92672">)</span> ├──────────────┤ X ├─────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_1_2_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_1_2_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_1_2_2<span style="color:#f92672">)</span> ├────────┤ X ├─────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_2_2_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_2_2_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_2_2_2<span style="color:#f92672">)</span> ├────────┤ X ├─────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_3_2_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_3_2_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_3_2_2<span style="color:#f92672">)</span> ├─┤ X ├───●───┤ Probability ├─
+</span></span><span style="display:flex;"><span>      └─────────────────┘ └─────────────────┘ └─────────────────┘              └───┘                 │          └─────────────────┘ └─────────────────┘ └─────────────────┘        └───┘                 │          └─────────────────┘ └─────────────────┘ └─────────────────┘        └───┘                 │          └─────────────────┘ └─────────────────┘ └─────────────────┘ └───┘   │   └──────┬──────┘ 
+</span></span><span style="display:flex;"><span>      ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐                                  ┌─┴─┐        ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐                            ┌─┴─┐        ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐                            ┌─┴─┐        ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐       ┌─┴─┐ ┌──────┴──────┐ 
+</span></span><span style="display:flex;"><span>q3 : ─┤ Rx<span style="color:#f92672">(</span>theta_0_3_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_0_3_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_0_3_2<span style="color:#f92672">)</span> ├──────────────────────────────────┤ X ├────────┤ Rx<span style="color:#f92672">(</span>theta_1_3_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_1_3_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_1_3_2<span style="color:#f92672">)</span> ├────────────────────────────┤ X ├────────┤ Rx<span style="color:#f92672">(</span>theta_2_3_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_2_3_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_2_3_2<span style="color:#f92672">)</span> ├────────────────────────────┤ X ├────────┤ Rx<span style="color:#f92672">(</span>theta_3_3_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_3_3_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_3_3_2<span style="color:#f92672">)</span> ├───────┤ X ├─┤ Probability ├─
+</span></span><span style="display:flex;"><span>      └─────────────────┘ └─────────────────┘ └─────────────────┘                                  └───┘        └─────────────────┘ └─────────────────┘ └─────────────────┘                            └───┘        └─────────────────┘ └─────────────────┘ └─────────────────┘                            └───┘        └─────────────────┘ └─────────────────┘ └─────────────────┘       └───┘ └─────────────┘ 
+</span></span><span style="display:flex;"><span>T  : │         <span style="color:#ae81ff">0</span>         │         <span style="color:#ae81ff">1</span>         │         <span style="color:#ae81ff">2</span>         │  <span style="color:#ae81ff">3</span>  │         <span style="color:#ae81ff">4</span>         │         <span style="color:#ae81ff">5</span>         │         <span style="color:#ae81ff">6</span>         │         <span style="color:#ae81ff">7</span>         │         <span style="color:#ae81ff">8</span>         │         <span style="color:#ae81ff">9</span>         │        <span style="color:#ae81ff">10</span>         │        <span style="color:#ae81ff">11</span>         │        <span style="color:#ae81ff">12</span>         │        <span style="color:#ae81ff">13</span>         │        <span style="color:#ae81ff">14</span>         │        <span style="color:#ae81ff">15</span>         │        <span style="color:#ae81ff">16</span>         │        <span style="color:#ae81ff">17</span>         │        <span style="color:#ae81ff">18</span>         │ <span style="color:#ae81ff">19</span>  │ <span style="color:#ae81ff">20</span>  │ Result Types  │
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Unassigned parameters: <span style="color:#f92672">[</span>theta_0_0_0, theta_0_0_1, theta_0_0_2, theta_0_1_0, theta_0_1_1, theta_0_1_2, theta_0_2_0, theta_0_2_1, theta_0_2_2, theta_0_3_0, theta_0_3_1, theta_0_3_2, theta_1_0_0, theta_1_0_1, theta_1_0_2, theta_1_1_0, theta_1_1_1, theta_1_1_2, theta_1_2_0, theta_1_2_1, theta_1_2_2, theta_1_3_0, theta_1_3_1, theta_1_3_2, theta_2_0_0, theta_2_0_1, theta_2_0_2, theta_2_1_0, theta_2_1_1, theta_2_1_2, theta_2_2_0, theta_2_2_1, theta_2_2_2, theta_2_3_0, theta_2_3_1, theta_2_3_2, theta_3_0_0, theta_3_0_1, theta_3_0_2, theta_3_1_0, theta_3_1_1, theta_3_1_2, theta_3_2_0, theta_3_2_1, theta_3_2_2, theta_3_3_0, theta_3_3_1, theta_3_3_2<span style="color:#f92672">]</span>.
+</span></span></code></pre></div><p>また学習の反復回数は10としましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>n_iterations <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span></code></pre></div><p>この回路のゲートの数の通り、今回は3 * n_layers * n_qubitsのパラメータが必要となります。ではこのパラメータの初期値を定義します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>init_params <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> n_layers <span style="color:#f92672">*</span> n_qubits) <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p><code>qcbm.get_probabilities(init_params)</code>でこの初期状態の回路による確率分布が得られます。 全く学習を進めていない状態ですので、以下の通りターゲットデータと全く異なる確率分布を出力することが確かめられます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qcbm_probs <span style="color:#f92672">=</span> qcbm<span style="color:#f92672">.</span>get_probabilities(init_params)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>bar(range(<span style="color:#ae81ff">2</span><span style="color:#f92672">**</span>n_qubits), qcbm_probs, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;QCBM probability&#34;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab:green&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xticks(list(range(len(data))), labels, rotation<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vertical&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>yticks(size<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Probability&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><figure><img src="/qcbm/Init_result.webp"
+    alt="Init_result" width="500px">
+</figure>
+
+<p>ではこのモデルで学習を進めましょう。 勾配は<code>qcbm.gradient(x)</code>のように求められます。コードを見てみると勾配は<a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.98.062324">こちらの論文の方法</a>で求められているようです。また、損失関数はMMD Loss（Maximum Mean Discrepancy Loss）が用いられます。このため学習はscipyを用いて次のように進められます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.optimize <span style="color:#f92672">import</span> minimize
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>history <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">callback</span>(x):
+</span></span><span style="display:flex;"><span>    loss <span style="color:#f92672">=</span> mmd_loss(qcbm<span style="color:#f92672">.</span>get_probabilities(x), data)
+</span></span><span style="display:flex;"><span>    history<span style="color:#f92672">.</span>append(loss)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> minimize(
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">lambda</span> x: mmd_loss(qcbm<span style="color:#f92672">.</span>get_probabilities(x), data),
+</span></span><span style="display:flex;"><span>    x0<span style="color:#f92672">=</span>init_params,
+</span></span><span style="display:flex;"><span>    method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;L-BFGS-B&#34;</span>,
+</span></span><span style="display:flex;"><span>    jac<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> x: qcbm<span style="color:#f92672">.</span>gradient(x),
+</span></span><span style="display:flex;"><span>    options<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;maxiter&#34;</span>: n_iterations},
+</span></span><span style="display:flex;"><span>    callback<span style="color:#f92672">=</span>callback,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>関数が収束する過程はこちらの通りです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(history, <span style="color:#e6db74">&#34;-o&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Iteration&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Loss&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Convergence of the loss function&#34;</span>)
+</span></span></code></pre></div><figure><img src="/qcbm/Convergence.webp"
+    alt="Convergence" width="500px">
+</figure>
+
+<p>では学習後のパラメータで確率分布を習得し、ターゲットのデータと比較してみましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qcbm_probs <span style="color:#f92672">=</span> qcbm<span style="color:#f92672">.</span>get_probabilities(result[<span style="color:#e6db74">&#34;x&#34;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>bar(range(<span style="color:#ae81ff">2</span><span style="color:#f92672">**</span>n_qubits), data, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;target probability&#34;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab:blue&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>bar(range(<span style="color:#ae81ff">2</span><span style="color:#f92672">**</span>n_qubits), qcbm_probs, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;QCBM probability&#34;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab:green&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xticks(list(range(len(data))), labels, rotation<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vertical&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>yticks(size<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Sample&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Probability&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><figure><img src="/qcbm/TargetVSQCBM.webp"
+    alt="TargetVSQCBM" width="500px">
+</figure>
+
+<p>初期値のパラメータから学習が進んでいることが確認できました。</p>
+<hr>
+<h4 id="amazon-braket学習コース-1">Amazon Braket学習コース</h4>
+<p>この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h4 id="qiskit試験対策問題集">Qiskit試験対策問題集</h4>
+<p>qiskitについての<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">資格試験</a>をIBMが提供しています。</p>
+<p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。</p>
+<h4 id="英語版問題集">英語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<h4 id="日本語版問題集">日本語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseJa.jpg" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/japanese/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

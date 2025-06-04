@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Quantum Machine Learning on AWS Amazon Braket: QCBM | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="As described in another article, Amazon Braket, AWS’s quantum computing service, allows users to easily access various features through the Amazon Braket SDK, a software development kit for quantum computing. In this article, we explain how to run quantum machine learning algorithms—machine learning techniques that leverage quantum computers.
+Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/awsquantummachinelearning/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/awsquantummachinelearning/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="Quantum Machine Learning on AWS Amazon Braket: QCBM">
+  <meta property="og:description" content="As described in another article, Amazon Braket, AWS’s quantum computing service, allows users to easily access various features through the Amazon Braket SDK, a software development kit for quantum computing. In this article, we explain how to run quantum machine learning algorithms—machine learning techniques that leverage quantum computers.
+Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.">
+  <meta property="og:locale" content="english">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-06-04T16:50:26+09:00">
+    <meta property="article:modified_time" content="2025-06-04T16:50:26+09:00">
+
+  <meta itemprop="name" content="Quantum Machine Learning on AWS Amazon Braket: QCBM">
+  <meta itemprop="description" content="As described in another article, Amazon Braket, AWS’s quantum computing service, allows users to easily access various features through the Amazon Braket SDK, a software development kit for quantum computing. In this article, we explain how to run quantum machine learning algorithms—machine learning techniques that leverage quantum computers.
+Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.">
+  <meta itemprop="datePublished" content="2025-06-04T16:50:26+09:00">
+  <meta itemprop="dateModified" content="2025-06-04T16:50:26+09:00">
+  <meta itemprop="wordCount" content="1392">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Quantum Machine Learning on AWS Amazon Braket: QCBM">
+  <meta name="twitter:description" content="As described in another article, Amazon Braket, AWS’s quantum computing service, allows users to easily access various features through the Amazon Braket SDK, a software development kit for quantum computing. In this article, we explain how to run quantum machine learning algorithms—machine learning techniques that leverage quantum computers.
+Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/japanese/awsquantummachinelearning/">japanese</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Quantum Machine Learning on AWS Amazon Braket: QCBM
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>As described in <a href="/whatisamazonbraket/">another article</a>, Amazon Braket, AWS’s quantum computing service, allows users to easily access various features through the Amazon Braket SDK, a software development kit for quantum computing.
+In this article, we explain how to run quantum machine learning algorithms—machine learning techniques that leverage quantum computers.</p>
+<hr>
+<h4 id="amazon-braket-learning-course">Amazon Braket Learning Course</h4>
+<p>You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+<h1 id="quantum-machine-learning-on-aws-amazon-braket-qcbm">Quantum Machine Learning on AWS Amazon Braket: QCBM</h1>
+<p>Several approaches to quantum machine learning algorithms have been proposed, but in this article, we will focus on implementing the Quantum Circuit Born Machine (QCBM). This algorithm enables the construction of generative models through unsupervised learning and is already available in Amazon Braket’s algorithm library.<br>
+<a href="https://github.com/amazon-braket/amazon-braket-algorithm-library/tree/main/src/braket/experimental/algorithms/quantum_circuit_born_machine">https://github.com/amazon-braket/amazon-braket-algorithm-library/tree/main/src/braket/experimental/algorithms/quantum_circuit_born_machine</a> <br>
+In this article, we will use this library.</p>
+<h2 id="environment-setup">Environment Setup</h2>
+<p>If you&rsquo;re using an Amazon Braket Notebook instance, no additional setup is required.
+However, if you&rsquo;re working on your local machine or a server, you&rsquo;ll need to install the Amazon Braket SDK and Jupyter Notebook.
+Additionally, to use the Amazon Braket Algorithm Library, we will run a few extra installation steps.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git
+</span></span><span style="display:flex;"><span>cd amazon-braket-algorithm-library
+</span></span><span style="display:flex;"><span>pip install .
+</span></span></code></pre></div><p>The following steps are executed within a Jupyter Notebook environment.
+<br></p>
+<h2 id="training-dataset-overview">Training Dataset Overview</h2>
+<p>With 4 qubits, it is possible to represent $2^4$ different bitstrings. A Gaussian distribution with a peak near the center of these bitstrings can be generated as follows.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>n_qubits <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gaussian</span>(n_qubits, mu, sigma):
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">2</span><span style="color:#f92672">**</span>n_qubits)
+</span></span><span style="display:flex;"><span>    gaussian <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">/</span> np<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> sigma<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>((x <span style="color:#f92672">-</span> mu) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> sigma<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> gaussian <span style="color:#f92672">/</span> sum(gaussian)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> gaussian(n_qubits, mu<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>, sigma<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> data <span style="color:#f92672">/</span> sum(data)
+</span></span></code></pre></div><p>The figure below shows a Gaussian distribution centered around the middle of the 4-qubit bitstrings. This distribution will be used as the training data in this example.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">%</span>matplotlib inline
+</span></span><span style="display:flex;"><span>labels <span style="color:#f92672">=</span> [format(i, <span style="color:#e6db74">&#34;b&#34;</span>)<span style="color:#f92672">.</span>zfill(n_qubits) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(data))]
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>bar(range(<span style="color:#ae81ff">2</span><span style="color:#f92672">**</span>n_qubits), data)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xticks(list(range(len(data))), labels, rotation<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vertical&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p><figure><img src="/qcbm/Target_data.webp"
+    alt="Target_data" width="500px">
+</figure>
+
+<br></p>
+<h2 id="execution-of-quantum-machine-learning-algorithm">Execution of Quantum Machine Learning Algorithm</h2>
+<p>We will import the necessary functions.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> braket.devices <span style="color:#f92672">import</span> LocalSimulator
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> braket.experimental.algorithms.quantum_circuit_born_machine <span style="color:#f92672">import</span> QCBM, mmd_loss
+</span></span></code></pre></div><p>In this case, we will use a local device since the computation will be performed locally. Running hybrid algorithms like QCBM on AWS Managed Simulators or quantum computers can lead to high costs. For circuits of this scale, a local simulator is sufficient for computation, so it’s best to take advantage of local simulators.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>device <span style="color:#f92672">=</span> LocalSimulator()
+</span></span></code></pre></div><p>Since the training data consists of 4-bit strings, we define the number of qubits accordingly as 4.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>n_qubits <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span></code></pre></div><p>In QCBM, similar to deep learning, you can define the number of layers. In this case, let&rsquo;s set the number of layers to 4. With these parameters, you can create an instance of QCBM as follows.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>n_layers <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>qcbm <span style="color:#f92672">=</span> QCBM(device, n_qubits, n_layers, data)
+</span></span></code></pre></div><p>Let&rsquo;s draw the quantum circuit defined by this. There are four layers defined.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>T  : │         <span style="color:#ae81ff">0</span>         │         <span style="color:#ae81ff">1</span>         │         <span style="color:#ae81ff">2</span>         │  <span style="color:#ae81ff">3</span>  │         <span style="color:#ae81ff">4</span>         │         <span style="color:#ae81ff">5</span>         │         <span style="color:#ae81ff">6</span>         │         <span style="color:#ae81ff">7</span>         │         <span style="color:#ae81ff">8</span>         │         <span style="color:#ae81ff">9</span>         │        <span style="color:#ae81ff">10</span>         │        <span style="color:#ae81ff">11</span>         │        <span style="color:#ae81ff">12</span>         │        <span style="color:#ae81ff">13</span>         │        <span style="color:#ae81ff">14</span>         │        <span style="color:#ae81ff">15</span>         │        <span style="color:#ae81ff">16</span>         │        <span style="color:#ae81ff">17</span>         │        <span style="color:#ae81ff">18</span>         │ <span style="color:#ae81ff">19</span>  │ <span style="color:#ae81ff">20</span>  │ Result Types  │
+</span></span><span style="display:flex;"><span>      ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐       ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐                                         ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐                                         ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐                                                     ┌─────────────┐ 
+</span></span><span style="display:flex;"><span>q0 : ─┤ Rx<span style="color:#f92672">(</span>theta_0_0_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_0_0_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_0_0_2<span style="color:#f92672">)</span> ├───●───┤ Rx<span style="color:#f92672">(</span>theta_1_0_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_1_0_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_1_0_2<span style="color:#f92672">)</span> ├──────────────────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_2_0_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_2_0_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_2_0_2<span style="color:#f92672">)</span> ├──────────────────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_3_0_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_3_0_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_3_0_2<span style="color:#f92672">)</span> ├──────────────────────────────●──────────────────────┤ Probability ├─
+</span></span><span style="display:flex;"><span>      └─────────────────┘ └─────────────────┘ └─────────────────┘   │   └─────────────────┘ └─────────────────┘ └─────────────────┘                              │          └─────────────────┘ └─────────────────┘ └─────────────────┘                              │          └─────────────────┘ └─────────────────┘ └─────────────────┘                              │                      └──────┬──────┘ 
+</span></span><span style="display:flex;"><span>      ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐ ┌─┴─┐                     ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐        ┌─┴─┐                            ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐        ┌─┴─┐                            ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐        ┌─┴─┐                    ┌──────┴──────┐ 
+</span></span><span style="display:flex;"><span>q1 : ─┤ Rx<span style="color:#f92672">(</span>theta_0_1_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_0_1_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_0_1_2<span style="color:#f92672">)</span> ├─┤ X ├──────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_1_1_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_1_1_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_1_1_2<span style="color:#f92672">)</span> ├────────┤ X ├─────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_2_1_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_2_1_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_2_1_2<span style="color:#f92672">)</span> ├────────┤ X ├─────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_3_1_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_3_1_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_3_1_2<span style="color:#f92672">)</span> ├────────┤ X ├──────────●─────────┤ Probability ├─
+</span></span><span style="display:flex;"><span>      └─────────────────┘ └─────────────────┘ └─────────────────┘ └───┘          │          └─────────────────┘ └─────────────────┘ └─────────────────┘        └───┘                 │          └─────────────────┘ └─────────────────┘ └─────────────────┘        └───┘                 │          └─────────────────┘ └─────────────────┘ └─────────────────┘        └───┘          │         └──────┬──────┘ 
+</span></span><span style="display:flex;"><span>      ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐              ┌─┴─┐                            ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐        ┌─┴─┐                            ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐        ┌─┴─┐                            ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐ ┌─┴─┐       ┌──────┴──────┐ 
+</span></span><span style="display:flex;"><span>q2 : ─┤ Rx<span style="color:#f92672">(</span>theta_0_2_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_0_2_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_0_2_2<span style="color:#f92672">)</span> ├──────────────┤ X ├─────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_1_2_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_1_2_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_1_2_2<span style="color:#f92672">)</span> ├────────┤ X ├─────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_2_2_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_2_2_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_2_2_2<span style="color:#f92672">)</span> ├────────┤ X ├─────────────────●──────────┤ Rx<span style="color:#f92672">(</span>theta_3_2_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_3_2_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_3_2_2<span style="color:#f92672">)</span> ├─┤ X ├───●───┤ Probability ├─
+</span></span><span style="display:flex;"><span>      └─────────────────┘ └─────────────────┘ └─────────────────┘              └───┘                 │          └─────────────────┘ └─────────────────┘ └─────────────────┘        └───┘                 │          └─────────────────┘ └─────────────────┘ └─────────────────┘        └───┘                 │          └─────────────────┘ └─────────────────┘ └─────────────────┘ └───┘   │   └──────┬──────┘ 
+</span></span><span style="display:flex;"><span>      ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐                                  ┌─┴─┐        ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐                            ┌─┴─┐        ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐                            ┌─┴─┐        ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐       ┌─┴─┐ ┌──────┴──────┐ 
+</span></span><span style="display:flex;"><span>q3 : ─┤ Rx<span style="color:#f92672">(</span>theta_0_3_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_0_3_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_0_3_2<span style="color:#f92672">)</span> ├──────────────────────────────────┤ X ├────────┤ Rx<span style="color:#f92672">(</span>theta_1_3_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_1_3_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_1_3_2<span style="color:#f92672">)</span> ├────────────────────────────┤ X ├────────┤ Rx<span style="color:#f92672">(</span>theta_2_3_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_2_3_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_2_3_2<span style="color:#f92672">)</span> ├────────────────────────────┤ X ├────────┤ Rx<span style="color:#f92672">(</span>theta_3_3_0<span style="color:#f92672">)</span> ├─┤ Rz<span style="color:#f92672">(</span>theta_3_3_1<span style="color:#f92672">)</span> ├─┤ Rx<span style="color:#f92672">(</span>theta_3_3_2<span style="color:#f92672">)</span> ├───────┤ X ├─┤ Probability ├─
+</span></span><span style="display:flex;"><span>      └─────────────────┘ └─────────────────┘ └─────────────────┘                                  └───┘        └─────────────────┘ └─────────────────┘ └─────────────────┘                            └───┘        └─────────────────┘ └─────────────────┘ └─────────────────┘                            └───┘        └─────────────────┘ └─────────────────┘ └─────────────────┘       └───┘ └─────────────┘ 
+</span></span><span style="display:flex;"><span>T  : │         <span style="color:#ae81ff">0</span>         │         <span style="color:#ae81ff">1</span>         │         <span style="color:#ae81ff">2</span>         │  <span style="color:#ae81ff">3</span>  │         <span style="color:#ae81ff">4</span>         │         <span style="color:#ae81ff">5</span>         │         <span style="color:#ae81ff">6</span>         │         <span style="color:#ae81ff">7</span>         │         <span style="color:#ae81ff">8</span>         │         <span style="color:#ae81ff">9</span>         │        <span style="color:#ae81ff">10</span>         │        <span style="color:#ae81ff">11</span>         │        <span style="color:#ae81ff">12</span>         │        <span style="color:#ae81ff">13</span>         │        <span style="color:#ae81ff">14</span>         │        <span style="color:#ae81ff">15</span>         │        <span style="color:#ae81ff">16</span>         │        <span style="color:#ae81ff">17</span>         │        <span style="color:#ae81ff">18</span>         │ <span style="color:#ae81ff">19</span>  │ <span style="color:#ae81ff">20</span>  │ Result Types  │
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Unassigned parameters: <span style="color:#f92672">[</span>theta_0_0_0, theta_0_0_1, theta_0_0_2, theta_0_1_0, theta_0_1_1, theta_0_1_2, theta_0_2_0, theta_0_2_1, theta_0_2_2, theta_0_3_0, theta_0_3_1, theta_0_3_2, theta_1_0_0, theta_1_0_1, theta_1_0_2, theta_1_1_0, theta_1_1_1, theta_1_1_2, theta_1_2_0, theta_1_2_1, theta_1_2_2, theta_1_3_0, theta_1_3_1, theta_1_3_2, theta_2_0_0, theta_2_0_1, theta_2_0_2, theta_2_1_0, theta_2_1_1, theta_2_1_2, theta_2_2_0, theta_2_2_1, theta_2_2_2, theta_2_3_0, theta_2_3_1, theta_2_3_2, theta_3_0_0, theta_3_0_1, theta_3_0_2, theta_3_1_0, theta_3_1_1, theta_3_1_2, theta_3_2_0, theta_3_2_1, theta_3_2_2, theta_3_3_0, theta_3_3_1, theta_3_3_2<span style="color:#f92672">]</span>.
+</span></span></code></pre></div><p>Also, let&rsquo;s set the number of training iterations to 10.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>n_iterations <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span></code></pre></div><p>As the number of gates in this circuit indicates, we need <code>3 * n_layers * n_qubits</code> parameters this time.
+Now, let&rsquo;s define the initial values for these parameters.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>init_params <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> n_layers <span style="color:#f92672">*</span> n_qubits) <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>Using <code>qcbm.get_probabilities(init_params)</code>, we can obtain the probability distribution from the circuit in this initial state.
+Since no training has been done yet, it can be confirmed that the output probability distribution is completely different from the target data, as shown below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qcbm_probs <span style="color:#f92672">=</span> qcbm<span style="color:#f92672">.</span>get_probabilities(init_params)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>bar(range(<span style="color:#ae81ff">2</span><span style="color:#f92672">**</span>n_qubits), qcbm_probs, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;QCBM probability&#34;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab:green&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xticks(list(range(len(data))), labels, rotation<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vertical&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>yticks(size<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Probability&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><figure><img src="/qcbm/Init_result.webp"
+    alt="Init_result" width="500px">
+</figure>
+
+<p>Now, let&rsquo;s proceed with training the model.
+The gradients are computed using <code>qcbm.gradient(x)</code>.
+From the code, it appears that the gradient calculation follows the method described in <a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.98.062324">this paper</a>.
+The loss function used is Maximum Mean Discrepancy (MMD) Loss.
+Therefore, the training is carried out using scipy as shown below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.optimize <span style="color:#f92672">import</span> minimize
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>history <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">callback</span>(x):
+</span></span><span style="display:flex;"><span>    loss <span style="color:#f92672">=</span> mmd_loss(qcbm<span style="color:#f92672">.</span>get_probabilities(x), data)
+</span></span><span style="display:flex;"><span>    history<span style="color:#f92672">.</span>append(loss)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> minimize(
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">lambda</span> x: mmd_loss(qcbm<span style="color:#f92672">.</span>get_probabilities(x), data),
+</span></span><span style="display:flex;"><span>    x0<span style="color:#f92672">=</span>init_params,
+</span></span><span style="display:flex;"><span>    method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;L-BFGS-B&#34;</span>,
+</span></span><span style="display:flex;"><span>    jac<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> x: qcbm<span style="color:#f92672">.</span>gradient(x),
+</span></span><span style="display:flex;"><span>    options<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;maxiter&#34;</span>: n_iterations},
+</span></span><span style="display:flex;"><span>    callback<span style="color:#f92672">=</span>callback,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>The convergence of the loss function during training is shown below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(history, <span style="color:#e6db74">&#34;-o&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Iteration&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Loss&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Convergence of the loss function&#34;</span>)
+</span></span></code></pre></div><figure><img src="/qcbm/Convergence.webp"
+    alt="Convergence" width="500px">
+</figure>
+
+<p>Now, let&rsquo;s use the parameters after training to obtain the probability distribution and compare it with the target data.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qcbm_probs <span style="color:#f92672">=</span> qcbm<span style="color:#f92672">.</span>get_probabilities(result[<span style="color:#e6db74">&#34;x&#34;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>bar(range(<span style="color:#ae81ff">2</span><span style="color:#f92672">**</span>n_qubits), data, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;target probability&#34;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab:blue&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>bar(range(<span style="color:#ae81ff">2</span><span style="color:#f92672">**</span>n_qubits), qcbm_probs, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;QCBM probability&#34;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab:green&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xticks(list(range(len(data))), labels, rotation<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vertical&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>yticks(size<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Sample&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Probability&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><figure><img src="/qcbm/TargetVSQCBM.webp"
+    alt="TargetVSQCBM" width="500px">
+</figure>
+
+<p>It has been confirmed that training has progressed from the initial parameter values.</p>
+<hr>
+<h4 id="amazon-braket-learning-course-1">Amazon Braket Learning Course</h4>
+<p>You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+<h2 id="regarding-the-ibm-quantum-developer-certification-exam">Regarding the IBM Quantum Developer Certification Exam</h2>
+<p>IBM offers <a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">a certification exam related to Qiskit</a>, which is introduced in this blog.</p>
+<p>By obtaining this certification, you can prove your knowledge of Qiskit and quantum programming. For those aiming to achieve this certification, I have created a practice exams on the Udemy platform! I have made the explanations as clear as possible, so please make sure to take full advantage of the following practice exams as extra study material for exam preparation.</p>
+<h4 id="practice-exams">Practice exams</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+
