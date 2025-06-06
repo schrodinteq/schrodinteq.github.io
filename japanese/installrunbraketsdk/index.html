@@ -6,7 +6,7 @@
     
     <title>Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="この記事ではAWSが提供する量子コンピューティングSDKである、Amazon Braket SDKをインストールし、Jypyter Notebook上で実行する方法について、説明します。
+    <meta name="description" content="別の記事に記載の通り、AWSの量子コンピューティングサービスであるAmazon Braketにおいては、Amazon Braket SDKと呼ばれる量子コンピューティングSDKを用いて各サービスを簡単に利用可能となります。 この記事ではAmazon Braket SDKをインストールし、Jypyter Notebook上で実行する方法について説明します。
 Amazon Braket学習コース 本記事で言及されている、Amazon Braketについてより深く学びたい方へ、Amazon Braket学習コースの紹介です。
 https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する Amazon Braket SDKはAWSが提供する量子コンピューティングSDKで、pythonにより実行可能です。このSDKにより量子回路の記述や、実行が可能となります。
@@ -14,8 +14,7 @@ Amazon Braket SDKはAmazon Braket NotebookというAWS上のJupyter Notebookイ�
 環境はWindows 10で、pythonはPython 3.9.9を利用しています。 まずはうまくいかなかった例についてです。 以下コマンドでAmazon Braket SDKをインストールしました。
 pip install amazon-braket-sdk[braket-air,notebook] jupyter notebookコマンドで環境を起動後、以下コードを実行してみます。
 from braket.circuits import Circuit from braket.devices import LocalSimulator circuit = Circuit().h(0).measure(0) device = LocalSimulator() result = device.run(circuit, shots=1000).result() counts = result.measurement_counts print(counts) 結果は以下のようなエラーメッセージで失敗します。
-ModuleNotFoundError: No module named &#39;braket&#39; 次に成功例を記載します。以下で環境を用意します。
-pip install amazon-braket-sdk notebook jupyter notebookコマンドで環境を起動後、同じコードを実行してみます。 すると以下の様に表示され、無事量子回路が実行されていることが確認できました。">
+ModuleNotFoundError: No module named &#39;braket&#39; 次に成功例を記載します。以下で環境を用意します。">
     <meta name="generator" content="Hugo 0.128.1">
     
     
@@ -61,7 +60,7 @@ window.MathJax = {
     <meta property="og:url" content="https://schrodinteq.github.io/japanese/installrunbraketsdk/">
   <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
   <meta property="og:title" content="Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する">
-  <meta property="og:description" content="この記事ではAWSが提供する量子コンピューティングSDKである、Amazon Braket SDKをインストールし、Jypyter Notebook上で実行する方法について、説明します。
+  <meta property="og:description" content="別の記事に記載の通り、AWSの量子コンピューティングサービスであるAmazon Braketにおいては、Amazon Braket SDKと呼ばれる量子コンピューティングSDKを用いて各サービスを簡単に利用可能となります。 この記事ではAmazon Braket SDKをインストールし、Jypyter Notebook上で実行する方法について説明します。
 Amazon Braket学習コース 本記事で言及されている、Amazon Braketについてより深く学びたい方へ、Amazon Braket学習コースの紹介です。
 https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する Amazon Braket SDKはAWSが提供する量子コンピューティングSDKで、pythonにより実行可能です。このSDKにより量子回路の記述や、実行が可能となります。
@@ -69,15 +68,14 @@ Amazon Braket SDKはAmazon Braket NotebookというAWS上のJupyter Notebookイ�
 環境はWindows 10で、pythonはPython 3.9.9を利用しています。 まずはうまくいかなかった例についてです。 以下コマンドでAmazon Braket SDKをインストールしました。
 pip install amazon-braket-sdk[braket-air,notebook] jupyter notebookコマンドで環境を起動後、以下コードを実行してみます。
 from braket.circuits import Circuit from braket.devices import LocalSimulator circuit = Circuit().h(0).measure(0) device = LocalSimulator() result = device.run(circuit, shots=1000).result() counts = result.measurement_counts print(counts) 結果は以下のようなエラーメッセージで失敗します。
-ModuleNotFoundError: No module named &#39;braket&#39; 次に成功例を記載します。以下で環境を用意します。
-pip install amazon-braket-sdk notebook jupyter notebookコマンドで環境を起動後、同じコードを実行してみます。 すると以下の様に表示され、無事量子回路が実行されていることが確認できました。">
+ModuleNotFoundError: No module named &#39;braket&#39; 次に成功例を記載します。以下で環境を用意します。">
   <meta property="og:locale" content="japanese">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2025-05-26T15:39:10+09:00">
     <meta property="article:modified_time" content="2025-05-26T15:39:10+09:00">
 
   <meta itemprop="name" content="Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する">
-  <meta itemprop="description" content="この記事ではAWSが提供する量子コンピューティングSDKである、Amazon Braket SDKをインストールし、Jypyter Notebook上で実行する方法について、説明します。
+  <meta itemprop="description" content="別の記事に記載の通り、AWSの量子コンピューティングサービスであるAmazon Braketにおいては、Amazon Braket SDKと呼ばれる量子コンピューティングSDKを用いて各サービスを簡単に利用可能となります。 この記事ではAmazon Braket SDKをインストールし、Jypyter Notebook上で実行する方法について説明します。
 Amazon Braket学習コース 本記事で言及されている、Amazon Braketについてより深く学びたい方へ、Amazon Braket学習コースの紹介です。
 https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する Amazon Braket SDKはAWSが提供する量子コンピューティングSDKで、pythonにより実行可能です。このSDKにより量子回路の記述や、実行が可能となります。
@@ -85,14 +83,13 @@ Amazon Braket SDKはAmazon Braket NotebookというAWS上のJupyter Notebookイ�
 環境はWindows 10で、pythonはPython 3.9.9を利用しています。 まずはうまくいかなかった例についてです。 以下コマンドでAmazon Braket SDKをインストールしました。
 pip install amazon-braket-sdk[braket-air,notebook] jupyter notebookコマンドで環境を起動後、以下コードを実行してみます。
 from braket.circuits import Circuit from braket.devices import LocalSimulator circuit = Circuit().h(0).measure(0) device = LocalSimulator() result = device.run(circuit, shots=1000).result() counts = result.measurement_counts print(counts) 結果は以下のようなエラーメッセージで失敗します。
-ModuleNotFoundError: No module named &#39;braket&#39; 次に成功例を記載します。以下で環境を用意します。
-pip install amazon-braket-sdk notebook jupyter notebookコマンドで環境を起動後、同じコードを実行してみます。 すると以下の様に表示され、無事量子回路が実行されていることが確認できました。">
+ModuleNotFoundError: No module named &#39;braket&#39; 次に成功例を記載します。以下で環境を用意します。">
   <meta itemprop="datePublished" content="2025-05-26T15:39:10+09:00">
   <meta itemprop="dateModified" content="2025-05-26T15:39:10+09:00">
-  <meta itemprop="wordCount" content="87">
+  <meta itemprop="wordCount" content="91">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する">
-  <meta name="twitter:description" content="この記事ではAWSが提供する量子コンピューティングSDKである、Amazon Braket SDKをインストールし、Jypyter Notebook上で実行する方法について、説明します。
+  <meta name="twitter:description" content="別の記事に記載の通り、AWSの量子コンピューティングサービスであるAmazon Braketにおいては、Amazon Braket SDKと呼ばれる量子コンピューティングSDKを用いて各サービスを簡単に利用可能となります。 この記事ではAmazon Braket SDKをインストールし、Jypyter Notebook上で実行する方法について説明します。
 Amazon Braket学習コース 本記事で言及されている、Amazon Braketについてより深く学びたい方へ、Amazon Braket学習コースの紹介です。
 https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する Amazon Braket SDKはAWSが提供する量子コンピューティングSDKで、pythonにより実行可能です。このSDKにより量子回路の記述や、実行が可能となります。
@@ -100,8 +97,7 @@ Amazon Braket SDKはAmazon Braket NotebookというAWS上のJupyter Notebookイ�
 環境はWindows 10で、pythonはPython 3.9.9を利用しています。 まずはうまくいかなかった例についてです。 以下コマンドでAmazon Braket SDKをインストールしました。
 pip install amazon-braket-sdk[braket-air,notebook] jupyter notebookコマンドで環境を起動後、以下コードを実行してみます。
 from braket.circuits import Circuit from braket.devices import LocalSimulator circuit = Circuit().h(0).measure(0) device = LocalSimulator() result = device.run(circuit, shots=1000).result() counts = result.measurement_counts print(counts) 結果は以下のようなエラーメッセージで失敗します。
-ModuleNotFoundError: No module named &#39;braket&#39; 次に成功例を記載します。以下で環境を用意します。
-pip install amazon-braket-sdk notebook jupyter notebookコマンドで環境を起動後、同じコードを実行してみます。 すると以下の様に表示され、無事量子回路が実行されていることが確認できました。">
+ModuleNotFoundError: No module named &#39;braket&#39; 次に成功例を記載します。以下で環境を用意します。">
 
       
   
@@ -168,7 +164,8 @@ pip install amazon-braket-sdk notebook jupyter notebookコマンドで環境を�
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
-        <p>この記事ではAWSが提供する量子コンピューティングSDKである、Amazon Braket SDKをインストールし、Jypyter Notebook上で実行する方法について、説明します。</p>
+        <p><a href="/japanese/whatisamazonbraket/">別の記事に記載の通り</a>、AWSの量子コンピューティングサービスであるAmazon Braketにおいては、Amazon Braket SDKと呼ばれる量子コンピューティングSDKを用いて各サービスを簡単に利用可能となります。
+この記事ではAmazon Braket SDKをインストールし、Jypyter Notebook上で実行する方法について説明します。</p>
 <hr>
 <h4 id="amazon-braket学習コース">Amazon Braket学習コース</h4>
 <p>本記事で言及されている、Amazon Braketについてより深く学びたい方へ、Amazon Braket学習コースの紹介です。</p>
