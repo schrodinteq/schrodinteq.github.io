@@ -61,8 +61,8 @@ window.MathJax = {
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
-  <meta itemprop="datePublished" content="2025-06-02T12:53:26+09:00">
-  <meta itemprop="dateModified" content="2025-06-02T12:53:26+09:00">
+  <meta itemprop="datePublished" content="2025-06-11T11:24:27+09:00">
+  <meta itemprop="dateModified" content="2025-06-11T11:24:27+09:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
 
@@ -164,6 +164,70 @@ window.MathJax = {
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/japanese/qiskit20qft/" class="color-inherit dim link">
+            Qiskit 2.0で逆量子フーリエ変換
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          前回の記事では量子フーリエ変換の具体例やメリットについて確認しました。 今回の記事ではQiskit 2.0で実際に逆量子フーリエ変換を実行し、元々の量子状態が判別できることを確認します。
+Amazon Braket学習コース 量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B Qiskit 2.0で逆量子フーリエ変換 前回の記事の例で、ある2量子ビットが$\psi_1 = \frac{1}{2} \left( \ket{00} + i\ket{01} - \ket{10} - i\ket{11} \right)$もしくは$\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} + \ket{10} - \ket{11} \right)$どちらかの状態で存在していた場合、逆量子フーリエ変換を用いることで、どちらの状態か判別可能と説明しました。 今回はQiskitで実際に逆量子フーリエ変換を行い、元々の量子状態が判別できることを確認します。 まずは必要となる関数をimportします。
+from qiskit import QuantumCircuit from qiskit.circuit.library import StatePreparation from qiskit.primitives import StatevectorSampler from qiskit.circuit.library import QFT Samplerや、量子回路定義します。
+sampler = StatevectorSampler() n_qubits = 2 qc = QuantumCircuit(n_qubits, 2) 今回対象とする量子ビットの状態は$\psi_2$とし、この状態を生成する量子回路を以下でappendします。
+        </div>
+          <a href="/japanese/qiskit20qft/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+            </div>
+          
+            <div class="relative w-100 mb4">
+              
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/japanese/learnqfteasily/" class="color-inherit dim link">
+            量子フーリエ変換を具体例で分かりやすく
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          この記事では量子フーリエ変換の具体的な例をみることで直感的な理解を深めます。
+Amazon Braket学習コース 量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B 量子フーリエ変換 $n$量子ビットにおける量子フーリエ変換$\mathcal{F}$は式で次のように表せます。 $$ \mathcal{F} \ket{j} = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1} e^{2\pi i jk / 2^n} \ket{k} $$
+また量子フーリエ変換はユニタリ変換であり、逆量子フーリエ変換は次のように表せることも触れておきます。 $$ \mathcal{F}^{-1} \ket{k} = \mathcal{F}^\dagger \ket{k} = \frac{1}{\sqrt{2^n}} \sum_{j=0}^{2^n-1} e^{-2\pi i jk / 2^n} \ket{j} $$
+量子フーリエ変換の具体例 1量子ビットの場合 $\ket{0}$という状態を量子フーリエ変換してみましょう。
+$$ \mathcal{F} \ket{0} = \frac{1}{\sqrt{2}} ( \ket{0} + \ket{1} ) $$ このように、$\ket{0}$は位相がずれていない状態の重ね合わせとなることが分かります。 $\ket{1}$という状態を量子フーリエ変換してみましょう。
+$$ \mathcal{F} \ket{1} = \frac{1}{\sqrt{2}} ( \ket{0} + e^{\pi i} \ket{1} ) = \frac{1}{\sqrt{2}} ( \ket{0} - \ket{1} ) $$ このように、$\ket{1}$を量子フーリエ変換すると位相が反転された状態（πずれている状態）の重ね合わせとなることが分かります。
+        </div>
+          <a href="/japanese/learnqfteasily/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+            </div>
+          
+            <div class="relative w-100 mb4">
+              
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/japanese/awsquantummachinelearning/" class="color-inherit dim link">
             AWSのAmazon Braketで量子機械学習：QCBM
             </a>
@@ -187,74 +251,24 @@ import numpy as np n_qubits = 4 def gaussian(n_qubits, mu, sigma): x = np.arange
 
             </div>
           
-            <div class="relative w-100 mb4">
-              
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/japanese/braketexperimenterror/" class="color-inherit dim link">
-            Amazon Braketアルゴリズムライブラリインポート時のエラーについて
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
-braket.experimentalのimportエラー 既に別の記事で紹介した通り、Amazon Braketではアルゴリズムライブラリを用いることで簡単に、量子フーリエ変換や、量子機械学習などのアルゴリズムが実行可能です。
-しかし、Amazon Braket SDKをローカルにインストールし、pythonでimportしようとすると次のようなエラーが出力される場合があります。
---------------------------------------------------------------------------- ModuleNotFoundError Traceback (most recent call last) Cell In[2], line 4 2 import numpy as np 3 from braket.devices import LocalSimulator ----&gt; 4 from braket.experimental.algorithms.quantum_circuit_born_machine import QCBM, mmd_loss 5 get_ipython().run_line_magic(&#39;matplotlib&#39;, &#39;inline&#39;) ModuleNotFoundError: No module named &#39;braket.experimental&#39; このエラーはhttps://github.com/amazon-braket/amazon-braket-algorithm-library.gitに記載があるように、ローカルで以下を実行し、Amazon Braket algorithm libraryをインストールすることで解決します。
-git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git cd amazon-braket-algorithm-library pip install . このインストールにより、様々なAmazon Braket algorithm libraryが使えるようになります。
-Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-        </div>
-          <a href="/japanese/braketexperimenterror/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-            </div>
-          
-            <div class="relative w-100 mb4">
-              
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/japanese/installrunbraketsdk/" class="color-inherit dim link">
-            Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          別の記事に記載の通り、AWSの量子コンピューティングサービスであるAmazon Braketにおいては、Amazon Braket SDKと呼ばれる量子コンピューティングSDKを用いて各サービスを簡単に利用可能となります。 この記事ではAmazon Braket SDKをインストールし、Jypyter Notebook上で実行する方法について説明します。
-Amazon Braket学習コース 本記事で言及されている、Amazon Braketについてより深く学びたい方へ、Amazon Braket学習コースの紹介です。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
-Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する Amazon Braket SDKはAWSが提供する量子コンピューティングSDKで、pythonにより実行可能です。このSDKにより量子回路の記述や、実行が可能となります。
-Amazon Braket SDKはAmazon Braket NotebookというAWS上のJupyter Notebookインスタンスから簡単に実行可能ですが、今回はこのAmazon Braket SDKを自分のPCや、サーバに直接インストールして実行する方法について説明します。
-環境はWindows 10で、pythonはPython 3.9.9を利用しています。 まずはうまくいかなかった例についてです。 以下コマンドでAmazon Braket SDKをインストールしました。
-pip install amazon-braket-sdk[braket-air,notebook] jupyter notebookコマンドで環境を起動後、以下コードを実行してみます。
-from braket.circuits import Circuit from braket.devices import LocalSimulator circuit = Circuit().h(0).measure(0) device = LocalSimulator() result = device.run(circuit, shots=1000).result() counts = result.measurement_counts print(counts) 結果は以下のようなエラーメッセージで失敗します。
-ModuleNotFoundError: No module named &#39;braket&#39; 次に成功例を記載します。以下で環境を用意します。
-        </div>
-          <a href="/japanese/installrunbraketsdk/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-            </div>
-          
         </section>
 
         
         <section class="w-100">
           <h1 class="f3">More</h1>
           
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/japanese/braketexperimenterror/" class="link black dim">
+                Amazon Braketアルゴリズムライブラリインポート時のエラーについて
+              </a>
+            </h2>
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/japanese/installrunbraketsdk/" class="link black dim">
+                Amazon Braket SDKをインストールし、Jupyter Notebookで量子回路を実行する
+              </a>
+            </h2>
           
             <h2 class="f5 fw4 mb4 dib mr3">
               <a href="/japanese/qiskit20/" class="link black dim">

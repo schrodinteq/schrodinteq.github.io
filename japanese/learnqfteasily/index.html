@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="japanese">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>量子フーリエ変換を具体例で分かりやすく | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="この記事では量子フーリエ変換の具体的な例をみることで直感的な理解を深めます。
+Amazon Braket学習コース 量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B 量子フーリエ変換 $n$量子ビットにおける量子フーリエ変換$\mathcal{F}$は式で次のように表せます。 $$ \mathcal{F} \ket{j} = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1} e^{2\pi i jk / 2^n} \ket{k} $$
+また量子フーリエ変換はユニタリ変換であり、逆量子フーリエ変換は次のように表せることも触れておきます。 $$ \mathcal{F}^{-1} \ket{k} = \mathcal{F}^\dagger \ket{k} = \frac{1}{\sqrt{2^n}} \sum_{j=0}^{2^n-1} e^{-2\pi i jk / 2^n} \ket{j} $$
+量子フーリエ変換の具体例 1量子ビットの場合 $\ket{0}$という状態を量子フーリエ変換してみましょう。
+$$ \mathcal{F} \ket{0} = \frac{1}{\sqrt{2}} ( \ket{0} &#43; \ket{1} ) $$ このように、$\ket{0}$は位相がずれていない状態の重ね合わせとなることが分かります。 $\ket{1}$という状態を量子フーリエ変換してみましょう。
+$$ \mathcal{F} \ket{1} = \frac{1}{\sqrt{2}} ( \ket{0} &#43; e^{\pi i} \ket{1} ) = \frac{1}{\sqrt{2}} ( \ket{0} - \ket{1} ) $$ このように、$\ket{1}$を量子フーリエ変換すると位相が反転された状態（πずれている状態）の重ね合わせとなることが分かります。">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/japanese/learnqfteasily/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/japanese/learnqfteasily/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="量子フーリエ変換を具体例で分かりやすく">
+  <meta property="og:description" content="この記事では量子フーリエ変換の具体的な例をみることで直感的な理解を深めます。
+Amazon Braket学習コース 量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B 量子フーリエ変換 $n$量子ビットにおける量子フーリエ変換$\mathcal{F}$は式で次のように表せます。 $$ \mathcal{F} \ket{j} = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1} e^{2\pi i jk / 2^n} \ket{k} $$
+また量子フーリエ変換はユニタリ変換であり、逆量子フーリエ変換は次のように表せることも触れておきます。 $$ \mathcal{F}^{-1} \ket{k} = \mathcal{F}^\dagger \ket{k} = \frac{1}{\sqrt{2^n}} \sum_{j=0}^{2^n-1} e^{-2\pi i jk / 2^n} \ket{j} $$
+量子フーリエ変換の具体例 1量子ビットの場合 $\ket{0}$という状態を量子フーリエ変換してみましょう。
+$$ \mathcal{F} \ket{0} = \frac{1}{\sqrt{2}} ( \ket{0} &#43; \ket{1} ) $$ このように、$\ket{0}$は位相がずれていない状態の重ね合わせとなることが分かります。 $\ket{1}$という状態を量子フーリエ変換してみましょう。
+$$ \mathcal{F} \ket{1} = \frac{1}{\sqrt{2}} ( \ket{0} &#43; e^{\pi i} \ket{1} ) = \frac{1}{\sqrt{2}} ( \ket{0} - \ket{1} ) $$ このように、$\ket{1}$を量子フーリエ変換すると位相が反転された状態（πずれている状態）の重ね合わせとなることが分かります。">
+  <meta property="og:locale" content="japanese">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-06-08T16:26:45+09:00">
+    <meta property="article:modified_time" content="2025-06-08T16:26:45+09:00">
+
+  <meta itemprop="name" content="量子フーリエ変換を具体例で分かりやすく">
+  <meta itemprop="description" content="この記事では量子フーリエ変換の具体的な例をみることで直感的な理解を深めます。
+Amazon Braket学習コース 量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B 量子フーリエ変換 $n$量子ビットにおける量子フーリエ変換$\mathcal{F}$は式で次のように表せます。 $$ \mathcal{F} \ket{j} = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1} e^{2\pi i jk / 2^n} \ket{k} $$
+また量子フーリエ変換はユニタリ変換であり、逆量子フーリエ変換は次のように表せることも触れておきます。 $$ \mathcal{F}^{-1} \ket{k} = \mathcal{F}^\dagger \ket{k} = \frac{1}{\sqrt{2^n}} \sum_{j=0}^{2^n-1} e^{-2\pi i jk / 2^n} \ket{j} $$
+量子フーリエ変換の具体例 1量子ビットの場合 $\ket{0}$という状態を量子フーリエ変換してみましょう。
+$$ \mathcal{F} \ket{0} = \frac{1}{\sqrt{2}} ( \ket{0} &#43; \ket{1} ) $$ このように、$\ket{0}$は位相がずれていない状態の重ね合わせとなることが分かります。 $\ket{1}$という状態を量子フーリエ変換してみましょう。
+$$ \mathcal{F} \ket{1} = \frac{1}{\sqrt{2}} ( \ket{0} &#43; e^{\pi i} \ket{1} ) = \frac{1}{\sqrt{2}} ( \ket{0} - \ket{1} ) $$ このように、$\ket{1}$を量子フーリエ変換すると位相が反転された状態（πずれている状態）の重ね合わせとなることが分かります。">
+  <meta itemprop="datePublished" content="2025-06-08T16:26:45+09:00">
+  <meta itemprop="dateModified" content="2025-06-08T16:26:45+09:00">
+  <meta itemprop="wordCount" content="491">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="量子フーリエ変換を具体例で分かりやすく">
+  <meta name="twitter:description" content="この記事では量子フーリエ変換の具体的な例をみることで直感的な理解を深めます。
+Amazon Braket学習コース 量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B 量子フーリエ変換 $n$量子ビットにおける量子フーリエ変換$\mathcal{F}$は式で次のように表せます。 $$ \mathcal{F} \ket{j} = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1} e^{2\pi i jk / 2^n} \ket{k} $$
+また量子フーリエ変換はユニタリ変換であり、逆量子フーリエ変換は次のように表せることも触れておきます。 $$ \mathcal{F}^{-1} \ket{k} = \mathcal{F}^\dagger \ket{k} = \frac{1}{\sqrt{2^n}} \sum_{j=0}^{2^n-1} e^{-2\pi i jk / 2^n} \ket{j} $$
+量子フーリエ変換の具体例 1量子ビットの場合 $\ket{0}$という状態を量子フーリエ変換してみましょう。
+$$ \mathcal{F} \ket{0} = \frac{1}{\sqrt{2}} ( \ket{0} &#43; \ket{1} ) $$ このように、$\ket{0}$は位相がずれていない状態の重ね合わせとなることが分かります。 $\ket{1}$という状態を量子フーリエ変換してみましょう。
+$$ \mathcal{F} \ket{1} = \frac{1}{\sqrt{2}} ( \ket{0} &#43; e^{\pi i} \ket{1} ) = \frac{1}{\sqrt{2}} ( \ket{0} - \ket{1} ) $$ このように、$\ket{1}$を量子フーリエ変換すると位相が反転された状態（πずれている状態）の重ね合わせとなることが分かります。">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/japanese/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/learnqfteasily/">english</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          量子フーリエ変換を具体例で分かりやすく
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>この記事では量子フーリエ変換の具体的な例をみることで直感的な理解を深めます。</p>
+<hr>
+<h4 id="amazon-braket学習コース">Amazon Braket学習コース</h4>
+<p>量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h4 id="qiskit試験対策問題集">Qiskit試験対策問題集</h4>
+<p>qiskitについての<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">資格試験</a>をIBMが提供しています。</p>
+<p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。</p>
+<h4 id="英語版問題集">英語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<h4 id="日本語版問題集">日本語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseJa.jpg" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+<h1 id="量子フーリエ変換">量子フーリエ変換</h1>
+<p>$n$量子ビットにおける量子フーリエ変換$\mathcal{F}$は式で次のように表せます。
+$$
+\mathcal{F} \ket{j} = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1} e^{2\pi i jk / 2^n} \ket{k}
+$$</p>
+<!--補足ですが、量子ゲートに適用する場合は以下の様に変形してから考えることができます。導出は他の記事に任せます。
+
+$$
+\mathcal{F} \ket{j_1 j_2 \dots j_{n}} = 
+\frac{1}{\sqrt{2^n}} 
+\left( \ket{0} + e^{2\pi i 0.j_{n}} \ket{1} \right)
+\otimes 
+\left( \ket{0} + e^{2\pi i 0.j_{n-1} j_{n}} \ket{1} \right)
+\otimes 
+\cdots 
+\otimes 
+\left( \ket{0} + e^{2\pi i 0.j_1 j_2 \dots j_{n}} \ket{1} \right)
+$$
+-->
+<p>また量子フーリエ変換はユニタリ変換であり、逆量子フーリエ変換は次のように表せることも触れておきます。
+$$
+\mathcal{F}^{-1} \ket{k} = \mathcal{F}^\dagger \ket{k} = \frac{1}{\sqrt{2^n}} \sum_{j=0}^{2^n-1} e^{-2\pi i jk / 2^n} \ket{j}
+$$</p>
+<br>
+<h2 id="量子フーリエ変換の具体例">量子フーリエ変換の具体例</h2>
+<h3 id="1量子ビットの場合">1量子ビットの場合</h3>
+<p>$\ket{0}$という状態を量子フーリエ変換してみましょう。</p>
+<p>$$
+\mathcal{F} \ket{0} = \frac{1}{\sqrt{2}} ( \ket{0} + \ket{1} )
+$$
+このように、$\ket{0}$は位相がずれていない状態の重ね合わせとなることが分かります。
+<br>
+<br>
+$\ket{1}$という状態を量子フーリエ変換してみましょう。</p>
+<p>$$
+\mathcal{F} \ket{1} = \frac{1}{\sqrt{2}} ( \ket{0} + e^{\pi i} \ket{1} ) = \frac{1}{\sqrt{2}} ( \ket{0} - \ket{1} )
+$$
+このように、$\ket{1}$を量子フーリエ変換すると位相が反転された状態（πずれている状態）の重ね合わせとなることが分かります。</p>
+<br>
+<h3 id="2量子ビットの場合">2量子ビットの場合</h3>
+<p>$\ket{00}$という状態を量子フーリエ変換してみましょう。</p>
+<p>$$
+\mathcal{F} \ket{00} = \frac{1}{2} ( \ket{00} + \ket{01} + \ket{10} + \ket{11} )
+$$
+このように、$\ket{00}$についても$\ket{0}$と似たように位相がずれていない状態の重ね合わせとなることが分かります。</p>
+<br>
+$\ket{01}$という状態を量子フーリエ変換してみましょう。
+<p>$$
+\begin{align}
+\mathcal{F} \ket{01} &amp;= \frac{1}{2} \sum_{k=0}^{3} e^{2\pi i \cdot 1 \cdot k / 4} \ket{k}
+= \frac{1}{2} \left( \ket{00} + e^{\frac{\pi i}{2}}\ket{01} + e^{\frac{2\pi i}{2}} \ket{10} + e^{\frac{3\pi i}{2}} \ket{11} \right) \\
+&amp;= \frac{1}{2} \left( \ket{00} + i\ket{01} - \ket{10} - i\ket{11} \right) \\
+\end{align}
+$$
+このように、$\ket{01}$を量子フーリエ変換すると位相がπ/2ずつずれた状態の重ね合わせとなることが分かります。</p>
+<br>
+$\ket{10}$という状態を量子フーリエ変換してみましょう。
+<p>$$
+\begin{align}
+\mathcal{F} \ket{10} &amp;= \frac{1}{2} \sum_{k=0}^{3} e^{2\pi i \cdot 2 \cdot k / 4} \ket{k}
+= \frac{1}{2} \left( \ket{00} + e^{\pi i} \ket{01} + e^{2\pi i} \ket{10} + e^{3\pi i} \ket{11} \right) \\
+&amp;= \frac{1}{2} \left( \ket{00} - \ket{01} + \ket{10} - \ket{11} \right)
+\end{align}
+$$
+このように、$\ket{10}$を量子フーリエ変換すると位相がπずつずれた状態の重ね合わせとなることが分かります。</p>
+<br>
+$\ket{11}$という状態を量子フーリエ変換してみましょう。
+<p>$$
+\begin{align}
+\mathcal{F} \ket{11} &amp;= \frac{1}{2} \sum_{k=0}^{3} e^{2\pi i \cdot 3 \cdot k / 4} \ket{k}
+= \frac{1}{2} \left( \ket{00} + e^{\frac{3\pi i}{2}} \ket{01} + e^{\frac{6\pi i}{2}} \ket{10}  + e^{\frac{9\pi i}{2}} \ket{11} \right) \\
+&amp;= \frac{1}{2} \left( \ket{00} - i\ket{01} - \ket{10} + i\ket{11} \right)
+\end{align}
+$$
+このように、$\ket{11}$を量子フーリエ変換すると位相が3π/2ずつずれた状態の重ね合わせとなることが分かります。</p>
+<br>
+<h3 id="3量子ビットの場合">3量子ビットの場合</h3>
+<p>$\ket{000}$という状態を量子フーリエ変換してみましょう。</p>
+<p>$$
+\mathcal{F} \ket{000} = \frac{1}{\sqrt{8}} \left( \ket{000} + \ket{001} + \ket{010} + \ket{011} + \ket{100} + \ket{101} + \ket{110} + \ket{111} \right)
+$$
+やはり、$\ket{000}$についても位相がずれていない状態の重ね合わせとなることが分かります。</p>
+<br>
+$\ket{001}$という状態を量子フーリエ変換してみましょう。
+$$
+\begin{align}
+\mathcal{F} \ket{001}
+&= \frac{1}{\sqrt{8}} \sum_{k=0}^{7} e^{2\pi i \cdot 1 \cdot k / 8} \ket{k} \\
+&= \frac{1}{\sqrt{8}} \left(
+\ket{000}
++ e^{\frac{\pi i}{4}} \ket{001}
++ e^{\frac{2\pi i}{4}} \ket{010}
++ e^{\frac{3\pi i}{4}} \ket{011}
++ e^{\frac{4\pi i}{4}} \ket{100}
++ e^{\frac{5\pi i}{4}} \ket{101}
++ e^{\frac{6\pi i}{4}} \ket{110}
++ e^{\frac{7\pi i}{4}} \ket{111}
+\right) \\
+&= \frac{1}{\sqrt{8}} \left(
+\ket{000}
++ e^{\frac{\pi i}{4}} \ket{001}
++ i \ket{010}
++ e^{\frac{3\pi i}{4}} \ket{011}
+- \ket{100}
++ e^{\frac{5\pi i}{4}} \ket{101}
+- i \ket{110}
++ e^{\frac{7\pi i}{4}} \ket{111}
+\right)
+\end{align}
+$$
+<p>このように、$\ket{001}$を量子フーリエ変換すると位相がπ/4ずつずれた状態の重ね合わせとなることが分かります。</p>
+<br>
+$\ket{010}$という状態を量子フーリエ変換してみましょう。
+$$
+\begin{align}
+\mathcal{F} \ket{010}
+&= \frac{1}{\sqrt{8}} \sum_{k=0}^{7} e^{2\pi i \cdot 2k / 8} \ket{k} \\
+&= \frac{1}{\sqrt{8}} \left(
+\ket{000}
++ e^{\frac{\pi i}{2}} \ket{001}
++ e^{\frac{2\pi i}{2}} \ket{010}
++ e^{\frac{3\pi i}{2}} \ket{011}
++ e^{\frac{4\pi i}{2}} \ket{100}
++ e^{\frac{5\pi i}{2}} \ket{101}
++ e^{\frac{6\pi i}{2}} \ket{110}
++ e^{\frac{7\pi i}{2}} \ket{111}
+\right) \\
+&= \frac{1}{\sqrt{8}} \left(
+\ket{000}
++ i\ket{001}
+- \ket{010}
+- i\ket{011}
++ \ket{100}
++ i\ket{101}
+- \ket{110}
+- i\ket{111} 
+\right)
+\end{align}
+$$
+<p>このように、$\ket{010}$を量子フーリエ変換すると位相がπ/2ずつずれた状態の重ね合わせとなることが分かります。
+<br>
+これらの例の通り量子ビットの数と、元々の状態の値に依存した位相だけずらしながら各状態を足し合わせていく規則がみえてきました。</p>
+<h2 id="量子フーリエ変換による恩恵">量子フーリエ変換による恩恵</h2>
+<p>たとえばある2量子ビットが、$\psi_1 = \frac{1}{2} \left( \ket{00} + i\ket{01} - \ket{10} - i\ket{11} \right)$もしくは$\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} + \ket{10} - \ket{11} \right)$どちらかの状態で存在していたとします。
+<br>
+$\psi_1, \psi_2$どちらの状態であるか確認するにはどうすれば良いでしょうか？
+<br>
+まず量子力学の前提として全ての状態の係数を直接観測することはできません。</p>
+<p>また、2量子ビットの状態をそのまま測定しても$\psi_1, \psi_2$とも各状態の計数の絶対値は同じ値なので、両方とも以下の確率で観測され、違いがありません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>00: 25%, 01: 25%, 10: 25%, 11: 25%
+</span></span></code></pre></div><p>このような例で役立つのが量子フーリエ変換、逆量子フーリエ変換です。
+<br>
+例えば$\psi_1$を逆量子フーリエ変換すると$\ket{01}$が得られます。$\psi_2$を逆量子フーリエ変換すると$\ket{10}$が得られます。
+<br>
+つまり、どちらの場合であってもまずは逆量子フーリエ変換を実行し、$\ket{01}$が観測された場合は元々の状態が$\psi_1$であったということが分かり、$\ket{10}$が観測された場合は$\psi_2$であったことが分かります。
+<br>
+このように量子状態が位相を含めてどのような状態であったかを知ることができるのが強みの一つです。
+次の記事ではQiskit 2.0で実際に逆量子フーリエ変換を実行し、元々の量子状態が判別できることを確認します。</p>
+<hr>
+<h4 id="amazon-braket学習コース-1">Amazon Braket学習コース</h4>
+<p>量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h4 id="qiskit試験対策問題集-1">Qiskit試験対策問題集</h4>
+<p>qiskitについての<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">資格試験</a>をIBMが提供しています。</p>
+<p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。</p>
+<h4 id="英語版問題集-1">英語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<h4 id="日本語版問題集-1">日本語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseJa.jpg" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/japanese/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

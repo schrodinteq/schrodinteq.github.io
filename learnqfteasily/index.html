@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Make the Quantum Fourier Transform easy to understand with simple examples | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="This article helps build an intuitive understanding of the Quantum Fourier Transform through concrete examples.
+Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/learnqfteasily/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/learnqfteasily/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="Make the Quantum Fourier Transform easy to understand with simple examples">
+  <meta property="og:description" content="This article helps build an intuitive understanding of the Quantum Fourier Transform through concrete examples.
+Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning.">
+  <meta property="og:locale" content="english">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-06-10T17:31:52+09:00">
+    <meta property="article:modified_time" content="2025-06-10T17:31:52+09:00">
+
+  <meta itemprop="name" content="Make the Quantum Fourier Transform easy to understand with simple examples">
+  <meta itemprop="description" content="This article helps build an intuitive understanding of the Quantum Fourier Transform through concrete examples.
+Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning.">
+  <meta itemprop="datePublished" content="2025-06-10T17:31:52+09:00">
+  <meta itemprop="dateModified" content="2025-06-10T17:31:52+09:00">
+  <meta itemprop="wordCount" content="1324">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Make the Quantum Fourier Transform easy to understand with simple examples">
+  <meta name="twitter:description" content="This article helps build an intuitive understanding of the Quantum Fourier Transform through concrete examples.
+Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning.">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/japanese/learnqfteasily/">japanese</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Make the Quantum Fourier Transform easy to understand with simple examples
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>This article helps build an intuitive understanding of the Quantum Fourier Transform through concrete examples.</p>
+<hr>
+<h4 id="amazon-braket-learning-course">Amazon Braket Learning Course</h4>
+<p>You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+<h2 id="regarding-the-ibm-quantum-developer-certification-exam">Regarding the IBM Quantum Developer Certification Exam</h2>
+<p>IBM offers <a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">a certification exam related to Qiskit</a>, which is introduced in this blog.</p>
+<p>By obtaining this certification, you can prove your knowledge of Qiskit and quantum programming. For those aiming to achieve this certification, I have created a practice exams on the Udemy platform! I have made the explanations as clear as possible, so please make sure to take full advantage of the following practice exams as extra study material for exam preparation.</p>
+<h4 id="practice-exams">Practice exams</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+<h1 id="quantum-fourier-transform">Quantum Fourier Transform</h1>
+<p>The Quantum Fourier Transform $\mathcal{F}$ on $n$ qubits can be expressed by the following equation.
+$$
+\mathcal{F} \ket{j} = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1} e^{2\pi i jk / 2^n} \ket{k}
+$$</p>
+<p>It is also worth mentioning that the Quantum Fourier Transform is unitary, and its inverse can be written as follows.
+$$
+\mathcal{F}^{-1} \ket{k} = \mathcal{F}^\dagger \ket{k} = \frac{1}{\sqrt{2^n}} \sum_{j=0}^{2^n-1} e^{-2\pi i jk / 2^n} \ket{j}
+$$</p>
+<br>
+<h2 id="concrete-examples-of-the-quantum-fourier-transform">Concrete examples of the Quantum Fourier Transform</h2>
+<h3 id="for-a-single-qubit">For a single qubit</h3>
+<p>Let&rsquo;s apply the quantum Fourier transform to the state $\ket{0}$.</p>
+<p>$$
+\mathcal{F} \ket{0} = \frac{1}{\sqrt{2}} ( \ket{0} + \ket{1} )
+$$
+As you can see, $\ket{0}$ becomes a superposition of states with no phase shift.
+<br>
+<br>
+Let&rsquo;s apply the quantum Fourier transform to the state $\ket{1}$.</p>
+<p>$$
+\mathcal{F} \ket{1} = \frac{1}{\sqrt{2}} ( \ket{0} + e^{\pi i} \ket{1} ) = \frac{1}{\sqrt{2}} ( \ket{0} - \ket{1} )
+$$
+As you can see, the Quantum Fourier Transform of $\ket{1}$ becomes a superposition where each component has a phase shift of π, indicating a phase-inverted state.</p>
+<br>
+<h3 id="for-two-qubits">For two qubits</h3>
+<p>Let&rsquo;s apply the quantum Fourier transform to the state $\ket{00}$.</p>
+<p>$$
+\mathcal{F} \ket{00} = \frac{1}{2} ( \ket{00} + \ket{01} + \ket{10} + \ket{11} )
+$$
+Similarly, we can see that $\ket{00}$ also becomes a superposition of states with no phase shift, just like $\ket{0}$.</p>
+<br>
+Let's apply the quantum Fourier transform to the state $\ket{01}$.
+<p>$$
+\begin{align}
+\mathcal{F} \ket{01} &amp;= \frac{1}{2} \sum_{k=0}^{3} e^{2\pi i \cdot 1 \cdot k / 4} \ket{k}
+= \frac{1}{2} \left( \ket{00} + e^{\frac{\pi i}{2}}\ket{01} + e^{\frac{2\pi i}{2}} \ket{10} + e^{\frac{3\pi i}{2}} \ket{11} \right) \\
+&amp;= \frac{1}{2} \left( \ket{00} + i\ket{01} - \ket{10} - i\ket{11} \right) \\
+\end{align}
+$$
+As you can see, applying the Quantum Fourier Transform to $\ket{01}$ results in a superposition of states with phase shifts incremented by $\frac{\pi}{2}$.</p>
+<br>
+Let's apply the quantum Fourier transform to the state $\ket{10}$.
+<p>$$
+\begin{align}
+\mathcal{F} \ket{10} &amp;= \frac{1}{2} \sum_{k=0}^{3} e^{2\pi i \cdot 2 \cdot k / 4} \ket{k}
+= \frac{1}{2} \left( \ket{00} + e^{\pi i} \ket{01} + e^{2\pi i} \ket{10} + e^{3\pi i} \ket{11} \right) \\
+&amp;= \frac{1}{2} \left( \ket{00} - \ket{01} + \ket{10} - \ket{11} \right)
+\end{align}
+$$
+As you can see, applying the Quantum Fourier Transform to $\ket{10}$ results in a superposition of states with phase shifts incremented by $\pi$.</p>
+<br>
+Let's apply the quantum Fourier transform to the state $\ket{11}$.
+<p>$$
+\begin{align}
+\mathcal{F} \ket{11} &amp;= \frac{1}{2} \sum_{k=0}^{3} e^{2\pi i \cdot 3 \cdot k / 4} \ket{k}
+= \frac{1}{2} \left( \ket{00} + e^{\frac{3\pi i}{2}} \ket{01} + e^{\frac{6\pi i}{2}} \ket{10}  + e^{\frac{9\pi i}{2}} \ket{11} \right) \\
+&amp;= \frac{1}{2} \left( \ket{00} - i\ket{01} - \ket{10} + i\ket{11} \right)
+\end{align}
+$$
+As you can see, applying the Quantum Fourier Transform to $\ket{11}$ results in a superposition of states with phase shifts incremented by $\frac{3\pi}{2}$.</p>
+<br>
+<h3 id="for-three-qubits">For three qubits</h3>
+<p>Let&rsquo;s apply the quantum Fourier transform to the state $\ket{000}$.</p>
+<p>$$
+\mathcal{F} \ket{000} = \frac{1}{\sqrt{8}} \left( \ket{000} + \ket{001} + \ket{010} + \ket{011} + \ket{100} + \ket{101} + \ket{110} + \ket{111} \right)
+$$
+It is also evident that the Quantum Fourier Transform of $\ket{000}$ becomes a superposition where all components have zero phase shift.</p>
+<br>
+Let's apply the quantum Fourier transform to the state $\ket{001}$.
+　 
+$$
+\begin{align}
+\mathcal{F} \ket{001}
+&= \frac{1}{\sqrt{8}} \sum_{k=0}^{7} e^{2\pi i \cdot 1 \cdot k / 8} \ket{k} \\
+&= \frac{1}{\sqrt{8}} \left(
+\ket{000}
++ e^{\frac{\pi i}{4}} \ket{001}
++ e^{\frac{2\pi i}{4}} \ket{010}
++ e^{\frac{3\pi i}{4}} \ket{011}
++ e^{\frac{4\pi i}{4}} \ket{100}
++ e^{\frac{5\pi i}{4}} \ket{101}
++ e^{\frac{6\pi i}{4}} \ket{110}
++ e^{\frac{7\pi i}{4}} \ket{111}
+\right) \\
+&= \frac{1}{\sqrt{8}} \left(
+\ket{000}
++ e^{\frac{\pi i}{4}} \ket{001}
++ i \ket{010}
++ e^{\frac{3\pi i}{4}} \ket{011}
+- \ket{100}
++ e^{\frac{5\pi i}{4}} \ket{101}
+- i \ket{110}
++ e^{\frac{7\pi i}{4}} \ket{111}
+\right)
+\end{align}
+$$
+<p>As you can see, applying the Quantum Fourier Transform to $\ket{001}$ results in a superposition of states with phase shifts incremented by $\frac{\pi}{4}$.</p>
+<br>
+Let's apply the quantum Fourier transform to the state $\ket{010}$. 
+　
+$$
+\begin{align}
+\mathcal{F} \ket{010}
+&= \frac{1}{\sqrt{8}} \sum_{k=0}^{7} e^{2\pi i \cdot 2k / 8} \ket{k} \\
+&= \frac{1}{\sqrt{8}} \left(
+\ket{000}
++ e^{\frac{\pi i}{2}} \ket{001}
++ e^{\frac{2\pi i}{2}} \ket{010}
++ e^{\frac{3\pi i}{2}} \ket{011}
++ e^{\frac{4\pi i}{2}} \ket{100}
++ e^{\frac{5\pi i}{2}} \ket{101}
++ e^{\frac{6\pi i}{2}} \ket{110}
++ e^{\frac{7\pi i}{2}} \ket{111}
+\right) \\
+&= \frac{1}{\sqrt{8}} \left(
+\ket{000}
++ i\ket{001}
+- \ket{010}
+- i\ket{011}
++ \ket{100}
++ i\ket{101}
+- \ket{110}
+- i\ket{111} 
+\right)
+\end{align}
+$$
+<p>As you can see, applying the Quantum Fourier Transform to $\ket{010}$ results in a superposition of states with phase shifts incremented by $\frac{\pi}{2}$.</p>
+<br>
+From these examples, we can see the rule that each state is summed while shifting the phase depending on the number of qubits and the value of the original state.
+<h2 id="benefits-of-the-quantum-fourier-transform">Benefits of the Quantum Fourier Transform</h2>
+<p>For instance, consider a two-qubit system that is in either state $\psi_1 = \frac{1}{2} \left( \ket{00} + i\ket{01} - \ket{10} - i\ket{11} \right)$ or state $\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} + \ket{10} - \ket{11} \right)$.
+<br>
+How can we determine whether the system is in state $\psi_1$ or state $\psi_2$?
+<br>
+First, as a fundamental principle of quantum mechanics, it is not possible to directly observe the coefficients of all states.</p>
+<p>Furthermore, measuring the two-qubit state as is does not help, since both $\psi_1$ and $\psi_2$ yield identical probability distributions due to having the same absolute amplitudes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>00: 25%, 01: 25%, 10: 25%, 11: 25%
+</span></span></code></pre></div><p>In such cases, the quantum Fourier transform and its inverse can be useful.
+<br>
+For example, applying the Quantum Fourier Transform to $\psi_1$ results in a state $\ket{01}$.
+Applying the Quantum Fourier Transform to $\psi_2$ results in a state $\ket{10}$.
+<br></p>
+<p>In either case, we first perform the inverse Quantum Fourier Transform, and if $\ket{01}$ is observed, we know that the original state was $\psi_1$, while if $\ket{10}$ is observed, we know that it was $\psi_2$.
+<br>
+This illustrates one of the key strengths of the Quantum Fourier Transform: the ability to extract information about the quantum state, including its phase.
+<br>
+In the next article, we will use Qiskit 2.0 to implement the inverse Quantum Fourier Transform and demonstrate that the original quantum state can be successfully identified.</p>
+<hr>
+<h4 id="amazon-braket-learning-course-1">Amazon Braket Learning Course</h4>
+<p>You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+<h2 id="regarding-the-ibm-quantum-developer-certification-exam-1">Regarding the IBM Quantum Developer Certification Exam</h2>
+<p>IBM offers <a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">a certification exam related to Qiskit</a>, which is introduced in this blog.</p>
+<p>By obtaining this certification, you can prove your knowledge of Qiskit and quantum programming. For those aiming to achieve this certification, I have created a practice exams on the Udemy platform! I have made the explanations as clear as possible, so please make sure to take full advantage of the following practice exams as extra study material for exam preparation.</p>
+<h4 id="practice-exams-1">Practice exams</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

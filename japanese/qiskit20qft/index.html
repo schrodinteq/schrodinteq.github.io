@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="japanese">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Qiskit 2.0で逆量子フーリエ変換 | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="前回の記事では量子フーリエ変換の具体例やメリットについて確認しました。 今回の記事ではQiskit 2.0で実際に逆量子フーリエ変換を実行し、元々の量子状態が判別できることを確認します。
+Amazon Braket学習コース 量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B Qiskit 2.0で逆量子フーリエ変換 前回の記事の例で、ある2量子ビットが$\psi_1 = \frac{1}{2} \left( \ket{00} &#43; i\ket{01} - \ket{10} - i\ket{11} \right)$もしくは$\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} &#43; \ket{10} - \ket{11} \right)$どちらかの状態で存在していた場合、逆量子フーリエ変換を用いることで、どちらの状態か判別可能と説明しました。 今回はQiskitで実際に逆量子フーリエ変換を行い、元々の量子状態が判別できることを確認します。 まずは必要となる関数をimportします。
+from qiskit import QuantumCircuit from qiskit.circuit.library import StatePreparation from qiskit.primitives import StatevectorSampler from qiskit.circuit.library import QFT Samplerや、量子回路定義します。
+sampler = StatevectorSampler() n_qubits = 2 qc = QuantumCircuit(n_qubits, 2) 今回対象とする量子ビットの状態は$\psi_2$とし、この状態を生成する量子回路を以下でappendします。">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/japanese/qiskit20qft/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/japanese/qiskit20qft/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="Qiskit 2.0で逆量子フーリエ変換">
+  <meta property="og:description" content="前回の記事では量子フーリエ変換の具体例やメリットについて確認しました。 今回の記事ではQiskit 2.0で実際に逆量子フーリエ変換を実行し、元々の量子状態が判別できることを確認します。
+Amazon Braket学習コース 量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B Qiskit 2.0で逆量子フーリエ変換 前回の記事の例で、ある2量子ビットが$\psi_1 = \frac{1}{2} \left( \ket{00} &#43; i\ket{01} - \ket{10} - i\ket{11} \right)$もしくは$\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} &#43; \ket{10} - \ket{11} \right)$どちらかの状態で存在していた場合、逆量子フーリエ変換を用いることで、どちらの状態か判別可能と説明しました。 今回はQiskitで実際に逆量子フーリエ変換を行い、元々の量子状態が判別できることを確認します。 まずは必要となる関数をimportします。
+from qiskit import QuantumCircuit from qiskit.circuit.library import StatePreparation from qiskit.primitives import StatevectorSampler from qiskit.circuit.library import QFT Samplerや、量子回路定義します。
+sampler = StatevectorSampler() n_qubits = 2 qc = QuantumCircuit(n_qubits, 2) 今回対象とする量子ビットの状態は$\psi_2$とし、この状態を生成する量子回路を以下でappendします。">
+  <meta property="og:locale" content="japanese">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-06-11T11:24:27+09:00">
+    <meta property="article:modified_time" content="2025-06-11T11:24:27+09:00">
+
+  <meta itemprop="name" content="Qiskit 2.0で逆量子フーリエ変換">
+  <meta itemprop="description" content="前回の記事では量子フーリエ変換の具体例やメリットについて確認しました。 今回の記事ではQiskit 2.0で実際に逆量子フーリエ変換を実行し、元々の量子状態が判別できることを確認します。
+Amazon Braket学習コース 量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B Qiskit 2.0で逆量子フーリエ変換 前回の記事の例で、ある2量子ビットが$\psi_1 = \frac{1}{2} \left( \ket{00} &#43; i\ket{01} - \ket{10} - i\ket{11} \right)$もしくは$\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} &#43; \ket{10} - \ket{11} \right)$どちらかの状態で存在していた場合、逆量子フーリエ変換を用いることで、どちらの状態か判別可能と説明しました。 今回はQiskitで実際に逆量子フーリエ変換を行い、元々の量子状態が判別できることを確認します。 まずは必要となる関数をimportします。
+from qiskit import QuantumCircuit from qiskit.circuit.library import StatePreparation from qiskit.primitives import StatevectorSampler from qiskit.circuit.library import QFT Samplerや、量子回路定義します。
+sampler = StatevectorSampler() n_qubits = 2 qc = QuantumCircuit(n_qubits, 2) 今回対象とする量子ビットの状態は$\psi_2$とし、この状態を生成する量子回路を以下でappendします。">
+  <meta itemprop="datePublished" content="2025-06-11T11:24:27+09:00">
+  <meta itemprop="dateModified" content="2025-06-11T11:24:27+09:00">
+  <meta itemprop="wordCount" content="155">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Qiskit 2.0で逆量子フーリエ変換">
+  <meta name="twitter:description" content="前回の記事では量子フーリエ変換の具体例やメリットについて確認しました。 今回の記事ではQiskit 2.0で実際に逆量子フーリエ変換を実行し、元々の量子状態が判別できることを確認します。
+Amazon Braket学習コース 量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B Qiskit 2.0で逆量子フーリエ変換 前回の記事の例で、ある2量子ビットが$\psi_1 = \frac{1}{2} \left( \ket{00} &#43; i\ket{01} - \ket{10} - i\ket{11} \right)$もしくは$\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} &#43; \ket{10} - \ket{11} \right)$どちらかの状態で存在していた場合、逆量子フーリエ変換を用いることで、どちらの状態か判別可能と説明しました。 今回はQiskitで実際に逆量子フーリエ変換を行い、元々の量子状態が判別できることを確認します。 まずは必要となる関数をimportします。
+from qiskit import QuantumCircuit from qiskit.circuit.library import StatePreparation from qiskit.primitives import StatevectorSampler from qiskit.circuit.library import QFT Samplerや、量子回路定義します。
+sampler = StatevectorSampler() n_qubits = 2 qc = QuantumCircuit(n_qubits, 2) 今回対象とする量子ビットの状態は$\psi_2$とし、この状態を生成する量子回路を以下でappendします。">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/japanese/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/qiskit20qft/">english</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Qiskit 2.0で逆量子フーリエ変換
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p><a href="/japanese/learnqfteasily/">前回の記事</a>では量子フーリエ変換の具体例やメリットについて確認しました。
+<br>
+今回の記事ではQiskit 2.0で実際に逆量子フーリエ変換を実行し、元々の量子状態が判別できることを確認します。</p>
+<hr>
+<h4 id="amazon-braket学習コース">Amazon Braket学習コース</h4>
+<p>量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h4 id="qiskit試験対策問題集">Qiskit試験対策問題集</h4>
+<p>qiskitについての<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">資格試験</a>をIBMが提供しています。</p>
+<p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。</p>
+<h4 id="英語版問題集">英語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<h4 id="日本語版問題集">日本語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseJa.jpg" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+<h1 id="qiskit-20で逆量子フーリエ変換">Qiskit 2.0で逆量子フーリエ変換</h1>
+<p><a href="/japanese/learnqfteasily/">前回の記事</a>の例で、ある2量子ビットが$\psi_1 = \frac{1}{2} \left( \ket{00} + i\ket{01} - \ket{10} - i\ket{11} \right)$もしくは$\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} + \ket{10} - \ket{11} \right)$どちらかの状態で存在していた場合、逆量子フーリエ変換を用いることで、どちらの状態か判別可能と説明しました。
+<br>
+今回はQiskitで実際に逆量子フーリエ変換を行い、元々の量子状態が判別できることを確認します。
+<br>
+まずは必要となる関数をimportします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.circuit.library <span style="color:#f92672">import</span> StatePreparation
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.primitives <span style="color:#f92672">import</span> StatevectorSampler
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.circuit.library <span style="color:#f92672">import</span> QFT
+</span></span></code></pre></div><p>Samplerや、量子回路定義します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sampler <span style="color:#f92672">=</span> StatevectorSampler()
+</span></span><span style="display:flex;"><span>n_qubits <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(n_qubits, <span style="color:#ae81ff">2</span>)
+</span></span></code></pre></div><p>今回対象とする量子ビットの状態は$\psi_2$とし、この状態を生成する量子回路を以下でappendします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>state <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>]  
+</span></span><span style="display:flex;"><span>prep <span style="color:#f92672">=</span> StatePreparation(state)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>append(prep, [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>])
+</span></span></code></pre></div><p>ちなみにこのまま量子状態を測定するだけでは以下のような結果しか得られず、$\psi_1$であったか$\psi_2$であったかの判別はできません。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>pub <span style="color:#f92672">=</span> (qc, <span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> sampler<span style="color:#f92672">.</span>run([pub], shots<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>result<span style="color:#f92672">=</span>job<span style="color:#f92672">.</span>result()[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>c<span style="color:#f92672">.</span>get_counts())
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Output</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#39;01&#39;</span>: 27, <span style="color:#e6db74">&#39;10&#39;</span>: 27, <span style="color:#e6db74">&#39;11&#39;</span>: 23, <span style="color:#e6db74">&#39;00&#39;</span>: 23<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>では逆量子フーリエ変換を実装しましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>iqft <span style="color:#f92672">=</span> QFT(num_qubits<span style="color:#f92672">=</span>n_qubits, inverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, do_swaps<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>append(iqft, [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>])
+</span></span></code></pre></div><p>全体的な回路は以下の通りです。<a href="/japanese/learnqfteasily/">前回の記事</a>での例の通り、$\ket{01}$が観測された場合は元々の状態は$\psi_1$であったことを、$\ket{10}$が観測された場合は$\psi_2$であったこと意味します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>draw(<span style="color:#e6db74">&#39;mpl&#39;</span>)
+</span></span></code></pre></div><figure><img src="/qft/iqft01.webp"
+    alt="iqft" width="300px">
+</figure>
+
+<p>以下で量子回路を実行します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pub <span style="color:#f92672">=</span> (qc, <span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> sampler<span style="color:#f92672">.</span>run([pub], shots<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>result<span style="color:#f92672">=</span>job<span style="color:#f92672">.</span>result()[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>c<span style="color:#f92672">.</span>get_counts())
+</span></span></code></pre></div><p>結果は以下の通り$\ket{10}$が観測されます。$\psi_2$の状態が生成されていたことが分かりました。
+同様に、$\psi_1$の状態を生成した後に、逆量子フーリエ変換を実行すると$\ket{01}$が観測されます。是非試してみてください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Output</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#39;10&#39;</span>: 100<span style="color:#f92672">}</span>
+</span></span></code></pre></div><hr>
+<h4 id="amazon-braket学習コース-1">Amazon Braket学習コース</h4>
+<p>量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h4 id="qiskit試験対策問題集-1">Qiskit試験対策問題集</h4>
+<p>qiskitについての<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">資格試験</a>をIBMが提供しています。</p>
+<p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。</p>
+<h4 id="英語版問題集-1">英語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<h4 id="日本語版問題集-1">日本語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseJa.jpg" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/japanese/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

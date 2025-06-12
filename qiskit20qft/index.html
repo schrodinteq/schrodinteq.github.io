@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Inverse Quantum Fourier Transform in Qiskit 2.0 | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="In the previous article, we explored concrete examples and advantages of the Quantum Fourier Transform. In this article, we will implement the Inverse Quantum Fourier Transform using Qiskit 2.0 and verify that the original quantum state can be correctly identified.
+Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/qiskit20qft/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/qiskit20qft/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="Inverse Quantum Fourier Transform in Qiskit 2.0">
+  <meta property="og:description" content="In the previous article, we explored concrete examples and advantages of the Quantum Fourier Transform. In this article, we will implement the Inverse Quantum Fourier Transform using Qiskit 2.0 and verify that the original quantum state can be correctly identified.
+Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.">
+  <meta property="og:locale" content="english">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-06-11T17:53:11+09:00">
+    <meta property="article:modified_time" content="2025-06-11T17:53:11+09:00">
+
+  <meta itemprop="name" content="Inverse Quantum Fourier Transform in Qiskit 2.0">
+  <meta itemprop="description" content="In the previous article, we explored concrete examples and advantages of the Quantum Fourier Transform. In this article, we will implement the Inverse Quantum Fourier Transform using Qiskit 2.0 and verify that the original quantum state can be correctly identified.
+Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.">
+  <meta itemprop="datePublished" content="2025-06-11T17:53:11+09:00">
+  <meta itemprop="dateModified" content="2025-06-11T17:53:11+09:00">
+  <meta itemprop="wordCount" content="681">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Inverse Quantum Fourier Transform in Qiskit 2.0">
+  <meta name="twitter:description" content="In the previous article, we explored concrete examples and advantages of the Quantum Fourier Transform. In this article, we will implement the Inverse Quantum Fourier Transform using Qiskit 2.0 and verify that the original quantum state can be correctly identified.
+Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/japanese/qiskit20qft/">japanese</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          Inverse Quantum Fourier Transform in Qiskit 2.0
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>In <a href="/learnqfteasily/">the previous article</a>, we explored concrete examples and advantages of the Quantum Fourier Transform.
+<br>
+In this article, we will implement the Inverse Quantum Fourier Transform using Qiskit 2.0 and verify that the original quantum state can be correctly identified.</p>
+<hr>
+<h4 id="amazon-braket-learning-course">Amazon Braket Learning Course</h4>
+<p>You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+<h2 id="regarding-the-ibm-quantum-developer-certification-exam">Regarding the IBM Quantum Developer Certification Exam</h2>
+<p>IBM offers <a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">a certification exam related to Qiskit</a>, which is introduced in this blog.</p>
+<p>By obtaining this certification, you can prove your knowledge of Qiskit and quantum programming. For those aiming to achieve this certification, I have created a practice exams on the Udemy platform! I have made the explanations as clear as possible, so please make sure to take full advantage of the following practice exams as extra study material for exam preparation.</p>
+<h4 id="practice-exams">Practice exams</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+<h1 id="inverse-quantum-fourier-transform-in-qiskit-20">Inverse Quantum Fourier Transform in Qiskit 2.0</h1>
+<p>In <a href="/learnqfteasily/">the previous article</a>, we explained that if a 2-qubit quantum state existed in either state $\psi_1 = \frac{1}{2} \left( \ket{00} + i\ket{01} - \ket{10} - i\ket{11} \right)$ or $\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} + \ket{10} - \ket{11} \right)$, it is possible to determine which state it is by applying the Inverse Quantum Fourier Transform.
+<br>
+In this article, we will perform the Inverse Quantum Fourier Transform using Qiskit and verify that the original quantum state can be correctly identified.
+<br>
+Firstly, let&rsquo;s import the necessary functions.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.circuit.library <span style="color:#f92672">import</span> StatePreparation
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.primitives <span style="color:#f92672">import</span> StatevectorSampler
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.circuit.library <span style="color:#f92672">import</span> QFT
+</span></span></code></pre></div><p>We define Sampler and Quancum Cruicuit.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sampler <span style="color:#f92672">=</span> StatevectorSampler()
+</span></span><span style="display:flex;"><span>n_qubits <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(n_qubits, <span style="color:#ae81ff">2</span>)
+</span></span></code></pre></div><p>In this article, we set the target quantum state to $\psi_2$, and append the quantum circuit that generates this state below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>state <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>]  
+</span></span><span style="display:flex;"><span>prep <span style="color:#f92672">=</span> StatePreparation(state)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>append(prep, [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>])
+</span></span></code></pre></div><p>By simply measuring the quantum state at this point, we can only obtain results like the ones below, and it is not possible to determine whether the state was $\psi_1$ or $\psi_2$.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>pub <span style="color:#f92672">=</span> (qc, <span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> sampler<span style="color:#f92672">.</span>run([pub], shots<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>result<span style="color:#f92672">=</span>job<span style="color:#f92672">.</span>result()[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>c<span style="color:#f92672">.</span>get_counts())
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Output</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#39;01&#39;</span>: 27, <span style="color:#e6db74">&#39;10&#39;</span>: 27, <span style="color:#e6db74">&#39;11&#39;</span>: 23, <span style="color:#e6db74">&#39;00&#39;</span>: 23<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Let&rsquo;s implement the Inverse Quantum Fourier Transform.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>iqft <span style="color:#f92672">=</span> QFT(num_qubits<span style="color:#f92672">=</span>n_qubits, inverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, do_swaps<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>append(iqft, [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>])
+</span></span></code></pre></div><p>The overall circuit is as follows.</p>
+<p>As explained in <a href="/learnqfteasily/">the previous article</a>, if $\ket{01}$ is observed, we know that the original state was $\psi_1$, while if $\ket{10}$ is observed, we know that it was $\psi_2$.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>draw(<span style="color:#e6db74">&#39;mpl&#39;</span>)
+</span></span></code></pre></div><figure><img src="/qft/iqft01.webp"
+    alt="iqft" width="300px">
+</figure>
+
+<p>Let&rsquo;s execute the quantum circuit.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pub <span style="color:#f92672">=</span> (qc, <span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>job <span style="color:#f92672">=</span> sampler<span style="color:#f92672">.</span>run([pub], shots<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>result<span style="color:#f92672">=</span>job<span style="color:#f92672">.</span>result()[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>c<span style="color:#f92672">.</span>get_counts())
+</span></span></code></pre></div><p>As shown below, the result observes state $\ket{10}$, indicating that state $\psi_2$ was originally generated.
+Similarly, if you generate state $\psi_1$ and then apply the Inverse Quantum Fourier Transform, you will observe state$\ket{01}$.
+Give it a try when you have a moment.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Output</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#39;10&#39;</span>: 100<span style="color:#f92672">}</span>
+</span></span></code></pre></div><hr>
+<h4 id="amazon-braket-learning-course-1">Amazon Braket Learning Course</h4>
+<p>You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<hr>
+<h2 id="regarding-the-ibm-quantum-developer-certification-exam-1">Regarding the IBM Quantum Developer Certification Exam</h2>
+<p>IBM offers <a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">a certification exam related to Qiskit</a>, which is introduced in this blog.</p>
+<p>By obtaining this certification, you can prove your knowledge of Qiskit and quantum programming. For those aiming to achieve this certification, I have created a practice exams on the Udemy platform! I have made the explanations as clear as possible, so please make sure to take full advantage of the following practice exams as extra study material for exam preparation.</p>
+<h4 id="practice-exams-1">Practice exams</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

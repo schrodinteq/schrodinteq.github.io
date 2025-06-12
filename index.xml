@@ -6,8 +6,22 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Wed, 04 Jun 2025 16:50:26 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 11 Jun 2025 17:53:11 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Inverse Quantum Fourier Transform in Qiskit 2.0</title>
+      <link>https://schrodinteq.github.io/qiskit20qft/</link>
+      <pubDate>Wed, 11 Jun 2025 17:53:11 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/qiskit20qft/</guid>
+      <description>In the previous article, we explored concrete examples and advantages of the Quantum Fourier Transform. In this article, we will implement the Inverse Quantum Fourier Transform using Qiskit 2.0 and verify that the original quantum state can be correctly identified.&#xA;Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.</description>
+    </item>
+    <item>
+      <title>Make the Quantum Fourier Transform easy to understand with simple examples</title>
+      <link>https://schrodinteq.github.io/learnqfteasily/</link>
+      <pubDate>Tue, 10 Jun 2025 17:31:52 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/learnqfteasily/</guid>
+      <description>This article helps build an intuitive understanding of the Quantum Fourier Transform through concrete examples.&#xA;Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning.</description>
+    </item>
     <item>
       <title>Quantum Machine Learning on AWS Amazon Braket: QCBM</title>
       <link>https://schrodinteq.github.io/awsquantummachinelearning/</link>
