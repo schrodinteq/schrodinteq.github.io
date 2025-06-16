@@ -83,7 +83,7 @@ from qiskit import QuantumCircuit from qiskit.circuit.library import StatePrepar
 sampler = StatevectorSampler() n_qubits = 2 qc = QuantumCircuit(n_qubits, 2) 今回対象とする量子ビットの状態は$\psi_2$とし、この状態を生成する量子回路を以下でappendします。">
   <meta itemprop="datePublished" content="2025-06-11T11:24:27+09:00">
   <meta itemprop="dateModified" content="2025-06-11T11:24:27+09:00">
-  <meta itemprop="wordCount" content="155">
+  <meta itemprop="wordCount" content="158">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qiskit 2.0で逆量子フーリエ変換">
   <meta name="twitter:description" content="前回の記事では量子フーリエ変換の具体例やメリットについて確認しました。 今回の記事ではQiskit 2.0で実際に逆量子フーリエ変換を実行し、元々の量子状態が判別できることを確認します。
@@ -253,7 +253,8 @@ sampler = StatevectorSampler() n_qubits = 2 qc = QuantumCircuit(n_qubits, 2) 今
 同様に、$\psi_1$の状態を生成した後に、逆量子フーリエ変換を実行すると$\ket{01}$が観測されます。是非試してみてください。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Output</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#39;10&#39;</span>: 100<span style="color:#f92672">}</span>
-</span></span></code></pre></div><hr>
+</span></span></code></pre></div><p><a href="/japanese/awsbraketqft/">次の記事</a>では、Amazon Braket SDKを用いて逆量子フーリエ変換を実行します。</p>
+<hr>
 <h4 id="amazon-braket学習コース-1">Amazon Braket学習コース</h4>
 <p>量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。</p>
 <div style="display: flex; align-items: center;">

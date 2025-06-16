@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Wed, 11 Jun 2025 17:53:11 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 16 Jun 2025 18:34:04 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Inverse Quantum Fourier Transform on AWS Amazon Braket</title>
+      <link>https://schrodinteq.github.io/awsbraketqft/</link>
+      <pubDate>Mon, 16 Jun 2025 18:34:04 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/awsbraketqft/</guid>
+      <description>In the previous article, we implemented the Inverse Quantum Fourier Transform using Qiskit 2.0 and verify that the original quantum state can be correctly identified. In this article, we will implement the Inverse Quantum Fourier Transform using Amazon Braket SDK.&#xA;Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.</description>
+    </item>
     <item>
       <title>Inverse Quantum Fourier Transform in Qiskit 2.0</title>
       <link>https://schrodinteq.github.io/qiskit20qft/</link>

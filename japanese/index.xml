@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>japanese</language>
-    <lastBuildDate>Wed, 11 Jun 2025 11:24:27 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 15 Jun 2025 18:44:45 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/japanese/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWSのAmazon Braketで逆量子フーリエ変換</title>
+      <link>https://schrodinteq.github.io/japanese/awsbraketqft/</link>
+      <pubDate>Sun, 15 Jun 2025 18:44:45 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/japanese/awsbraketqft/</guid>
+      <description>別の記事でQiskitにより逆量子フーリエ変換を行い、元々の量子状態を判別できることについて説明しました。今回はAmazon Braket SDKのアルゴリズムライブラリを用いることで逆量子フーリエ変換を実行し、元々の量子状態を判別します。&#xA;Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！&#xA;AWSのAmazon Braketで逆量子フーリエ変換 別の記事の例で、ある2量子ビットが$\psi_1 = \frac{1}{2} \left( \ket{00} + i\ket{01} - \ket{10} - i\ket{11} \right)$もしくは$\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} + \ket{10} - \ket{11} \right)$どちらかの状態で存在していた場合、逆量子フーリエ変換を用いることで、どちらの状態か判別可能と説明しました。また、こちらの記事ではQiskit 2.0を用いその実装を行いました。 今回はAmazon Braket SDKで実際に逆量子フーリエ変換を行い、元々の量子状態が判別できることを確認します。 まずは必要となる関数をimportします。&#xA;from braket.circuits import Circuit from braket.devices import LocalSimulator from braket.experimental.algorithms.quantum_fourier_transform import ( quantum_fourier_transform as qft_module ) 量子回路を定義します。&#xA;n_qubits = 2 circ = Circuit() 前回と同様に今回も$\psi_2$を事前に定義し、逆量子フーリエ変換を実行しましょう。 ここで、前回Qiskitで実施した際の逆量子フーリエ変換の回路と、今回Amazon Braket SDKのアルゴリズムライブラリで用いられる逆量子フーリエ変換の回路はそれぞれ以下の通り逆になっております。 前回のQiskitの記事における量子フーリエ変換の回路図 今回のAmazon Braket SDKにおける量子フーリエ変換の回路図</description>
+    </item>
     <item>
       <title>Qiskit 2.0で逆量子フーリエ変換</title>
       <link>https://schrodinteq.github.io/japanese/qiskit20qft/</link>

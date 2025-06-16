@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="japanese">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>AWSのAmazon Braketで逆量子フーリエ変換 | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="別の記事でQiskitにより逆量子フーリエ変換を行い、元々の量子状態を判別できることについて説明しました。今回はAmazon Braket SDKのアルゴリズムライブラリを用いることで逆量子フーリエ変換を実行し、元々の量子状態を判別します。
+Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+AWSのAmazon Braketで逆量子フーリエ変換 別の記事の例で、ある2量子ビットが$\psi_1 = \frac{1}{2} \left( \ket{00} &#43; i\ket{01} - \ket{10} - i\ket{11} \right)$もしくは$\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} &#43; \ket{10} - \ket{11} \right)$どちらかの状態で存在していた場合、逆量子フーリエ変換を用いることで、どちらの状態か判別可能と説明しました。また、こちらの記事ではQiskit 2.0を用いその実装を行いました。 今回はAmazon Braket SDKで実際に逆量子フーリエ変換を行い、元々の量子状態が判別できることを確認します。 まずは必要となる関数をimportします。
+from braket.circuits import Circuit from braket.devices import LocalSimulator from braket.experimental.algorithms.quantum_fourier_transform import ( quantum_fourier_transform as qft_module ) 量子回路を定義します。
+n_qubits = 2 circ = Circuit() 前回と同様に今回も$\psi_2$を事前に定義し、逆量子フーリエ変換を実行しましょう。 ここで、前回Qiskitで実施した際の逆量子フーリエ変換の回路と、今回Amazon Braket SDKのアルゴリズムライブラリで用いられる逆量子フーリエ変換の回路はそれぞれ以下の通り逆になっております。 前回のQiskitの記事における量子フーリエ変換の回路図 今回のAmazon Braket SDKにおける量子フーリエ変換の回路図">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/japanese/awsbraketqft/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/japanese/awsbraketqft/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="AWSのAmazon Braketで逆量子フーリエ変換">
+  <meta property="og:description" content="別の記事でQiskitにより逆量子フーリエ変換を行い、元々の量子状態を判別できることについて説明しました。今回はAmazon Braket SDKのアルゴリズムライブラリを用いることで逆量子フーリエ変換を実行し、元々の量子状態を判別します。
+Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+AWSのAmazon Braketで逆量子フーリエ変換 別の記事の例で、ある2量子ビットが$\psi_1 = \frac{1}{2} \left( \ket{00} &#43; i\ket{01} - \ket{10} - i\ket{11} \right)$もしくは$\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} &#43; \ket{10} - \ket{11} \right)$どちらかの状態で存在していた場合、逆量子フーリエ変換を用いることで、どちらの状態か判別可能と説明しました。また、こちらの記事ではQiskit 2.0を用いその実装を行いました。 今回はAmazon Braket SDKで実際に逆量子フーリエ変換を行い、元々の量子状態が判別できることを確認します。 まずは必要となる関数をimportします。
+from braket.circuits import Circuit from braket.devices import LocalSimulator from braket.experimental.algorithms.quantum_fourier_transform import ( quantum_fourier_transform as qft_module ) 量子回路を定義します。
+n_qubits = 2 circ = Circuit() 前回と同様に今回も$\psi_2$を事前に定義し、逆量子フーリエ変換を実行しましょう。 ここで、前回Qiskitで実施した際の逆量子フーリエ変換の回路と、今回Amazon Braket SDKのアルゴリズムライブラリで用いられる逆量子フーリエ変換の回路はそれぞれ以下の通り逆になっております。 前回のQiskitの記事における量子フーリエ変換の回路図 今回のAmazon Braket SDKにおける量子フーリエ変換の回路図">
+  <meta property="og:locale" content="japanese">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-06-15T18:44:45+09:00">
+    <meta property="article:modified_time" content="2025-06-15T18:44:45+09:00">
+
+  <meta itemprop="name" content="AWSのAmazon Braketで逆量子フーリエ変換">
+  <meta itemprop="description" content="別の記事でQiskitにより逆量子フーリエ変換を行い、元々の量子状態を判別できることについて説明しました。今回はAmazon Braket SDKのアルゴリズムライブラリを用いることで逆量子フーリエ変換を実行し、元々の量子状態を判別します。
+Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+AWSのAmazon Braketで逆量子フーリエ変換 別の記事の例で、ある2量子ビットが$\psi_1 = \frac{1}{2} \left( \ket{00} &#43; i\ket{01} - \ket{10} - i\ket{11} \right)$もしくは$\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} &#43; \ket{10} - \ket{11} \right)$どちらかの状態で存在していた場合、逆量子フーリエ変換を用いることで、どちらの状態か判別可能と説明しました。また、こちらの記事ではQiskit 2.0を用いその実装を行いました。 今回はAmazon Braket SDKで実際に逆量子フーリエ変換を行い、元々の量子状態が判別できることを確認します。 まずは必要となる関数をimportします。
+from braket.circuits import Circuit from braket.devices import LocalSimulator from braket.experimental.algorithms.quantum_fourier_transform import ( quantum_fourier_transform as qft_module ) 量子回路を定義します。
+n_qubits = 2 circ = Circuit() 前回と同様に今回も$\psi_2$を事前に定義し、逆量子フーリエ変換を実行しましょう。 ここで、前回Qiskitで実施した際の逆量子フーリエ変換の回路と、今回Amazon Braket SDKのアルゴリズムライブラリで用いられる逆量子フーリエ変換の回路はそれぞれ以下の通り逆になっております。 前回のQiskitの記事における量子フーリエ変換の回路図 今回のAmazon Braket SDKにおける量子フーリエ変換の回路図">
+  <meta itemprop="datePublished" content="2025-06-15T18:44:45+09:00">
+  <meta itemprop="dateModified" content="2025-06-15T18:44:45+09:00">
+  <meta itemprop="wordCount" content="185">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AWSのAmazon Braketで逆量子フーリエ変換">
+  <meta name="twitter:description" content="別の記事でQiskitにより逆量子フーリエ変換を行い、元々の量子状態を判別できることについて説明しました。今回はAmazon Braket SDKのアルゴリズムライブラリを用いることで逆量子フーリエ変換を実行し、元々の量子状態を判別します。
+Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+AWSのAmazon Braketで逆量子フーリエ変換 別の記事の例で、ある2量子ビットが$\psi_1 = \frac{1}{2} \left( \ket{00} &#43; i\ket{01} - \ket{10} - i\ket{11} \right)$もしくは$\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} &#43; \ket{10} - \ket{11} \right)$どちらかの状態で存在していた場合、逆量子フーリエ変換を用いることで、どちらの状態か判別可能と説明しました。また、こちらの記事ではQiskit 2.0を用いその実装を行いました。 今回はAmazon Braket SDKで実際に逆量子フーリエ変換を行い、元々の量子状態が判別できることを確認します。 まずは必要となる関数をimportします。
+from braket.circuits import Circuit from braket.devices import LocalSimulator from braket.experimental.algorithms.quantum_fourier_transform import ( quantum_fourier_transform as qft_module ) 量子回路を定義します。
+n_qubits = 2 circ = Circuit() 前回と同様に今回も$\psi_2$を事前に定義し、逆量子フーリエ変換を実行しましょう。 ここで、前回Qiskitで実施した際の逆量子フーリエ変換の回路と、今回Amazon Braket SDKのアルゴリズムライブラリで用いられる逆量子フーリエ変換の回路はそれぞれ以下の通り逆になっております。 前回のQiskitの記事における量子フーリエ変換の回路図 今回のAmazon Braket SDKにおける量子フーリエ変換の回路図">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/japanese/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/awsbraketqft/">english</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          AWSのAmazon Braketで逆量子フーリエ変換
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p><a href="/japanese/qiskit20qft/">別の記事</a>でQiskitにより逆量子フーリエ変換を行い、元々の量子状態を判別できることについて説明しました。今回はAmazon Braket SDKのアルゴリズムライブラリを用いることで逆量子フーリエ変換を実行し、元々の量子状態を判別します。</p>
+<hr>
+<h4 id="amazon-braket学習コース">Amazon Braket学習コース</h4>
+<p>この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h1 id="awsのamazon-braketで逆量子フーリエ変換">AWSのAmazon Braketで逆量子フーリエ変換</h1>
+<p><a href="/japanese/learnqfteasily/">別の記事</a>の例で、ある2量子ビットが$\psi_1 = \frac{1}{2} \left( \ket{00} + i\ket{01} - \ket{10} - i\ket{11} \right)$もしくは$\psi_2 = \frac{1}{2} \left( \ket{00} - \ket{01} + \ket{10} - \ket{11} \right)$どちらかの状態で存在していた場合、逆量子フーリエ変換を用いることで、どちらの状態か判別可能と説明しました。また、<a href="/japanese/qiskit20qft/">こちらの記事</a>ではQiskit 2.0を用いその実装を行いました。
+<br>
+今回はAmazon Braket SDKで実際に逆量子フーリエ変換を行い、元々の量子状態が判別できることを確認します。
+<br>
+まずは必要となる関数をimportします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> braket.circuits <span style="color:#f92672">import</span> Circuit
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> braket.devices <span style="color:#f92672">import</span> LocalSimulator
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> braket.experimental.algorithms.quantum_fourier_transform <span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    quantum_fourier_transform <span style="color:#66d9ef">as</span> qft_module
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>量子回路を定義します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>n_qubits <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>circ <span style="color:#f92672">=</span> Circuit()
+</span></span></code></pre></div><p><a href="/japanese/qiskit20qft/">前回</a>と同様に今回も$\psi_2$を事前に定義し、逆量子フーリエ変換を実行しましょう。
+<br>
+ここで、<a href="/japanese/qiskit20qft/">前回</a>Qiskitで実施した際の逆量子フーリエ変換の回路と、今回Amazon Braket SDKのアルゴリズムライブラリで用いられる逆量子フーリエ変換の回路はそれぞれ以下の通り逆になっております。
+<br></p>
+<ul>
+<li>
+<p><em>前回のQiskitの記事における量子フーリエ変換の回路図</em>
+<figure><img src="/qft/iqft_in_qiskit.webp"
+    alt="iqft_in_qiskit" width="500px">
+</figure>
+</p>
+</li>
+<li>
+<p><em>今回のAmazon Braket SDKにおける量子フーリエ変換の回路図</em></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>T  : │   <span style="color:#ae81ff">0</span>    │  <span style="color:#ae81ff">1</span>  │       <span style="color:#ae81ff">2</span>        │  <span style="color:#ae81ff">3</span>  │
+</span></span><span style="display:flex;"><span>                     ┌──────────────┐ ┌───┐ 
+</span></span><span style="display:flex;"><span>q0 : ────x───────────┤ PHASE<span style="color:#f92672">(</span>-1.57<span style="color:#f92672">)</span> ├─┤ H ├─
+</span></span><span style="display:flex;"><span>         │           └──────┬───────┘ └───┘ 
+</span></span><span style="display:flex;"><span>         │     ┌───┐        │               
+</span></span><span style="display:flex;"><span>q1 : ────x─────┤ H ├────────●───────────────
+</span></span><span style="display:flex;"><span>               └───┘                        
+</span></span><span style="display:flex;"><span>T  : │   <span style="color:#ae81ff">0</span>    │  <span style="color:#ae81ff">1</span>  │       <span style="color:#ae81ff">2</span>        │  <span style="color:#ae81ff">3</span>  │
+</span></span></code></pre></div><p>この順序も考慮する場合、つまりAmazon Braket SDKの量子フーリエ変換に対応して$\psi_2$を準備する場合は、以下の回路が必要となります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>circ<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>circ<span style="color:#f92672">.</span>x(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>circ<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><p>図で示すと以下です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>T  : │  <span style="color:#ae81ff">0</span>  │  <span style="color:#ae81ff">1</span>  │
+</span></span><span style="display:flex;"><span>      ┌───┐       
+</span></span><span style="display:flex;"><span>q0 : ─┤ H ├───────
+</span></span><span style="display:flex;"><span>      └───┘       
+</span></span><span style="display:flex;"><span>      ┌───┐ ┌───┐ 
+</span></span><span style="display:flex;"><span>q1 : ─┤ X ├─┤ H ├─
+</span></span><span style="display:flex;"><span>      └───┘ └───┘ 
+</span></span><span style="display:flex;"><span>T  : │  <span style="color:#ae81ff">0</span>  │  <span style="color:#ae81ff">1</span>  │
+</span></span></code></pre></div><p>では逆量子フーリエ変換を実行しましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>circ<span style="color:#f92672">.</span>iqft(range(n_qubits))
+</span></span><span style="display:flex;"><span>device <span style="color:#f92672">=</span> LocalSimulator()
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> device<span style="color:#f92672">.</span>run(circ, shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)<span style="color:#f92672">.</span>result()
+</span></span><span style="display:flex;"><span>counts <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>measurement_counts
+</span></span><span style="display:flex;"><span>print(counts)
+</span></span></code></pre></div><p>結果は以下の通り$\ket{10}$が観測されます。$\psi_2$の状態が生成されていたことが分かりました。
+同様に、$\psi_1$の状態を生成した後に、逆量子フーリエ変換を実行すると$\ket{01}$が観測されます。是非試してみてください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Counter<span style="color:#f92672">({</span><span style="color:#e6db74">&#39;10&#39;</span>: 1000<span style="color:#f92672">})</span>
+</span></span></code></pre></div><hr>
+<h4 id="amazon-braket学習コース-1">Amazon Braket学習コース</h4>
+<p>この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h4 id="qiskit試験対策問題集">Qiskit試験対策問題集</h4>
+<p>qiskitについての<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">資格試験</a>をIBMが提供しています。</p>
+<p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。</p>
+<h4 id="英語版問題集">英語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
+    </a>
+  </div>
+</div>
+<br>
+<h4 id="日本語版問題集">日本語版問題集</h4>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/QiskitCourseJa.jpg" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank">
+      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/japanese/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+
