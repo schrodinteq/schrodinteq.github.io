@@ -2,6 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://schrodinteq.github.io/japanese/awsbraketqpe/</loc>
+    <lastmod>2025-06-20T15:17:02+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="english"
+                href="https://schrodinteq.github.io/awsbraketqpe/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="japanese"
+                href="https://schrodinteq.github.io/japanese/awsbraketqpe/"
+                />
+  </url><url>
+    <loc>https://schrodinteq.github.io/japanese/</loc>
+    <lastmod>2025-06-20T15:17:02+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="english"
+                href="https://schrodinteq.github.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="japanese"
+                href="https://schrodinteq.github.io/japanese/"
+                />
+  </url><url>
     <loc>https://schrodinteq.github.io/japanese/awsbraketqft/</loc>
     <lastmod>2025-06-15T18:44:45+09:00</lastmod>
     <xhtml:link
@@ -13,19 +39,6 @@
                 rel="alternate"
                 hreflang="japanese"
                 href="https://schrodinteq.github.io/japanese/awsbraketqft/"
-                />
-  </url><url>
-    <loc>https://schrodinteq.github.io/japanese/</loc>
-    <lastmod>2025-06-15T18:44:45+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="english"
-                href="https://schrodinteq.github.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="japanese"
-                href="https://schrodinteq.github.io/japanese/"
                 />
   </url><url>
     <loc>https://schrodinteq.github.io/japanese/qiskit20qft/</loc>

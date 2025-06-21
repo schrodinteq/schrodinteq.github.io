@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Mon, 16 Jun 2025 18:34:04 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 21 Jun 2025 12:57:52 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quantum Phase Estimation with AWS Amazon Braket</title>
+      <link>https://schrodinteq.github.io/awsbraketqpe/</link>
+      <pubDate>Sat, 21 Jun 2025 12:57:52 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/awsbraketqpe/</guid>
+      <description>In the previous articles, we covered the following topics:&#xA;Understanding Quantum Fourier Transform Through Concrete Examples Inverse Quantum Fourier Transform with Qiskit 2.0 Inverse Quantum Fourier Transform with the Amazon Braket SDK In this article, we will build on those foundations to explore Quantum Phase Estimation.&#xA;Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.</description>
+    </item>
     <item>
       <title>Inverse Quantum Fourier Transform on AWS Amazon Braket</title>
       <link>https://schrodinteq.github.io/awsbraketqft/</link>

@@ -61,8 +61,8 @@ window.MathJax = {
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
-  <meta itemprop="datePublished" content="2025-06-15T18:44:45+09:00">
-  <meta itemprop="dateModified" content="2025-06-15T18:44:45+09:00">
+  <meta itemprop="datePublished" content="2025-06-20T15:17:02+09:00">
+  <meta itemprop="dateModified" content="2025-06-20T15:17:02+09:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
 
@@ -164,6 +164,36 @@ window.MathJax = {
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/japanese/awsbraketqpe/" class="color-inherit dim link">
+            AWSのAmazon Braketで量子位相推定（Quantum Phase Estimation）
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          これまでの記事では以下の内容を学びました：
+量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 今回はそれらを踏まえて、量子位相推定について解説します。
+Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
+https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
+英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B Amazon Braket SDKで量子位相推定 これまでの記事で、逆量子フーリエ変換により、位相を含めた量子状態を判別できることを学びました。 この性質をうまく利用して量子アルゴリズムを設計できないでしょうか？ 実は量子位相推定アルゴリズムではこの性質が活用されています。 このアルゴリズムはユニタリ演算子$ U $とその固有状態$|\psi\rangle$が与えられているとき、 $\phi$を$\phi \approx 0.\phi_1\phi_2\ldots\phi_n = \sum_{k=1}^{n} \frac{\phi_k}{2^k}$の形で推定します。ただしnは読み出しレジスタの量子ビット数です。 $$ U |\psi\rangle = e^{2\pi i \phi} |\psi\rangle \quad (\phi \in [0, 1)) $$ このアルゴリズムの流れは以下の通りです。 $\phi$の情報を持った量子フーリエ変換後の状態をうまく作り出す $\downarrow$ 出来上がった状態を逆量子フーリエ変換することで$\phi$の情報を取り出す 理論の流れを見ていきましょう。まずは$\phi$の情報を持った量子フーリエ変換後の状態をうまく作り出すことを考えていきます。 ある$n+1$量子ビットの初期状態はいつもの通り以下となります。 $$ |0\rangle^{\otimes n+1} $$ 固有状態を作らないと$\phi$の値も登場できないので末尾のビットを$U$の固有状態$|\psi\rangle$に変換しましょう。 $$ |0\rangle^{\otimes n} \otimes |\psi\rangle $$ 今回の目的は$\phi$の情報を持った量子フーリエ変換後の状態を作り出すことにあります。 量子フーリエ変換$\mathcal{F}$の定義を思い出すと。 $$ \mathcal{F} \ket{j} = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1} e^{2\pi i jk / 2^n} \ket{k} $$ $|0\rangle^{\otimes n}$のビット列は今回読み出しレジスタと呼びますが、こちらにHゲートを適用すれば以下の通り少し量子フーリエ変換後の形に近づきます。 $$ \left( H^{\otimes n} |0\rangle^{\otimes n} \right) \otimes |\psi\rangle = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n - 1} |k\rangle \otimes |\psi\rangle $$ 量子フーリエ変換の式と現在の状態を見比べると、量子フーリエ変換の式では$|k\rangle$に、$k$に依存した位相因子がかけられていることがわかります。これは$|k\rangle$を制御ビットとした制御$U$ゲート$\mathrm{C}\text{-}U$を適用することで得られます。 $$ \begin{align} \mathrm{C}\text{-}U \left( \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n - 1} |k\rangle \otimes |\psi\rangle \right) &amp;= \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n - 1} |k\rangle \otimes U^k |\psi\rangle \\ &amp;= \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n - 1} e^{2\pi i \phi k} |k\rangle \otimes |\psi\rangle \end{align} \tag{1} $$ かなり量子フーリエ変換の式に近づきました！ここで逆量子フーリエ変換$\mathcal{F}^{-1}$の定義についても思い出してみましょう。 $$ \mathcal{F}^{-1} \left( \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1} e^{2\pi i jk / 2^n} \ket{k} \right) = \ket{j} $$ 逆量子フーリエ変換を適用することでかなりシンプルになりますね。同様に今回導いた式の読み出しレジスタの部分を逆量子フーリエ変換すればシンプルな形となるはずです。式で表すと以下の通りとなります。 $$ \left( \mathcal{F}^{-1} \left( \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n - 1} e^{2\pi i \phi k} |k\rangle \right) \right) \otimes |\psi\rangle = |2^n\phi\rangle \otimes |\psi\rangle $$ ここまで変形した後に、読み出しレジスタを観測すれば$|2^n\phi\rangle$の形で$\phi$が観測できるはずです！ ただし、量子位相推定では$\phi$が2進数でちょうど$n$量子ビットで表せない場合は、近似値に重なった状態になることに注意が必要です。
+        </div>
+          <a href="/japanese/awsbraketqpe/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+            </div>
+          
+            <div class="relative w-100 mb4">
+              
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/japanese/awsbraketqft/" class="color-inherit dim link">
             AWSのAmazon Braketで逆量子フーリエ変換
             </a>
@@ -216,45 +246,18 @@ sampler = StatevectorSampler() n_qubits = 2 qc = QuantumCircuit(n_qubits, 2) 今
 
             </div>
           
-            <div class="relative w-100 mb4">
-              
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/japanese/learnqfteasily/" class="color-inherit dim link">
-            量子フーリエ変換を具体例で分かりやすく
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          この記事では量子フーリエ変換の具体的な例をみることで直感的な理解を深めます。
-Amazon Braket学習コース 量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
-Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。
-この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。
-英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B 量子フーリエ変換 $n$量子ビットにおける量子フーリエ変換$\mathcal{F}$は式で次のように表せます。 $$ \mathcal{F} \ket{j} = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1} e^{2\pi i jk / 2^n} \ket{k} $$
-また量子フーリエ変換はユニタリ変換であり、逆量子フーリエ変換は次のように表せることも触れておきます。 $$ \mathcal{F}^{-1} \ket{k} = \mathcal{F}^\dagger \ket{k} = \frac{1}{\sqrt{2^n}} \sum_{j=0}^{2^n-1} e^{-2\pi i jk / 2^n} \ket{j} $$
-量子フーリエ変換の具体例 1量子ビットの場合 $\ket{0}$という状態を量子フーリエ変換してみましょう。
-$$ \mathcal{F} \ket{0} = \frac{1}{\sqrt{2}} ( \ket{0} + \ket{1} ) $$ このように、$\ket{0}$は位相がずれていない状態の重ね合わせとなることが分かります。 $\ket{1}$という状態を量子フーリエ変換してみましょう。
-$$ \mathcal{F} \ket{1} = \frac{1}{\sqrt{2}} ( \ket{0} + e^{\pi i} \ket{1} ) = \frac{1}{\sqrt{2}} ( \ket{0} - \ket{1} ) $$ このように、$\ket{1}$を量子フーリエ変換すると位相が反転された状態（πずれている状態）の重ね合わせとなることが分かります。
-        </div>
-          <a href="/japanese/learnqfteasily/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-            </div>
-          
         </section>
 
         
         <section class="w-100">
           <h1 class="f3">More</h1>
           
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/japanese/learnqfteasily/" class="link black dim">
+                量子フーリエ変換を具体例で分かりやすく
+              </a>
+            </h2>
           
             <h2 class="f5 fw4 mb4 dib mr3">
               <a href="/japanese/awsquantummachinelearning/" class="link black dim">
