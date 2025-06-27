@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>japanese</language>
-    <lastBuildDate>Fri, 20 Jun 2025 15:17:02 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 26 Jun 2025 14:31:58 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/japanese/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Qiskit 2.0で量子位相推定（Quantum Phase Estimation）</title>
+      <link>https://schrodinteq.github.io/japanese/qiskit20qpe/</link>
+      <pubDate>Thu, 26 Jun 2025 14:31:58 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/japanese/qiskit20qpe/</guid>
+      <description>これまでの記事では以下の内容を学びました：&#xA;量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Amazon Braketで量子位相推定 今回はQiskit 2.0を用いて、量子位相推定を実行します。&#xA;Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！&#xA;Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。&#xA;この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。&#xA;英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B Qiskit 2.0で量子位相推定 今回は対象のユニタリ行列を$S$ゲート、固有状態を$\ket{1}$として実装してみましょう。 つまり量子位相推定により$\ket{1}$に対する$S$ゲートの固有値を求めます。暗算でもこの固有値の結果は算出できるかもしれませんが、あえて分からないふりをして進めていきましょう。 まずは必要となる関数をimportします。&#xA;from qiskit import QuantumCircuit from qiskit.primitives import StatevectorSampler from qiskit.circuit.library import QFT from qiskit.circuit.library import SGate samplerを定義します。&#xA;sampler = StatevectorSampler() 量子回路を定義します。今回読み出しレジスタの量子ビット数は3とします。&#xA;n_qubits = 4 n_readout_qubits = n_qubits - 1 qc = QuantumCircuit(n_qubits, n_readout_qubits) 読み出しレジスタの量子ビットにはHゲートを書けるのでした。&#xA;for qubit in list(range(n_readout_qubits)): qc.h(qubit) また、末尾のビットとなる4量子ビット目は固有状態$\ket{1}$に変換しておきます。</description>
+    </item>
     <item>
       <title>AWSのAmazon Braketで量子位相推定（Quantum Phase Estimation）</title>
       <link>https://schrodinteq.github.io/japanese/awsbraketqpe/</link>
