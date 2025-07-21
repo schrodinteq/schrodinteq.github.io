@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>japanese</language>
-    <lastBuildDate>Thu, 26 Jun 2025 14:31:58 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 20 Jul 2025 12:00:33 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/japanese/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWSのAmazon Braketでショアのアルゴリズム</title>
+      <link>https://schrodinteq.github.io/japanese/awsbraketshor/</link>
+      <pubDate>Sun, 20 Jul 2025 12:00:33 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/japanese/awsbraketshor/</guid>
+      <description>これまでの記事では以下の内容を学びました：&#xA;量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Qiskit 2.0で量子位相推定 Amazon Braket SDKで量子位相推定 これらを踏まえてRSA暗号や、ビットコインのトランザクションで利用されるECDSA暗号を破ると言われている量子アルゴリズムであるショアのアルゴリズムについて学びます。&#xA;Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！&#xA;Qiskit試験対策問題集 qiskitについての資格試験をIBMが提供しています。&#xA;この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。 こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。&#xA;英語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2 日本語版問題集 https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B ショアのアルゴリズム 量子コンピューターで十分な数の量子ビットが扱えるようになった場合、ショアのアルゴリズムでRSA暗号や、ECDSA暗号が破られる危険性があると言われています。 例えばRSA暗号は大きな数の素因数分解が困難であることを利用した暗号方式ですが、今回はショアのアルゴリズムで素因数分解を行う例についてみていきましょう。 このアルゴリズムを用いて整数$N$の素因数分解を行う際の流れは以下の通りです。 $1 &amp;lt; a &amp;lt; N$ かつ$ N$との最大公約数が $1$ となる$a$を選ぶ $\downarrow$ $a^x\bmod\ N$ という関数の周期 $r$を見つける $\downarrow$ $a^{\frac{r}{2}} \pm 1$の最大公約数からNの素因数を求める ここで&amp;quot;$a^x\bmod\ N$ という関数の周期 $r$を見つける&amp;quot;と記載されていますが、具体例を見ていきましょう。&#xA;例として$N=39$を素因数分解する際に、$a=5$を選んだ場合について考えます。$a^x\bmod\ N\ =\ 5^x\bmod\ 39$のグラフは$x$を横軸とすると次の通りとなります。&#xA;y軸の値を書き出すと以下の通りで、4回の変化を通じて元の値に戻る周期関数であることがわかります。&#xA;$$ 1 \rightarrow 5 \rightarrow 25 \rightarrow 8 \rightarrow 1 \rightarrow 5 \rightarrow 25 \rightarrow 8 \tag{1} $$</description>
+    </item>
     <item>
       <title>Qiskit 2.0で量子位相推定（Quantum Phase Estimation）</title>
       <link>https://schrodinteq.github.io/japanese/qiskit20qpe/</link>

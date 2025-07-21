@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Fri, 27 Jun 2025 12:22:20 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jul 2025 16:43:14 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shor&#39;s Algorithm with AWS Amazon Braket</title>
+      <link>https://schrodinteq.github.io/awsbraketshor/</link>
+      <pubDate>Mon, 21 Jul 2025 16:43:14 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/awsbraketshor/</guid>
+      <description>In the previous articles, we covered the following topics:&#xA;Understanding Quantum Fourier Transform Through Concrete Examples Inverse Quantum Fourier Transform with Qiskit 2.0 Inverse Quantum Fourier Transform with the Amazon Braket SDK Quantum Phase Estimation with Qiskit 2.0 Quantum Phase Estimation with the Amazon Braket SDK Based on this, we will study Shor&amp;rsquo;s algorithm, a quantum algorithm said to be capable of breaking RSA encryption and ECDSA encryption used in Bitcoin transactions.</description>
+    </item>
     <item>
       <title>Quantum Phase Estimation with Qiskit 2.0</title>
       <link>https://schrodinteq.github.io/qiskit20qpe/</link>
