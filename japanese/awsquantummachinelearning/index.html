@@ -83,7 +83,7 @@ git clone https://github.com/amazon-braket/amazon-braket-algorithm-library.git c
 import numpy as np n_qubits = 4 def gaussian(n_qubits, mu, sigma): x = np.arange(2**n_qubits) gaussian = 1.0 / np.sqrt(2 * np.pi * sigma**2) * np.exp(-((x - mu) ** 2) / (2 * sigma**2)) return gaussian / sum(gaussian) data = gaussian(n_qubits, mu=7, sigma=2) data = data / sum(data) 図で記載してみると以下の通りとなります。今回はこのデータを学習対象とします。">
   <meta itemprop="datePublished" content="2025-06-02T12:53:26+09:00">
   <meta itemprop="dateModified" content="2025-06-02T12:53:26+09:00">
-  <meta itemprop="wordCount" content="698">
+  <meta itemprop="wordCount" content="695">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="AWSのAmazon Braketで量子機械学習：QCBM">
   <meta name="twitter:description" content="別の記事に記載の通り、AWSの量子コンピューティングサービスであるAmazon Braketにおいては、Amazon Braket SDKと呼ばれる量子コンピューティングSDKを用いて各サービスを簡単に利用可能となります。この記事では、量子コンピュータを用いた機械学習である、量子機械学習アルゴリズムを実行する方法について説明します。
@@ -316,30 +316,15 @@ import numpy as np n_qubits = 4 def gaussian(n_qubits, mu, sigma): x = np.arange
 <p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
 こちらも利用し、量子技術のスキルを身につけましょう！</p>
 <hr>
-<h4 id="qiskit試験対策問題集">Qiskit試験対策問題集</h4>
-<p>qiskitについての<a href="https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300">資格試験</a>をIBMが提供しています。</p>
-<p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
-こちらの資格取得を目指される方のため、Udemyというサイト上にて日本語版、英語版で問題集を作りました！解説もなるべくわかりやすく作成いたしましたので、是非是非ご活用ください。</p>
-<h4 id="英語版問題集">英語版問題集</h4>
+<h4 id="はじめての量子コンピューター入門基礎知識qiskitでの実装量子機械学習-全て学べる">はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】</h4>
+<p>量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。</p>
 <div style="display: flex; align-items: center;">
-  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank" style="margin-right: 20px;">
-    <img src="/mycourses/QiskitCourseEn.webp" alt="QiskitCourseEn" width="250" style="vertical-align: middle;">
+  <a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/IntroQuantumComputing.webp" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
   </a>
   <div style="word-break: break-all; font-size: 90%;">
-    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2" target="_blank">
-      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-practice-exams/?referralCode=3B3263DF800E05439AD2
-    </a>
-  </div>
-</div>
-<br>
-<h4 id="日本語版問題集">日本語版問題集</h4>
-<div style="display: flex; align-items: center;">
-  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank" style="margin-right: 20px;">
-    <img src="/mycourses/QiskitCourseJa.jpg" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
-  </a>
-  <div style="word-break: break-all; font-size: 90%;">
-    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B" target="_blank">
-      https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-jp/?referralCode=7D18ADD30A495E12120B
+    <a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0" target="_blank">
+      はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】
     </a>
   </div>
 </div>
