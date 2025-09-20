@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="この記事ではAWSが提供する量子コンピューティングサービスの1つである、Amazon Braket NotebookからQiskitを利用する方法について説明します。
 Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 Amazon Braket NotebookからQiskitを実行する AWSが提供する量子コンピューティングサービスの1つである、Amazon Braket Notebookインスタンスには、Amazon Braket SDK、Qiskit、Pennylaneなどの量子コンピューティングSDKが既に利用できる状態でインストールされています。 今回はQiskitを用いて簡単な回路を実行します。 まずはAmazon Braket Notebookインスタンスを起動し、新しいファイルを開きます。 Amazon Braket Notebookインスタンスは、起動時間に応じて料金が発生するので注意しましょう。 以下の様に通常のQiskitと同様にモジュールをインポートできます。
 import qiskit from qiskit import QuantumCircuit この記事を書いている時点では、Qiskit1.2.0がデフォルトでインストールされています。
 print(qiskit.__version__) #1.2.0 量子回路もいつも通り定義できます。今回はベルの回路を作成しています。
 circuit = QuantumCircuit(2) circuit.h(0) circuit.cx(0, 1) 量子回路の実行方法は、通常のQiskitと記載の仕方が異なります。以下はローカルシミュレータ利用時のコードです。 local_simulatorという変数にバックエンドを定義し、実行しています。100回の実行としています。
 from qiskit_braket_provider import BraketLocalBackend local_simulator = BraketLocalBackend() local_task = local_simulator.run(circuit, shots=100) 結果の確認方法は通常のQiskitと同様です。
 print(local_task.result().get_counts()) #{&#39;11&#39;: 44, &#39;00&#39;: 56} ヒストグラムもいつも通り以下で確認できます。
-from qiskit.visualization import plot_histogram plot_histogram(local_task.result().get_counts()) Amazon Braket managedシミュレータを扱いたい場合、利用可能なシミュレータは以下で確認可能です。">
+from qiskit.">
     <meta name="generator" content="Hugo 0.128.1">
     
     
@@ -63,14 +63,14 @@ window.MathJax = {
   <meta property="og:title" content="Amazon BraketでQiskitを利用する">
   <meta property="og:description" content="この記事ではAWSが提供する量子コンピューティングサービスの1つである、Amazon Braket NotebookからQiskitを利用する方法について説明します。
 Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 Amazon Braket NotebookからQiskitを実行する AWSが提供する量子コンピューティングサービスの1つである、Amazon Braket Notebookインスタンスには、Amazon Braket SDK、Qiskit、Pennylaneなどの量子コンピューティングSDKが既に利用できる状態でインストールされています。 今回はQiskitを用いて簡単な回路を実行します。 まずはAmazon Braket Notebookインスタンスを起動し、新しいファイルを開きます。 Amazon Braket Notebookインスタンスは、起動時間に応じて料金が発生するので注意しましょう。 以下の様に通常のQiskitと同様にモジュールをインポートできます。
 import qiskit from qiskit import QuantumCircuit この記事を書いている時点では、Qiskit1.2.0がデフォルトでインストールされています。
 print(qiskit.__version__) #1.2.0 量子回路もいつも通り定義できます。今回はベルの回路を作成しています。
 circuit = QuantumCircuit(2) circuit.h(0) circuit.cx(0, 1) 量子回路の実行方法は、通常のQiskitと記載の仕方が異なります。以下はローカルシミュレータ利用時のコードです。 local_simulatorという変数にバックエンドを定義し、実行しています。100回の実行としています。
 from qiskit_braket_provider import BraketLocalBackend local_simulator = BraketLocalBackend() local_task = local_simulator.run(circuit, shots=100) 結果の確認方法は通常のQiskitと同様です。
 print(local_task.result().get_counts()) #{&#39;11&#39;: 44, &#39;00&#39;: 56} ヒストグラムもいつも通り以下で確認できます。
-from qiskit.visualization import plot_histogram plot_histogram(local_task.result().get_counts()) Amazon Braket managedシミュレータを扱いたい場合、利用可能なシミュレータは以下で確認可能です。">
+from qiskit.">
   <meta property="og:locale" content="japanese">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2025-05-20T11:47:16+09:00">
@@ -79,29 +79,29 @@ from qiskit.visualization import plot_histogram plot_histogram(local_task.result
   <meta itemprop="name" content="Amazon BraketでQiskitを利用する">
   <meta itemprop="description" content="この記事ではAWSが提供する量子コンピューティングサービスの1つである、Amazon Braket NotebookからQiskitを利用する方法について説明します。
 Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 Amazon Braket NotebookからQiskitを実行する AWSが提供する量子コンピューティングサービスの1つである、Amazon Braket Notebookインスタンスには、Amazon Braket SDK、Qiskit、Pennylaneなどの量子コンピューティングSDKが既に利用できる状態でインストールされています。 今回はQiskitを用いて簡単な回路を実行します。 まずはAmazon Braket Notebookインスタンスを起動し、新しいファイルを開きます。 Amazon Braket Notebookインスタンスは、起動時間に応じて料金が発生するので注意しましょう。 以下の様に通常のQiskitと同様にモジュールをインポートできます。
 import qiskit from qiskit import QuantumCircuit この記事を書いている時点では、Qiskit1.2.0がデフォルトでインストールされています。
 print(qiskit.__version__) #1.2.0 量子回路もいつも通り定義できます。今回はベルの回路を作成しています。
 circuit = QuantumCircuit(2) circuit.h(0) circuit.cx(0, 1) 量子回路の実行方法は、通常のQiskitと記載の仕方が異なります。以下はローカルシミュレータ利用時のコードです。 local_simulatorという変数にバックエンドを定義し、実行しています。100回の実行としています。
 from qiskit_braket_provider import BraketLocalBackend local_simulator = BraketLocalBackend() local_task = local_simulator.run(circuit, shots=100) 結果の確認方法は通常のQiskitと同様です。
 print(local_task.result().get_counts()) #{&#39;11&#39;: 44, &#39;00&#39;: 56} ヒストグラムもいつも通り以下で確認できます。
-from qiskit.visualization import plot_histogram plot_histogram(local_task.result().get_counts()) Amazon Braket managedシミュレータを扱いたい場合、利用可能なシミュレータは以下で確認可能です。">
+from qiskit.">
   <meta itemprop="datePublished" content="2025-05-20T11:47:16+09:00">
   <meta itemprop="dateModified" content="2025-05-20T11:47:16+09:00">
-  <meta itemprop="wordCount" content="107">
+  <meta itemprop="wordCount" content="121">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Amazon BraketでQiskitを利用する">
   <meta name="twitter:description" content="この記事ではAWSが提供する量子コンピューティングサービスの1つである、Amazon Braket NotebookからQiskitを利用する方法について説明します。
 Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 Amazon Braket NotebookからQiskitを実行する AWSが提供する量子コンピューティングサービスの1つである、Amazon Braket Notebookインスタンスには、Amazon Braket SDK、Qiskit、Pennylaneなどの量子コンピューティングSDKが既に利用できる状態でインストールされています。 今回はQiskitを用いて簡単な回路を実行します。 まずはAmazon Braket Notebookインスタンスを起動し、新しいファイルを開きます。 Amazon Braket Notebookインスタンスは、起動時間に応じて料金が発生するので注意しましょう。 以下の様に通常のQiskitと同様にモジュールをインポートできます。
 import qiskit from qiskit import QuantumCircuit この記事を書いている時点では、Qiskit1.2.0がデフォルトでインストールされています。
 print(qiskit.__version__) #1.2.0 量子回路もいつも通り定義できます。今回はベルの回路を作成しています。
 circuit = QuantumCircuit(2) circuit.h(0) circuit.cx(0, 1) 量子回路の実行方法は、通常のQiskitと記載の仕方が異なります。以下はローカルシミュレータ利用時のコードです。 local_simulatorという変数にバックエンドを定義し、実行しています。100回の実行としています。
 from qiskit_braket_provider import BraketLocalBackend local_simulator = BraketLocalBackend() local_task = local_simulator.run(circuit, shots=100) 結果の確認方法は通常のQiskitと同様です。
 print(local_task.result().get_counts()) #{&#39;11&#39;: 44, &#39;00&#39;: 56} ヒストグラムもいつも通り以下で確認できます。
-from qiskit.visualization import plot_histogram plot_histogram(local_task.result().get_counts()) Amazon Braket managedシミュレータを扱いたい場合、利用可能なシミュレータは以下で確認可能です。">
+from qiskit.">
 
       
   
@@ -174,11 +174,11 @@ from qiskit.visualization import plot_histogram plot_histogram(local_task.result
 <p>AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
 <div style="display: flex; align-items: center;">
   <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
-    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="170" style="vertical-align: middle;">
   </a>
   <div style="word-break: break-all; font-size: 90%;">
     <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
-      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+      Quantum Computing on AWS for Beginners: Amazon Braket
     </a>
   </div>
 </div>
@@ -232,11 +232,11 @@ Amazon Braket Notebookインスタンスは、起動時間に応じて料金が�
 <p>AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
 <div style="display: flex; align-items: center;">
   <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
-    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="170" style="vertical-align: middle;">
   </a>
   <div style="word-break: break-all; font-size: 90%;">
     <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
-      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+      Quantum Computing on AWS for Beginners: Amazon Braket
     </a>
   </div>
 </div>

@@ -48,7 +48,7 @@
       <link>https://schrodinteq.github.io/learnqfteasily/</link>
       <pubDate>Tue, 10 Jun 2025 17:31:52 +0900</pubDate>
       <guid>https://schrodinteq.github.io/learnqfteasily/</guid>
-      <description>This article helps build an intuitive understanding of the Quantum Fourier Transform through concrete examples.&#xA;Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning.</description>
+      <description>This article helps build an intuitive understanding of the Quantum Fourier Transform through concrete examples.&#xA;Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.&#xA;Quantum Computing on AWS for Beginners: Amazon Braket This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning.</description>
     </item>
     <item>
       <title>Quantum Machine Learning on AWS Amazon Braket: QCBM</title>
@@ -62,7 +62,7 @@
       <link>https://schrodinteq.github.io/braketexperimenterror/</link>
       <pubDate>Sat, 31 May 2025 21:19:07 +0900</pubDate>
       <guid>https://schrodinteq.github.io/braketexperimenterror/</guid>
-      <description>Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!&#xA;Error when importing braket.experimental As already introduced in another article, Amazon Braket allows you to easily run algorithms such as Quantum Fourier Transform and quantum machine learning using its algorithm library.</description>
+      <description>Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;Quantum Computing on AWS for Beginners: Amazon Braket This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!&#xA;Error when importing braket.</description>
     </item>
     <item>
       <title>Install the Amazon Braket SDK and run quantum circuits in Jupyter Notebook</title>
@@ -76,42 +76,42 @@
       <link>https://schrodinteq.github.io/qiskit20/</link>
       <pubDate>Thu, 22 May 2025 18:01:51 +0900</pubDate>
       <guid>https://schrodinteq.github.io/qiskit20/</guid>
-      <description>Qiskit 2.0 has been released. In this article, we will explain how to run a simple quantum circuit using Qiskit 2.0.1.&#xA;Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!</description>
+      <description>Qiskit 2.0 has been released. In this article, we will explain how to run a simple quantum circuit using Qiskit 2.0.1.&#xA;Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;Quantum Computing on AWS for Beginners: Amazon Braket This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning.</description>
     </item>
     <item>
       <title>Using Qiskit on Amazon Braket</title>
       <link>https://schrodinteq.github.io/awsbraketqiskit/</link>
       <pubDate>Tue, 20 May 2025 14:40:23 +0900</pubDate>
       <guid>https://schrodinteq.github.io/awsbraketqiskit/</guid>
-      <description>This article explains how to use Qiskit from an Amazon Braket notebook, one of the quantum computing services provided by AWS.&#xA;Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!</description>
+      <description>This article explains how to use Qiskit from an Amazon Braket notebook, one of the quantum computing services provided by AWS.&#xA;Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;Quantum Computing on AWS for Beginners: Amazon Braket This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning.</description>
     </item>
     <item>
       <title>AccessDeniedException in Amazon Braket</title>
       <link>https://schrodinteq.github.io/braketexrole/</link>
       <pubDate>Mon, 19 May 2025 11:34:09 +0900</pubDate>
       <guid>https://schrodinteq.github.io/braketexrole/</guid>
-      <description>Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!&#xA;AccessDeniedException in Amazon Braket When attempting to run the SV1, TN1, DM1 simulators or quantum computers on Amazon Braket, the following error may be encountered.</description>
+      <description>Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;Quantum Computing on AWS for Beginners: Amazon Braket This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!&#xA;AccessDeniedException in Amazon Braket When attempting to run the SV1, TN1, DM1 simulators or quantum computers on Amazon Braket, the following error may be encountered.</description>
     </item>
     <item>
       <title>Error due to insufficient memory in Amazon Braket</title>
       <link>https://schrodinteq.github.io/braketmemerr/</link>
       <pubDate>Fri, 16 May 2025 10:07:44 +0900</pubDate>
       <guid>https://schrodinteq.github.io/braketmemerr/</guid>
-      <description>Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!&#xA;Error Due to Insufficient Memory in Amazon Braket Local Simulator When running the local simulator in Amazon Braket, AWS&amp;rsquo;s quantum computing service, the following error may be output.</description>
+      <description>Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;Quantum Computing on AWS for Beginners: Amazon Braket This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!&#xA;Error Due to Insufficient Memory in Amazon Braket Local Simulator When running the local simulator in Amazon Braket, AWS&amp;rsquo;s quantum computing service, the following error may be output.</description>
     </item>
     <item>
       <title>What is Amazon Braket?</title>
       <link>https://schrodinteq.github.io/whatisamazonbraket/</link>
       <pubDate>Mon, 12 May 2025 11:15:01 +0900</pubDate>
       <guid>https://schrodinteq.github.io/whatisamazonbraket/</guid>
-      <description>In this article, I will explain the overview of Amazon Braket, a quantum computing service provided by AWS, while also mentioning the personal benefits I feel.&#xA;Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning.</description>
+      <description>In this article, I will explain the overview of Amazon Braket, a quantum computing service provided by AWS, while also mentioning the personal benefits I feel.&#xA;Amazon Braket Learning Course I have created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;Quantum Computing on AWS for Beginners: Amazon Braket This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning.</description>
     </item>
     <item>
       <title>Run any desired version of Qiskit using a Python virtual environment</title>
       <link>https://schrodinteq.github.io/venv/</link>
       <pubDate>Fri, 18 Apr 2025 12:11:19 +0900</pubDate>
       <guid>https://schrodinteq.github.io/venv/</guid>
-      <description>Amazon Braket Learning Course I have also created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!&#xA;Running any version of Qiskit Sample questions for the IBM certification related to quantum computers, IBM Certified Associate Developer - Quantum Computation using Qiskit v0.</description>
+      <description>Amazon Braket Learning Course I have also created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;Quantum Computing on AWS for Beginners: Amazon Braket This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning. Take advantage of this opportunity to build your skills in quantum technologies!&#xA;Running any version of Qiskit Sample questions for the IBM certification related to quantum computers, IBM Certified Associate Developer - Quantum Computation using Qiskit v0.</description>
     </item>
     <item>
       <title>IBM Quantum Developer Certification Sample Test Explanation Part 2</title>

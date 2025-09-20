@@ -9,14 +9,13 @@
     <meta name="description" content="これまでの記事では以下の内容を学びました：
 量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Amazon Braketで量子位相推定 今回はQiskit 2.0を用いて、量子位相推定を実行します。
 Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 Qiskit 2.0で量子位相推定 今回は対象のユニタリ行列を$S$ゲート、固有状態を$\ket{1}$として実装してみましょう。 つまり量子位相推定により$\ket{1}$に対する$S$ゲートの固有値を求めます。暗算でもこの固有値の結果は算出できるかもしれませんが、あえて分からないふりをして進めていきましょう。 まずは必要となる関数をimportします。
 from qiskit import QuantumCircuit from qiskit.primitives import StatevectorSampler from qiskit.circuit.library import QFT from qiskit.circuit.library import SGate samplerを定義します。
 sampler = StatevectorSampler() 量子回路を定義します。今回読み出しレジスタの量子ビット数は3とします。
 n_qubits = 4 n_readout_qubits = n_qubits - 1 qc = QuantumCircuit(n_qubits, n_readout_qubits) 読み出しレジスタの量子ビットにはHゲートを書けるのでした。
-for qubit in list(range(n_readout_qubits)): qc.h(qubit) また、末尾のビットとなる4量子ビット目は固有状態$\ket{1}$に変換しておきます。
-qc.x(n_readout_qubits) 続いて制御$S$ゲートを適用します。前回での記事での説明の通り、量子ビットに依存して$2^{n-1}$回だけ制御$S$ゲートを適用しなければいけないことに注意しましょう。">
+for qubit in list(range(n_readout_qubits)): qc.">
     <meta name="generator" content="Hugo 0.128.1">
     
     
@@ -65,14 +64,13 @@ window.MathJax = {
   <meta property="og:description" content="これまでの記事では以下の内容を学びました：
 量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Amazon Braketで量子位相推定 今回はQiskit 2.0を用いて、量子位相推定を実行します。
 Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 Qiskit 2.0で量子位相推定 今回は対象のユニタリ行列を$S$ゲート、固有状態を$\ket{1}$として実装してみましょう。 つまり量子位相推定により$\ket{1}$に対する$S$ゲートの固有値を求めます。暗算でもこの固有値の結果は算出できるかもしれませんが、あえて分からないふりをして進めていきましょう。 まずは必要となる関数をimportします。
 from qiskit import QuantumCircuit from qiskit.primitives import StatevectorSampler from qiskit.circuit.library import QFT from qiskit.circuit.library import SGate samplerを定義します。
 sampler = StatevectorSampler() 量子回路を定義します。今回読み出しレジスタの量子ビット数は3とします。
 n_qubits = 4 n_readout_qubits = n_qubits - 1 qc = QuantumCircuit(n_qubits, n_readout_qubits) 読み出しレジスタの量子ビットにはHゲートを書けるのでした。
-for qubit in list(range(n_readout_qubits)): qc.h(qubit) また、末尾のビットとなる4量子ビット目は固有状態$\ket{1}$に変換しておきます。
-qc.x(n_readout_qubits) 続いて制御$S$ゲートを適用します。前回での記事での説明の通り、量子ビットに依存して$2^{n-1}$回だけ制御$S$ゲートを適用しなければいけないことに注意しましょう。">
+for qubit in list(range(n_readout_qubits)): qc.">
   <meta property="og:locale" content="japanese">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2025-06-26T14:31:58+09:00">
@@ -82,30 +80,28 @@ qc.x(n_readout_qubits) 続いて制御$S$ゲートを適用します。前回で
   <meta itemprop="description" content="これまでの記事では以下の内容を学びました：
 量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Amazon Braketで量子位相推定 今回はQiskit 2.0を用いて、量子位相推定を実行します。
 Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 Qiskit 2.0で量子位相推定 今回は対象のユニタリ行列を$S$ゲート、固有状態を$\ket{1}$として実装してみましょう。 つまり量子位相推定により$\ket{1}$に対する$S$ゲートの固有値を求めます。暗算でもこの固有値の結果は算出できるかもしれませんが、あえて分からないふりをして進めていきましょう。 まずは必要となる関数をimportします。
 from qiskit import QuantumCircuit from qiskit.primitives import StatevectorSampler from qiskit.circuit.library import QFT from qiskit.circuit.library import SGate samplerを定義します。
 sampler = StatevectorSampler() 量子回路を定義します。今回読み出しレジスタの量子ビット数は3とします。
 n_qubits = 4 n_readout_qubits = n_qubits - 1 qc = QuantumCircuit(n_qubits, n_readout_qubits) 読み出しレジスタの量子ビットにはHゲートを書けるのでした。
-for qubit in list(range(n_readout_qubits)): qc.h(qubit) また、末尾のビットとなる4量子ビット目は固有状態$\ket{1}$に変換しておきます。
-qc.x(n_readout_qubits) 続いて制御$S$ゲートを適用します。前回での記事での説明の通り、量子ビットに依存して$2^{n-1}$回だけ制御$S$ゲートを適用しなければいけないことに注意しましょう。">
+for qubit in list(range(n_readout_qubits)): qc.">
   <meta itemprop="datePublished" content="2025-06-26T14:31:58+09:00">
   <meta itemprop="dateModified" content="2025-06-26T14:31:58+09:00">
-  <meta itemprop="wordCount" content="168">
+  <meta itemprop="wordCount" content="182">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qiskit 2.0で量子位相推定（Quantum Phase Estimation）">
   <meta name="twitter:description" content="これまでの記事では以下の内容を学びました：
 量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Amazon Braketで量子位相推定 今回はQiskit 2.0を用いて、量子位相推定を実行します。
 Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 Qiskit 2.0で量子位相推定 今回は対象のユニタリ行列を$S$ゲート、固有状態を$\ket{1}$として実装してみましょう。 つまり量子位相推定により$\ket{1}$に対する$S$ゲートの固有値を求めます。暗算でもこの固有値の結果は算出できるかもしれませんが、あえて分からないふりをして進めていきましょう。 まずは必要となる関数をimportします。
 from qiskit import QuantumCircuit from qiskit.primitives import StatevectorSampler from qiskit.circuit.library import QFT from qiskit.circuit.library import SGate samplerを定義します。
 sampler = StatevectorSampler() 量子回路を定義します。今回読み出しレジスタの量子ビット数は3とします。
 n_qubits = 4 n_readout_qubits = n_qubits - 1 qc = QuantumCircuit(n_qubits, n_readout_qubits) 読み出しレジスタの量子ビットにはHゲートを書けるのでした。
-for qubit in list(range(n_readout_qubits)): qc.h(qubit) また、末尾のビットとなる4量子ビット目は固有状態$\ket{1}$に変換しておきます。
-qc.x(n_readout_qubits) 続いて制御$S$ゲートを適用します。前回での記事での説明の通り、量子ビットに依存して$2^{n-1}$回だけ制御$S$ゲートを適用しなければいけないことに注意しましょう。">
+for qubit in list(range(n_readout_qubits)): qc.">
 
       
   
@@ -185,11 +181,11 @@ qc.x(n_readout_qubits) 続いて制御$S$ゲートを適用します。前回で
 <p>この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。</p>
 <div style="display: flex; align-items: center;">
   <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
-    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="170" style="vertical-align: middle;">
   </a>
   <div style="word-break: break-all; font-size: 90%;">
     <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
-      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+      Quantum Computing on AWS for Beginners: Amazon Braket
     </a>
   </div>
 </div>
@@ -278,11 +274,11 @@ $$</p>
 <p>この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。</p>
 <div style="display: flex; align-items: center;">
   <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
-    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="170" style="vertical-align: middle;">
   </a>
   <div style="word-break: break-all; font-size: 90%;">
     <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
-      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+      Quantum Computing on AWS for Beginners: Amazon Braket
     </a>
   </div>
 </div>

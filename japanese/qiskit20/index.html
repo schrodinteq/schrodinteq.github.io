@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Qiskit 2.0がリリースされました。この記事ではqiskit 2.0.1で簡単な量子回路を実行する方法を説明します。
 Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 qiskit 2.0.1をインストールして簡単な量子回路を実行する この記事を書いてる時点での最新版であるqiskitのバージョンは2.0.1であったため、これをインストールし、簡単な量子回路を実行します。 環境は以下の通り用意しました。
 pip install qiskit==2.0.1 notebook numpy 今回の記事ではStatevectorSamplerを用いて量子回路を実行します。その他必要となるモジュールと合わせてimportしておきます。
@@ -16,7 +16,7 @@ from qiskit.circuit import ( Parameter, QuantumCircuit ) from qiskit.primitives 
 sampler = StatevectorSampler() いつも通り量子回路を定義します。今回はベルの回路を定義してます。
 qc = QuantumCircuit(2, 2) qc.h(0) qc.cx(0, 1) qc.measure([0,1], [0,1]) Qiskitでは量子回路と同時に複数のパラメータを定義し、samplerで一気に実行可能です。 ただし、今回はパラメータ依存のゲートもないため、パラメータを定義しないNoneとして実行します。
 pub = (qc, None) job = sampler.run([pub], shots=100) 以下の様に結果を確認できます。
-result = job.result()[0] print(result.data.c.get_counts()) # {&#39;11&#39;: 53, &#39;00&#39;: 47} では次に複数のパラメータで一気に量子回路を実行してみましょう。 以下のようにParameter x, yに依存し回転を施すrx, ryゲートを使った量子回路を定義します。">
+result = job.">
     <meta name="generator" content="Hugo 0.128.1">
     
     
@@ -64,7 +64,7 @@ window.MathJax = {
   <meta property="og:title" content="Qiskit 2.0をインストールして簡単な量子回路を実行する">
   <meta property="og:description" content="Qiskit 2.0がリリースされました。この記事ではqiskit 2.0.1で簡単な量子回路を実行する方法を説明します。
 Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 qiskit 2.0.1をインストールして簡単な量子回路を実行する この記事を書いてる時点での最新版であるqiskitのバージョンは2.0.1であったため、これをインストールし、簡単な量子回路を実行します。 環境は以下の通り用意しました。
 pip install qiskit==2.0.1 notebook numpy 今回の記事ではStatevectorSamplerを用いて量子回路を実行します。その他必要となるモジュールと合わせてimportしておきます。
@@ -72,7 +72,7 @@ from qiskit.circuit import ( Parameter, QuantumCircuit ) from qiskit.primitives 
 sampler = StatevectorSampler() いつも通り量子回路を定義します。今回はベルの回路を定義してます。
 qc = QuantumCircuit(2, 2) qc.h(0) qc.cx(0, 1) qc.measure([0,1], [0,1]) Qiskitでは量子回路と同時に複数のパラメータを定義し、samplerで一気に実行可能です。 ただし、今回はパラメータ依存のゲートもないため、パラメータを定義しないNoneとして実行します。
 pub = (qc, None) job = sampler.run([pub], shots=100) 以下の様に結果を確認できます。
-result = job.result()[0] print(result.data.c.get_counts()) # {&#39;11&#39;: 53, &#39;00&#39;: 47} では次に複数のパラメータで一気に量子回路を実行してみましょう。 以下のようにParameter x, yに依存し回転を施すrx, ryゲートを使った量子回路を定義します。">
+result = job.">
   <meta property="og:locale" content="japanese">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2025-05-22T17:36:41+09:00">
@@ -81,7 +81,7 @@ result = job.result()[0] print(result.data.c.get_counts()) # {&#39;11&#39;: 53, 
   <meta itemprop="name" content="Qiskit 2.0をインストールして簡単な量子回路を実行する">
   <meta itemprop="description" content="Qiskit 2.0がリリースされました。この記事ではqiskit 2.0.1で簡単な量子回路を実行する方法を説明します。
 Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 qiskit 2.0.1をインストールして簡単な量子回路を実行する この記事を書いてる時点での最新版であるqiskitのバージョンは2.0.1であったため、これをインストールし、簡単な量子回路を実行します。 環境は以下の通り用意しました。
 pip install qiskit==2.0.1 notebook numpy 今回の記事ではStatevectorSamplerを用いて量子回路を実行します。その他必要となるモジュールと合わせてimportしておきます。
@@ -89,15 +89,15 @@ from qiskit.circuit import ( Parameter, QuantumCircuit ) from qiskit.primitives 
 sampler = StatevectorSampler() いつも通り量子回路を定義します。今回はベルの回路を定義してます。
 qc = QuantumCircuit(2, 2) qc.h(0) qc.cx(0, 1) qc.measure([0,1], [0,1]) Qiskitでは量子回路と同時に複数のパラメータを定義し、samplerで一気に実行可能です。 ただし、今回はパラメータ依存のゲートもないため、パラメータを定義しないNoneとして実行します。
 pub = (qc, None) job = sampler.run([pub], shots=100) 以下の様に結果を確認できます。
-result = job.result()[0] print(result.data.c.get_counts()) # {&#39;11&#39;: 53, &#39;00&#39;: 47} では次に複数のパラメータで一気に量子回路を実行してみましょう。 以下のようにParameter x, yに依存し回転を施すrx, ryゲートを使った量子回路を定義します。">
+result = job.">
   <meta itemprop="datePublished" content="2025-05-22T17:36:41+09:00">
   <meta itemprop="dateModified" content="2025-05-22T17:36:41+09:00">
-  <meta itemprop="wordCount" content="175">
+  <meta itemprop="wordCount" content="189">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qiskit 2.0をインストールして簡単な量子回路を実行する">
   <meta name="twitter:description" content="Qiskit 2.0がリリースされました。この記事ではqiskit 2.0.1で簡単な量子回路を実行する方法を説明します。
 Amazon Braket学習コース AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
-https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 qiskit 2.0.1をインストールして簡単な量子回路を実行する この記事を書いてる時点での最新版であるqiskitのバージョンは2.0.1であったため、これをインストールし、簡単な量子回路を実行します。 環境は以下の通り用意しました。
 pip install qiskit==2.0.1 notebook numpy 今回の記事ではStatevectorSamplerを用いて量子回路を実行します。その他必要となるモジュールと合わせてimportしておきます。
@@ -105,7 +105,7 @@ from qiskit.circuit import ( Parameter, QuantumCircuit ) from qiskit.primitives 
 sampler = StatevectorSampler() いつも通り量子回路を定義します。今回はベルの回路を定義してます。
 qc = QuantumCircuit(2, 2) qc.h(0) qc.cx(0, 1) qc.measure([0,1], [0,1]) Qiskitでは量子回路と同時に複数のパラメータを定義し、samplerで一気に実行可能です。 ただし、今回はパラメータ依存のゲートもないため、パラメータを定義しないNoneとして実行します。
 pub = (qc, None) job = sampler.run([pub], shots=100) 以下の様に結果を確認できます。
-result = job.result()[0] print(result.data.c.get_counts()) # {&#39;11&#39;: 53, &#39;00&#39;: 47} では次に複数のパラメータで一気に量子回路を実行してみましょう。 以下のようにParameter x, yに依存し回転を施すrx, ryゲートを使った量子回路を定義します。">
+result = job.">
 
       
   
@@ -178,11 +178,11 @@ result = job.result()[0] print(result.data.c.get_counts()) # {&#39;11&#39;: 53, 
 <p>AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
 <div style="display: flex; align-items: center;">
   <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
-    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="170" style="vertical-align: middle;">
   </a>
   <div style="word-break: break-all; font-size: 90%;">
     <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
-      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+      Quantum Computing on AWS for Beginners: Amazon Braket
     </a>
   </div>
 </div>
@@ -267,11 +267,11 @@ result = job.result()[0] print(result.data.c.get_counts()) # {&#39;11&#39;: 53, 
 <p>AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
 <div style="display: flex; align-items: center;">
   <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
-    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="280" style="vertical-align: middle;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="170" style="vertical-align: middle;">
   </a>
   <div style="word-break: break-all; font-size: 90%;">
     <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
-      https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8
+      Quantum Computing on AWS for Beginners: Amazon Braket
     </a>
   </div>
 </div>
