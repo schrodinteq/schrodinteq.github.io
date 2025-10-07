@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="japanese">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>IBM 量子開発者認定資格 v2.X sample問題集の解説 その1 | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="2025年、新しいQiskitのバージョンに対応した資格である、「IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate」がリリースされました。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+この認定を得るためには、上記リンクに記載がある通り、“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLリンク内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1 ~ 10問までの解説を記載しています。11 ~ 21問の解説についてはこちらのページをご参照ください。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 Amazon Braket学習コース また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+問題1: Which one of the following code fragments will generate the given output?
+[[ 1.&#43;0.j 0.&#43;0.j 0.&#43;0.j 0.&#43;0.j] [ 0.&#43;0.j -1.&#43;0.j 0.&#43;0.j 0.&#43;0.j] [ 0.">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/japanese/ibmcertsamplev2x01/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/japanese/ibmcertsamplev2x01/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="IBM 量子開発者認定資格 v2.X sample問題集の解説 その1">
+  <meta property="og:description" content="2025年、新しいQiskitのバージョンに対応した資格である、「IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate」がリリースされました。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+この認定を得るためには、上記リンクに記載がある通り、“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLリンク内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1 ~ 10問までの解説を記載しています。11 ~ 21問の解説についてはこちらのページをご参照ください。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 Amazon Braket学習コース また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+問題1: Which one of the following code fragments will generate the given output?
+[[ 1.&#43;0.j 0.&#43;0.j 0.&#43;0.j 0.&#43;0.j] [ 0.&#43;0.j -1.&#43;0.j 0.&#43;0.j 0.&#43;0.j] [ 0.">
+  <meta property="og:locale" content="japanese">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-09-21T20:41:13+09:00">
+    <meta property="article:modified_time" content="2025-09-21T20:41:13+09:00">
+
+  <meta itemprop="name" content="IBM 量子開発者認定資格 v2.X sample問題集の解説 その1">
+  <meta itemprop="description" content="2025年、新しいQiskitのバージョンに対応した資格である、「IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate」がリリースされました。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+この認定を得るためには、上記リンクに記載がある通り、“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLリンク内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1 ~ 10問までの解説を記載しています。11 ~ 21問の解説についてはこちらのページをご参照ください。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 Amazon Braket学習コース また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+問題1: Which one of the following code fragments will generate the given output?
+[[ 1.&#43;0.j 0.&#43;0.j 0.&#43;0.j 0.&#43;0.j] [ 0.&#43;0.j -1.&#43;0.j 0.&#43;0.j 0.&#43;0.j] [ 0.">
+  <meta itemprop="datePublished" content="2025-09-21T20:41:13+09:00">
+  <meta itemprop="dateModified" content="2025-09-21T20:41:13+09:00">
+  <meta itemprop="wordCount" content="1091">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="IBM 量子開発者認定資格 v2.X sample問題集の解説 その1">
+  <meta name="twitter:description" content="2025年、新しいQiskitのバージョンに対応した資格である、「IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate」がリリースされました。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+この認定を得るためには、上記リンクに記載がある通り、“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLリンク内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1 ~ 10問までの解説を記載しています。11 ~ 21問の解説についてはこちらのページをご参照ください。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 Amazon Braket学習コース また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+問題1: Which one of the following code fragments will generate the given output?
+[[ 1.&#43;0.j 0.&#43;0.j 0.&#43;0.j 0.&#43;0.j] [ 0.&#43;0.j -1.&#43;0.j 0.&#43;0.j 0.&#43;0.j] [ 0.">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/japanese/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/ibmcertsamplev2x01/">english</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          IBM 量子開発者認定資格 v2.X sample問題集の解説 その1
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>2025年、新しいQiskitのバージョンに対応した資格である、<a href="https://www.ibm.com/training/certification/ibm-certified-quantum-computation-using-qiskit-v2x-developer-associate-C9008400">「IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate」</a>がリリースされました。</p>
+<p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。</p>
+<p>この認定を得るためには、上記リンクに記載がある通り、“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”という試験に合格する必要があります。
+IBMはこの試験に関するsample問題集も公開しており、上記URLリンク内の「Sample Test」で公開されています。
+ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは1 ~ 10問までの解説を記載しています。11 ~ 21問の解説については<a href="/japanese/ibmcertsamplev2x02/">こちらのページ</a>をご参照ください。</p>
+<hr>
+<h4 id="はじめての量子コンピューター入門基礎知識qiskitでの実装量子機械学習-全て学べる">はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】</h4>
+<p>量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/IntroQuantumComputing.webp" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0" target="_blank">
+      はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+<h4 id="amazon-braket学習コース">Amazon Braket学習コース</h4>
+<p>また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="170" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      Quantum Computing on AWS for Beginners: Amazon Braket
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h2 id="問題1">問題1:</h2>
+<p>Which one of the following code fragments will generate the given output?</p>
+<pre tabindex="0"><code>[[ 1.+0.j  0.+0.j  0.+0.j  0.+0.j]
+ [ 0.+0.j -1.+0.j  0.+0.j  0.+0.j] 
+ [ 0.+0.j  0.+0.j  1.+0.j  0.+0.j] 
+ [ 0.+0.j  0.+0.j  0.+0.j -1.+0.j]] 
+</code></pre><p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p <span style="color:#f92672">=</span> Pauli(<span style="color:#e6db74">&#39;IZ&#39;</span>) 
+</span></span><span style="display:flex;"><span>print(p<span style="color:#f92672">.</span>to_matrix())
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p <span style="color:#f92672">=</span> Pauli(<span style="color:#e6db74">&#39;-II&#39;</span>) 
+</span></span><span style="display:flex;"><span>print(p<span style="color:#f92672">.</span>to_matrix())
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p <span style="color:#f92672">=</span> Pauli(<span style="color:#e6db74">&#39;-ZI&#39;</span>) 
+</span></span><span style="display:flex;"><span>print(p<span style="color:#f92672">.</span>to_matrix()) 
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p <span style="color:#f92672">=</span> Pauli(<span style="color:#e6db74">&#39;ZZ&#39;</span>) 
+</span></span><span style="display:flex;"><span>print(p<span style="color:#f92672">.</span>to_matrix()) 
+</span></span></code></pre></div><p><strong>回答:</strong> A</p>
+<p><strong>解説:</strong>
+どのコードが問題分で表示されている行列を生成するかという問題ですね。
+コードで登場している<code>Pauli() </code>は演算子を表現するためのクラスです。
+選択肢に<code>Pauli('IZ') </code>など登場していますが、これは$I \otimes Z$のテンソル積を表しています。
+行列のテンソル積の計算は以下の様に表せます。</p>
+<p>$$
+\begin{align*}
+X \otimes Y =
+\begin{pmatrix}
+X_{11} Y &amp; X_{12} Y \\
+X_{21} Y &amp; X_{22} Y
+\end{pmatrix}
+&amp;=
+\begin{pmatrix}
+X_{11} Y_{11} &amp; X_{11} Y_{12} &amp; X_{12} Y_{11} &amp; X_{12} Y_{12} \\
+X_{11} Y_{21} &amp; X_{11} Y_{22} &amp; X_{12} Y_{21} &amp; X_{12} Y_{22} \\
+X_{21} Y_{11} &amp; X_{21} Y_{12} &amp; X_{22} Y_{11} &amp; X_{22} Y_{12} \\
+X_{21} Y_{21} &amp; X_{21} Y_{22} &amp; X_{22} Y_{21} &amp; X_{22} Y_{22}
+\end{pmatrix}
+\end{align*}
+$$</p>
+<p>ここで$X, Y$は以下の通りです。</p>
+<p>$$
+X =
+\begin{pmatrix}
+X_{11} &amp; X_{12} \\
+X_{21} &amp; X_{22}
+\end{pmatrix}, \quad
+Y =
+\begin{pmatrix}
+Y_{11} &amp; Y_{12} \\
+Y_{21} &amp; Y_{22}
+\end{pmatrix}
+$$
+　　</p>
+<p>さらに各コードに登場しているゲート$I, Z$は以下となります。</p>
+<p>$$
+I =
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix}, \quad
+Z =
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; -1
+\end{pmatrix}
+$$
+これらを考慮することにより、それぞれの選択肢に対応する行列を計算してみましょう。<br>
+Aは$I \otimes Z$を表しており、計算すると以下が得られます。
+$$
+I \otimes Z =
+\begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; -1
+\end{pmatrix}
+$$
+これは問題で表示されている行列と一致しているので、正解となります。<br>
+残りの選択肢はそれぞれ以下の様に計算でき、問題で表示されている行列と一致していないことが確かめられます。<br>
+Bについては$-I \otimes I$を表しており、以下が得られます。
+$$
+-I \otimes I =
+\begin{pmatrix}
+-1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; -1
+\end{pmatrix}
+$$
+<br>
+Cについては$-Z \otimes I$を表しており、以下が得られます。
+$$
+-Z \otimes I =
+\begin{pmatrix}
+-1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix}
+$$
+<br>
+Dについては$Z \otimes Z$を表しており、以下が得られます。
+$$
+Z \otimes Z =
+\begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix}
+$$
+<br>
+　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題2">問題2:</h2>
+<p>Applying the Qiskit T Gate to a qubit in state |1&gt; introduces which global phase?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. $\pi/2$ phase</p>
+</li>
+<li>
+<p><strong>B</strong>. $- \pi/2$ phase
+　　</p>
+</li>
+<li>
+<p><strong>C</strong>. $- \pi/4$ phase</p>
+</li>
+<li>
+<p><strong>D</strong>. $\pi/4$ phase</p>
+</li>
+</ul>
+<p><strong>回答:</strong> D</p>
+<p><strong>解説:</strong>
+Tゲートは|1&gt;のグローバル位相をどれだけ変化させるか？という問題ですね。Z軸を軸として回転を施すゲートは、T、S、Zゲートなど存在しており、これらは|1&gt;をそれぞれ$\pi/4、\pi/2、\pi$の位相だけ状態を回転させます。このため、正解はDとなります。
+　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題3">問題3:</h2>
+<p>Given the following code fragment, what is the approximate probability that a measurement would result in a bit value of 1?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np 
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>reset(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>ry(np<span style="color:#f92672">.</span>pi <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure_all() 
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>. 0.8536</li>
+<li><strong>B</strong>. 1.0</li>
+<li><strong>C</strong>. 0.1464</li>
+<li><strong>D</strong>. 0.5</li>
+</ul>
+<p><strong>回答:</strong> D</p>
+<p><strong>解説:</strong>
+問題文のコードを実行した時に、|1&gt;を観測する確率は？という問題ですね。
+問題文のコードでは、<code>QuantumCircuit(1)</code>を使って量子ビットを1つ定義しています。
+この時点では、量子ビットは下記のような|0&gt;の状態、つまり何度観測しても|0&gt;が確認される状態となっています。ちなみに、この状態ではZ軸からの傾きを表すθは0となります。</p>
+<p><figure><img src="/qstates/0state.png"
+    alt="0状態" width="400px">
+</figure>
+
+この後、<code>qc.reset(0)</code>が適用されていますが、これは0番目の量子ビットを|0&gt;状態に変更する処理を表しており、既に|0&gt;状態のため、特に変化はおきません。<br>
+そして、<code>qc.ry(np.pi / 2, 0)</code>の箇所でその量子ビットをY軸周りに$θ = \pi / 2$だけ回転を施しています。
+これを実施した時に量子ビットは下記のような状態になります。</p>
+<figure><img src="/qstates/plusstate.png"
+    alt="plus状態" width="400px">
+</figure>
+
+<p>このように、ブロッホ球では、ベクトルはθの値に応じて|0&gt;または|1&gt;の方向に傾きます。そして|0&gt;の方向への傾きが大きい場合（つまり、θ &lt; π/2）、|0&gt;が観測される確率が増加し、|1&gt;が観測される確率が減少します。逆に、|1&gt;の方向への傾きが大きい場合（つまり、θ &gt; π/2）、|1&gt;が観測される確率が増加し、|0&gt;が観測される確率が減少します。この場合、図に示されているように、|0&gt;と|1&gt;ちょうど真ん中を指しているため、|0&gt;、|1&gt;が観測される確率はそれぞれ1/2となります。したがって、正しい答えはDとなります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題4">問題4:</h2>
+<p>Which one of the following images is the output from the code below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> <span style="color:#f92672">*</span> 
+</span></span><span style="display:flex;"><span>qubits <span style="color:#f92672">=</span> QuantumRegister(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>clbits <span style="color:#f92672">=</span> ClassicalRegister(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>circuit <span style="color:#f92672">=</span> QuantumCircuit(qubits, clbits) 
+</span></span><span style="display:flex;"><span>(q0, q1) <span style="color:#f92672">=</span> qubits 
+</span></span><span style="display:flex;"><span>(c0, c1) <span style="color:#f92672">=</span> clbits 
+</span></span><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>h(q0) 
+</span></span><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>measure(q0, c0) 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> circuit<span style="color:#f92672">.</span>if_test((c0, <span style="color:#ae81ff">1</span>)) <span style="color:#66d9ef">as</span> else_: 
+</span></span><span style="display:flex;"><span>    circuit<span style="color:#f92672">.</span>h(q1) 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> else_: 
+</span></span><span style="display:flex;"><span>    circuit<span style="color:#f92672">.</span>x(q1) 
+</span></span><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>measure(q1, c1) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>draw(output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mpl&#34;</span>) 
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>.
+<figure><img src="/qstates/Q4a.png"
+    alt="a" width="400px">
+</figure>
+</li>
+<li><strong>B</strong>.
+<figure><img src="/qstates/Q4b.png"
+    alt="b" width="400px">
+</figure>
+</li>
+<li><strong>C</strong>.
+<figure><img src="/qstates/Q4c.png"
+    alt="c" width="400px">
+</figure>
+</li>
+<li><strong>D</strong>.
+<figure><img src="/qstates/Q4d.png"
+    alt="d" width="400px">
+</figure>
+</li>
+</ul>
+<p><strong>回答:</strong> A</p>
+<p><strong>解説:</strong>
+コードを実行した際に表示される量子回路はどれか？という問題ですね。<br>
+まずは問題のコードをみてみましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> <span style="color:#f92672">*</span> 
+</span></span><span style="display:flex;"><span>qubits <span style="color:#f92672">=</span> QuantumRegister(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>clbits <span style="color:#f92672">=</span> ClassicalRegister(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>circuit <span style="color:#f92672">=</span> QuantumCircuit(qubits, clbits) 
+</span></span><span style="display:flex;"><span>(q0, q1) <span style="color:#f92672">=</span> qubits 
+</span></span><span style="display:flex;"><span>(c0, c1) <span style="color:#f92672">=</span> clbits 
+</span></span></code></pre></div><p>上記の部分で、量子ビット $q0, q1$と古典ビット $c0, c1$を定義しています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>h(q0) 
+</span></span><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>measure(q0, c0) 
+</span></span></code></pre></div><p>次に上記の部分で、 $q0$にアダマールゲートを適用、観測し結果を $c0$に格納しています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> circuit<span style="color:#f92672">.</span>if_test((c0, <span style="color:#ae81ff">1</span>)) <span style="color:#66d9ef">as</span> else_: 
+</span></span><span style="display:flex;"><span>    circuit<span style="color:#f92672">.</span>h(q1) 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> else_: 
+</span></span><span style="display:flex;"><span>    circuit<span style="color:#f92672">.</span>x(q1) 
+</span></span><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>measure(q1, c1) 
+</span></span></code></pre></div><p>そして観測された $c0$で分岐処理をしています。これは $c0$ が1であった場合は、Hゲートを $q1$に適用し、そうでない場合はXゲートを $q1$に適用することを意味しています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>draw(output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mpl&#34;</span>) 
+</span></span></code></pre></div><p>最終的にはこちらで回路を表示しています。<br>
+これを踏まえて選択肢を見ていきましょう。
+まず<code>Else</code>の記載が無いBは誤りということが分かります。<br>
+また、<code>if</code>でXゲートを適用してしまっているCも誤りとわかります。<br>
+残っているのはAとDで、これらは図の中での一番下の式が異なります。
+Aにはc_0=0x1、Dにはc_0=0x0と記載があります。0x1は16進数の1、0x0は16進数の0を表しており、今回はコードで</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> circuit<span style="color:#f92672">.</span>if_test((c0, <span style="color:#ae81ff">1</span>)) <span style="color:#66d9ef">as</span> else_: 
+</span></span></code></pre></div><p>と記載があるためAが正解となります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題5">問題5:</h2>
+<p>Given the code fragment below, which image is the expected output?:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.quantum_info <span style="color:#f92672">import</span> Statevector 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.visualization <span style="color:#f92672">import</span> plot_histogram 
+</span></span><span style="display:flex;"><span>state <span style="color:#f92672">=</span> Statevector([<span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.70710678</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.70710678</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]) 
+</span></span><span style="display:flex;"><span>counts <span style="color:#f92672">=</span> state<span style="color:#f92672">.</span>sample_counts(shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>) 
+</span></span><span style="display:flex;"><span>plot_histogram(counts)  
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>.
+<figure><img src="/qstates/Q5a.png"
+    alt="a" width="400px">
+</figure>
+</li>
+<li><strong>B</strong>.
+<figure><img src="/qstates/Q5b.png"
+    alt="b" width="400px">
+</figure>
+</li>
+<li><strong>C</strong>.
+<figure><img src="/qstates/Q5c.png"
+    alt="c" width="400px">
+</figure>
+</li>
+<li><strong>D</strong>.
+<figure><img src="/qstates/Q5d.png"
+    alt="d" width="400px">
+</figure>
+</li>
+</ul>
+<p><strong>回答:</strong> C</p>
+<p><strong>解説:</strong>
+コード実行時の結果で正しいものを選びなさいという問題ですね。<br></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>state <span style="color:#f92672">=</span> Statevector([<span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.70710678</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.70710678</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]) 
+</span></span></code></pre></div><p>コード内に上記の記載がありますが、ベクトルの要素が$8=2^3$個あるため3量子ビットの状態をこの<code>Statevector()</code>で表していることがわかります。各要素については先頭から順に|000&gt;,|001&gt;,|010&gt;,|011&gt;,|100&gt;,|101&gt;,|110&gt;,|111&gt;の係数に対応しています。これを考慮すると、|010&gt;と|101&gt;の係数がそれぞれ0.70710678+0.j、-0.70710678+0.jとなっていることがわかります。これら係数の絶対値の2乗は観測確率となりますがそれぞれ絶対値が同じ大きさのため、|010&gt;と|101&gt;が同じ割合で観測されることになります。<br>
+これに対応した図はCのみのため、Cが正解となります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題6">問題6:</h2>
+<p>Which one of the following code fragments will generate the given qsphere representation visualization? <br>
+Note: the circles on the qsphere are the same color.</p>
+<figure><img src="/qstates/qsphere.png"
+    alt="a" width="400px">
+</figure>
+
+<p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>z(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>state <span style="color:#f92672">=</span> Statevector(qc) 
+</span></span><span style="display:flex;"><span>plot_state_qsphere(state) 
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>z(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>x(<span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>state <span style="color:#f92672">=</span> Statevector(qc) 
+</span></span><span style="display:flex;"><span>plot_state_qsphere(state)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>x(<span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>state <span style="color:#f92672">=</span> Statevector(qc) 
+</span></span><span style="display:flex;"><span>plot_state_qsphere(state)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>state <span style="color:#f92672">=</span> Statevector(qc) 
+</span></span><span style="display:flex;"><span>plot_state_qsphere(state) 
+</span></span></code></pre></div><p><strong>回答:</strong> D</p>
+<p><strong>解説:</strong>
+どのコードが表示されている画像を生成しますか？という問題ですね。画像は|00&gt;と|11&gt;という状態が表示されており、同じ青色で繋がっております。<code>plot_state_qsphere()</code>で同じ色で繋がっていることは、同じ位相であることを意味します。これはつまり片方の状態に $e^{i \pi / 3}$のような係数やマイナスが付かないことを意味し、数式では以下の様に記載できます。</p>
+<p>$$
+\begin{align*}
+|\Phi^+\rangle &amp;= \frac{1}{\sqrt{2}} (|00\rangle + |11\rangle) \\
+\end{align*}
+$$</p>
+<p>この状態は以下の様に、初期状態の$|0\rangle \otimes |0\rangle$について、片方のビットにHゲートを適用し、Hゲートをかけたビットを制御ビットとしてCXゲートを適用することで得られます。
+$$
+|0\rangle \otimes |0\rangle
+\xrightarrow{H_0}
+\frac{|0\rangle + |1\rangle}{\sqrt{2}} \otimes |0\rangle
+\xrightarrow{\text{CX}_{0,1}}
+\frac{|0\rangle \otimes |0\rangle + |1\rangle \otimes |1\rangle}{\sqrt{2}}
+$$
+この適用規則が記載されているのはDのみのため、Dが正解となります。<br>
+他の選択肢については、実行すると以下の様に別の状態が表示されます。<br></p>
+<p>Aについては、正解のDと比べて<code>qc.z(0)</code>が追加されています。<code>qc.z(0)</code>は状態$|1\rangle$の位相を反転させます。これにより$\frac{1}{\sqrt{2}} (|00\rangle - |11\rangle)$と、位相が反転して、たし合わされた状態が実現します。表示される図は以下の通りです。
+<figure><img src="/qstates/Q6a.png"
+    alt="a" width="400px">
+</figure>
+
+<br>
+Bについては、Aのコードに追加で<code>qc.x(1)</code>が適用されており、CXゲートが適用される直前、1番目の量子ビットが0から1に変換されています。このため表示される図は以下の通りです。
+<figure><img src="/qstates/Q6b.png"
+    alt="b" width="400px">
+</figure>
+
+<br>
+Cについては、正解のDと比べて<code>qc.x(1)</code>が事前に適用されており、1番目の量子ビットが0から1に変換されています。このため表示される図は以下の通りです。
+<figure><img src="/qstates/Q6c.png"
+    alt="b" width="400px">
+</figure>
+
+<br></p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題7">問題7:</h2>
+<p>Given the code fragment below, which of the following code fragments creates a rotation gate with an angle with an initially undefined value?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.circuit <span style="color:#f92672">import</span> QuantumCircuit, Parameter, ParameterExpression 
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>) 
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>theta <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.14</span> 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>rx(<span style="color:#ae81ff">3.14</span>, <span style="color:#ae81ff">0</span>) 
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>theta <span style="color:#f92672">=</span> Parameter(<span style="color:#e6db74">&#39;theta&#39;</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>rx(theta, <span style="color:#ae81ff">0</span>) 
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>rx(<span style="color:#e6db74">&#39;theta&#39;</span>, <span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>rx(ParameterExpression(<span style="color:#e6db74">&#39;theta&#39;</span>), <span style="color:#ae81ff">0</span>) 
+</span></span></code></pre></div><p><strong>回答:</strong> B</p>
+<p><strong>解説:</strong>
+次のうちどのコードが、角度が変数の回転ゲートを作成しますか？という問題ですね。Qiskitでは<code>Parameter()</code>を用いることで、変数を持つ量子回路を定義可能です。この機能を持ちいることで、回路を定義した後、変数に様々な値を代入して量子回路を実行することが可能となります。この関数の正しい利用方法はBとなり、これが正解となります。<br>
+Aについては角度を変数として回転ゲートを定義できていないため不正解です。<br>
+C、Dは実行するとエラーとなります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題8">問題8:</h2>
+<p>Which one of the following types of register stores the result of a measured circuit?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. Ancilla register
+　　</p>
+</li>
+<li>
+<p><strong>B</strong>. Quantum register
+　　</p>
+</li>
+<li>
+<p><strong>C</strong>. Classical register
+　　</p>
+</li>
+<li>
+<p><strong>D</strong>. Circuit register
+　　<br>
+<br></p>
+</li>
+</ul>
+<p><strong>回答:</strong> C</p>
+<p><strong>解説:</strong>
+次のうちどれが回路の測定結果を保存しますか？という問題ですね。Quantum register、Classical register、Ancilla registerについての説明は<a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit/circuit#qiskit.circuit.Register">こちら</a>に記載があります。<br>
+CのClassical registerは計算後の測定結果を保存するレジスタで今回はこちらが正解となります。<br>
+AのAncilla registerは主にエラー訂正やアルゴリズム実装の補助に使われるレジスタです。<br>
+BのQuantum registerは量子ビットを保持するレジスタです。<br>
+DのCircuit registerは<a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit/circuit#qiskit.circuit.Register">qiskit.circuit</a>には存在しません。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題9">問題9:</h2>
+<p>Given the code fragment below, which one of the following images could be produced?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> generate_preset_pass_manager 
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>pass_manager <span style="color:#f92672">=</span> generate_preset_pass_manager( 
+</span></span><span style="display:flex;"><span>    optimization_level<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, 
+</span></span><span style="display:flex;"><span>    coupling_map<span style="color:#f92672">=</span>[[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]] , 
+</span></span><span style="display:flex;"><span>    basis_gates<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;h&#39;</span>, <span style="color:#e6db74">&#39;swap&#39;</span>, <span style="color:#e6db74">&#39;cx&#39;</span>], 
+</span></span><span style="display:flex;"><span>    initial_layout<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>] ) 
+</span></span><span style="display:flex;"><span>tqc <span style="color:#f92672">=</span> pass_manager<span style="color:#f92672">.</span>run(qc) 
+</span></span><span style="display:flex;"><span>tqc<span style="color:#f92672">.</span>draw(output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mpl&#34;</span>)   
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>.
+<figure><img src="/qstates/Q9a.png"
+    alt="a" width="400px">
+</figure>
+</li>
+<li><strong>B</strong>.
+<figure><img src="/qstates/Q9b.png"
+    alt="b" width="400px">
+</figure>
+</li>
+<li><strong>C</strong>.
+<figure><img src="/qstates/Q9c.png"
+    alt="c" width="400px">
+</figure>
+</li>
+<li><strong>D</strong>.
+<figure><img src="/qstates/Q9d.png"
+    alt="d" width="400px">
+</figure>
+</li>
+</ul>
+<p><strong>回答:</strong> A</p>
+<p><strong>解説:</strong>
+コード実行時の出力で正しいものを選びなさいという問題ですね。<br>
+まずはコードを確認してみましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> generate_preset_pass_manager 
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>) 
+</span></span></code></pre></div><p>この部分でHゲートと、CXゲートを適用する量子回路を定義しています。ちなみにこれはベル状態を生成する回路ですね。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pass_manager <span style="color:#f92672">=</span> generate_preset_pass_manager( 
+</span></span><span style="display:flex;"><span>    optimization_level<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, 
+</span></span><span style="display:flex;"><span>    coupling_map<span style="color:#f92672">=</span>[[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]] , 
+</span></span><span style="display:flex;"><span>    basis_gates<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;h&#39;</span>, <span style="color:#e6db74">&#39;swap&#39;</span>, <span style="color:#e6db74">&#39;cx&#39;</span>], 
+</span></span><span style="display:flex;"><span>    initial_layout<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>] ) 
+</span></span></code></pre></div><p><code>generate_preset_pass_manager()</code>は、実際の量子コンピューターや、様々な制約がある環境用に量子回路を変換してくれる関数です。また、このコードの様に実際の量子コンピューターを指定せずとも、様々な制約を自ら設定し、仮想的な環境を定義することが可能です。<br>
+これの引数について見ていきましょう。
+<code>coupling_map=[[0, 1], [1, 2]]</code>は、0番と1番、もしくは1番と2番の（仮想的な）物理量子ビットでのみ接続があることを示しています。これを例えば図で表すと以下の通りです。</p>
+<figure><img src="/qstates/0112couplingmap.png"
+    alt="d" width="250px">
+</figure>
+
+<p>この通り、0番と2番の量子ビット間では接続がありません。このため、0番と2番を対象としてCXゲートを適用することはできません。これがこの問題で重要なポイントとなります。<code>basis_gates=['h', 'swap', 'cx']</code>はこの仮想的な環境でHゲート、Swapゲート、CXゲートのみがサポートされるという制約を設定しています。
+また<code>initial_layout=[0, 2]</code>により、<code>qc</code>で定義されている量子ビットq0を、0番の物理量子ビット上にマッピングし、量子ビットq1を2番の物理量子ビット上にマッピングしてから計算を行う設定を与えています。
+なぜわざわざこれらのような制約を与えているのかと疑問に思われる方もいるかもしれません。量子コンピューター実機を扱う際はこれらのような制約が存在している場合がよくあります。したがって、ローカル環境であらかじめ制約を設定して計算を行うことは、実機での動作を見据えた有効な検証手段となります。
+<code>optimization_level=3</code>は、この環境用にpass_managerが量子回路を変換する際にどれほどの最適化レベルを設定するかを意味しています。3は最高レベルを示します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tqc <span style="color:#f92672">=</span> pass_manager<span style="color:#f92672">.</span>run(qc) 
+</span></span><span style="display:flex;"><span>tqc<span style="color:#f92672">.</span>draw(output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mpl&#34;</span>)  
+</span></span></code></pre></div><p>そしてこの部分で元々定義していた回路<code>qc</code>を<code>pass_manager</code>で仮想的な環境に合わせた量子回路<code>tqc</code>に変換し、回路を出力しています。
+では、選択肢を見ていきましょう。<br>
+Bは<code>initial_layout=[0, 2]</code>の設定である、量子ビットq0を0番の物理量子ビット上に、量子ビットq1を2番の物理量子ビット上にマッピングするという設定が反映されていないため誤りです。<br>
+Cは回路の一番最後に、定義していないHゲートが挿入されてしまっているため誤りです。<br>
+Dは<code>initial_layout=[0, 2]</code>の設定である、量子ビットq0を0番の物理量子ビット上に、量子ビットq1を2番の物理量子ビット上にマッピングするという設定も反映されており、正解に見えるのですが、既に説明した通り今回0番と2番の物理量子ビットにCXゲートを適用することができません。<code>generate_preset_pass_manager()</code>はこのような場合、選択肢AのようにSwapゲートを適用し量子ビットを入れ替えることで、回路を実行可能な形にしてくれます。このためDは誤りで、Aは正解となります。<code>generate_preset_pass_manager()</code>の利用方法については<a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0">こちらのコース</a>も参考にしてみてください。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題10">問題10:</h2>
+<p>Which three of the following are job execution modes in Qiskit Runtime?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. classical</p>
+</li>
+<li>
+<p><strong>B</strong>. session</p>
+</li>
+<li>
+<p><strong>C</strong>. parallel</p>
+</li>
+<li>
+<p><strong>D</strong>. quantum</p>
+</li>
+<li>
+<p><strong>E</strong>. batch</p>
+</li>
+<li>
+<p><strong>F</strong>. single job</p>
+</li>
+</ul>
+<p>　　</p>
+<p><strong>回答:</strong> B, E, F</p>
+<p><strong>解説:</strong>
+Qiskit Runtimeの実行モードに該当するのはどれか？という問題ですね。Qiskit Runtimeの実行モードについては<a href="https://quantum.cloud.ibm.com/docs/en/guides/execution-modes">こちら</a>に記載があります。これに記載されているように、Qiskit Runtimeの実行モードに該当するのはsession, batch, single jobの3つとなりB、E、Fが正解となります。では、各モードについて以下で説明します。<br>
+single jobモードは最も単純なモードです。単発のジョブを実行してみる場合などに便利です。<br>
+batchモードは複数のジョブをまとめて実行するのに有効なモードです。ただしバッチ処理として扱われるため、ジョブが送信された順序通りに実行される保証は無いことに注意が必要です。<br>
+sessionモードでは、システムを独占的に使用できる専用の時間枠が設けられます。VQCや、VQEなどの変分アルゴリズムでは、古典コンピューターでの計算と量子コンピューターでの計算が交互に行われますが、計算のたびに他のユーザーのジョブを待機していると非常に時間がかかってしまいます。このモードを用いることで、このような問題は発生せずに、変分アルゴリズムを高速で実行できるようになります。<br></p>
+<p>11 ~ 21問の解説については<a href="/japanese/ibmcertsamplev2x02/">こちらのページ</a>をご参照ください。</p>
+<hr>
+<h4 id="はじめての量子コンピューター入門基礎知識qiskitでの実装量子機械学習-全て学べる-1">はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】</h4>
+<p>量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/IntroQuantumComputing.webp" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0" target="_blank">
+      はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+<h4 id="amazon-braket学習コース-1">Amazon Braket学習コース</h4>
+<p>また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="170" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      Quantum Computing on AWS for Beginners: Amazon Braket
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/japanese/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

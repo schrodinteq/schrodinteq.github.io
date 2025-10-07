@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>IBM Quantum Developer Certification v2.X Sample Test Explanation Part 1 | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="In 2025, a new certification aligned with the latest Qiskit version, &ldquo;IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate&rdquo;, has been released.
+By obtaining this certification, you can demonstrate your knowledge of Qiskit and quantum programming!
+To earn this certification, you need to pass the exam titled &ldquo;Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer&rdquo; as mentioned in the URL above. IBM also provides a Sample Test related to this exam, which is available in the &ldquo;Sample Test&rdquo; section on the website linked above.">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/ibmcertsamplev2x01/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/ibmcertsamplev2x01/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="IBM Quantum Developer Certification v2.X Sample Test Explanation Part 1">
+  <meta property="og:description" content="In 2025, a new certification aligned with the latest Qiskit version, “IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate”, has been released.
+By obtaining this certification, you can demonstrate your knowledge of Qiskit and quantum programming!
+To earn this certification, you need to pass the exam titled “Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer” as mentioned in the URL above. IBM also provides a Sample Test related to this exam, which is available in the “Sample Test” section on the website linked above.">
+  <meta property="og:locale" content="english">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-09-24T09:15:20+09:00">
+    <meta property="article:modified_time" content="2025-09-24T09:15:20+09:00">
+
+  <meta itemprop="name" content="IBM Quantum Developer Certification v2.X Sample Test Explanation Part 1">
+  <meta itemprop="description" content="In 2025, a new certification aligned with the latest Qiskit version, “IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate”, has been released.
+By obtaining this certification, you can demonstrate your knowledge of Qiskit and quantum programming!
+To earn this certification, you need to pass the exam titled “Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer” as mentioned in the URL above. IBM also provides a Sample Test related to this exam, which is available in the “Sample Test” section on the website linked above.">
+  <meta itemprop="datePublished" content="2025-09-24T09:15:20+09:00">
+  <meta itemprop="dateModified" content="2025-09-24T09:15:20+09:00">
+  <meta itemprop="wordCount" content="2930">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="IBM Quantum Developer Certification v2.X Sample Test Explanation Part 1">
+  <meta name="twitter:description" content="In 2025, a new certification aligned with the latest Qiskit version, “IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate”, has been released.
+By obtaining this certification, you can demonstrate your knowledge of Qiskit and quantum programming!
+To earn this certification, you need to pass the exam titled “Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer” as mentioned in the URL above. IBM also provides a Sample Test related to this exam, which is available in the “Sample Test” section on the website linked above.">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/japanese/ibmcertsamplev2x01/">japanese</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          IBM Quantum Developer Certification v2.X Sample Test Explanation Part 1
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>In 2025, a new certification aligned with the latest Qiskit version, <a href="https://www.ibm.com/training/certification/ibm-certified-quantum-computation-using-qiskit-v2x-developer-associate-C9008400">&ldquo;IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate&rdquo;</a>, has been released.</p>
+<p>By obtaining this certification, you can demonstrate your knowledge of Qiskit and quantum programming!</p>
+<p>To earn this certification, you need to pass the exam titled &ldquo;Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer&rdquo; as mentioned in the URL above. IBM also provides a Sample Test related to this exam, which is available in the &ldquo;Sample Test&rdquo; section on the website linked above.<br>
+However, the explanations are not provided in the Sample Test page, so I will include clear explanations as much as possible. This page contains explanations for questions 1 to 10. For the explanations of questions 11 to 21, please refer to <a href="/ibmcertsamplev2x02/">this page</a>.</p>
+<hr>
+<h4 id="amazon-braket-learning-course">Amazon Braket Learning Course</h4>
+<p>I have also created a learning course on Amazon Braket, AWS&rsquo;s quantum computing service.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="170" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      Quantum Computing on AWS for Beginners: Amazon Braket
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<p>　</p>
+<hr>
+<h2 id="sample-test-1">Sample Test 1:</h2>
+<p>Which one of the following code fragments will generate the given output?</p>
+<pre tabindex="0"><code>[[ 1.+0.j  0.+0.j  0.+0.j  0.+0.j]
+ [ 0.+0.j -1.+0.j  0.+0.j  0.+0.j] 
+ [ 0.+0.j  0.+0.j  1.+0.j  0.+0.j] 
+ [ 0.+0.j  0.+0.j  0.+0.j -1.+0.j]] 
+</code></pre><p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p <span style="color:#f92672">=</span> Pauli(<span style="color:#e6db74">&#39;IZ&#39;</span>) 
+</span></span><span style="display:flex;"><span>print(p<span style="color:#f92672">.</span>to_matrix())
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p <span style="color:#f92672">=</span> Pauli(<span style="color:#e6db74">&#39;-II&#39;</span>) 
+</span></span><span style="display:flex;"><span>print(p<span style="color:#f92672">.</span>to_matrix())
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p <span style="color:#f92672">=</span> Pauli(<span style="color:#e6db74">&#39;-ZI&#39;</span>) 
+</span></span><span style="display:flex;"><span>print(p<span style="color:#f92672">.</span>to_matrix()) 
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p <span style="color:#f92672">=</span> Pauli(<span style="color:#e6db74">&#39;ZZ&#39;</span>) 
+</span></span><span style="display:flex;"><span>print(p<span style="color:#f92672">.</span>to_matrix()) 
+</span></span></code></pre></div><p><strong>Answer:</strong> A</p>
+<p><strong>Explanation:</strong>
+The <code>Pauli()</code> class appearing in the code is used to represent operators.
+In the Options, expressions like <code>Pauli('IZ')</code> represent the tensor product of Pauli matrices, such as $I \otimes Z$.
+The calculation of the tensor product of matrices can be expressed as follows:</p>
+<p>$$
+\begin{align*}
+X \otimes Y =
+\begin{pmatrix}
+X_{11} Y &amp; X_{12} Y \\
+X_{21} Y &amp; X_{22} Y
+\end{pmatrix}
+&amp;=
+\begin{pmatrix}
+X_{11} Y_{11} &amp; X_{11} Y_{12} &amp; X_{12} Y_{11} &amp; X_{12} Y_{12} \\
+X_{11} Y_{21} &amp; X_{11} Y_{22} &amp; X_{12} Y_{21} &amp; X_{12} Y_{22} \\
+X_{21} Y_{11} &amp; X_{21} Y_{12} &amp; X_{22} Y_{11} &amp; X_{22} Y_{12} \\
+X_{21} Y_{21} &amp; X_{21} Y_{22} &amp; X_{22} Y_{21} &amp; X_{22} Y_{22}
+\end{pmatrix}
+\end{align*}
+$$</p>
+<p>Here, $X$ and $Y$ are defined as follows:</p>
+<p>$$
+X =
+\begin{pmatrix}
+X_{11} &amp; X_{12} \\
+X_{21} &amp; X_{22}
+\end{pmatrix}, \quad
+Y =
+\begin{pmatrix}
+Y_{11} &amp; Y_{12} \\
+Y_{21} &amp; Y_{22}
+\end{pmatrix}
+$$
+　　</p>
+<p>Furthermore, the gates $I$ and $Z$ that appear in the code are defined as follows:</p>
+<p>$$
+I =
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix}, \quad
+Z =
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; -1
+\end{pmatrix}
+$$
+By taking these into account, let’s compute the matrices corresponding to each Option. <br> Option A represents $I \otimes Z$, and the calculation yields the following:
+$$
+I \otimes Z =
+\begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; -1
+\end{pmatrix}
+$$
+This matches the matrix shown in the sample test, so option A is the correct answer.<br>
+The remaining options can be calculated as follows, and you can confirm that they do not match the matrix shown in the sample test.<br>
+As for B, it represents $-I \otimes I$, and the following result is obtained:
+$$
+-I \otimes I =
+\begin{pmatrix}
+-1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; -1
+\end{pmatrix}
+$$
+<br>
+As for C, it represents $-Z \otimes I$, and the following result is obtained:
+$$
+-Z \otimes I =
+\begin{pmatrix}
+-1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix}
+$$
+<br>
+As for D, it represents $Z \otimes Z$, and the following result is obtained:
+$$
+Z \otimes Z =
+\begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix}
+$$
+<br>
+　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-2">Sample Test 2:</h2>
+<p>Applying the Qiskit T Gate to a qubit in state |1&gt; introduces which global phase?</p>
+<p><strong>Options:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. $\pi/2$ phase</p>
+</li>
+<li>
+<p><strong>B</strong>. $- \pi/2$ phase
+　　</p>
+</li>
+<li>
+<p><strong>C</strong>. $- \pi/4$ phase</p>
+</li>
+<li>
+<p><strong>D</strong>. $\pi/4$ phase</p>
+</li>
+</ul>
+<p><strong>Answer:</strong> D</p>
+<p><strong>Explanation:</strong>
+There are several gates that perform rotations around the Z-axis, such as the T, S, and Z gates.
+These gates rotate the state $|1\rangle$ by a phase of $\pi/4$, $\pi/2$, and $\pi$, respectively.
+Therefore, the correct answer is D.
+　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-3">Sample Test 3:</h2>
+<p>Given the following code fragment, what is the approximate probability that a measurement would result in a bit value of 1?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np 
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>reset(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>ry(np<span style="color:#f92672">.</span>pi <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>measure_all() 
+</span></span></code></pre></div><p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>. 0.8536</li>
+<li><strong>B</strong>. 1.0</li>
+<li><strong>C</strong>. 0.1464</li>
+<li><strong>D</strong>. 0.5</li>
+</ul>
+<p><strong>Answer:</strong> D</p>
+<p><strong>Explanation:</strong>
+In the Sample Test code, <code>QuantumCircuit(1)</code> is used to define a single qubit. At this point, the qubit is in the $|0\rangle$ state, meaning that no matter how many times it is measured, the outcome will always be $|0\rangle$. In this state, the angle $\theta$, which represents the tilt from the Z-axis, is $0$.</p>
+<figure><img src="/qstates/0state.png"
+    alt="0状態" width="400px">
+</figure>
+
+<p>After this, <code>qc.reset(0)</code> is applied, which resets the 0th qubit to the $|0\rangle$ state.
+Since the qubit is already in the $|0\rangle$ state, this operation does not cause any change.
+Then, at the line <code>qc.ry(np.pi / 2, 0)</code>, a rotation of the qubit around the Y-axis by an angle of $θ = \pi / 2$ is performed.
+After this operation, the qubit will be in the following state:</p>
+<figure><img src="/qstates/plusstate.png"
+    alt="plus状態" width="400px">
+</figure>
+
+<p>In this way, on the Bloch sphere, the vector tilts toward the direction of $|0&gt;$ or $|1&gt;$ depending on the value of $\theta$. When the tilt toward the $|0&gt;$ direction is significant (i.e., $\theta &lt; \pi/2$), the probability of measuring $|0&gt;$ increases while the probability of measuring $|1&gt;$ decreases. Conversely, when the tilt toward the $|1&gt;$ direction is significant (i.e., $\pi/2 &lt; \theta$), the probability of measuring $|1&gt;$ increases while the probability of measuring $|0&gt;$ decreases. <br>
+In this case, as shown in the diagram, the qubit points exactly halfway between $|0\rangle$ and $|1\rangle$, so the probabilities of measuring $|0\rangle$ and $|1\rangle$ are both $1/2$.
+Therefore, the correct answer is D.</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-4">Sample Test 4:</h2>
+<p>Which one of the following images is the output from the code below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> <span style="color:#f92672">*</span> 
+</span></span><span style="display:flex;"><span>qubits <span style="color:#f92672">=</span> QuantumRegister(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>clbits <span style="color:#f92672">=</span> ClassicalRegister(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>circuit <span style="color:#f92672">=</span> QuantumCircuit(qubits, clbits) 
+</span></span><span style="display:flex;"><span>(q0, q1) <span style="color:#f92672">=</span> qubits 
+</span></span><span style="display:flex;"><span>(c0, c1) <span style="color:#f92672">=</span> clbits 
+</span></span><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>h(q0) 
+</span></span><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>measure(q0, c0) 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> circuit<span style="color:#f92672">.</span>if_test((c0, <span style="color:#ae81ff">1</span>)) <span style="color:#66d9ef">as</span> else_: 
+</span></span><span style="display:flex;"><span>    circuit<span style="color:#f92672">.</span>h(q1) 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> else_: 
+</span></span><span style="display:flex;"><span>    circuit<span style="color:#f92672">.</span>x(q1) 
+</span></span><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>measure(q1, c1) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>draw(output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mpl&#34;</span>) 
+</span></span></code></pre></div><p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>.
+<figure><img src="/qstates/Q4a.png"
+    alt="a" width="400px">
+</figure>
+</li>
+<li><strong>B</strong>.
+<figure><img src="/qstates/Q4b.png"
+    alt="b" width="400px">
+</figure>
+</li>
+<li><strong>C</strong>.
+<figure><img src="/qstates/Q4c.png"
+    alt="c" width="400px">
+</figure>
+</li>
+<li><strong>D</strong>.
+<figure><img src="/qstates/Q4d.png"
+    alt="d" width="400px">
+</figure>
+</li>
+</ul>
+<p><strong>Answer:</strong> A</p>
+<p><strong>Explanation:</strong>
+First, let&rsquo;s look at the code for Sample Test.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> <span style="color:#f92672">*</span> 
+</span></span><span style="display:flex;"><span>qubits <span style="color:#f92672">=</span> QuantumRegister(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>clbits <span style="color:#f92672">=</span> ClassicalRegister(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>circuit <span style="color:#f92672">=</span> QuantumCircuit(qubits, clbits) 
+</span></span><span style="display:flex;"><span>(q0, q1) <span style="color:#f92672">=</span> qubits 
+</span></span><span style="display:flex;"><span>(c0, c1) <span style="color:#f92672">=</span> clbits 
+</span></span></code></pre></div><p>In the above code, the quantum bits $q0$ and $q1$, as well as the classical bits $c0$ and $c1$, are defined.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>h(q0) 
+</span></span><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>measure(q0, c0) 
+</span></span></code></pre></div><p>Next, in the above code, a Hadamard gate is applied to $q0$, and the result is measured and stored in $c0$.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> circuit<span style="color:#f92672">.</span>if_test((c0, <span style="color:#ae81ff">1</span>)) <span style="color:#66d9ef">as</span> else_: 
+</span></span><span style="display:flex;"><span>    circuit<span style="color:#f92672">.</span>h(q1) 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> else_: 
+</span></span><span style="display:flex;"><span>    circuit<span style="color:#f92672">.</span>x(q1) 
+</span></span><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>measure(q1, c1) 
+</span></span></code></pre></div><p>Then, a conditional branching operation is performed based on the measured value of $c0$.
+This means that if  $c0$  is 1, a Hadamard gate is applied to $q1$; otherwise, an X gate is applied to $q1$.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>circuit<span style="color:#f92672">.</span>draw(output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mpl&#34;</span>) 
+</span></span></code></pre></div><p>The final circuit is displayed here. <br>
+With these in mind, let&rsquo;s look at the options.
+First, we can see that option B, which does not have an <code>Else</code>, is incorrect. <br>
+We can also see that option C, which applies an X gate in the <code>if</code>, is incorrect. <br>
+The only options remaining are options A and D, which differ in the formula at the bottom of the diagram.
+A has c_0=0x1 and D has c_0=0x0.<br>
+0x1 represents 1 in hexadecimal and 0x0 represents 0 in hexadecimal.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> circuit<span style="color:#f92672">.</span>if_test((c0, <span style="color:#ae81ff">1</span>)) <span style="color:#66d9ef">as</span> else_: 
+</span></span></code></pre></div><p>The above condition is written in the Sample Test, so A is the correct answer.</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-5">Sample Test 5:</h2>
+<p>Given the code fragment below, which image is the expected output?:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.quantum_info <span style="color:#f92672">import</span> Statevector 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.visualization <span style="color:#f92672">import</span> plot_histogram 
+</span></span><span style="display:flex;"><span>state <span style="color:#f92672">=</span> Statevector([<span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.70710678</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.70710678</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]) 
+</span></span><span style="display:flex;"><span>counts <span style="color:#f92672">=</span> state<span style="color:#f92672">.</span>sample_counts(shots<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>) 
+</span></span><span style="display:flex;"><span>plot_histogram(counts)  
+</span></span></code></pre></div><p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>.
+<figure><img src="/qstates/Q5a.png"
+    alt="a" width="400px">
+</figure>
+</li>
+<li><strong>B</strong>.
+<figure><img src="/qstates/Q5b.png"
+    alt="b" width="400px">
+</figure>
+</li>
+<li><strong>C</strong>.
+<figure><img src="/qstates/Q5c.png"
+    alt="c" width="400px">
+</figure>
+</li>
+<li><strong>D</strong>.
+<figure><img src="/qstates/Q5d.png"
+    alt="d" width="400px">
+</figure>
+</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>state <span style="color:#f92672">=</span> Statevector([<span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.70710678</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.70710678</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j, <span style="color:#ae81ff">0.</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.</span>j]) 
+</span></span></code></pre></div><p>The above code is included in the Sample Test, and since the vector has $8 = 2^3$ elements, we can see that the <code>Statevector()</code> represents the state of 3 qubits.
+Each element corresponds to the amplitude of the basis states in the following order: $|000\rangle$, $|001\rangle$, $|010\rangle$, $|011\rangle$, $|100\rangle$, $|101\rangle$, $|110\rangle$, $|111\rangle$. <br>
+Taking this into account, we can see that the coefficients of $|010\rangle$ and $|101\rangle$ are $0.70710678+0.j$ and $-0.70710678+0.j$, respectively. The squared absolute values of these coefficients represent the measurement probabilities. Since their absolute values are the same, $|010\rangle$ and $|101\rangle$ will be observed with equal probability. <br>
+Since C is the only diagram that corresponds to this, C is the correct answer.</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-6">Sample Test 6:</h2>
+<p>Which one of the following code fragments will generate the given qsphere representation visualization? <br>
+Note: the circles on the qsphere are the same color.</p>
+<figure><img src="/qstates/qsphere.png"
+    alt="a" width="400px">
+</figure>
+
+<p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>z(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>state <span style="color:#f92672">=</span> Statevector(qc) 
+</span></span><span style="display:flex;"><span>plot_state_qsphere(state) 
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>z(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>x(<span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>state <span style="color:#f92672">=</span> Statevector(qc) 
+</span></span><span style="display:flex;"><span>plot_state_qsphere(state)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>x(<span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>state <span style="color:#f92672">=</span> Statevector(qc) 
+</span></span><span style="display:flex;"><span>plot_state_qsphere(state)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>state <span style="color:#f92672">=</span> Statevector(qc) 
+</span></span><span style="display:flex;"><span>plot_state_qsphere(state) 
+</span></span></code></pre></div><p><strong>Answer:</strong> D</p>
+<p><strong>Explanation:</strong>
+In the diagram, the states $|00\rangle$ and $|11\rangle$ are shown, connected by the same blue color.
+In <code>plot_state_qsphere()</code>, when states are connected with the same color, it indicates that they share the same phase.
+This means that neither state has a coefficient like $e^{i \pi / 3}$ or a negative sign.
+This can be expressed mathematically as follows:</p>
+<p>$$
+\begin{align*}
+|\Phi^+\rangle &amp;= \frac{1}{\sqrt{2}} (|00\rangle + |11\rangle) \\
+\end{align*}
+$$</p>
+<p>This state can be obtained as follows: starting from the initial state $|0\rangle \otimes |0\rangle$, apply an H gate to one of the qubits, and then apply a CX gate using using that qubit as the control.</p>
+<p>$$
+|0\rangle \otimes |0\rangle
+\xrightarrow{H_0}
+\frac{|0\rangle + |1\rangle}{\sqrt{2}} \otimes |0\rangle
+\xrightarrow{\text{CX}_{0,1}}
+\frac{|0\rangle \otimes |0\rangle + |1\rangle \otimes |1\rangle}{\sqrt{2}}
+$$
+Since this rule is only applied in option D, the correct answer is D. <br>
+When you execute other options, different states will be displayed, as shown below. <br></p>
+<p>For option A, compared to the correct answer D, an additional <code>qc.z(0)</code> is applied. qc.z(0) flips the phase of the $|1\rangle$ state. As a result, the state $\frac{1}{\sqrt{2}} (|00\rangle - |11\rangle)$ is realized, where the phase is inverted and combined. The corresponding diagram is shown below.</p>
+<p><figure><img src="/qstates/Q6a.png"
+    alt="a" width="400px">
+</figure>
+
+<br>
+In option B, <code>qc.x(1)</code> is additionally applied to the code from option A, which means that just before the CX gate is applied, the first qubit is flipped from 0 to 1.
+As a result, the diagram displayed is as follows:</p>
+<p><figure><img src="/qstates/Q6b.png"
+    alt="b" width="400px">
+</figure>
+
+<br>
+For option C, compared to the correct answer D, <code>qc.x(1)</code> is applied beforehand, which flips the first qubit from 0 to 1. As a result, the displayed diagram is as shown below.</p>
+<p><figure><img src="/qstates/Q6c.png"
+    alt="b" width="400px">
+</figure>
+
+<br></p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-7">Sample Test 7:</h2>
+<p>Given the code fragment below, which of the following code fragments creates a rotation gate with an angle with an initially undefined value?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit.circuit <span style="color:#f92672">import</span> QuantumCircuit, Parameter, ParameterExpression 
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">1</span>) 
+</span></span></code></pre></div><p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>theta <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.14</span> 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>rx(<span style="color:#ae81ff">3.14</span>, <span style="color:#ae81ff">0</span>) 
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>theta <span style="color:#f92672">=</span> Parameter(<span style="color:#e6db74">&#39;theta&#39;</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>rx(theta, <span style="color:#ae81ff">0</span>) 
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>rx(<span style="color:#e6db74">&#39;theta&#39;</span>, <span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>rx(ParameterExpression(<span style="color:#e6db74">&#39;theta&#39;</span>), <span style="color:#ae81ff">0</span>) 
+</span></span></code></pre></div><p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong>
+In Qiskit, you can define quantum circuits with variables by using <code>Parameter()</code>. With this function, after defining the circuit, you can assign various values ​​to the variables and execute the quantum circuit. The correct way to use this function is option B, which is the correct answer. <br>
+The option A is incorrect because it fails to define the rotation gate using the angle as a variable. <br>
+C and D will result in an error when executed.</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-8">Sample Test 8:</h2>
+<p>Which one of the following types of register stores the result of a measured circuit?</p>
+<p><strong>Options:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. Ancilla register
+　　</p>
+</li>
+<li>
+<p><strong>B</strong>. Quantum register
+　　</p>
+</li>
+<li>
+<p><strong>C</strong>. Classical register
+　　</p>
+</li>
+<li>
+<p><strong>D</strong>. Circuit register
+　　<br>
+<br></p>
+</li>
+</ul>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong>
+The explanation of Quantum register, Classical register, and Ancilla register can be found <a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit/circuit#qiskit.circuit.Register">here</a>.
+The Classical register in option C is used to store the measurement results after computation, and in this case, it is the correct answer.<br>
+The Ancilla register in option A is a register primarily used for error correction and algorithm implementation. <br>
+The Quantum register in opotion B is a register that holds quantum bits. <br>
+Circuit register in option D does not exist in <a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit/circuit#qiskit.circuit.Register">qiskit.circuit</a>.</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-9">Sample Test 9:</h2>
+<p>Given the code fragment below, which one of the following images could be produced?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> generate_preset_pass_manager 
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>) 
+</span></span><span style="display:flex;"><span>pass_manager <span style="color:#f92672">=</span> generate_preset_pass_manager( 
+</span></span><span style="display:flex;"><span>    optimization_level<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, 
+</span></span><span style="display:flex;"><span>    coupling_map<span style="color:#f92672">=</span>[[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]] , 
+</span></span><span style="display:flex;"><span>    basis_gates<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;h&#39;</span>, <span style="color:#e6db74">&#39;swap&#39;</span>, <span style="color:#e6db74">&#39;cx&#39;</span>], 
+</span></span><span style="display:flex;"><span>    initial_layout<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>] ) 
+</span></span><span style="display:flex;"><span>tqc <span style="color:#f92672">=</span> pass_manager<span style="color:#f92672">.</span>run(qc) 
+</span></span><span style="display:flex;"><span>tqc<span style="color:#f92672">.</span>draw(output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mpl&#34;</span>)   
+</span></span></code></pre></div><p><strong>Options:</strong></p>
+<ul>
+<li><strong>A</strong>.
+<figure><img src="/qstates/Q9a.png"
+    alt="a" width="400px">
+</figure>
+</li>
+<li><strong>B</strong>.
+<figure><img src="/qstates/Q9b.png"
+    alt="b" width="400px">
+</figure>
+</li>
+<li><strong>C</strong>.
+<figure><img src="/qstates/Q9c.png"
+    alt="c" width="400px">
+</figure>
+</li>
+<li><strong>D</strong>.
+<figure><img src="/qstates/Q9d.png"
+    alt="d" width="400px">
+</figure>
+</li>
+</ul>
+<p><strong>Answer:</strong> A</p>
+<p><strong>Explanation:</strong>
+Let&rsquo;s take a look at the code first.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> generate_preset_pass_manager 
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>) 
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>) 
+</span></span></code></pre></div><p>This code defines the quantum circuit that applies the H gate and the CX gate.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pass_manager <span style="color:#f92672">=</span> generate_preset_pass_manager( 
+</span></span><span style="display:flex;"><span>    optimization_level<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, 
+</span></span><span style="display:flex;"><span>    coupling_map<span style="color:#f92672">=</span>[[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]] , 
+</span></span><span style="display:flex;"><span>    basis_gates<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;h&#39;</span>, <span style="color:#e6db74">&#39;swap&#39;</span>, <span style="color:#e6db74">&#39;cx&#39;</span>], 
+</span></span><span style="display:flex;"><span>    initial_layout<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>] ) 
+</span></span></code></pre></div><p><code>generate_preset_pass_manager()</code> is a function that transforms quantum circuits for use on real quantum computers or in environments with various constraints. Moreover, as shown in this code, even without specifying an actual quantum computer, you can define a virtual environment by setting different constraints yourself.
+<br>
+Let’s take a look at its arguments.</p>
+<p><code>coupling_map=[[0, 1], [1, 2]]</code> indicates that connections exist only between virtual physical qubits 0 and 1, and between the qubits 1 and 2. For example, this can be represented in a diagram as follows:</p>
+<figure><img src="/qstates/0112couplingmap.png"
+    alt="d" width="250px">
+</figure>
+
+<p>As shown here, there is no connection between the qubits 0 and 2. Therefore, it is not possible to apply a CX gate between qubits 0 and 2. This is an important point in this Sample Test. The setting <code>basis_gates=['h', 'swap', 'cx']</code> defines the constraint that, in this virtual environment, only the H gate, Swap gate, and CX gate are supported.</p>
+<p>The setting <code>initial_layout=[0, 2]</code> maps quantum bit q0 defined in qc to physical qubit 0, and quantum bit q1 to physical qubit 2 before computation begins.
+Some may wonder why such constraints are explicitly specified. In fact, when working with actual quantum hardware, such constraints are often present.
+Therefore, performing computations with these constraints in a local environment serves as a valuable method for validating behavior in anticipation of running on real quantum devices.</p>
+<p><code>optimization_level=3</code> means how much optimization the pass_manager should do when converting quantum circuits for this environment, with 3 being the highest level.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tqc <span style="color:#f92672">=</span> pass_manager<span style="color:#f92672">.</span>run(qc) 
+</span></span><span style="display:flex;"><span>tqc<span style="color:#f92672">.</span>draw(output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mpl&#34;</span>)  
+</span></span></code></pre></div><p>In this part, the originally defined circuit <code>qc</code> is converted into a quantum circuit <code>tqc</code> that is tailored to the virtual environment using <code>pass_manager</code>, and the circuit is displayed.<br>
+Now, let&rsquo;s take a look at the Options.<br>
+The option B is incorrect because it does not reflect the setting <code>initial_layout=[0, 2]</code>, which maps qubit q0 onto physical qubit 0 and qubit q1 onto physical qubit 2.<br>
+The option C is incorrect because an undefined H gate has been inserted at the very end of the circuit.<br>
+The option D reflects the setting <code>initial_layout=[0, 2]</code>, which maps qubit q0 to physical qubit 0 and qubit q1 to physical qubit 2 before computation. At first glance, this may seem correct. However, as previously explained, it is not possible to apply a CX gate directly between physical qubits 0 and 2 in this case. When such a constraint exists, <code>generate_preset_pass_manager()</code> automatically transforms the circuit into an executable form-like in OptionsA-by inserting Swap gates to exchange qubit positions.
+Therefore, D is incorrect and A is correct.</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="sample-test-10">Sample Test 10:</h2>
+<p>Which three of the following are job execution modes in Qiskit Runtime?</p>
+<p><strong>Options:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. classical</p>
+</li>
+<li>
+<p><strong>B</strong>. session</p>
+</li>
+<li>
+<p><strong>C</strong>. parallel</p>
+</li>
+<li>
+<p><strong>D</strong>. quantum</p>
+</li>
+<li>
+<p><strong>E</strong>. batch</p>
+</li>
+<li>
+<p><strong>F</strong>. single job</p>
+</li>
+</ul>
+<p>　　</p>
+<p><strong>Answer:</strong> B, E, F</p>
+<p><strong>Explanation:</strong>
+The execution modes of Qiskit Runtime are described <a href="https://quantum.cloud.ibm.com/docs/en/guides/execution-modes">here</a>. As described there, there are three execution modes for Qiskit Runtime: session, batch, and single job. Therefore, answers B, E, and F are correct. Each mode is explained below.<br>
+The single job mode is the simplest mode. It is convenient when you want to try running a single job.<br>
+The batch mode is useful for executing multiple jobs together. However, since they are treated as batch processing, it is important to note that there is no guarantee the jobs will be executed in the order they were submitted.<br>
+In session mode, a dedicated time slot is allocated during which the system can be used exclusively.
+In variational algorithms such as VQC and VQE, computations alternate between classical and quantum computers. If the system has to wait for other users&rsquo; jobs each time a quantum computation is performed, it can take a considerable amount of time.
+By using session mode, such delays are avoided, allowing variational algorithms to be executed much more efficiently.<br></p>
+<p>For the explanations of questions 11 to 21, please refer to <a href="/ibmcertsamplev2x02/">this page</a>.</p>
+<hr>
+<h4 id="amazon-braket-learning-course-1">Amazon Braket Learning Course</h4>
+<p>I have also created a learning course on Amazon Braket, AWS&rsquo;s quantum computing service.</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="170" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      Quantum Computing on AWS for Beginners: Amazon Braket
+    </a>
+  </div>
+</div>
+<p>This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&rsquo;ll even be able to learn about quantum machine learning.
+Take advantage of this opportunity to build your skills in quantum technologies!</p>
+<p>　</p>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

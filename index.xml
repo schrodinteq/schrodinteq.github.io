@@ -6,8 +6,29 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Mon, 21 Jul 2025 16:43:14 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 07 Oct 2025 23:47:51 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A simple explanation of the 2025 Nobel Prize in Physics</title>
+      <link>https://schrodinteq.github.io/nobelprize2025/</link>
+      <pubDate>Tue, 07 Oct 2025 23:47:51 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/nobelprize2025/</guid>
+      <description>The winners of the 2025 Nobel Prize in Physics have been announced: John Clarke, Michel H. Devoret, and John M. Martinis! Their achievement lies in demonstrating quantum tunnelling and quantised energy levels on a macroscopic scale. The experiments were conducted using superconducting circuits. Here&amp;rsquo;s a quick overview of their work.&#xA;Amazon Braket Learning Course I have also created a learning course on Amazon Braket, AWS&amp;rsquo;s quantum computing service.&#xA;Quantum Computing on AWS for Beginners: Amazon Braket This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you&amp;rsquo;ll even be able to learn about quantum machine learning.</description>
+    </item>
+    <item>
+      <title>IBM Quantum Developer Certification v2.X Sample Test Explanation Part 1</title>
+      <link>https://schrodinteq.github.io/ibmcertsamplev2x01/</link>
+      <pubDate>Wed, 24 Sep 2025 09:15:20 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/ibmcertsamplev2x01/</guid>
+      <description>In 2025, a new certification aligned with the latest Qiskit version, &amp;ldquo;IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate&amp;rdquo;, has been released.&#xA;By obtaining this certification, you can demonstrate your knowledge of Qiskit and quantum programming!&#xA;To earn this certification, you need to pass the exam titled &amp;ldquo;Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer&amp;rdquo; as mentioned in the URL above. IBM also provides a Sample Test related to this exam, which is available in the &amp;ldquo;Sample Test&amp;rdquo; section on the website linked above.</description>
+    </item>
+    <item>
+      <title>IBM Quantum Developer Certification v2.X Sample Test Explanation Part 2</title>
+      <link>https://schrodinteq.github.io/ibmcertsamplev2x02/</link>
+      <pubDate>Wed, 24 Sep 2025 09:15:09 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/ibmcertsamplev2x02/</guid>
+      <description>In 2025, a new certification aligned with the latest Qiskit version, &amp;ldquo;IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate&amp;rdquo;, has been released.&#xA;By obtaining this certification, you can demonstrate your knowledge of Qiskit and quantum programming!&#xA;To earn this certification, you need to pass the exam titled &amp;ldquo;Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer&amp;rdquo; as mentioned in the URL above. IBM also provides a Sample Test related to this exam, which is available in the &amp;ldquo;Sample Test&amp;rdquo; section on the website linked above.</description>
+    </item>
     <item>
       <title>Shor&#39;s Algorithm with AWS Amazon Braket</title>
       <link>https://schrodinteq.github.io/awsbraketshor/</link>
@@ -118,14 +139,14 @@
       <link>https://schrodinteq.github.io/ibmcertsample02en/</link>
       <pubDate>Mon, 21 Oct 2024 20:55:42 +0900</pubDate>
       <guid>https://schrodinteq.github.io/ibmcertsample02en/</guid>
-      <description>To earn the certification &amp;ldquo;IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X&amp;rdquo; provided by IBM, you need to pass the exam &amp;ldquo;Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer.&amp;rdquo; In the URL below, which contains an overview of the exam, there is a link to a sample question set.&#xA;https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300&#xA;I have provided explanations for questions 1 to 10 of the sample question set on the previous page.</description>
+      <description>Note: The content introduced on this page is for the previous version of the exam. For Sample Test explanations aligned with the new version of the exam, please refer to IBM Quantum Developer Certification v2.X Sample Test Explanation Part 1.&#xA;To earn the certification &amp;ldquo;IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X&amp;rdquo; provided by IBM, you need to pass the exam &amp;ldquo;Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.</description>
     </item>
     <item>
       <title>IBM Quantum Developer Certification Sample Test Explanation Part 1</title>
       <link>https://schrodinteq.github.io/ibmcertsample01en/</link>
       <pubDate>Fri, 27 Sep 2024 17:32:53 +0900</pubDate>
       <guid>https://schrodinteq.github.io/ibmcertsample01en/</guid>
-      <description>In the other page, it was mentioned that, unlike classical computers, quantum computers require quantum programs to be implemented. IBM has been offering a certification related to quantum programming called &amp;lsquo;IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X&amp;rsquo; since 2021.&#xA;https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v02x-C0010300&#xA;By obtaining this certification, you can demonstrate your knowledge of Qiskit and quantum programming!&#xA;To earn this certification, you need to pass the exam titled &amp;ldquo;Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.</description>
+      <description>Note: The content introduced on this page is for the previous version of the exam. For Sample Test explanations aligned with the new version of the exam, please refer to IBM Quantum Developer Certification v2.X Sample Test Explanation Part 1.&#xA;In the other page, it was mentioned that, unlike classical computers, quantum computers require quantum programs to be implemented. IBM has been offering a certification related to quantum programming called &amp;lsquo;IBM Certified Associate Developer - Quantum Computation using Qiskit v0.</description>
     </item>
     <item>
       <title>Quantum computers and quantum programming: What are they?</title>

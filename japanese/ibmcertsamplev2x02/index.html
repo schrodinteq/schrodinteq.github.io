@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="japanese">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>IBM 量子開発者認定資格 v2.X sample問題集の解説 その2 | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="新しいQiskitのバージョンに対応した資格である、「IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate」がリリースされました。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+この認定を得るためには、上記リンクに記載がある通り、“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLリンク内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは11 ~ 21問までの解説を記載しています。1 ~ 10問の解説についてはこちらのページをご参照ください。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 Amazon Braket学習コース また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+問題11: Which code fragment is the correct way to open a session?
+選択肢:
+A. from qiskit_ibm_runtime import Session session = Session(system=&#39;ibm_foo&#39;) B. from qiskit_ibm_runtime import execute, QiskitRuntimeService service = QiskitRuntimeService() session = execute(service=service) C.">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/japanese/ibmcertsamplev2x02/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/japanese/ibmcertsamplev2x02/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="IBM 量子開発者認定資格 v2.X sample問題集の解説 その2">
+  <meta property="og:description" content="新しいQiskitのバージョンに対応した資格である、「IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate」がリリースされました。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+この認定を得るためには、上記リンクに記載がある通り、“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLリンク内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは11 ~ 21問までの解説を記載しています。1 ~ 10問の解説についてはこちらのページをご参照ください。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 Amazon Braket学習コース また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+問題11: Which code fragment is the correct way to open a session?
+選択肢:
+A. from qiskit_ibm_runtime import Session session = Session(system=&#39;ibm_foo&#39;) B. from qiskit_ibm_runtime import execute, QiskitRuntimeService service = QiskitRuntimeService() session = execute(service=service) C.">
+  <meta property="og:locale" content="japanese">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-09-23T17:10:38+09:00">
+    <meta property="article:modified_time" content="2025-09-23T17:10:38+09:00">
+
+  <meta itemprop="name" content="IBM 量子開発者認定資格 v2.X sample問題集の解説 その2">
+  <meta itemprop="description" content="新しいQiskitのバージョンに対応した資格である、「IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate」がリリースされました。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+この認定を得るためには、上記リンクに記載がある通り、“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLリンク内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは11 ~ 21問までの解説を記載しています。1 ~ 10問の解説についてはこちらのページをご参照ください。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 Amazon Braket学習コース また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+問題11: Which code fragment is the correct way to open a session?
+選択肢:
+A. from qiskit_ibm_runtime import Session session = Session(system=&#39;ibm_foo&#39;) B. from qiskit_ibm_runtime import execute, QiskitRuntimeService service = QiskitRuntimeService() session = execute(service=service) C.">
+  <meta itemprop="datePublished" content="2025-09-23T17:10:38+09:00">
+  <meta itemprop="dateModified" content="2025-09-23T17:10:38+09:00">
+  <meta itemprop="wordCount" content="695">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="IBM 量子開発者認定資格 v2.X sample問題集の解説 その2">
+  <meta name="twitter:description" content="新しいQiskitのバージョンに対応した資格である、「IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate」がリリースされました。
+この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。
+この認定を得るためには、上記リンクに記載がある通り、“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”という試験に合格する必要があります。 IBMはこの試験に関するsample問題集も公開しており、上記URLリンク内の「Sample Test」で公開されています。 ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは11 ~ 21問までの解説を記載しています。1 ~ 10問の解説についてはこちらのページをご参照ください。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
+はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 Amazon Braket学習コース また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。
+Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
+問題11: Which code fragment is the correct way to open a session?
+選択肢:
+A. from qiskit_ibm_runtime import Session session = Session(system=&#39;ibm_foo&#39;) B. from qiskit_ibm_runtime import execute, QiskitRuntimeService service = QiskitRuntimeService() session = execute(service=service) C.">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/japanese/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/ibmcertsamplev2x02/">english</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          IBM 量子開発者認定資格 v2.X sample問題集の解説 その2
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>新しいQiskitのバージョンに対応した資格である、<a href="https://www.ibm.com/training/certification/ibm-certified-quantum-computation-using-qiskit-v2x-developer-associate-C9008400">「IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate」</a>がリリースされました。</p>
+<p>この資格を取得することでqiskitや量子プログラミングに関する知識を証明することが可能です。</p>
+<p>この認定を得るためには、上記リンクに記載がある通り、“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”という試験に合格する必要があります。
+IBMはこの試験に関するsample問題集も公開しており、上記URLリンク内の「Sample Test」で公開されています。
+ただ、こちらのSample問題集では解説は特に記載されていないため、なるべく分かりやすく解説を記載します。このページでは11 ~ 21問までの解説を記載しています。1 ~ 10問の解説については<a href="/japanese/ibmcertsamplev2x01/">こちらのページ</a>をご参照ください。</p>
+<hr>
+<h4 id="はじめての量子コンピューター入門基礎知識qiskitでの実装量子機械学習-全て学べる">はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】</h4>
+<p>量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/IntroQuantumComputing.webp" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0" target="_blank">
+      はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+<h4 id="amazon-braket学習コース">Amazon Braket学習コース</h4>
+<p>また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="170" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      Quantum Computing on AWS for Beginners: Amazon Braket
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+<h2 id="問題11">問題11:</h2>
+<p>Which code fragment is the correct way to open a session?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li><strong>A</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit_ibm_runtime <span style="color:#f92672">import</span> Session 
+</span></span><span style="display:flex;"><span>session <span style="color:#f92672">=</span> Session(system<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ibm_foo&#39;</span>) 
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>B</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit_ibm_runtime <span style="color:#f92672">import</span> execute, QiskitRuntimeService 
+</span></span><span style="display:flex;"><span>service <span style="color:#f92672">=</span> QiskitRuntimeService() 
+</span></span><span style="display:flex;"><span>session <span style="color:#f92672">=</span> execute(service<span style="color:#f92672">=</span>service)
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>C</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit_ibm_runtime <span style="color:#f92672">import</span> Session, QiskitRuntimeService 
+</span></span><span style="display:flex;"><span>service <span style="color:#f92672">=</span> QiskitRuntimeService() 
+</span></span><span style="display:flex;"><span>session <span style="color:#f92672">=</span> Session(service<span style="color:#f92672">.</span>least_busy()) 
+</span></span></code></pre></div><p>　　</p>
+<ul>
+<li><strong>D</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit 
+</span></span><span style="display:flex;"><span>session <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>)<span style="color:#f92672">.</span>open_session()
+</span></span></code></pre></div><p><strong>回答:</strong> C</p>
+<p><strong>解説:</strong>
+sessionを正しく開くコードはどれですか？という問題ですね。<a href="/japanese/ibmcertsamplev2x01/">こちらのページの問題10</a>での説明の通り、sessionはVQCなどの量子―古典アルゴリズムを実行する際に便利な機能です。また、sessionの利用方法は<a href="https://quantum.cloud.ibm.com/docs/en/guides/run-jobs-session">こちら</a>に記載があります。このサイトからも確認できるように、Cが正解のコードとなります。A、Ｂ、Ｄについては実行するとエラーになります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題12">問題12:</h2>
+<p>Which one of the following patterns, expressed in terms of array broadcasting primitives, is represented by the given image?</p>
+<figure><img src="/qstates/esti.png"
+    alt="a" width="600px">
+</figure>
+
+<p><strong>選択肢:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. Standard multidimensional array generalization</p>
+</li>
+<li>
+<p><strong>B</strong>. All-to-all</p>
+</li>
+<li>
+<p><strong>C</strong>. Extended dimensional variation</p>
+</li>
+<li>
+<p><strong>D</strong>. Best effort broadcasting</p>
+</li>
+</ul>
+<p><strong>回答:</strong> A</p>
+<p><strong>解説:</strong>
+配列のブロードキャストの基本操作で表されるパターンとして、与えられた画像が示しているものはどれか？という問題ですね。VQCなどの量子機械学習アルゴリズムなどでは、図で記載されているように、複数のParameter Sets、複数のObservables（演算子）について、期待値を求めたい場合があります。
+Parameter Sets、Observablesが共に複数のケースで計算を行った際、期待値はどのような形式で得られるかについて、<a href="https://quantum.cloud.ibm.com/docs/en/guides/primitive-input-output">「Primitive inputs and outputs」</a>で紹介されています。このページにも記載がある通り、この計算はStandard multidimensional array generalizationに該当しているため、Aが正解です。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題13">問題13:</h2>
+<p>Given the following code fragment, which one of the following describes the SamplerOptions parameter options.default_shots?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">...</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit_ibm_runtime <span style="color:#f92672">import</span> Sampler 
+</span></span><span style="display:flex;"><span>sampler <span style="color:#f92672">=</span> Sampler(mode<span style="color:#f92672">=</span>backend) 
+</span></span><span style="display:flex;"><span>sampler<span style="color:#f92672">.</span>options<span style="color:#f92672">.</span>default_shots <span style="color:#f92672">=</span> <span style="color:#f92672">...</span> 
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. The sum of the number of measurements in each qubit</p>
+</li>
+<li>
+<p><strong>B</strong>. The number of randomizations we apply to the circuit</p>
+</li>
+<li>
+<p><strong>C</strong>. The number of times that we run the circuit</p>
+</li>
+<li>
+<p><strong>D</strong>. The number of sequences in dynamical decoupling</p>
+</li>
+</ul>
+<p><strong>回答:</strong> C</p>
+<p><strong>解説:</strong>
+SamplerOptions パラメータ<code>options.default_shots</code>が表すものは次のうちどれですか？という問題ですね。量子コンピューターはエラーが発生しやすいため、量子回路を複数回実行、測定します。Samplerでのshotsは、回路を何回繰り返して測定するかを示し、Cが正解となります。ちなみに表示されているコードについて、例えば以下の様に設定し、<code>sampler</code>を実行すると、デフォルトで300回の実行が設定されます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sampler<span style="color:#f92672">.</span>options<span style="color:#f92672">.</span>default_shots <span style="color:#f92672">=</span> <span style="color:#ae81ff">300</span>
+</span></span></code></pre></div><p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題14">問題14:</h2>
+<p>Given the code snippet, which one of the following is a valid way to invoke the run method on an instance of SamplerV2?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit_ibm_runtime <span style="color:#f92672">import</span> SamplerV2 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span> 
+</span></span><span style="display:flex;"><span>sampler <span style="color:#f92672">=</span> SamplerV2(<span style="color:#f92672">...</span>) 
+</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. <code>sampler.run([isa_circuit]) </code></p>
+</li>
+<li>
+<p><strong>B</strong>. <code>sampler.run(distribution, isa_circuit) </code></p>
+</li>
+<li>
+<p><strong>C</strong>. <code>sampler.run(isa_circuit, distribution='gauss')</code></p>
+</li>
+<li>
+<p><strong>D</strong>. <code>sampler.run([isa_circuit1, isa_circuit2], runs=1024)</code></p>
+</li>
+</ul>
+<p><strong>回答:</strong> A</p>
+<p><strong>解説:</strong>
+<code>SamplerV2</code>クラスの<code>run()</code>メソッドを正しく呼び出しているコードはどれか？という問題ですね。<code>run()</code>メソッドについては<a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-runtime/sampler-v2#qiskit_ibm_runtime.SamplerV2.run">こちら</a>に利用方法が記載されており、この問題ではAで正しく回路を実行可能です。B、Cについて、distribution という名前の引数は<code>run()</code>に存在しないため誤りです。Dについては<code>runs</code>を<code>shots</code>に変更すれば実行可能です。ちなみにこの場合は、<code>isa_circuit1, isa_circuit2</code>がそれぞれ実行され結果が格納されます。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題15">問題15:</h2>
+<p>Which one of the following describes the expected behavior of the number of shots if the value for the parameter precision were changed from 0.015625 to 0.03125?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. It increases the number of shots quadratically</p>
+</li>
+<li>
+<p><strong>B</strong>. It increases the number of shots exponentially</p>
+</li>
+<li>
+<p><strong>C</strong>. It has no effect on the number of shots</p>
+</li>
+<li>
+<p><strong>D</strong>. It decreases the number of shots</p>
+</li>
+</ul>
+<p><strong>回答:</strong> D</p>
+<p><strong>解説:</strong>
+パラメータprecisionの値を0.015625から0.03125に変更した場合、ショット数についてはどうなるか？という問題ですね。default_precisionと、default_shotsについては<a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-runtime/options-estimator-options#default_precision">こちら</a>で少し解説があります。<a href="https://github.com/Qiskit/qiskit/blob/stable/2.1/qiskit/primitives/backend_estimator_v2.py">backend_estimator_v2のソースコード</a>からも確認できますが、precisionを大きくすると（精度を荒くすると）、shotsの数は少なくなります。このため、Dが正解となります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題16">問題16:</h2>
+<p>Which error mitigation technique can be applied using resilience options?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. Pauli twirling</p>
+</li>
+<li>
+<p><strong>B</strong>. Dynamical decoupling</p>
+</li>
+<li>
+<p><strong>C</strong>. Zero Noise Extrapolation</p>
+</li>
+<li>
+<p><strong>D</strong>. Full quantum error correction</p>
+</li>
+</ul>
+<p><strong>回答:</strong> C</p>
+<p><strong>解説:</strong>
+「resilience options」を使って適用できるエラー軽減手法は次のうちどれか？という問題ですね。
+resilience optionsは、ノイズに強い計算結果を得るためのオプションです。詳細については<a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-runtime/options-resilience-options-v2">こちら</a>で記載されており、<a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-runtime/options-resilience-options-v2#zne_mitigation">「Zero-Noise Extrapolation error mitigation method」</a>が利用可能です。これは、ノイズをあえて増やした結果も確認することで、ノイズ０の計算結果を推測する手法です。このため、正解はCとなります。A、B、Dはresilience optionsでは利用できません。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題17">問題17:</h2>
+<p>Which format should a primitive unified bloc (PUB) tuple follow for the Estimator primitive?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. <code>pub = (circuit, observable, parameter_values, backend) </code></p>
+</li>
+<li>
+<p><strong>B</strong>. <code>pub = (circuit, observable, parameter_values, precision)</code></p>
+</li>
+<li>
+<p><strong>C</strong>. <code>pub = (circuit, observable, shots, optimization_level)</code></p>
+</li>
+<li>
+<p><strong>D</strong>. <code>pub = (circuit, observable, resilience_level, noise_model)</code></p>
+</li>
+</ul>
+<p><strong>回答:</strong> B</p>
+<p><strong>解説:</strong>
+Estimator primitiveにおいて、PUBタプルはどの形式に従うべきか？という問題ですね。
+Estimator primitiveでは与えられた量子回路（circuit）、演算子(observable)、パラメーター(parameter_values)について、期待値を算出可能です。さらにEstimator primitiveでは、問題15で登場した<code>precision</code>も指定可能なのでBが正解となります。<br>
+ちなみにEstimator primitiveを使ってVQCなどの量子機械学習を実行する場合は、circuitには対応するデータの情報と機械学習モデルが組み込まれ、parameter_valuesには機械学習モデルのパラメーターが設定され、observableには出来上がった機械学習用の量子回路から結果を得るための演算子が定義されます。量子機械学習について学ばれる場合は<a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0">こちらのコース</a>もご活用ください。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題18">問題18:</h2>
+<p>Which statement describes the purpose of a Qiskit Runtime session?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. Automatically generate quantum algorithms based on user input</p>
+</li>
+<li>
+<p><strong>B</strong>. Visualise the results of quantum experiments in real time</p>
+</li>
+<li>
+<p><strong>C</strong>. Group a collection of calls to the quantum computer</p>
+</li>
+<li>
+<p><strong>D</strong>. Compile and optimise quantum circuits for different backends</p>
+</li>
+</ul>
+<p><strong>回答:</strong> C</p>
+<p><strong>解説:</strong>
+Qiskit Runtime sessionについて、正しく説明しているのはどれか？という問題ですね。
+<a href="/japanese/ibmcertsamplev2x01/">こちらで解説している問題10</a>でも記載した通り、sessionモードでは、システムを独占的に使用できる専用の時間枠が設けられます。<br>
+VQCや、VQEなどの変分アルゴリズムでは、古典コンピューターでの計算と量子コンピューターでの計算が交互に行われますが、計算のたびに他のユーザーのジョブを待機していると非常に時間がかかってしまいます。このモードを用いることで、量子コンピューターの呼び出しをまとめられ、変分アルゴリズムを高速で実行できるようになります。このため正解はCとなります。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題19">問題19:</h2>
+<p>Which two of the following pieces of information are part of the dictionary returned by <code>session.details()</code>, assuming that <code>session</code> is an instance of <code>qiskit_ibm_runtime.Session</code>?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. Quantum circuit depth</p>
+</li>
+<li>
+<p><strong>B</strong>. Timestamp of the last job in the session that completed</p>
+</li>
+<li>
+<p><strong>C</strong>. Session state</p>
+</li>
+<li>
+<p><strong>D</strong>. Primitive options</p>
+</li>
+<li>
+<p><strong>E</strong>. Primitive unified blocs (PUBs) in each job</p>
+</li>
+</ul>
+<p><strong>回答:</strong> B, C</p>
+<p><strong>解説:</strong>
+<code>session</code>が<code>qiskit_ibm_runtime.Session</code>のインスタンスである場合、<code>session.details()</code>が返すdictionaryに含まれる情報で正しい2つはどれですか？という問題ですね。
+<a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-runtime/session#details"><code>session.details()</code>についてはこちら</a>に情報が記載されています。このページに記載の通り、正解はB、Cとなります。その他の情報については<code>session.details()</code>では取得できません。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題20">問題20:</h2>
+<p>Which one of the following is a classical data type supported by OpenQASM 3?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. complex</p>
+</li>
+<li>
+<p><strong>B</strong>. class</p>
+</li>
+<li>
+<p><strong>C</strong>. char</p>
+</li>
+<li>
+<p><strong>D</strong>. enum</p>
+</li>
+</ul>
+<p><strong>回答:</strong> A</p>
+<p><strong>解説:</strong>
+次のうち、OpenQASM 3がサポートするclassical data typeはどれですか？という問題ですね。<br>
+OpenQASM (Open Quantum Assembly Language) 3は、IBMが中心となって開発している量子プログラミング言語です。<a href="https://openqasm.com/versions/3.0/language/types.html#classical-scalar-types">Classical scalar typesについてはこちら</a>でサポートされる型が記載されており、Aが正解となります。B、C、Dの型はサポートされません。</p>
+<p>　　<br>
+　　<br>
+　　</p>
+<hr>
+<h2 id="問題21">問題21:</h2>
+<p>Which method should be used to export a Qiskit circuit named <code>qc</code> to OpenQASM 3 and store it into a file stream named <code>qasmprogram</code>?</p>
+<p><strong>選択肢:</strong></p>
+<ul>
+<li>
+<p><strong>A</strong>. <code>qc.to_openqasm3(qasmprogram)</code></p>
+</li>
+<li>
+<p><strong>B</strong>. <code>qiskit.qasm3.dump(qc, qasmprogram)</code></p>
+</li>
+<li>
+<p><strong>C</strong>. <code>qasmprogram.export_to_qasm3(qc)</code></p>
+</li>
+<li>
+<p><strong>D</strong>. <code>qiskit.qasm3.export(qc, qasmprogram)</code></p>
+</li>
+</ul>
+<p><strong>回答:</strong> B</p>
+<p><strong>解説:</strong>
+Qiskitの回路<code>qc</code>をOpenQASM 3形式で<code>qasmprogram</code>に保存するには、どのメソッドを使用すべきですか？という問題ですね。<br>
+BによりOpenQASM 3形式で保存が可能なため、Bが正解となります。こちらのサンプルコードは例えば以下の通りです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> qasm3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>qc <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>h(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>qc<span style="color:#f92672">.</span>cx(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;bell.qasm&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>) <span style="color:#66d9ef">as</span> qasmprogram:
+</span></span><span style="display:flex;"><span>    qasm3<span style="color:#f92672">.</span>dump(qc, qasmprogram)
+</span></span></code></pre></div><p>こちらを実行すると、以下のような<code>bell.qasm</code>ファイルが実行ファイルと同じ置き場に作成されます。</p>
+<pre tabindex="0"><code class="language-qasm" data-lang="qasm">OPENQASM 3.0;
+include &#34;stdgates.inc&#34;;
+qubit[2] q;
+h q[0];
+cx q[0], q[1];
+</code></pre><p>他のA、C、Dは実行するとエラーとなります。</p>
+<p>1 ~ 10問の解説については<a href="/japanese/ibmcertsamplev2x01/">こちらのページ</a>をご参照ください。</p>
+<hr>
+<h4 id="はじめての量子コンピューター入門基礎知識qiskitでの実装量子機械学習-全て学べる-1">はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】</h4>
+<p>量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/IntroQuantumComputing.webp" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0" target="_blank">
+      はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】
+    </a>
+  </div>
+</div>
+<br>
+<hr>
+<h4 id="amazon-braket学習コース-1">Amazon Braket学習コース</h4>
+<p>また、AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースを作成しました。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/AWSCourse.webp" alt="QiskitCourseJa" width="170" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8" target="_blank">
+      Quantum Computing on AWS for Beginners: Amazon Braket
+    </a>
+  </div>
+</div>
+<p>量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。
+こちらも利用し、量子技術のスキルを身につけましょう！</p>
+<hr>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/japanese/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+
