@@ -68,7 +68,7 @@ By obtaining this certification, you can demonstrate your knowledge of Qiskit an
 To earn this certification, you need to pass the exam titled “Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer” as mentioned in the URL above. IBM also provides a Sample Test related to this exam, which is available in the “Sample Test” section on the website linked above.">
   <meta itemprop="datePublished" content="2025-09-24T09:15:09+09:00">
   <meta itemprop="dateModified" content="2025-09-24T09:15:09+09:00">
-  <meta itemprop="wordCount" content="1505">
+  <meta itemprop="wordCount" content="1527">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="IBM Quantum Developer Certification v2.X Sample Test Explanation Part 2">
   <meta name="twitter:description" content="In 2025, a new certification aligned with the latest Qiskit version, “IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate”, has been released.
@@ -161,9 +161,9 @@ However, the explanations are not provided in the Sample Test page, so I will in
 Take advantage of this opportunity to build your skills in quantum technologies!</p>
 <hr>
 <h2 id="heading">　</h2>
-<h2 id="問題11">問題11:</h2>
+<h2 id="sample-test-11">Sample Test 11:</h2>
 <p>Which code fragment is the correct way to open a session?</p>
-<p><strong>選択肢:</strong></p>
+<p><strong>Options:</strong></p>
 <ul>
 <li><strong>A</strong>.</li>
 </ul>
@@ -189,20 +189,20 @@ Take advantage of this opportunity to build your skills in quantum technologies!
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit 
 </span></span><span style="display:flex;"><span>session <span style="color:#f92672">=</span> QuantumCircuit(<span style="color:#ae81ff">2</span>)<span style="color:#f92672">.</span>open_session()
-</span></span></code></pre></div><p><strong>回答:</strong> C</p>
-<p><strong>解説:</strong>
+</span></span></code></pre></div><p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong>
 As explained in <a href="/ibmcertsamplev2x01/">Sample Test 10 on this page</a>, sessions are a useful feature when running quantum-classical algorithms such as VQC. Instructions for using sessions are available <a href="https://quantum.cloud.ibm.com/docs/en/guides/run-jobs-session">here</a>. As you can see from this site, the correct code is C. Codes A, B, and D will result in an error when executed.</p>
 <p>　　<br>
 　　<br>
 　　</p>
 <hr>
-<h2 id="問題12">問題12:</h2>
+<h2 id="sample-test-12">Sample Test 12:</h2>
 <p>Which one of the following patterns, expressed in terms of array broadcasting primitives, is represented by the given image?</p>
 <figure><img src="/qstates/esti.png"
     alt="a" width="600px">
 </figure>
 
-<p><strong>選択肢:</strong></p>
+<p><strong>Options:</strong></p>
 <ul>
 <li>
 <p><strong>A</strong>. Standard multidimensional array generalization</p>
@@ -217,21 +217,21 @@ As explained in <a href="/ibmcertsamplev2x01/">Sample Test 10 on this page</a>, 
 <p><strong>D</strong>. Best effort broadcasting</p>
 </li>
 </ul>
-<p><strong>回答:</strong> A</p>
-<p><strong>解説:</strong>
+<p><strong>Answer:</strong> A</p>
+<p><strong>Explanation:</strong>
 In quantum machine learning algorithms such as VQC, you may want to calculate the expected value for multiple parameter sets and multiple observables (operators) as shown in the diagram.
 <a href="https://quantum.cloud.ibm.com/docs/en/guides/primitive-input-output">&ldquo;Primitive inputs and outputs&rdquo;</a> explains the format in which the expected value can be obtained when performing calculations with multiple parameter sets and observables. As this page also states, this calculation falls under standard multidimensional array generalization, so A is the correct answer.</p>
 <p>　　<br>
 　　<br>
 　　</p>
 <hr>
-<h2 id="問題13">問題13:</h2>
+<h2 id="sample-test-13">Sample Test 13:</h2>
 <p>Given the following code fragment, which one of the following describes the SamplerOptions parameter options.default_shots?</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">...</span> 
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit_ibm_runtime <span style="color:#f92672">import</span> Sampler 
 </span></span><span style="display:flex;"><span>sampler <span style="color:#f92672">=</span> Sampler(mode<span style="color:#f92672">=</span>backend) 
 </span></span><span style="display:flex;"><span>sampler<span style="color:#f92672">.</span>options<span style="color:#f92672">.</span>default_shots <span style="color:#f92672">=</span> <span style="color:#f92672">...</span> 
-</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+</span></span></code></pre></div><p><strong>Options:</strong></p>
 <ul>
 <li>
 <p><strong>A</strong>. The sum of the number of measurements in each qubit</p>
@@ -246,20 +246,20 @@ In quantum machine learning algorithms such as VQC, you may want to calculate th
 <p><strong>D</strong>. The number of sequences in dynamical decoupling</p>
 </li>
 </ul>
-<p><strong>回答:</strong> C</p>
-<p><strong>解説:</strong>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong>
 Because quantum computers are prone to errors, quantum circuits are run and measured multiple times. The &ldquo;shots&rdquo; parameter in Sampler indicates how many times the circuit is run,so C is the correct answer. For example, if you configure the code shown below and run <code>sampler</code>, it will run 300 times by default.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sampler<span style="color:#f92672">.</span>options<span style="color:#f92672">.</span>default_shots <span style="color:#f92672">=</span> <span style="color:#ae81ff">300</span>
 </span></span></code></pre></div><p>　　<br>
 　　<br>
 　　</p>
 <hr>
-<h2 id="問題14">問題14:</h2>
+<h2 id="sample-test-14">Sample Test 14:</h2>
 <p>Given the code snippet, which one of the following is a valid way to invoke the run method on an instance of SamplerV2?</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit_ibm_runtime <span style="color:#f92672">import</span> SamplerV2 
 </span></span><span style="display:flex;"><span><span style="color:#f92672">...</span> 
 </span></span><span style="display:flex;"><span>sampler <span style="color:#f92672">=</span> SamplerV2(<span style="color:#f92672">...</span>) 
-</span></span></code></pre></div><p><strong>選択肢:</strong></p>
+</span></span></code></pre></div><p><strong>Options:</strong></p>
 <ul>
 <li>
 <p><strong>A</strong>. <code>sampler.run([isa_circuit]) </code></p>
@@ -274,16 +274,16 @@ Because quantum computers are prone to errors, quantum circuits are run and meas
 <p><strong>D</strong>. <code>sampler.run([isa_circuit1, isa_circuit2], runs=1024)</code></p>
 </li>
 </ul>
-<p><strong>回答:</strong> A</p>
-<p><strong>解説:</strong>
+<p><strong>Answer:</strong> A</p>
+<p><strong>Explanation:</strong>
 The usage of the <code>run()</code> method is described <a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-runtime/sampler-v2#qiskit_ibm_runtime.SamplerV2.run">here</a>, and in this Sample Test, A will run the circuit correctly. B and C are incorrect because an argument named distribution does not exist in <code>run()</code>. D can be run by changing <code>runs</code> to <code>shots</code>. In this case, <code>isa_circuit1</code> and <code>isa_circuit2</code> will be run and the results will be stored.</p>
 <p>　　<br>
 　　<br>
 　　</p>
 <hr>
-<h2 id="問題15">問題15:</h2>
+<h2 id="sample-test-15">Sample Test 15:</h2>
 <p>Which one of the following describes the expected behavior of the number of shots if the value for the parameter precision were changed from 0.015625 to 0.03125?</p>
-<p><strong>選択肢:</strong></p>
+<p><strong>Options:</strong></p>
 <ul>
 <li>
 <p><strong>A</strong>. It increases the number of shots quadratically</p>
@@ -298,16 +298,16 @@ The usage of the <code>run()</code> method is described <a href="https://quantum
 <p><strong>D</strong>. It decreases the number of shots</p>
 </li>
 </ul>
-<p><strong>回答:</strong> D</p>
-<p><strong>解説:</strong>
+<p><strong>Answer:</strong> D</p>
+<p><strong>Explanation:</strong>
 A brief explanation of default_precision and default_shots can be found <a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-runtime/options-estimator-options#default_precision">here</a>. You can also check <a href="https://github.com/Qiskit/qiskit/blob/stable/2.1/qiskit/primitives/backend_estimator_v2.py">the source code of backend_estimator_v2</a>. As can be seen from these, increasing the precision value (i.e., making the precision coarser) reduces the number of shots. Therefore, option D is correct.</p>
 <p>　　<br>
 　　<br>
 　　</p>
 <hr>
-<h2 id="問題16">問題16:</h2>
+<h2 id="sample-test-16">Sample Test 16:</h2>
 <p>Which error mitigation technique can be applied using resilience options?</p>
-<p><strong>選択肢:</strong></p>
+<p><strong>Options:</strong></p>
 <ul>
 <li>
 <p><strong>A</strong>. Pauli twirling</p>
@@ -322,16 +322,16 @@ A brief explanation of default_precision and default_shots can be found <a href=
 <p><strong>D</strong>. Full quantum error correction</p>
 </li>
 </ul>
-<p><strong>回答:</strong> C</p>
-<p><strong>解説:</strong>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong>
 Resilience options are settings used to obtain computation results that are robust against noise. Details are provided <a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-runtime/options-resilience-options-v2">here</a>, and the Zero-Noise Extrapolation (ZNE) error mitigation method is available. This technique estimates the result as if there were no noise by intentionally increasing the noise and analyzing the outcomes. Therefore, the correct answer is C. Options A, B, and D are not available under resilience options.</p>
 <p>　　<br>
 　　<br>
 　　</p>
 <hr>
-<h2 id="問題17">問題17:</h2>
+<h2 id="sample-test-17">Sample Test 17:</h2>
 <p>Which format should a primitive unified bloc (PUB) tuple follow for the Estimator primitive?</p>
-<p><strong>選択肢:</strong></p>
+<p><strong>Options:</strong></p>
 <ul>
 <li>
 <p><strong>A</strong>. <code>pub = (circuit, observable, parameter_values, backend) </code></p>
@@ -346,8 +346,8 @@ Resilience options are settings used to obtain computation results that are robu
 <p><strong>D</strong>. <code>pub = (circuit, observable, resilience_level, noise_model)</code></p>
 </li>
 </ul>
-<p><strong>回答:</strong> B</p>
-<p><strong>解説:</strong>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong>
 The Estimator primitive can calculate the expectation value for a given quantum circuit, observable, and parameter values. Additionally, since the Estimator primitive allows specifying <code>precision</code>, which was introduced in Sample Test 15, the correct answer is B.
 When using the Estimator primitive for quantum machine learning tasks such as VQC, the circuit incorporates both the data and the machine learning model, the parameter_values represent the model parameters, and the observable defines the operator used to extract results from the quantum circuit tailored for machine learning.
 If you&rsquo;re interested in learning more about quantum machine learning, you may find <a href="https://www.udemy.com/course/quantum-computing-on-aws-for-beginners-amazon-braket/?referralCode=F361C3FD774489A1B5B8">this course helpful</a>.</p>
@@ -355,9 +355,9 @@ If you&rsquo;re interested in learning more about quantum machine learning, you 
 　　<br>
 　　</p>
 <hr>
-<h2 id="問題18">問題18:</h2>
+<h2 id="sample-test-18">Sample Test 18:</h2>
 <p>Which statement describes the purpose of a Qiskit Runtime session?</p>
-<p><strong>選択肢:</strong></p>
+<p><strong>Options:</strong></p>
 <ul>
 <li>
 <p><strong>A</strong>. Automatically generate quantum algorithms based on user input</p>
@@ -372,8 +372,8 @@ If you&rsquo;re interested in learning more about quantum machine learning, you 
 <p><strong>D</strong>. Compile and optimise quantum circuits for different backends</p>
 </li>
 </ul>
-<p><strong>回答:</strong> C</p>
-<p><strong>解説:</strong>
+<p><strong>Answer:</strong> C</p>
+<p><strong>Explanation:</strong>
 As explained in <a href="/ibmcertsamplev2x01/">Sample Test 10</a>, session mode provides a dedicated time slot during which the quantum system is exclusively reserved for the user.
 In variational algorithms such as VQC and VQE, classical and quantum computations are performed alternately. If the system had to wait for other users&rsquo; jobs between each quantum computation, the overall process would take a significant amount of time. By using session mode, quantum executions can be grouped together, allowing variational algorithms to run much faster.
 Therefore, the correct answer is C.</p>
@@ -381,9 +381,9 @@ Therefore, the correct answer is C.</p>
 　　<br>
 　　</p>
 <hr>
-<h2 id="問題19">問題19:</h2>
+<h2 id="sample-test-19">Sample Test 19:</h2>
 <p>Which two of the following pieces of information are part of the dictionary returned by <code>session.details()</code>, assuming that <code>session</code> is an instance of <code>qiskit_ibm_runtime.Session</code>?</p>
-<p><strong>選択肢:</strong></p>
+<p><strong>Options:</strong></p>
 <ul>
 <li>
 <p><strong>A</strong>. Quantum circuit depth</p>
@@ -401,17 +401,17 @@ Therefore, the correct answer is C.</p>
 <p><strong>E</strong>. Primitive unified blocs (PUBs) in each job</p>
 </li>
 </ul>
-<p><strong>回答:</strong> B, C</p>
-<p><strong>解説:</strong>
+<p><strong>Answer:</strong> B, C</p>
+<p><strong>Explanation:</strong>
 Information about <a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-runtime/session#details">session.details()</a> can be found here
 . As stated on this page, the correct answers are B and C. Other information cannot be obtained from <code>session.details()</code>.</p>
 <p>　　<br>
 　　<br>
 　　</p>
 <hr>
-<h2 id="問題20">問題20:</h2>
+<h2 id="sample-test-20">Sample Test 20:</h2>
 <p>Which one of the following is a classical data type supported by OpenQASM 3?</p>
-<p><strong>選択肢:</strong></p>
+<p><strong>Options:</strong></p>
 <ul>
 <li>
 <p><strong>A</strong>. complex</p>
@@ -426,16 +426,16 @@ Information about <a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-
 <p><strong>D</strong>. enum</p>
 </li>
 </ul>
-<p><strong>回答:</strong> A</p>
-<p><strong>解説:</strong>
+<p><strong>Answer:</strong> A</p>
+<p><strong>Explanation:</strong>
 OpenQASM (Open Quantum Assembly Language) 3 is a quantum programming language developed primarily by IBM. The supported types for <a href="https://openqasm.com/versions/3.0/language/types.html#classical-scalar-types">classical scalar types are listed here</a>, and based on that, the correct answer is A. The types listed in B, C, and D are not supported.</p>
 <p>　　<br>
 　　<br>
 　　</p>
 <hr>
-<h2 id="問題21">問題21:</h2>
+<h2 id="sample-test-21">Sample Test 21:</h2>
 <p>Which method should be used to export a Qiskit circuit named <code>qc</code> to OpenQASM 3 and store it into a file stream named <code>qasmprogram</code>?</p>
-<p><strong>選択肢:</strong></p>
+<p><strong>Options:</strong></p>
 <ul>
 <li>
 <p><strong>A</strong>. <code>qc.to_openqasm3(qasmprogram)</code></p>
@@ -450,8 +450,8 @@ OpenQASM (Open Quantum Assembly Language) 3 is a quantum programming language de
 <p><strong>D</strong>. <code>qiskit.qasm3.export(qc, qasmprogram)</code></p>
 </li>
 </ul>
-<p><strong>回答:</strong> B</p>
-<p><strong>解説:</strong>
+<p><strong>Answer:</strong> B</p>
+<p><strong>Explanation:</strong>
 Since option B allows saving in OpenQASM 3 format, option B is the correct answer.
 An example of such code is shown below:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> qiskit <span style="color:#f92672">import</span> QuantumCircuit
