@@ -37,11 +37,11 @@
       <description>In the previous articles, we covered the following topics:&#xA;Understanding Quantum Fourier Transform Through Concrete Examples Inverse Quantum Fourier Transform with Qiskit 2.0 Inverse Quantum Fourier Transform with the Amazon Braket SDK Quantum Phase Estimation with Qiskit 2.0 Quantum Phase Estimation with the Amazon Braket SDK Based on this, we will study Shor&amp;rsquo;s algorithm, a quantum algorithm said to be capable of breaking RSA encryption and ECDSA encryption used in Bitcoin transactions.</description>
     </item>
     <item>
-      <title>Quantum Phase Estimation with Qiskit 2.0</title>
+      <title>Quantum Phase Estimation with Qiskit v2.x</title>
       <link>https://schrodinteq.github.io/qiskit20qpe/</link>
       <pubDate>Fri, 27 Jun 2025 12:22:20 +0900</pubDate>
       <guid>https://schrodinteq.github.io/qiskit20qpe/</guid>
-      <description>In the previous articles, we covered the following topics:&#xA;Understanding Quantum Fourier Transform Through Concrete Examples Inverse Quantum Fourier Transform with Qiskit 2.0 Inverse Quantum Fourier Transform with the Amazon Braket SDK Quantum Phase Estimation with the Amazon Braket SDK In this article, we will implement Quantum Phase Estimation with Qiskit 2.0.&#xA;Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.</description>
+      <description>In the previous articles, we covered the following topics:&#xA;Understanding Quantum Fourier Transform Through Concrete Examples Inverse Quantum Fourier Transform with Qiskit 2.0 Inverse Quantum Fourier Transform with the Amazon Braket SDK Quantum Phase Estimation with the Amazon Braket SDK In this article, we will implement Quantum Phase Estimation with Qiskit v2.x.&#xA;Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.</description>
     </item>
     <item>
       <title>Quantum Phase Estimation with AWS Amazon Braket</title>
@@ -58,11 +58,11 @@
       <description>In the previous article, we implemented the Inverse Quantum Fourier Transform using Qiskit 2.0 and verify that the original quantum state can be correctly identified. In this article, we will implement the Inverse Quantum Fourier Transform using Amazon Braket SDK.&#xA;Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.</description>
     </item>
     <item>
-      <title>Inverse Quantum Fourier Transform in Qiskit 2.0</title>
+      <title>Inverse Quantum Fourier Transform in Qiskit v2.x</title>
       <link>https://schrodinteq.github.io/qiskit20qft/</link>
       <pubDate>Wed, 11 Jun 2025 17:53:11 +0900</pubDate>
       <guid>https://schrodinteq.github.io/qiskit20qft/</guid>
-      <description>In the previous article, we explored concrete examples and advantages of the Quantum Fourier Transform. In this article, we will implement the Inverse Quantum Fourier Transform using Qiskit 2.0 and verify that the original quantum state can be correctly identified.&#xA;Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.</description>
+      <description>In the previous article, we explored concrete examples and advantages of the Quantum Fourier Transform. In this article, we will implement the Inverse Quantum Fourier Transform using Qiskit v2.x and verify that the original quantum state can be correctly identified.&#xA;Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing-including quantum gates and quantum circuits as well as how to use Amazon Braket through this course.</description>
     </item>
     <item>
       <title>Make the Quantum Fourier Transform easy to understand with simple examples</title>

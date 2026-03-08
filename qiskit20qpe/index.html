@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Quantum Phase Estimation with Qiskit 2.0 | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <title>Quantum Phase Estimation with Qiskit v2.x | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="In the previous articles, we covered the following topics:
-Understanding Quantum Fourier Transform Through Concrete Examples Inverse Quantum Fourier Transform with Qiskit 2.0 Inverse Quantum Fourier Transform with the Amazon Braket SDK Quantum Phase Estimation with the Amazon Braket SDK In this article, we will implement Quantum Phase Estimation with Qiskit 2.0.
+Understanding Quantum Fourier Transform Through Concrete Examples Inverse Quantum Fourier Transform with Qiskit 2.0 Inverse Quantum Fourier Transform with the Amazon Braket SDK Quantum Phase Estimation with the Amazon Braket SDK In this article, we will implement Quantum Phase Estimation with Qiskit v2.x.
 Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.">
     <meta name="generator" content="Hugo 0.128.1">
     
@@ -53,26 +53,26 @@ window.MathJax = {
 
     <meta property="og:url" content="https://schrodinteq.github.io/qiskit20qpe/">
   <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
-  <meta property="og:title" content="Quantum Phase Estimation with Qiskit 2.0">
+  <meta property="og:title" content="Quantum Phase Estimation with Qiskit v2.x">
   <meta property="og:description" content="In the previous articles, we covered the following topics:
-Understanding Quantum Fourier Transform Through Concrete Examples Inverse Quantum Fourier Transform with Qiskit 2.0 Inverse Quantum Fourier Transform with the Amazon Braket SDK Quantum Phase Estimation with the Amazon Braket SDK In this article, we will implement Quantum Phase Estimation with Qiskit 2.0.
+Understanding Quantum Fourier Transform Through Concrete Examples Inverse Quantum Fourier Transform with Qiskit 2.0 Inverse Quantum Fourier Transform with the Amazon Braket SDK Quantum Phase Estimation with the Amazon Braket SDK In this article, we will implement Quantum Phase Estimation with Qiskit v2.x.
 Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.">
   <meta property="og:locale" content="english">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2025-06-27T12:22:20+09:00">
     <meta property="article:modified_time" content="2025-06-27T12:22:20+09:00">
 
-  <meta itemprop="name" content="Quantum Phase Estimation with Qiskit 2.0">
+  <meta itemprop="name" content="Quantum Phase Estimation with Qiskit v2.x">
   <meta itemprop="description" content="In the previous articles, we covered the following topics:
-Understanding Quantum Fourier Transform Through Concrete Examples Inverse Quantum Fourier Transform with Qiskit 2.0 Inverse Quantum Fourier Transform with the Amazon Braket SDK Quantum Phase Estimation with the Amazon Braket SDK In this article, we will implement Quantum Phase Estimation with Qiskit 2.0.
+Understanding Quantum Fourier Transform Through Concrete Examples Inverse Quantum Fourier Transform with Qiskit 2.0 Inverse Quantum Fourier Transform with the Amazon Braket SDK Quantum Phase Estimation with the Amazon Braket SDK In this article, we will implement Quantum Phase Estimation with Qiskit v2.x.
 Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.">
   <meta itemprop="datePublished" content="2025-06-27T12:22:20+09:00">
   <meta itemprop="dateModified" content="2025-06-27T12:22:20+09:00">
   <meta itemprop="wordCount" content="677">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Quantum Phase Estimation with Qiskit 2.0">
+  <meta name="twitter:title" content="Quantum Phase Estimation with Qiskit v2.x">
   <meta name="twitter:description" content="In the previous articles, we covered the following topics:
-Understanding Quantum Fourier Transform Through Concrete Examples Inverse Quantum Fourier Transform with Qiskit 2.0 Inverse Quantum Fourier Transform with the Amazon Braket SDK Quantum Phase Estimation with the Amazon Braket SDK In this article, we will implement Quantum Phase Estimation with Qiskit 2.0.
+Understanding Quantum Fourier Transform Through Concrete Examples Inverse Quantum Fourier Transform with Qiskit 2.0 Inverse Quantum Fourier Transform with the Amazon Braket SDK Quantum Phase Estimation with the Amazon Braket SDK In this article, we will implement Quantum Phase Estimation with Qiskit v2.x.
 Amazon Braket Learning Course You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.">
 
       
@@ -136,7 +136,7 @@ Amazon Braket Learning Course You can efficiently learn the basic knowledge of q
     <article class="center cf pv5 ph3 ph4-ns mw7">
       <header>
         <h1 class="f1">
-          Quantum Phase Estimation with Qiskit 2.0
+          Quantum Phase Estimation with Qiskit v2.x
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
@@ -147,7 +147,7 @@ Amazon Braket Learning Course You can efficiently learn the basic knowledge of q
 <li><a href="/awsbraketqft/">Inverse Quantum Fourier Transform with the Amazon Braket SDK</a></li>
 <li><a href="/awsbraketqpe/">Quantum Phase Estimation with the Amazon Braket SDK</a></li>
 </ul>
-<p>In this article, we will implement Quantum Phase Estimation with Qiskit 2.0.</p>
+<p>In this article, we will implement Quantum Phase Estimation with Qiskit v2.x.</p>
 <hr>
 <h4 id="amazon-braket-learning-course">Amazon Braket Learning Course</h4>
 <p>You can efficiently learn the basic knowledge of quantum computing—including quantum gates and quantum circuits introduced in this article—as well as how to use Amazon Braket through this course.</p>

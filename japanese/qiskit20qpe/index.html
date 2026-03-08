@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Qiskit 2.0で量子位相推定（Quantum Phase Estimation） | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <title>Qiskit v2.xで量子位相推定（Quantum Phase Estimation） | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="これまでの記事では以下の内容を学びました：
-量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Amazon Braketで量子位相推定 今回はQiskit 2.0を用いて、量子位相推定を実行します。
+量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Amazon Braketで量子位相推定 今回はQiskit v2.xを用いて、量子位相推定を実行します。
 Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
 Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
@@ -60,9 +60,9 @@ window.MathJax = {
 
     <meta property="og:url" content="https://schrodinteq.github.io/japanese/qiskit20qpe/">
   <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
-  <meta property="og:title" content="Qiskit 2.0で量子位相推定（Quantum Phase Estimation）">
+  <meta property="og:title" content="Qiskit v2.xで量子位相推定（Quantum Phase Estimation）">
   <meta property="og:description" content="これまでの記事では以下の内容を学びました：
-量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Amazon Braketで量子位相推定 今回はQiskit 2.0を用いて、量子位相推定を実行します。
+量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Amazon Braketで量子位相推定 今回はQiskit v2.xを用いて、量子位相推定を実行します。
 Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
 Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
@@ -76,9 +76,9 @@ for qubit in list(range(n_readout_qubits)): qc.">
     <meta property="article:published_time" content="2025-06-26T14:31:58+09:00">
     <meta property="article:modified_time" content="2025-06-26T14:31:58+09:00">
 
-  <meta itemprop="name" content="Qiskit 2.0で量子位相推定（Quantum Phase Estimation）">
+  <meta itemprop="name" content="Qiskit v2.xで量子位相推定（Quantum Phase Estimation）">
   <meta itemprop="description" content="これまでの記事では以下の内容を学びました：
-量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Amazon Braketで量子位相推定 今回はQiskit 2.0を用いて、量子位相推定を実行します。
+量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Amazon Braketで量子位相推定 今回はQiskit v2.xを用いて、量子位相推定を実行します。
 Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
 Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
@@ -91,9 +91,9 @@ for qubit in list(range(n_readout_qubits)): qc.">
   <meta itemprop="dateModified" content="2025-06-26T14:31:58+09:00">
   <meta itemprop="wordCount" content="182">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Qiskit 2.0で量子位相推定（Quantum Phase Estimation）">
+  <meta name="twitter:title" content="Qiskit v2.xで量子位相推定（Quantum Phase Estimation）">
   <meta name="twitter:description" content="これまでの記事では以下の内容を学びました：
-量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Amazon Braketで量子位相推定 今回はQiskit 2.0を用いて、量子位相推定を実行します。
+量子フーリエ変換を具体例で理解 Qiskit 2.0で逆量子フーリエ変換 Amazon Braket SDKで逆量子フーリエ変換 Amazon Braketで量子位相推定 今回はQiskit v2.xを用いて、量子位相推定を実行します。
 Amazon Braket学習コース この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。
 Quantum Computing on AWS for Beginners: Amazon Braket 量子コンピュータやAWSの知識が無い方でも学び始められ、最終的には量子機械学習についても学べます。 こちらも利用し、量子技術のスキルを身につけましょう！
 はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースを作成しました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。
@@ -164,7 +164,7 @@ for qubit in list(range(n_readout_qubits)): qc.">
     <article class="center cf pv5 ph3 ph4-ns mw7">
       <header>
         <h1 class="f1">
-          Qiskit 2.0で量子位相推定（Quantum Phase Estimation）
+          Qiskit v2.xで量子位相推定（Quantum Phase Estimation）
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
@@ -175,7 +175,7 @@ for qubit in list(range(n_readout_qubits)): qc.">
 <li><a href="/japanese/awsbraketqft/">Amazon Braket SDKで逆量子フーリエ変換</a></li>
 <li><a href="/japanese/awsbraketqpe/">Amazon Braketで量子位相推定</a></li>
 </ul>
-<p>今回はQiskit 2.0を用いて、量子位相推定を実行します。</p>
+<p>今回はQiskit v2.xを用いて、量子位相推定を実行します。</p>
 <hr>
 <h4 id="amazon-braket学習コース">Amazon Braket学習コース</h4>
 <p>この記事で登場する、量子ゲートや量子回路など、量子コンピュータの基本的な知識や、Amazon Braketの使い方についてはこちらのコースで効率的に学べます。</p>
