@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="japanese">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>IBM 量子開発者認定試験 v2.x 合格体験記とお勧めの勉強方法 | Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="量子コンピュータに関する最新の試験“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”に合格しました。この試験に合格することにより、&ldquo;IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate&rdquo; の認定を得られます。
+この試験の前バージョンは “Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer” でしたが、それと比較すると、最新バージョンはやや難易度が上がっている印象を受けました。 この記事では、自分の体験も踏まえて、合格に向けたお勧めの勉強方法を紹介します。
+合格に向けたお勧めの勉強方法 1. Sample Testのやり込み まずは本試験のページで公開されているSample Testをやり込みました。
+本番のテストでもこれと同程度の難易度の問題が出題されましたので、まずはSample Testについて勉強を進めましょう。ただSample Testを解けるようにするのではなく、なぜその回答になるかなどを理解した上で正解を導けるよう勉強するのがお勧めです。
+ただし、全く同じ問題が出題されるわけでは無いので注意しましょう。Sample Testの解説はこちらのページも参考にして頂ければと思います。
+2. Qiskitドキュメントの読み込み 本試験のページに試験対象範囲が記載されています。これら範囲に対応しているQiskitのドキュメントを読み込みましょう。
+例えば、&ldquo;Run quantum circuits&quot;の範囲に対応しているExecution modes内のFAQ以外の各章は、読んでおいた方が良いでしょう。また、下記ドキュメントもこの範囲に該当しています。
+Qiskit IBM Runtime
+Qiskit Runtime REST API
+下記ドキュメントは&quot;Create quantum circuits&quot;に該当するためこちらも読んでおいた方が良いでしょう。
+QuantumCircuit class
+Parameter
+ParameterVector
+下記ドキュメントは、&ldquo;Use the sampler primitive&quot;や&quot;Use the estimator primitive&quot;のresilience optionsなどに関する内容を記載しており、こちらも読んでおいた方が良いでしょう。">
+    <meta name="generator" content="Hugo 0.128.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.13b1b261ee5e4804730aaa2e64ba98f5872177502bbdaf7119319dd9331c082e.css" >
+
+
+
+    
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+<link rel="stylesheet" href="/css/_styles.css">
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://schrodinteq.github.io/japanese/ibm-cert-quantum-exam-v2x/">
+    
+
+    <meta property="og:url" content="https://schrodinteq.github.io/japanese/ibm-cert-quantum-exam-v2x/">
+  <meta property="og:site_name" content="Schrodin&#39;s Diary on Quantum Computing and Quantum Programming">
+  <meta property="og:title" content="IBM 量子開発者認定試験 v2.x 合格体験記とお勧めの勉強方法">
+  <meta property="og:description" content="量子コンピュータに関する最新の試験“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”に合格しました。この試験に合格することにより、“IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate” の認定を得られます。
+この試験の前バージョンは “Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer” でしたが、それと比較すると、最新バージョンはやや難易度が上がっている印象を受けました。 この記事では、自分の体験も踏まえて、合格に向けたお勧めの勉強方法を紹介します。
+合格に向けたお勧めの勉強方法 1. Sample Testのやり込み まずは本試験のページで公開されているSample Testをやり込みました。
+本番のテストでもこれと同程度の難易度の問題が出題されましたので、まずはSample Testについて勉強を進めましょう。ただSample Testを解けるようにするのではなく、なぜその回答になるかなどを理解した上で正解を導けるよう勉強するのがお勧めです。
+ただし、全く同じ問題が出題されるわけでは無いので注意しましょう。Sample Testの解説はこちらのページも参考にして頂ければと思います。
+2. Qiskitドキュメントの読み込み 本試験のページに試験対象範囲が記載されています。これら範囲に対応しているQiskitのドキュメントを読み込みましょう。
+例えば、“Run quantum circuits&#34;の範囲に対応しているExecution modes内のFAQ以外の各章は、読んでおいた方が良いでしょう。また、下記ドキュメントもこの範囲に該当しています。
+Qiskit IBM Runtime
+Qiskit Runtime REST API
+下記ドキュメントは&#34;Create quantum circuits&#34;に該当するためこちらも読んでおいた方が良いでしょう。
+QuantumCircuit class
+Parameter
+ParameterVector
+下記ドキュメントは、“Use the sampler primitive&#34;や&#34;Use the estimator primitive&#34;のresilience optionsなどに関する内容を記載しており、こちらも読んでおいた方が良いでしょう。">
+  <meta property="og:locale" content="japanese">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-04-05T17:32:41+09:00">
+    <meta property="article:modified_time" content="2026-04-05T17:32:41+09:00">
+
+  <meta itemprop="name" content="IBM 量子開発者認定試験 v2.x 合格体験記とお勧めの勉強方法">
+  <meta itemprop="description" content="量子コンピュータに関する最新の試験“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”に合格しました。この試験に合格することにより、“IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate” の認定を得られます。
+この試験の前バージョンは “Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer” でしたが、それと比較すると、最新バージョンはやや難易度が上がっている印象を受けました。 この記事では、自分の体験も踏まえて、合格に向けたお勧めの勉強方法を紹介します。
+合格に向けたお勧めの勉強方法 1. Sample Testのやり込み まずは本試験のページで公開されているSample Testをやり込みました。
+本番のテストでもこれと同程度の難易度の問題が出題されましたので、まずはSample Testについて勉強を進めましょう。ただSample Testを解けるようにするのではなく、なぜその回答になるかなどを理解した上で正解を導けるよう勉強するのがお勧めです。
+ただし、全く同じ問題が出題されるわけでは無いので注意しましょう。Sample Testの解説はこちらのページも参考にして頂ければと思います。
+2. Qiskitドキュメントの読み込み 本試験のページに試験対象範囲が記載されています。これら範囲に対応しているQiskitのドキュメントを読み込みましょう。
+例えば、“Run quantum circuits&#34;の範囲に対応しているExecution modes内のFAQ以外の各章は、読んでおいた方が良いでしょう。また、下記ドキュメントもこの範囲に該当しています。
+Qiskit IBM Runtime
+Qiskit Runtime REST API
+下記ドキュメントは&#34;Create quantum circuits&#34;に該当するためこちらも読んでおいた方が良いでしょう。
+QuantumCircuit class
+Parameter
+ParameterVector
+下記ドキュメントは、“Use the sampler primitive&#34;や&#34;Use the estimator primitive&#34;のresilience optionsなどに関する内容を記載しており、こちらも読んでおいた方が良いでしょう。">
+  <meta itemprop="datePublished" content="2026-04-05T17:32:41+09:00">
+  <meta itemprop="dateModified" content="2026-04-05T17:32:41+09:00">
+  <meta itemprop="wordCount" content="125">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="IBM 量子開発者認定試験 v2.x 合格体験記とお勧めの勉強方法">
+  <meta name="twitter:description" content="量子コンピュータに関する最新の試験“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”に合格しました。この試験に合格することにより、“IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate” の認定を得られます。
+この試験の前バージョンは “Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer” でしたが、それと比較すると、最新バージョンはやや難易度が上がっている印象を受けました。 この記事では、自分の体験も踏まえて、合格に向けたお勧めの勉強方法を紹介します。
+合格に向けたお勧めの勉強方法 1. Sample Testのやり込み まずは本試験のページで公開されているSample Testをやり込みました。
+本番のテストでもこれと同程度の難易度の問題が出題されましたので、まずはSample Testについて勉強を進めましょう。ただSample Testを解けるようにするのではなく、なぜその回答になるかなどを理解した上で正解を導けるよう勉強するのがお勧めです。
+ただし、全く同じ問題が出題されるわけでは無いので注意しましょう。Sample Testの解説はこちらのページも参考にして頂ければと思います。
+2. Qiskitドキュメントの読み込み 本試験のページに試験対象範囲が記載されています。これら範囲に対応しているQiskitのドキュメントを読み込みましょう。
+例えば、“Run quantum circuits&#34;の範囲に対応しているExecution modes内のFAQ以外の各章は、読んでおいた方が良いでしょう。また、下記ドキュメントもこの範囲に該当しています。
+Qiskit IBM Runtime
+Qiskit Runtime REST API
+下記ドキュメントは&#34;Create quantum circuits&#34;に該当するためこちらも読んでおいた方が良いでしょう。
+QuantumCircuit class
+Parameter
+ParameterVector
+下記ドキュメントは、“Use the sampler primitive&#34;や&#34;Use the estimator primitive&#34;のresilience optionsなどに関する内容を記載しており、こちらも読んでおいた方が良いでしょう。">
+
+      
+  
+
+
+    
+        
+
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Your Page Title</title>
+  
+  <link rel="icon" type="image/x-icon" href="/ff01.png">
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/japanese/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Schrodin&#39;s Diary on Quantum Computing and Quantum Programming
+      
+    </a>
+    <div class="flex-l items-center">
+      
+<h4></h4>
+<ul class="pl0 mr3">
+    
+    <li class="list f5 f4-ns fw4 dib pr3">
+        <a class="hover-white no-underline white-90" href="/ibm-cert-quantum-exam-v2x/">english</a>
+    </li>
+    
+</ul>
+
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <h1 class="f1">
+          IBM 量子開発者認定試験 v2.x 合格体験記とお勧めの勉強方法
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+        <p>量子コンピュータに関する最新の試験“Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer”に合格しました。この試験に合格することにより、<a href="https://www.ibm.com/training/certification/ibm-certified-quantum-computation-using-qiskit-v2x-developer-associate-C9008400">&ldquo;IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate&rdquo;</a> の認定を得られます。</p>
+<figure><img src="/qstates/IBMCertQiskitv2x.webp"
+    alt="IBMCertQiskitv2x" width="300px">
+</figure>
+
+<p>この試験の前バージョンは “Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit <strong>v0.2X</strong> Developer” でしたが、それと比較すると、最新バージョンはやや難易度が上がっている印象を受けました。
+この記事では、自分の体験も踏まえて、合格に向けたお勧めの勉強方法を紹介します。</p>
+<p>　　</p>
+<h1 id="合格に向けたお勧めの勉強方法">合格に向けたお勧めの勉強方法</h1>
+<h2 id="1-sample-testのやり込み">1. Sample Testのやり込み</h2>
+<p>まずは<a href="https://www.ibm.com/training/certification/ibm-certified-quantum-computation-using-qiskit-v2x-developer-associate-C9008400">本試験のページ</a>で公開されているSample Testをやり込みました。<br>
+本番のテストでもこれと同程度の難易度の問題が出題されましたので、まずはSample Testについて勉強を進めましょう。ただSample Testを解けるようにするのではなく、なぜその回答になるかなどを理解した上で正解を導けるよう勉強するのがお勧めです。<br>
+ただし、全く同じ問題が出題されるわけでは無いので注意しましょう。Sample Testの解説は<a href="/japanese/ibmcertsamplev2x01/">こちらのページ</a>も参考にして頂ければと思います。</p>
+<p>　　</p>
+<h2 id="qiskit-docs">2. Qiskitドキュメントの読み込み</h2>
+<p><a href="https://www.ibm.com/training/certification/ibm-certified-quantum-computation-using-qiskit-v2x-developer-associate-C9008400">本試験のページ</a>に試験対象範囲が記載されています。これら範囲に対応しているQiskitのドキュメントを読み込みましょう。<br>
+例えば、&ldquo;Run quantum circuits&quot;の範囲に対応している<a href="https://quantum.cloud.ibm.com/docs/en/guides/execution-modes">Execution modes</a>内のFAQ以外の各章は、読んでおいた方が良いでしょう。また、下記ドキュメントもこの範囲に該当しています。</p>
+<p><a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-runtime/0.45/runtime-service">Qiskit IBM Runtime</a></p>
+<p><a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-runtime-rest/2026-02-01">Qiskit Runtime REST API</a></p>
+<p>下記ドキュメントは&quot;Create quantum circuits&quot;に該当するためこちらも読んでおいた方が良いでしょう。</p>
+<p><a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit/2.2/qiskit.circuit.QuantumCircuit">QuantumCircuit class</a></p>
+<p><a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit/2.2/qiskit.circuit.Parameter">Parameter</a></p>
+<p><a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit/2.2/qiskit.circuit.ParameterVector">ParameterVector</a></p>
+<p>下記ドキュメントは、&ldquo;Use the sampler primitive&quot;や&quot;Use the estimator primitive&quot;のresilience optionsなどに関する内容を記載しており、こちらも読んでおいた方が良いでしょう。</p>
+<p><a href="https://quantum.cloud.ibm.com/docs/en/guides/error-mitigation-and-suppression-techniques">Error mitigation and suppression techniques</a></p>
+<p><a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-runtime/0.45/options-twirling-options">TwirlingOptions</a></p>
+<p><a href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-runtime/0.45/options-zne-options">ZneOptions</a></p>
+<p>※上記の各リンクは、なるべく試験対象外のバージョンのドキュメントを参照しないよう、latestへのリンクでなくバージョン指定で記載してます。</p>
+<p>以上のように試験範囲に該当するQiskitドキュメントを探し、読み込みます。わからない単語などが出た場合は調べて理解するといった対応はより効果的かと思います。
+各ドキュメントを読めば読むほどQiskitにおけるメソッド名の勘も鋭くなるかと思います。
+またトランスパイルについては<a href="https://github.com/qiskit-community/ibm-quantum-challenge-2024/blob/main/content/lab_2/lab-2.ipynb">Quantum Challenge</a>での説明が分かりやすく、こちらを読むのも良いかと思いました。　</p>
+<p>　　</p>
+<h2 id="3-問題集で経験を積む">3. 問題集で経験を積む</h2>
+<p>下記のページで本試験に関する問題集を公開しています。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-v2x-practice-exams/?referralCode=C3A887EA8F6A28EDBDDF" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/IBMCertifiedv2x.webp" alt="QiskitPracticeExams" width="150" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/ibm-certified-quantum-computation-qiskit-v2x-practice-exams/?referralCode=C3A887EA8F6A28EDBDDF" target="_blank">
+      IBM Certified Quantum Computation Qiskit v2.x Practice Exams
+    </a>
+  </div>
+</div>
+<p>なるべく繰り返し学習し9割以上この問題集で正解できるようになることを目指します。9割以上正解できるようになれば本番での点数もかなり向上したと言えるでしょう。
+この問題集では、解説もなるべくわかりやすく記載しているため、先にこの問題集に取り組み、試験範囲について理解を深めた上で、<a href="/japanese/ibm-cert-quantum-exam-v2x/#qiskit-docs">2. Qiskitドキュメントの読み込み</a>を行うのも良いかもしれません。</p>
+<p>　　</p>
+<h2 id="4-optional-模擬試験の活用">4. (Optional) 模擬試験の活用</h2>
+<p>IBMは本試験に関する模擬試験（Assessment Exam）を公開しており、<a href="https://www.ibm.com/training/certification/ibm-certified-quantum-computation-using-qiskit-v2x-developer-associate-C9008400">試験ページ</a>からアクセス可能です。
+実際の試験もこの模擬試験と同じ試験範囲、難易度で出題されるため、もし余裕がある人はこちらを利用し、勉強が足りない範囲を洗い出すのも良いかと思います。</p>
+<p>　　</p>
+<h2 id="5-optional-qiskitにおける各機能の理解を深める">5. (Optional) Qiskitにおける各機能の理解を深める</h2>
+<p>本試験では、Sampler、Estimatorや、generate_preset_pass_managerによるトランスパイルについての理解度を試すような問題も出題されます。
+自分の環境にqiskitをインストールし、これら機能を実際に扱ってみるのも良いかもしれません。
+これら機能の紹介は以下のコースでも行われてますので、より短時間で理解を深めたい方はこのコースも利用してみてください。</p>
+<div style="display: flex; align-items: center;">
+  <a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0" target="_blank" style="margin-right: 20px;">
+    <img src="/mycourses/IntroQuantumComputing.webp" alt="QiskitCourseJa" width="225" style="vertical-align: middle;">
+  </a>
+  <div style="word-break: break-all; font-size: 90%;">
+    <a href="https://www.udemy.com/course/intro-to-quantum-computing/?referralCode=7D8FB30849B8F69EC4C0" target="_blank">
+      はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】
+    </a>
+  </div>
+</div>
+<br>
+<br>
+<h1 id="試験後から結果発表の流れ">試験後から結果発表の流れ</h1>
+<p>試験結果は完了直後に表示されます。Passing Scoreは69%となっており、合格するためにはこのスコアを超える必要があります。
+上記でご紹介した試験対策を十分に行なったことも影響したのか、私の時は9割ほどの点数を取得し合格できました。
+合格した場合は、受験日から1日ほどで本試験に合格したことを示すIBM Digital Badgeがメールで送られます。</p>
+<br>
+<h1 id="感想">感想</h1>
+<p>本試験における勉強を進めることにより、Qiskitにおける知識のみでなく、量子コンピューター全般に関わる知識を深められたと感じます。
+例えば、試験範囲となっているgenerate_preset_pass_managerにおけるトランスパイルや、Error Mitigationに関する知識はQiskitというツールの枠を超えて量子コンピューター自体に関する理解をより深めるものだと感じており、個人的には良い勉強の機会になったなと感じています。
+今後もqiskitの進化には目が離せませんね！</p>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://schrodinteq.github.io/japanese/" >
+    &copy;  Schrodin's Diary on Quantum Computing and Quantum Programming 2026 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
+

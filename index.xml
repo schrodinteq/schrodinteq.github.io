@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Tue, 07 Oct 2025 23:47:51 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 05 Apr 2026 17:32:41 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Passing the IBM Quantum Developer v2.x Exam: My Experience and Study Tips</title>
+      <link>https://schrodinteq.github.io/ibm-cert-quantum-exam-v2x/</link>
+      <pubDate>Sun, 05 Apr 2026 17:32:41 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/ibm-cert-quantum-exam-v2x/</guid>
+      <description>I passed the latest quantum computing exam, Exam C1000-179: Fundamentals of Quantum Computing Using Qiskit v2.X Developer.&#xA;By passing this exam, you can earn the IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate certification.&#xA;The previous version of this exam was &amp;ldquo;Exam C1000-112: Fundamentals of Quantum Computation Using Qiskit v0.2X Developer&amp;rdquo;.&#xA;Compared to that version, the latest exam seems slightly more challenging.&#xA;In this article, I will share my personal experience and recommend study strategies to help you pass.</description>
+    </item>
     <item>
       <title>A simple explanation of the 2025 Nobel Prize in Physics</title>
       <link>https://schrodinteq.github.io/nobelprize2025/</link>
