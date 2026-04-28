@@ -2,6 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://schrodinteq.github.io/how-i-became-a-qiskit-advocate-tier0/</loc>
+    <lastmod>2026-04-27T19:54:08+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="japanese"
+                href="https://schrodinteq.github.io/japanese/how-i-became-a-qiskit-advocate-tier0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="english"
+                href="https://schrodinteq.github.io/how-i-became-a-qiskit-advocate-tier0/"
+                />
+  </url><url>
+    <loc>https://schrodinteq.github.io/</loc>
+    <lastmod>2026-04-27T19:54:08+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="japanese"
+                href="https://schrodinteq.github.io/japanese/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="english"
+                href="https://schrodinteq.github.io/"
+                />
+  </url><url>
     <loc>https://schrodinteq.github.io/ibm-cert-quantum-exam-v2x/</loc>
     <lastmod>2026-04-05T17:32:41+09:00</lastmod>
     <xhtml:link
@@ -13,19 +39,6 @@
                 rel="alternate"
                 hreflang="english"
                 href="https://schrodinteq.github.io/ibm-cert-quantum-exam-v2x/"
-                />
-  </url><url>
-    <loc>https://schrodinteq.github.io/</loc>
-    <lastmod>2026-04-05T17:32:41+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="japanese"
-                href="https://schrodinteq.github.io/japanese/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="english"
-                href="https://schrodinteq.github.io/"
                 />
   </url><url>
     <loc>https://schrodinteq.github.io/nobelprize2025/</loc>
