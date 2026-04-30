@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Mon, 27 Apr 2026 19:54:08 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 14:53:29 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I Became a Qiskit Advocate Tier1</title>
+      <link>https://schrodinteq.github.io/how-i-became-a-qiskit-advocate-tier1/</link>
+      <pubDate>Thu, 30 Apr 2026 14:53:29 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/how-i-became-a-qiskit-advocate-tier1/</guid>
+      <description>Here, I will share my experience of becoming a Qiskit Advocate Tier 1.&#xA;IBM Certified Quantum Computation Practice Exams Practice exams aligned with the latest exam version, “IBM Certified Quantum Computation using Qiskit v2.X Developer – Associate,” have been released. Use this practice exam collection to boost your score and increase your chances of passing.&#xA;IBM Certified Quantum Computation Qiskit v2.x Practice Exams Amazon Braket Learning Course A course on Amazon Braket, AWS’s quantum computing service, has been released.</description>
+    </item>
     <item>
       <title>How I Became a Qiskit Advocate Tier 0</title>
       <link>https://schrodinteq.github.io/how-i-became-a-qiskit-advocate-tier0/</link>

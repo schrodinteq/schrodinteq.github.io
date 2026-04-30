@@ -6,8 +6,15 @@
     <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
     <generator>Hugo</generator>
     <language>japanese</language>
-    <lastBuildDate>Mon, 27 Apr 2026 19:53:01 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 14:53:22 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/japanese/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Qiskit Advocate Tier 1になるまでにやったこと</title>
+      <link>https://schrodinteq.github.io/japanese/how-i-became-a-qiskit-advocate-tier1/</link>
+      <pubDate>Thu, 30 Apr 2026 14:53:22 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/japanese/how-i-became-a-qiskit-advocate-tier1/</guid>
+      <description>ここでは、Qiskit Advocate Tier 1になった際の体験談を紹介します。&#xA;IBM量子技術者試験問題集 最新の試験バージョンである”IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate”に対応した問題集がリリースされました。この問題集で、スコアを伸ばし、合格率を上げましょう。&#xA;IBM Certified Quantum Computation Qiskit v2.x Practice Exams はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 量子コンピューターの入門コースがリリースされました。このコースにより、量子コンピューターの基礎知識、Qiskitでの実装、量子機械学習について学べます。&#xA;はじめての量子コンピューター入門【基礎知識・Qiskitでの実装・量子機械学習 全て学べる】 Qiskit advocate program v2.0とは 本プログラムは、量子コンピューティング（Qiskit）コミュニティで活躍する人を認定＆支援するプログラムです。 このプログラムは以下のような0〜3のTier制が採用されています。&#xA;すべての参加者はTier 0からスタートし、貢献度や活動内容に応じて上位のTierへと昇格することが可能です。&#xA;どのようにQiskit Advocate Tier 1になったか Qiskit Advocate Tier 1として承認されるには以下を完了する必要があります。&#xA;Qiskit Advocate Tier 0として承認されていること Basic Qiskit Advocate Trainingの完了 IBM Certified Quantum Computation using Qiskit v2.X Developer - Associate試験の合格 Tier 1に必要なポイントの取得 ここでは私がどのようにQiskit Advocate Tier 1になったか時系列で説明します。&#xA;Qiskit Advocate Tier 0の承認 まずはQiskit Advocate Tier 0としてacceptされる必要があります。Qiskit Advocate Tier 0になった際の記録についてはこちらに記載しています。</description>
+    </item>
     <item>
       <title>Qiskit Advocate Tier 0になるまでにやったこと</title>
       <link>https://schrodinteq.github.io/japanese/how-i-became-a-qiskit-advocate-tier0/</link>
