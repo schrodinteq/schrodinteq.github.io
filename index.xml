@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</title>
+    <title>Schrodin&#39;s Diary on Quantum Computing and AI</title>
     <link>https://schrodinteq.github.io/</link>
-    <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and Quantum Programming</description>
+    <description>Recent content on Schrodin&#39;s Diary on Quantum Computing and AI</description>
     <generator>Hugo</generator>
     <language>english</language>
-    <lastBuildDate>Thu, 30 Apr 2026 14:53:29 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 15:10:31 +0900</lastBuildDate>
     <atom:link href="https://schrodinteq.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>6 Things You Can Do with Azure AI Speech</title>
+      <link>https://schrodinteq.github.io/6-azure-ai-speech-features/</link>
+      <pubDate>Thu, 13 Aug 2026 15:10:31 +0900</pubDate>
+      <guid>https://schrodinteq.github.io/6-azure-ai-speech-features/</guid>
+      <description>A new Azure AI Speech course is now available! Learn everything from the fundamentals of Azure AI Speech to practical Speech-to-Text and Text-to-Speech implementations, all in just 40 minutes.&#xA;Azure AI Speech: Text-to-Speech &amp; Speech-to-Text with Docker If you&amp;rsquo;re interested in AI-powered speech services, you may have heard of Azure AI Speech.&#xA;Azure AI Speech is Microsoft&amp;rsquo;s speech AI service available on Azure and is also offered as one of the Foundry Tools in Microsoft Foundry.</description>
+    </item>
     <item>
       <title>How I Became a Qiskit Advocate Tier1</title>
       <link>https://schrodinteq.github.io/how-i-became-a-qiskit-advocate-tier1/</link>
