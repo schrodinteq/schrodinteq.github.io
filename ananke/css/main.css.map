@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/home/vsts/work/1/s",
+	"sourceRoot": "/home/runner/work/1/s",
 	"sources": [
 		"ananke/css/main.css"
 	],
