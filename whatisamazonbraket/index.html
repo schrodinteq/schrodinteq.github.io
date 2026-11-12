@@ -68,7 +68,7 @@ Amazon Braket Learning Course A course on Amazon Braket, AWS’s quantum computi
 Quantum Computing on AWS for Beginners: Amazon Braket This course is designed for those with no prior knowledge of quantum computing or AWS, and by the end, you’ll even be able to learn about quantum machine learning.">
   <meta itemprop="datePublished" content="2025-05-12T11:15:01+09:00">
   <meta itemprop="dateModified" content="2025-05-12T11:15:01+09:00">
-  <meta itemprop="wordCount" content="874">
+  <meta itemprop="wordCount" content="1120">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="What is Amazon Braket?">
   <meta name="twitter:description" content="In this article, I will explain the overview of Amazon Braket, a quantum computing service provided by AWS, while also mentioning the personal benefits I feel.
@@ -210,8 +210,9 @@ Below is a brief overview of the available simulators.</p>
 <br>
 <br></p>
 <h2 id="execution-on-quantum-computers-from-various-providers">Execution on quantum computers from various providers</h2>
-<p>Similar to the AWS managed simulators, various types of quantum computers can be easily executed via Amazon Braket Notebook. As of May 2025, quantum computers from the following providers are available.</p>
+<p>Similar to the AWS managed simulators, various types of quantum computers can be easily executed via Amazon Braket Notebook. As of November 2026, quantum computers from the following providers are available.</p>
 <ul>
+<li><strong>AQT</strong></li>
 <li><strong>IonQ</strong></li>
 <li><strong>IQM</strong></li>
 <li><strong>QuEra</strong></li>
@@ -255,6 +256,21 @@ For example, the following algorithms are available:</p>
 <h2 id="additional-benefits-of-using-amazon-braket">Additional Benefits of Using Amazon Braket</h2>
 <p>One of the advantages of Amazon Braket is its ease of integration with other AWS services. For example, you can process data with other services and perform calculations with Amazon Braket, or easily save the results to S3.<br>
 Additionally, more advanced integrations are proposed, such as using AWS CloudTrail and IAM services to implement a system <a href="https://aws.amazon.com/jp/blogs/quantum-computing/introducing-a-cost-control-solution-for-amazon-braket/">where a user cannot use quantum computers once their usage charges exceed a certain threshold.</a>
+<br>
+<br></p>
+<h2 id="important-precautions-when-using-amazon-braket">Important: Precautions When Using Amazon Braket</h2>
+<p>Amazon Braket reduces the effort required to set up a quantum computing environment, making it relatively easy to run quantum programs. After using Amazon Braket Notebooks myself, I found that they make it easier to get started with quantum programs compared with quantum computing SDKs such as Qiskit.</p>
+<p>Because of this accessibility, Amazon Braket also makes it easy to run programs on actual quantum computers. <strong>However, this is where particular caution is required.</strong></p>
+<p>According to the <a href="https://aws.amazon.com/braket/pricing/">Amazon Braket pricing page</a>, using Amazon Braket may incur charges based on factors such as the number of tasks and shots.</p>
+<p>For example, when running variational quantum algorithms, including those used in quantum machine learning, the required number of tasks and shots can become extremely large for several reasons:</p>
+<ul>
+<li>Estimating a single expectation value may require hundreds or more shots.</li>
+<li>Depending on the optimization algorithm, multiple expectation-value evaluations may be required for each parameter.</li>
+<li>The parameter optimization process may involve tens or even hundreds of iterations.</li>
+</ul>
+<p>When these factors are combined, <strong>even a relatively small computation can potentially result in charges of tens of thousands of U.S. dollars for a single run.</strong></p>
+<p>Therefore, for learning, experimentation, and functionality testing, <strong>using a local simulator is generally recommended.</strong></p>
+<p>If you plan to use an actual quantum computer, it is strongly recommended that you estimate the required number of tasks, shots, and circuit evaluations in advance and carefully calculate the expected cost before executing the program.
 <br>
 <br></p>
 <hr>

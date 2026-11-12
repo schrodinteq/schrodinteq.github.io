@@ -13,7 +13,7 @@ Amazon Braketの概要 Amazon BraketはAWSが提供する量子コンピュー�
 Amazon Braket Notebookの利用 Amazon Braketマネージドシミュレータの実行 複数のプロバイダーが提供する量子コンピュータの実行 ハイブリッドジョブ機能 アルゴリズムライブラリの利用 それぞれの項目についてより具体的な内容を記載します。 Amazon Braket Notebookの利用 Amazon Braketでは、Amazon Braket Notebookインスタンスを作成、起動し、利用することができます。 これにより簡単にJupyter Notebookベースの開発環境を用意することができ、量子プログラミングをすぐさま始められます。
 特にこの環境ではQiskitやPennyLane、Amazon Braket SDKなどの量子コンピューティングSDKが起動直後からほ利用できる状態でインストールされているという点が便利です。 量子コンピューティングSDKの発展は著しく、バージョン差異による影響でコードを書いてもエラーが発生するケースがよく見受けられます。 Amazon Braket Notebookでは、起動後のインスタンスに既に用意されているチュートリアルに従えば、確実にエラー無く量子回路を実行することができます。 この扱いやすさは一つのメリットと言えるでしょう。
 さらに、このAmazon Braket Notebookから、後ほど紹介するAmazon Braketマネージドシミュレータの実行や量子コンピュータが簡単に実行できるのも利点です。 また料金について、Amazon braket notebookの起動時間に依存して課金が発生する仕組みとなっているようで起動時間に注意が必要そうです。 Amazon Braketマネージドシミュレータの実行 先ほど紹介したAmazon Braket Notebookのローカルシミュレータを利用すれば量子回路は簡単に実行可能です。 しかしながら、量子回路における量子ビットを増やしていった時にローカルシミュレータでは実行しきれないケースも出てくるかと思います。 ここで、Amazon Braketマネージドシミュレータを用いることで、Amazon Braket Notebookや、ローカルのPCでは実行できないような規模の量子回路を実行可能となります。 利用可能なシミュレータとざっくりの説明は以下の通りです。
-Simulator Description Maximum Scale SV1 (State Vector Simulator) ローカルシミュレータより多くの量子ビットでシミュレート可能 34量子ビット TN1 (Tensor Network Simulator) SV1より大規模な量子ビットでシミュレート可能 最大50量子ビット DM1 (Density Matrix Simulator) ノイズあり、つまりより本物の量子コンピュータに近い環境でシミュレート可能 17量子ビット 料金については、どのシミュレータも実行時間に依存して料金が発生する仕組みとなっているようです。 複数のプロバイダーが提供する量子コンピュータの実行 AWSマネージドシミュレータと同様にAmazon Braket Notebook経由で、簡単に様々な種類の量子コンピュータが実行可能となります。 2025年5月現在、以下プロバイダーの量子コンピュータを利用できます。">
+Simulator Description Maximum Scale SV1 (State Vector Simulator) ローカルシミュレータより多くの量子ビットでシミュレート可能 34量子ビット TN1 (Tensor Network Simulator) SV1より大規模な量子ビットでシミュレート可能 最大50量子ビット DM1 (Density Matrix Simulator) ノイズあり、つまりより本物の量子コンピュータに近い環境でシミュレート可能 17量子ビット 料金については、どのシミュレータも実行時間に依存して料金が発生する仕組みとなっているようです。 複数のプロバイダーが提供する量子コンピュータの実行 AWSマネージドシミュレータと同様にAmazon Braket Notebook経由で、簡単に様々な種類の量子コンピュータが実行可能となります。 2026年11月現在、以下プロバイダーの量子コンピュータを利用できます。">
     <meta name="generator" content="Hugo 0.128.1">
     
     
@@ -66,7 +66,7 @@ Amazon Braketの概要 Amazon BraketはAWSが提供する量子コンピュー�
 Amazon Braket Notebookの利用 Amazon Braketマネージドシミュレータの実行 複数のプロバイダーが提供する量子コンピュータの実行 ハイブリッドジョブ機能 アルゴリズムライブラリの利用 それぞれの項目についてより具体的な内容を記載します。 Amazon Braket Notebookの利用 Amazon Braketでは、Amazon Braket Notebookインスタンスを作成、起動し、利用することができます。 これにより簡単にJupyter Notebookベースの開発環境を用意することができ、量子プログラミングをすぐさま始められます。
 特にこの環境ではQiskitやPennyLane、Amazon Braket SDKなどの量子コンピューティングSDKが起動直後からほ利用できる状態でインストールされているという点が便利です。 量子コンピューティングSDKの発展は著しく、バージョン差異による影響でコードを書いてもエラーが発生するケースがよく見受けられます。 Amazon Braket Notebookでは、起動後のインスタンスに既に用意されているチュートリアルに従えば、確実にエラー無く量子回路を実行することができます。 この扱いやすさは一つのメリットと言えるでしょう。
 さらに、このAmazon Braket Notebookから、後ほど紹介するAmazon Braketマネージドシミュレータの実行や量子コンピュータが簡単に実行できるのも利点です。 また料金について、Amazon braket notebookの起動時間に依存して課金が発生する仕組みとなっているようで起動時間に注意が必要そうです。 Amazon Braketマネージドシミュレータの実行 先ほど紹介したAmazon Braket Notebookのローカルシミュレータを利用すれば量子回路は簡単に実行可能です。 しかしながら、量子回路における量子ビットを増やしていった時にローカルシミュレータでは実行しきれないケースも出てくるかと思います。 ここで、Amazon Braketマネージドシミュレータを用いることで、Amazon Braket Notebookや、ローカルのPCでは実行できないような規模の量子回路を実行可能となります。 利用可能なシミュレータとざっくりの説明は以下の通りです。
-Simulator Description Maximum Scale SV1 (State Vector Simulator) ローカルシミュレータより多くの量子ビットでシミュレート可能 34量子ビット TN1 (Tensor Network Simulator) SV1より大規模な量子ビットでシミュレート可能 最大50量子ビット DM1 (Density Matrix Simulator) ノイズあり、つまりより本物の量子コンピュータに近い環境でシミュレート可能 17量子ビット 料金については、どのシミュレータも実行時間に依存して料金が発生する仕組みとなっているようです。 複数のプロバイダーが提供する量子コンピュータの実行 AWSマネージドシミュレータと同様にAmazon Braket Notebook経由で、簡単に様々な種類の量子コンピュータが実行可能となります。 2025年5月現在、以下プロバイダーの量子コンピュータを利用できます。">
+Simulator Description Maximum Scale SV1 (State Vector Simulator) ローカルシミュレータより多くの量子ビットでシミュレート可能 34量子ビット TN1 (Tensor Network Simulator) SV1より大規模な量子ビットでシミュレート可能 最大50量子ビット DM1 (Density Matrix Simulator) ノイズあり、つまりより本物の量子コンピュータに近い環境でシミュレート可能 17量子ビット 料金については、どのシミュレータも実行時間に依存して料金が発生する仕組みとなっているようです。 複数のプロバイダーが提供する量子コンピュータの実行 AWSマネージドシミュレータと同様にAmazon Braket Notebook経由で、簡単に様々な種類の量子コンピュータが実行可能となります。 2026年11月現在、以下プロバイダーの量子コンピュータを利用できます。">
   <meta property="og:locale" content="japanese">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2025-05-10T19:02:57+09:00">
@@ -80,10 +80,10 @@ Amazon Braketの概要 Amazon BraketはAWSが提供する量子コンピュー�
 Amazon Braket Notebookの利用 Amazon Braketマネージドシミュレータの実行 複数のプロバイダーが提供する量子コンピュータの実行 ハイブリッドジョブ機能 アルゴリズムライブラリの利用 それぞれの項目についてより具体的な内容を記載します。 Amazon Braket Notebookの利用 Amazon Braketでは、Amazon Braket Notebookインスタンスを作成、起動し、利用することができます。 これにより簡単にJupyter Notebookベースの開発環境を用意することができ、量子プログラミングをすぐさま始められます。
 特にこの環境ではQiskitやPennyLane、Amazon Braket SDKなどの量子コンピューティングSDKが起動直後からほ利用できる状態でインストールされているという点が便利です。 量子コンピューティングSDKの発展は著しく、バージョン差異による影響でコードを書いてもエラーが発生するケースがよく見受けられます。 Amazon Braket Notebookでは、起動後のインスタンスに既に用意されているチュートリアルに従えば、確実にエラー無く量子回路を実行することができます。 この扱いやすさは一つのメリットと言えるでしょう。
 さらに、このAmazon Braket Notebookから、後ほど紹介するAmazon Braketマネージドシミュレータの実行や量子コンピュータが簡単に実行できるのも利点です。 また料金について、Amazon braket notebookの起動時間に依存して課金が発生する仕組みとなっているようで起動時間に注意が必要そうです。 Amazon Braketマネージドシミュレータの実行 先ほど紹介したAmazon Braket Notebookのローカルシミュレータを利用すれば量子回路は簡単に実行可能です。 しかしながら、量子回路における量子ビットを増やしていった時にローカルシミュレータでは実行しきれないケースも出てくるかと思います。 ここで、Amazon Braketマネージドシミュレータを用いることで、Amazon Braket Notebookや、ローカルのPCでは実行できないような規模の量子回路を実行可能となります。 利用可能なシミュレータとざっくりの説明は以下の通りです。
-Simulator Description Maximum Scale SV1 (State Vector Simulator) ローカルシミュレータより多くの量子ビットでシミュレート可能 34量子ビット TN1 (Tensor Network Simulator) SV1より大規模な量子ビットでシミュレート可能 最大50量子ビット DM1 (Density Matrix Simulator) ノイズあり、つまりより本物の量子コンピュータに近い環境でシミュレート可能 17量子ビット 料金については、どのシミュレータも実行時間に依存して料金が発生する仕組みとなっているようです。 複数のプロバイダーが提供する量子コンピュータの実行 AWSマネージドシミュレータと同様にAmazon Braket Notebook経由で、簡単に様々な種類の量子コンピュータが実行可能となります。 2025年5月現在、以下プロバイダーの量子コンピュータを利用できます。">
+Simulator Description Maximum Scale SV1 (State Vector Simulator) ローカルシミュレータより多くの量子ビットでシミュレート可能 34量子ビット TN1 (Tensor Network Simulator) SV1より大規模な量子ビットでシミュレート可能 最大50量子ビット DM1 (Density Matrix Simulator) ノイズあり、つまりより本物の量子コンピュータに近い環境でシミュレート可能 17量子ビット 料金については、どのシミュレータも実行時間に依存して料金が発生する仕組みとなっているようです。 複数のプロバイダーが提供する量子コンピュータの実行 AWSマネージドシミュレータと同様にAmazon Braket Notebook経由で、簡単に様々な種類の量子コンピュータが実行可能となります。 2026年11月現在、以下プロバイダーの量子コンピュータを利用できます。">
   <meta itemprop="datePublished" content="2025-05-10T19:02:57+09:00">
   <meta itemprop="dateModified" content="2025-05-10T19:02:57+09:00">
-  <meta itemprop="wordCount" content="161">
+  <meta itemprop="wordCount" content="179">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Amazon Braketとは">
   <meta name="twitter:description" content="この記事ではAWSが提供する量子コンピューティングサービスである、Amazon Braketの概要について、個人的に感じるメリットも記載しながら説明します。
@@ -93,7 +93,7 @@ Amazon Braketの概要 Amazon BraketはAWSが提供する量子コンピュー�
 Amazon Braket Notebookの利用 Amazon Braketマネージドシミュレータの実行 複数のプロバイダーが提供する量子コンピュータの実行 ハイブリッドジョブ機能 アルゴリズムライブラリの利用 それぞれの項目についてより具体的な内容を記載します。 Amazon Braket Notebookの利用 Amazon Braketでは、Amazon Braket Notebookインスタンスを作成、起動し、利用することができます。 これにより簡単にJupyter Notebookベースの開発環境を用意することができ、量子プログラミングをすぐさま始められます。
 特にこの環境ではQiskitやPennyLane、Amazon Braket SDKなどの量子コンピューティングSDKが起動直後からほ利用できる状態でインストールされているという点が便利です。 量子コンピューティングSDKの発展は著しく、バージョン差異による影響でコードを書いてもエラーが発生するケースがよく見受けられます。 Amazon Braket Notebookでは、起動後のインスタンスに既に用意されているチュートリアルに従えば、確実にエラー無く量子回路を実行することができます。 この扱いやすさは一つのメリットと言えるでしょう。
 さらに、このAmazon Braket Notebookから、後ほど紹介するAmazon Braketマネージドシミュレータの実行や量子コンピュータが簡単に実行できるのも利点です。 また料金について、Amazon braket notebookの起動時間に依存して課金が発生する仕組みとなっているようで起動時間に注意が必要そうです。 Amazon Braketマネージドシミュレータの実行 先ほど紹介したAmazon Braket Notebookのローカルシミュレータを利用すれば量子回路は簡単に実行可能です。 しかしながら、量子回路における量子ビットを増やしていった時にローカルシミュレータでは実行しきれないケースも出てくるかと思います。 ここで、Amazon Braketマネージドシミュレータを用いることで、Amazon Braket Notebookや、ローカルのPCでは実行できないような規模の量子回路を実行可能となります。 利用可能なシミュレータとざっくりの説明は以下の通りです。
-Simulator Description Maximum Scale SV1 (State Vector Simulator) ローカルシミュレータより多くの量子ビットでシミュレート可能 34量子ビット TN1 (Tensor Network Simulator) SV1より大規模な量子ビットでシミュレート可能 最大50量子ビット DM1 (Density Matrix Simulator) ノイズあり、つまりより本物の量子コンピュータに近い環境でシミュレート可能 17量子ビット 料金については、どのシミュレータも実行時間に依存して料金が発生する仕組みとなっているようです。 複数のプロバイダーが提供する量子コンピュータの実行 AWSマネージドシミュレータと同様にAmazon Braket Notebook経由で、簡単に様々な種類の量子コンピュータが実行可能となります。 2025年5月現在、以下プロバイダーの量子コンピュータを利用できます。">
+Simulator Description Maximum Scale SV1 (State Vector Simulator) ローカルシミュレータより多くの量子ビットでシミュレート可能 34量子ビット TN1 (Tensor Network Simulator) SV1より大規模な量子ビットでシミュレート可能 最大50量子ビット DM1 (Density Matrix Simulator) ノイズあり、つまりより本物の量子コンピュータに近い環境でシミュレート可能 17量子ビット 料金については、どのシミュレータも実行時間に依存して料金が発生する仕組みとなっているようです。 複数のプロバイダーが提供する量子コンピュータの実行 AWSマネージドシミュレータと同様にAmazon Braket Notebook経由で、簡単に様々な種類の量子コンピュータが実行可能となります。 2026年11月現在、以下プロバイダーの量子コンピュータを利用できます。">
 
       
   
@@ -236,8 +236,9 @@ Amazon Braket Notebookでは、起動後のインスタンスに既に用意さ�
 <br></p>
 <h2 id="複数のプロバイダーが提供する量子コンピュータの実行">複数のプロバイダーが提供する量子コンピュータの実行</h2>
 <p>AWSマネージドシミュレータと同様にAmazon Braket Notebook経由で、簡単に様々な種類の量子コンピュータが実行可能となります。
-2025年5月現在、以下プロバイダーの量子コンピュータを利用できます。</p>
+2026年11月現在、以下プロバイダーの量子コンピュータを利用できます。</p>
 <ul>
+<li><strong>AQT</strong></li>
 <li><strong>IonQ</strong></li>
 <li><strong>IQM</strong></li>
 <li><strong>QuEra</strong></li>
@@ -284,6 +285,21 @@ Amazon Braket Notebookでは、起動後のインスタンスに既に用意さ�
 またより高度な連携としてAWS CloudTrailやIAMサービスなどを用いて、<a href="https://aws.amazon.com/jp/blogs/quantum-computing/introducing-a-cost-control-solution-for-amazon-braket/">あるユーザの量子コンピュータの利用料金が閾値を超過した際に、それ以上量子コンピュータを利用できなくするような実装</a>も提案されています。
 <br>
 <br></p>
+<h2 id="重要amazon-braket利用時の注意点">重要：Amazon Braket利用時の注意点</h2>
+<p>Amazon Braketを用いれば、環境のセットアップなどの手間を減らし、簡単に量子プログラムを実行可能です。実際に私もAmazon Braket Notebookを利用してみて、Qiskitなどの量子コンピューティングSDKより容易に量子プログラムを実行できると感じました。
+これに由来して、Amazon Braketでは実際の量子コンピュータ実機も簡単に利用が可能です。しかしここが非常に注意を置くべき点となります。
+<a href="https://aws.amazon.com/braket/pricing/">こちらのページ</a>によると、Amazon Braketはタスク数やショット数に応じて料金が発生します。
+例えば量子機械学習といった変分量子アルゴリズムなどの量子アルゴリズムを実行する場合、以下の理由からタスク数、ショット数の数が膨大となり得ます。</p>
+<ul>
+<li>1つの期待値を算出するために数百といった量の多数のショットが必要となり得る</li>
+<li>最適化アルゴリズムによっては、各パラメータについて複数回の期待値評価が必要となる</li>
+<li>パラメータ最適化の過程で数十～数百回以上のiterationが実行される場合がある</li>
+</ul>
+<p>これらが組み合わさることで、<strong>比較的小規模な計算であっても、1度の計算で数百万円の請求につながるケースもあり得ます。</strong>
+そのため、学習や動作確認では基本的にローカルシミュレータを利用することを推奨します。
+もし量子コンピュータ実機を利用する場合は、必要となるタスク数・ショット数・回路評価回数などを事前に見積もり、想定される料金を十分に確認したうえで実行することを強く推奨します。</p>
+<br>
+<br>
 <hr>
 <h4 id="amazon-braket学習コース-1">Amazon Braket学習コース</h4>
 <p>AWSでの量子コンピューティングサービスであるAmazon braketについての学習コースがリリースされました。</p>
